@@ -1,0 +1,582 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+
+
+  <meta name="keywords" content="html5,表单," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    analytics: {
+      google: ''
+    },
+    sidebar: 'post'
+  };
+</script>
+
+
+
+
+  <title> html5之新增表单属性 // Eviloo7's Blog </title>
+</head>
+
+<body>
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">Eviloo7's Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<div class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            標籤
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+</div>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              html5之新增表单属性
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於 2015-06-20
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分類於
+            
+              <a href="/categories/html5/">html5</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <h1 id="新增属性">新增属性</h1><h4 id="autocomplete">autocomplete</h4><p>规定输入字段是否应该启用自动完成功能.值为off或者是on，默认是开启。自动完成允许浏览器预测对字段的输入。当用户在字段开始键入时，浏览器基于之前键入过的值，应该显示出在字段中填写的选项,就是当你提交表单后，输入框会保留你之前输入的东西,下次输入时，会开始是一样的，会提示你之前输入的值<br>autocomplete 属性适用于 <code>&lt;form&gt;</code>，以及下面的 <code>&lt;input&gt;</code> 类型：text, search, url, telephone, email, password, datepickers, range 以及 color</p>
+<h4 id="autofocus">autofocus</h4><p>规定当页面加载时 input 元素应该自动获得焦点,也就是加载完之后，就处于选中状态，不用用鼠标来来获得选中状态</p>
+<h4 id="form属性">form属性</h4><p>规定位于表单之外的输入字段，应该属于哪个表单<br>form 属性规定 input 元素所属的一个或多个表单。<br>form 属性的值必须是其所属表单的id。<br>如需引用一个以上的表单，请使用空格分隔的列表</p>
+<h4 id="formaction">formaction</h4><p><strong>formaction 属性 <em>覆盖</em>  form 元素的 action 属性。</strong><br>该属性适用于 type=”submit” 以及 type=”image”</p>
+<h4 id="formenctype">formenctype</h4><p>formenctype 属性 <em>覆盖</em> form 元素的 enctype 属性。<br>该属性与 type=”submit” 和 type=”image” 配合使用</p>
+<h4 id="formaction-1">formaction</h4><p>formmethod 属性覆盖 form 元素的 method 属性<br>该属性与 type=”submit” 以及 type=”image” 配合使用</p>
+<h4 id="formmethod">formmethod</h4><p>formmethod 属性覆盖 form 元素的 method 属性<br>该属性与 type=”submit” 以及 type=”image” 配合使用</p>
+<h4 id="formnovalidate">formnovalidate</h4><p>formnovalidate 属性覆盖 form 元素的 novalidate 属性。<br>如果使用该属性，则提交表单时按钮不会执行验证过程。<br>该属性适用于 <code>&lt;form&gt;</code> 以及以下类型的 <code>&lt;input&gt;</code>：text, search, url, telephone, email, password, date pickers, range 以及 color,如果设置了该属性，这些类型都不会进行验证了，例如，<code>type=&quot;email&quot;</code>,如果没有设置这个属性，那么要验证Email是否合乎email的格式，如果设置了就不进行验证了</p>
+<h4 id="formtarget">formtarget</h4><p>formtarget 属性覆盖 form 元素的 target 属性。<br>该属性与 type=”submit” 以及 type=”image” 配合使用</p>
+<h4 id="height，width">height，width</h4><p>height，width 属性只适用于 <code>&lt;input type=&quot;image&quot;&gt;</code>，它规定 image input 的高度或宽度。<br>提示：为图片指定高度和宽度是一个好习惯。如果设置了这些属性，当页面加载时会为图片预留需要的空间。而如果没有这些属性，则浏览器就无法了解图像的尺寸，也就无法为其预留合适的空间。情况是当页面和图片加载时，页面布局会发生变化.值可以是像素或者是百分数</p>
+<h4 id="list">list</h4><p>list 属性引用数据列表，其中包含输入字段的预定义选项</p>
+<pre><code>&lt;form <span class="variable">action=</span><span class="string">"demo_form.asp"</span>&gt;
+Webpage: &lt;input <span class="variable">type=</span><span class="string">"url"</span> (<span class="variable">list=</span><span class="string">"url_list"</span>) <span class="variable">name=</span><span class="string">"link"</span> /&gt;
+&lt;datalist (<span class="variable">id=</span><span class="string">"url_list"</span>)&gt;
+&lt;option <span class="variable">label=</span><span class="string">"W3Schools"</span> <span class="variable">value=</span><span class="string">"http://www.w3schools.com"</span> /&gt;
+&lt;option <span class="variable">label=</span><span class="string">"Google"</span> <span class="variable">value=</span><span class="string">"http://www.google.com"</span> /&gt;
+&lt;option <span class="variable">label=</span><span class="string">"Microsoft"</span> <span class="variable">value=</span><span class="string">"http://www.microsoft.com"</span> /&gt;
+&lt;/datalist&gt;
+&lt;input <span class="variable">type=</span><span class="string">"submit"</span> /&gt;
+&lt;/form&gt;
+</code></pre><p>input输入框会有一个下拉式菜单<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150621005148.png" alt=""></p>
+<h4 id="min,max">min,max</h4><p>带有指定数字范围的，min指定最小值，max指定最大值<br>max 属性与 min 属性配合使用，可创建合法值范围。<br>max 和 min 属性适用于以下 <code>&lt;input&gt;</code> 类型：number, range, date, datetime, datetime-local, month, time 以及 week。</p>
+<p>number  数字值。规定输入字段允许的最大值。<br>date    日期。规定输入字段允许的最大值</p>
+<h4 id="pattern">pattern</h4><p>pattern 属性规定用于验证输入字段的模式<br>这个模式是一个正则表达式字符串，pattern 属性适用于以下 <input> 类型：text, search, url, telephone, email 以及 password 。<br>最好配合title属性来使用提示你，你使用的模式</p>
+<h4 id="placeholder">placeholder</h4><p>用于提示那个输入框应该输入什么。当输入框为空的时候，显示，当输入框不为零时，自动消失<br>placeholder 属性适用于以下的 <input> 类型：text, search, url, telephone, email 以及 password。</p>
+<h4 id="readonly">readonly</h4><p>输入框的里的文字为只读的，不能进行修改，不过，用户仍然可以使用 tab 键切换到该字段，还可以选中或拷贝其文本。可以使用js来取消。readonly 属性可与 <code>&lt;input type=&quot;text&quot;&gt;</code> 或 <code>&lt;input type=&quot;password&quot;&gt;</code> 配合使用</p>
+<h4 id="required">required</h4><p>有这个值代表这个输入框必须有值，不能为空。<br>required 属性适用于以下<code>&lt;input&gt;</code>类型：text, search, url, telephone, email, password, date pickers, number, checkbox, radio 以及 file</p>
+<h4 id="step">step</h4><p>规定数字输入的间隔，例如：step=3，数字的增加就以3为间隔。value规定初值，适用于以下 <code>&lt;input&gt;</code> 类型：number, range, date, datetime, datetime-local, month, time 以及 week。</p>
+<p><strong>大部分来自于W3school</strong></p>
+
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/html5/"> #html5 </a>
+          
+            <a href="/tags/表单/"> #表单 </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/21/html5之新增表单元素/">html5之新增input类型</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/20/html之input/">html之input</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+
+    
+      <div class="comments" id="comments">
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+
+        
+      </div>
+
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="eviloo7" />
+          <p class="site-author-name">eviloo7</p>
+        </div>
+        <p class="site-description motion-element"></p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+        
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#新增属性"><span class="nav-number">1.</span> <span class="nav-text">新增属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#autocomplete"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">autocomplete</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#autofocus"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">autofocus</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#form属性"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">form属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#formaction"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">formaction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#formenctype"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">formenctype</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#formaction-1"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">formaction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#formmethod"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">formmethod</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#formnovalidate"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">formnovalidate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#formtarget"><span class="nav-number">1.0.0.9.</span> <span class="nav-text">formtarget</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#height，width"><span class="nav-number">1.0.0.10.</span> <span class="nav-text">height，width</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list"><span class="nav-number">1.0.0.11.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#min,max"><span class="nav-number">1.0.0.12.</span> <span class="nav-text">min,max</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pattern"><span class="nav-number">1.0.0.13.</span> <span class="nav-text">pattern</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#placeholder"><span class="nav-number">1.0.0.14.</span> <span class="nav-text">placeholder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#readonly"><span class="nav-number">1.0.0.15.</span> <span class="nav-text">readonly</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#required"><span class="nav-number">1.0.0.16.</span> <span class="nav-text">required</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step"><span class="nav-number">1.0.0.17.</span> <span class="nav-text">step</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">eviloo7</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+    });
+  </script>
+
+  
+
+  
+  
+  
+
+  
+
+
+
+
+  
+  
+
+  
+  <!-- lazyload -->
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+      <script type="text/javascript">
+        jQuery(function() {          
+            jQuery("#posts img").lazyload({
+              placeholder:"http://www.arao.me/loading.gif",  
+                effect:"fadeIn"
+              });
+            });
+    </script>   
+</body>
+</html>

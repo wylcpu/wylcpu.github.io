@@ -1,0 +1,580 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+
+
+  <meta name="keywords" content="hexo主题," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    analytics: {
+      google: ''
+    },
+    sidebar: 'post'
+  };
+</script>
+
+
+
+
+  <title> hexo主题安装及配置 // Eviloo7's Blog </title>
+</head>
+
+<body>
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">Eviloo7's Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<div class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            標籤
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+</div>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              hexo主题安装及配置
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於 2015-05-15
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分類於
+            
+              <a href="/categories/hexo/">hexo</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <h2 id="主题安装">主题安装</h2><ul>
+<li>上官网，目前有十几个主题，你也可以在github上找到自己喜欢的主题<br>我使用的是官网上的一个<a href="https://hexo.io/themes/" target="_blank" rel="external">官网链接</a>,</li>
+<li>接下来，我就以我的主题为例：（其实人家的说明已经很详细了）</li>
+<li>我就说说我安装时应该注意的，和他讲的不是太明白的（我感觉，有可能你感觉他讲的很明白，我只是后来试错了，才明白）说说</li>
+</ul>
+<h3 id="：注意">：注意</h3><ol>
+<li>想把主题的logo什么的换成你自己的，你就去这个目录下，替换掉想要的图片themes/jacman/source/img/,把你自己设计的或者是网上搜的霸气的图片换上</li>
+<li>你要分清出什么时候是让你配置的博客目录下的_config.yml和什么时候让你配置的主题目录下的_config.yml。</li>
+<li>默认主题中有汉字的地方是显示的繁体字，你只需要在博客目录下的_config.yml中的language中设置为：zh-CN;可是你要注意了.这是那几个繁体字就变成简体字了，yml中的文件中，冒号后面是要有一个空格的，要不是不起作用的</li>
+<li>如果你想把主页中的home，archives，about，显示中文，你就把（以后我就管_config.yml叫配置文件了，只要我说就是指这里了），配置文件中menu下的英文替换成中文就行了，有的时候需要你多次刷新才行。</li>
+<li>主题中很多地方是显示作者的相关信息你就需要替换成你自己的<ul>
+<li>你在博客目录下的配置文件中，title<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/title.PNG" alt=""><br>填上你自己的就行了</li>
+</ul>
+</li>
+<li>还有网站最下面的一些文字，你也可以用你字的，但是最后一行的主题是谁的你可别也改成你自己的，你换了我也只能是呵呵了</li>
+<li>我就说说把你的微薄，邮箱，Facebook，Twitter什么的添加进去，注意了<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/autor.PNG" alt=""><br>这里的地址是相对地址，前半部分作者已经给你写好了，你只需要填写上你自己对应的目录，就想我的，我就举个例子：知乎：你的主页地址是：<a href="http://www.zhihu.com/people/todayhappy" target="_blank" rel="external">http://www.zhihu.com/people/todayhappy</a><br>但是你应该写todayhappy就行了，其他的同理</li>
+</ol>
+<h2 id="写文章">写文章</h2><h3 id="归类和标签">归类和标签</h3><p>这个默认是没有的你根据主题作者所说的分别创建者两个目录<br><strong>为了以后写文章方便归类清晰</strong><br>我建议你把scaffolds目录下的post.md修改为：<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/post.PNG" alt=""><br>多个tags标签用[tag1,tag2]这样,要是一个标签就直接写<br>categories也是一样的<br>ps.上课去，真是麻烦回来再写<br>回来了。</p>
+<h3 id="新建文章">新建文章</h3><pre><code>hexo <span class="keyword">new</span> [layout] <span class="string">"postName"</span>
+</code></pre><p>其中layout是你要写的文件类型，默认是post<br>新建文章之后你就去source/_post下你就看见你自己新建的文件名了<br>之后你就用编辑器编写就行了，我是用sublime test3下了一个插件markdownediting这个插件他会给你提示，</p>
+<h2 id="添加多说评论">添加多说评论</h2><h3 id="注册多说">注册多说</h3><p>多说的网速实在是太差了，我不知道是不是我的原因还是他们的原因，<br>注册完了之后<br>你就去点击工具这个选项，这个时候就出现了代码了，主题作者已经给你把其中的代码写了一部分了，你只需要把名字输进去就行了，但是我刚开始的时候就是名字没有输入正确，为了一定正确你输入这里的名字：<img src="http://7xj3gz.com1.z0.glb.clouddn.com/11.PNG" alt=""><br>把这个名字写在主题配置文件的<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2.PNG" alt=""><br>这就行了能用了！</p>
+<h2 id="域名绑定">域名绑定</h2><p>我是用的二级域名绑定，我就说说我是怎么绑定吧</p>
+<ul>
+<li>首先你要去申请一个你自己喜欢没有注册过的域名</li>
+<li>之后就是绑定了，<img src="http://7xj3gz.com1.z0.glb.clouddn.com/3.PNG" alt=""></li>
+<li>你还要建立一个CNAME的文件，你要在这里建立，博客目录下的source里建立输入你要绑定的域名</li>
+<li>再就是在你的博客目录的配置文件了URL输入你的域名地址</li>
+<li>这就行了，吃顿饭的功夫就绑定好了</li>
+</ul>
+
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo主题/"> #hexo主题 </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/25/jquery构造函数的7种用法/">jquery构造函数的7种用法</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/14/hexo安装总结/">hexo安装总结</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+
+    
+      <div class="comments" id="comments">
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+
+        
+      </div>
+
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="eviloo7" />
+          <p class="site-author-name">eviloo7</p>
+        </div>
+        <p class="site-description motion-element"></p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+        
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主题安装"><span class="nav-number">1.</span> <span class="nav-text">主题安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#：注意"><span class="nav-number">1.1.</span> <span class="nav-text">：注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写文章"><span class="nav-number">2.</span> <span class="nav-text">写文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#归类和标签"><span class="nav-number">2.1.</span> <span class="nav-text">归类和标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建文章"><span class="nav-number">2.2.</span> <span class="nav-text">新建文章</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加多说评论"><span class="nav-number">3.</span> <span class="nav-text">添加多说评论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册多说"><span class="nav-number">3.1.</span> <span class="nav-text">注册多说</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域名绑定"><span class="nav-number">4.</span> <span class="nav-text">域名绑定</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">eviloo7</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+    });
+  </script>
+
+  
+
+  
+  
+  
+
+  
+
+
+
+
+  
+  
+
+  
+  <!-- lazyload -->
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+      <script type="text/javascript">
+        jQuery(function() {          
+            jQuery("#posts img").lazyload({
+              placeholder:"http://www.arao.me/loading.gif",  
+                effect:"fadeIn"
+              });
+            });
+    </script>   
+</body>
+</html>

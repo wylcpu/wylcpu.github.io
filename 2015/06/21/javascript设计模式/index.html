@@ -1,0 +1,756 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    analytics: {
+      google: ''
+    },
+    sidebar: 'post'
+  };
+</script>
+
+
+
+
+  <title> javascript设计模式 // Eviloo7's Blog </title>
+</head>
+
+<body>
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">Eviloo7's Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<div class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            標籤
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+</div>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              javascript设计模式
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於 2015-06-21
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <ol>
+<li></li>
+</ol>
+<ul>
+<li>基本constructor（构造器）</li>
+</ul>
+<p>代码：</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">model,year,miles</span>) </span>{
+    <span class="keyword">this</span>.model = model;
+    <span class="keyword">this</span>.year = year;
+    <span class="keyword">this</span>.miles = miles;
+    <span class="keyword">this</span>.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+        <span class="keyword">return</span> <span class="keyword">this</span>.model + <span class="string">' has done '</span> + <span class="keyword">this</span>.miles + <span class="string">' miles'</span>;
+    }
+}
+<span class="keyword">var</span> car= <span class="keyword">new</span> Car(<span class="string">'红旗'</span>,<span class="number">10</span>,<span class="number">20000</span>);
+<span class="built_in">console</span>.log(car.toString());
+</code></pre><p>缺点是，这个构造器实例化的对象的函数方法不能公用，每个新对象都有一个自己的方法</p>
+<ul>
+<li>带原型的constructor(构造器)</li>
+</ul>
+<p>把上面的代码改为</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">model,year,miles</span>) </span>{
+    <span class="keyword">this</span>.model = model;
+    <span class="keyword">this</span>.year = year;
+    <span class="keyword">this</span>.miles = miles;
+}
+Car.prototype.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    <span class="keyword">return</span> <span class="keyword">this</span>.model + <span class="string">' has done '</span> + <span class="keyword">this</span>.miles + <span class="string">' miles'</span>;
+}
+<span class="keyword">var</span> car1 = <span class="keyword">new</span> Car(<span class="string">'benz'</span>,<span class="number">5</span>,<span class="number">30000</span>);
+<span class="keyword">var</span> car2 = <span class="keyword">new</span> Car(<span class="string">'bmw'</span>,<span class="number">6</span>,<span class="number">50000</span>);
+<span class="built_in">console</span>.log(car1.toString());
+<span class="built_in">console</span>.log(car2.toString());
+</code></pre><p>这次的代码，car1,car2是用的一个toString方法，实现了所有实例共享一个方法</p>
+<ol>
+<li>Module(模块)模式</li>
+</ol>
+<ul>
+<li>在JavaScript中有几种用于实现模块的方法<ul>
+<li>对象字面量表示法</li>
+<li>Module模式</li>
+<li>AMD模块</li>
+<li>commonJS模块</li>
+<li>ECMAScript Harmony模块</li>
+</ul>
+</li>
+<li>使用对象字面量表示法定义模块</li>
+</ul>
+<p>代码：</p>
+<pre><code><span class="keyword">var</span> myModule = {
+    <span class="comment">//基本属性</span>
+    myProperty: <span class="string">'someValue'</span>,
+    <span class="comment">//对象字面量可以包含属性和方法</span>
+    <span class="comment">//例如：可以声明模块的配置对象</span>
+    myConfig: {
+        useCaching: <span class="literal">true</span>,
+        language:<span class="string">'zh'</span>
+    },
+    <span class="comment">//基本方法</span>
+    myMothed: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+        <span class="built_in">console</span>.log(<span class="string">'hello world!'</span>);
+    },
+    <span class="comment">//根据当前配置输出信息</span>
+    myMothed2: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+        <span class="built_in">console</span>.log(<span class="string">'Caching is:'</span> + (<span class="keyword">this</span>.myConfig.useCaching) ? <span class="string">'enabled'</span> : <span class="string">'dissabled'</span>);
+    },
+    <span class="comment">//重写当前的配置</span>
+    myMothed3: <span class="function"><span class="keyword">function</span>(<span class="params">newConfig</span>) </span>{
+        <span class="keyword">if</span>(<span class="keyword">typeof</span> newConfig === <span class="string">'object'</span>) {
+            <span class="keyword">this</span>.myConfig = newConfig;
+            <span class="built_in">console</span>.log(<span class="keyword">this</span>.myConfig.language);
+        }
+    }
+};
+<span class="comment">//使用</span>
+<span class="built_in">console</span>.log(myModule.myMothed());<span class="comment">//hello wrold</span>
+<span class="built_in">console</span>.log(myModule.myMothed2());<span class="comment">//enabled;</span>
+<span class="built_in">console</span>.log(myModule.myMothed3({language:<span class="string">'en'</span>,useCaching: <span class="literal">false</span>})); <span class="comment">//en</span>
+</code></pre><p>使用对象字面量有利于封装和组织代码</p>
+<ul>
+<li>Module(模块)模式<br>能够使一个单独的对象拥有公有/私有的属性和方法，从而屏蔽来自全局作用域的特殊部分，产生的结果是：函数名与在页面上其它脚本定义的函数冲突的可能性降低；Module模式使用闭包封装‘私有’状态和组织，防止其泄露至全局作用域，并与别的开发者的接口发生冲突。通过该模式，只需返回一个公有API，其他的一切则都维持在私有闭包里。该模式除了返回一个对象而不是一个函数外，非常类似一个立即调用的函数表达式。</li>
+</ul>
+<p>一个自包含的Module：</p>
+<pre><code><span class="keyword">var</span> myModule = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    <span class="keyword">var</span> counter = <span class="number">0</span>;
+    <span class="keyword">return</span> {
+        incrementCounter:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+            <span class="keyword">return</span> ++counter;
+        },
+        resetCounter:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+            <span class="built_in">console</span>.log(<span class="string">'counter value prior to reset:'</span> + counter);
+            counter = <span class="number">0</span>;
+        }
+    }
+    })();
+    <span class="built_in">console</span>.log(myModule.incrementCounter());
+</code></pre><p>counter变量只能通过返回的两个函数来操作;<br>一个包含命名空间、公有、私有变量的Module：</p>
+<pre><code><span class="keyword">var</span> myNamespace = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    <span class="comment">//私有计数器变量</span>
+    <span class="keyword">var</span> myPrivateVar = <span class="number">0</span>;
+    <span class="comment">//记录所有参数的私有函数</span>
+    <span class="keyword">var</span> myPrivateMethod = <span class="function"><span class="keyword">function</span>(<span class="params">foo</span>) </span>{
+        <span class="built_in">console</span>.log(foo);
+    };
+    <span class="keyword">return</span> {
+        <span class="comment">//公有变量</span>
+        myPublicVar: <span class="string">"foo"</span>,
+        <span class="comment">//调用私有变量和方法的公有函数</span>
+        myPublicFunction: <span class="function"><span class="keyword">function</span>(<span class="params">bar</span>) </span>{
+            <span class="comment">//增加私有计数器的值</span>
+            myPrivateVar++;
+            <span class="comment">//传入bar调用私有方法</span>
+            myPrivateMethod(bar);
+        }
+    };
+    })();
+    <span class="built_in">console</span>.log(myNamespace.myPublicVar);<span class="comment">//foo</span>
+    <span class="built_in">console</span>.log(myNamespace.myPublicFunction(<span class="string">'hello world!'</span>));<span class="comment">//hello world!</span>
+</code></pre><ul>
+<li>Module模式变化<ul>
+<li>引入混入<br>模式的这种变化演示了全局变量（如：jQuery）如何作为参数传递给模块的匿名函数。并允许我们按照我们所希望的为他们取个本地别名；</li>
+</ul>
+</li>
+</ul>
+<p>代码：</p>
+<pre><code><span class="keyword">var</span> moModule = (<span class="function"><span class="keyword">function</span>(<span class="params">jQ,_</span>) </span>{
+    <span class="function"><span class="keyword">function</span> <span class="title">privateMethod</span> (<span class="params"></span>) </span>{
+        jQ(<span class="string">".container"</span>).html(<span class="string">'test'</span>);
+    }
+    <span class="function"><span class="keyword">function</span> <span class="title">privateMethod2</span>(<span class="params"></span>) </span>{
+        <span class="built_in">console</span>.log(_.min([<span class="number">10.5</span>,<span class="number">100</span>,<span class="number">2</span>,<span class="number">1000</span>]));
+    }
+    <span class="keyword">return</span> {
+        publicMethod:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+            privateMethod();
+        }
+    };
+    })(jQuery,_);<span class="comment">//引入jQuery和underscore</span>
+    myModule.publicMethod();
+</code></pre><ul>
+<li>引出<br>允许我们声明全局变量而不需要实现他们，并且同样地支持上一个实例中的全局引入的概念；</li>
+</ul>
+<p>代码：</p>
+<pre><code><span class="keyword">var</span> myModule = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    <span class="comment">//模块对象</span>
+    <span class="keyword">var</span> <span class="built_in">module</span> = {},
+        privateVar = <span class="string">'hello world1'</span>;
+        <span class="function"><span class="keyword">function</span> <span class="title">privateMethod</span>(<span class="params"></span>) </span>{
+            <span class="built_in">console</span>.log(<span class="string">'foo'</span>);
+        }
+        <span class="built_in">module</span>.publicProperty = <span class="string">'foobar'</span>;
+        <span class="built_in">module</span>.publicMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+            <span class="built_in">console</span>.log(privateVar);
+        };
+        <span class="keyword">return</span> <span class="built_in">module</span>;
+    })();
+    <span class="built_in">console</span>.log(myModule.publicProperty);<span class="comment">//foobar</span>
+</code></pre><ul>
+<li>Revealing Module(揭示模块)模式<br>Module模式的改进版，能够在私有范围内简单定义所有的函数和变量，并返回一个匿名对象，它拥有指向私有函数的指针</li>
+</ul>
+<p>代码：</p>
+<pre><code><span class="keyword">var</span> myRevealingModule = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    <span class="keyword">var</span> privateVar = <span class="string">'Ben Cherry'</span>,
+        publicVar = <span class="string">"Hey there"</span>;
+    <span class="function"><span class="keyword">function</span> <span class="title">privateFunction</span>(<span class="params"></span>) </span>{
+        <span class="built_in">console</span>.log(<span class="string">'Name:'</span>+ privateVar);
+    }
+    <span class="function"><span class="keyword">function</span> <span class="title">privateSetName</span>(<span class="params">strName</span>) </span>{
+        privateVar = strName;
+    }
+    <span class="function"><span class="keyword">function</span> <span class="title">publicGetName</span>(<span class="params"></span>) </span>{
+        privateFunction();
+    }
+    <span class="comment">//将暴露的公有指针指向到私有函数和属性上</span>
+    <span class="keyword">return</span> {
+        setName: publicSetName,
+        greeting: publicVar,
+        getName: publicGetName
+    };
+}
+</code></pre><ul>
+<li>Singleton(单例)模式<br>类的实例化次数只能是一次</li>
+</ul>
+<p>代码：</p>
+<pre><code><span class="keyword">var</span> mySingleton = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    <span class="comment">//实例保持了Singleton的一个引用</span>
+    <span class="keyword">var</span> instance;
+    <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>{
+        <span class="comment">//singleton</span>
+        <span class="comment">//私有方法和变量</span>
+        <span class="function"><span class="keyword">function</span> <span class="title">privateMethod</span>(<span class="params"></span>) </span>{
+            <span class="built_in">console</span>.log(<span class="string">'i am private'</span>);
+        }
+        <span class="keyword">var</span> privateVar = <span class="string">'i am also private'</span>;
+        <span class="keyword">var</span> privateRandomNum = <span class="built_in">Math</span>.random();
+        <span class="keyword">return</span> {
+            publicMethod: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+                <span class="built_in">console</span>.log(<span class="string">'the public can see me!'</span>);
+            },
+            publicProperty: <span class="string">'i am also public'</span>,
+            getRandomNum:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+                <span class="keyword">return</span> privateRandomNum;
+            }
+        };
+    }
+    <span class="keyword">return</span> {
+        <span class="comment">//获取singleton的实例，如果存在就返回，不存在就创建新实例</span>
+        getInstance: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+            <span class="keyword">if</span>(!instance) {
+                instance = init();
+            }
+            <span class="keyword">return</span> instance;
+        }
+    };
+    })();
+    <span class="keyword">var</span> singleA = mySingleton.getInstance();
+    <span class="keyword">var</span> singleB = mySingleton.getInstance();
+    <span class="built_in">console</span>.log(singleA === singleB);
+</code></pre><ul>
+<li>Observer(观察者)模式</li>
+</ul>
+
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/26/DOM之增删改查/">DOM之增删改查</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/21/html5之拖放功能/">html5之拖放功能</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+
+    
+      <div class="comments" id="comments">
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+
+        
+      </div>
+
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="eviloo7" />
+          <p class="site-author-name">eviloo7</p>
+        </div>
+        <p class="site-description motion-element"></p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+        
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">此文章未包含目錄</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">eviloo7</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+    });
+  </script>
+
+  
+
+  
+  
+  
+
+  
+
+
+
+
+  
+  
+
+  
+  <!-- lazyload -->
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+      <script type="text/javascript">
+        jQuery(function() {          
+            jQuery("#posts img").lazyload({
+              placeholder:"http://www.arao.me/loading.gif",  
+                effect:"fadeIn"
+              });
+            });
+    </script>   
+</body>
+</html>
