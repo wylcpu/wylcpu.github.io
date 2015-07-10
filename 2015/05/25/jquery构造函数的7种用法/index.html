@@ -181,8 +181,9 @@
         <h3 id="第一种情况是:jQuery(selector,_[context])">第一种情况是:jQuery(selector, [context])</h3><p>第一个参数是css选择器,第二个参数,说白是搜索的范围,默认没有这个参数就从文档的根部开始进行dom搜索.例子:</p>
 <pre><code>$(<span class="string">"div.foo"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
     $(<span class="string">"span"</span>,<span class="keyword">this</span>).css(backgroundColor,#fff);
-    })                                                                       
-</code></pre><p>外面的这个$(),没有什么好讲的,就说说里面的$(),里面的这个span标签的查找,会被限制在this(就是$(“div.foo”))的作用域中查找,如果没有这个this,就是在全局中搜索,在其内部是用.find()方法实现的,$(“span”,this) ===$(this).find(“span”).</p>
+    })  
+</code></pre><a id="more"></a>                                                                     
+<p>外面的这个$(),没有什么好讲的,就说说里面的$(),里面的这个span标签的查找,会被限制在this(就是$(“div.foo”))的作用域中查找,如果没有这个this,就是在全局中搜索,在其内部是用.find()方法实现的,$(“span”,this) ===$(this).find(“span”).</p>
 <h3 id="第二种情况是:jquery(dom对象)">第二种情况是:jquery(dom对象)</h3><p>就是说我们把一个传统的dom对象转化成jquery的对象,这样我们就能用jquery的方法,传统dom对象和jquery对象的方法是无法相互引用的.例子:</p>
 <pre><code><span class="reserved">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);<span class="regexp">//</span>这个dom对象是无法使用jquery的方法的,为了使用就这样;
 <span class="reserved">var</span> $box = $(box);<span class="regexp">//</span>这样就转化成了jquery对象,其实我们平时用的$(<span class="keyword">this</span>),就是把<span class="keyword">this</span>对象(注意了这个<span class="keyword">this</span>对象,你可千万别以为是jquery的)转化成jquery对象,从而可以调用jquery的方法的.这个是我们平时用的最多的
