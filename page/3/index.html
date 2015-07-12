@@ -168,6 +168,116 @@
           
           
             
+              <a class="post-title-link" href="/2015/05/31/MongoDB学习笔记之安装MongoDB/">
+                MongoDB学习笔记之安装MongoDB
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-31
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/MongoDB/">MongoDB</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/31/MongoDB学习笔记之安装MongoDB/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/31/MongoDB学习笔记之安装MongoDB/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>最近在学习MongoDB,今天学习了一下MongoDB在window下的安装</p>
+<h3 id="下载MongoDB">下载MongoDB</h3><p>去官网上下载，下载一个.msi的文件<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-12.PNG" alt=""></p>
+<h3 id="安装">安装</h3><p>，之后就是安装了，这个MongoDBd的安装，说白了无非就是替你执行解压操作，之后和使用其他形式的安装MongoDB是一样的，如网上大部分是下载zip文件解压安装。其实解压后两者是差不多的。默认是c盘安装，如果想自己改目录就要选择“custom”安装<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-1.PNG" alt=""><br>我安装的是E盘下MongoDB，<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-2.PNG" alt=""><br>安装完后是这样<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-3.PNG" alt=""></p>
+<h3 id="启动MongoDB">启动MongoDB</h3><p>在下面所有的命令窗口都要以管理员权限运行，（其实有的命令是不需要，但是为了不出现一些因为权限不够而导致的问题，最好都用），<br>需要在命令窗口下运行，就要把MongoDB的bin目录添加到window的环境变量PATH中<br>还有一点需要注意的，如果你不是cmd切换到bin目录下再运行命令的话，而是修改的环境变量的方式，那么你下面需要写文件路径的地方，文件路径一定要使用绝对路径，如果你是用的相对路径，cmd是会相对于C:\Windows\System32这个目录的。<br>这之后，还不能开始启动MongoDB,你需要创建一个目录用于指定数据库的位置，我创建的是E:\MongoDB\data<br>之后，在命令窗口下运行</p>
+<pre><code>mongod --dbpath E:<span class="command">\MongoDB</span><span class="command">\data</span>
+</code></pre><p>就会出现这个<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-4.PNG" alt=""><br>最后一行说端口号是27017，你在浏览器中输入</p>
+<pre><code><span class="label">localhost:</span><span class="number">27017</span>
+</code></pre><p>就会显示<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-5.PNG" alt=""><br>这就说明成功了，停止,退出数据库用Ctrl + C。<br>这是最基础的安装，其实你还需要给MongoDB创建一个用于存放日志信息的目录，首先创建一个log的目录在这个目录下建立一个mongodb.log的文件。<br>这次启动MongoDB</p>
+<pre><code>mongod --dbpath E:<span class="command">\MongoDB</span><span class="command">\data</span> --logpath E:<span class="command">\MongoDB</span><span class="command">\log</span><span class="command">\mongodb</span>.log --logappend
+</code></pre><p>这个启动命令才是比较完整的，能打印日志信息，这个是数据库必须有的，初学来说用不到，但是好的习惯是要有的。<br>还有我们不能每次都敲这么长的代码在cmd中吧</p>
+<h3 id="安装为window服务">安装为window服务</h3><p>使用命令</p>
+<pre><code>mongod --dbpath E:<span class="command">\MongoDB</span><span class="command">\data</span> --logpath E:<span class="command">\MongoDB</span><span class="command">\log</span><span class="command">\mongodb</span>.log --logappend --install
+</code></pre><p>使用这个命令就把mongodb的启动安装到了window服务，以后启动只需要用</p>
+<pre><code><span class="winutils">net</span> <span class="built_in">start</span> MongoDB
+</code></pre><p><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-6.PNG" alt=""><br>关闭用</p>
+<pre><code><span class="winutils">net</span> stop MongoDB
+</code></pre><p><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-8.PNG" alt=""><br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-7.PNG" alt=""><br>如果你感觉敲MongoDB这就个字不爽的话你可以指定名称</p>
+<pre><code><span class="comment">mongod</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">dbpath</span> <span class="comment">E:\MongoDB\data</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">logpath</span> <span class="comment">E:\MongoDB\log\mongodb</span><span class="string">.</span><span class="comment">log</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">logappend</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">install</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">serviceName</span> <span class="comment">mongodb</span>
+</code></pre><p>这次启动和关闭用</p>
+<pre><code><span class="winutils">net</span> <span class="built_in">start</span> mongodb
+<span class="winutils">net</span> stop mongodb
+</code></pre><h3 id="使用配置文件配置MongoDB">使用配置文件配置MongoDB</h3><p>如果你看到这里的，但是如果你想用现在的配置文件来配置MongoDB<br>那么首先你要删除之前你安装的window服务下的MongoDB，我就以服务名为MongoDB为例</p>
+<pre><code>sc <span class="keyword">delete</span> MongoDB
+</code></pre><p><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-9.PNG" alt=""><br>这就删除了，你就可以再次的安装MongoDB为window服务了<br>MongoDB默认是没有配置文件的，需要你自己手动配置<br>首先创建一个目录conf，下面创建文件mongodb.conf<br>在配置文件中写入配置，下面是我的配置</p>
+<pre><code><span class="variable">port =</span> <span class="number">8888</span> <span class="comment">#指定端口号，默认是27017</span>
+<span class="variable">dbpath =</span> E:\MongoDB\data <span class="comment">#数据库的指定路径</span>
+<span class="variable">logpath =</span> E:\MongoDB\log\mongodb.log <span class="comment">#日志输出路径</span>
+<span class="variable">logappend =</span> <span class="constant">true</span> <span class="comment">#错误日志采用追加模式</span>
+</code></pre><p>你在cmd模式下用输入</p>
+<pre><code>mongod --config <span class="keyword">E</span>:\MongoDB\<span class="keyword">conf</span>\mongodb.<span class="keyword">conf</span>
+</code></pre><p>这就是使用配置文件启动MongoDB，但是这个需要你每次都敲这些<br>注册为window服务</p>
+<pre><code>mongod --config <span class="keyword">E</span>:\MongoDB\<span class="keyword">conf</span>\mongodb.<span class="keyword">conf</span> --install
+</code></pre><p>这就行了，默认服务名是：MongoDB<br>启动和关闭和上面的一样，如果你在—install跟了—serviceName就是指定服务名<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-10.PNG" alt=""><br>至此用配置文件启动MongoDB就完成了</p>
+<p>参考<a href="http://www.cnblogs.com/lzrabbit/p/3682510.html" target="_blank" rel="external">懒惰的肥兔</a><br><a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/" target="_blank" rel="external">官网</a>   </p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/05/28/精通css读书笔记/">
                 精通css读书笔记
               </a>
@@ -1157,92 +1267,11 @@ y: <span class="number">2</span>,
 
 
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/14/hexo安装总结/">
-                hexo安装总结
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-14
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/hexo/">hexo</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/05/14/hexo安装总结/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/14/hexo安装总结/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>  终于用hexo搭建blog完成了，虽然说就是简单的几步，要是你搭建过，让你再搭建一个，真是分分钟的事，但是如果你是第一次，并且对相关的东西你不是很熟悉的话，你就有可能遇到很多问题；我就把在此安装中遇到的问题总结一下。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/14/hexo安装总结/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
   </div>
 
   
   <div class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">&raquo;</a>
   </div>
 
 
@@ -1276,14 +1305,14 @@ y: <span class="number">2</span>,
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
