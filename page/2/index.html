@@ -168,6 +168,82 @@
           
           
             
+              <a class="post-title-link" href="/2015/06/20/BOM/">
+                BOM
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-06-20
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/BOM/">BOM</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/06/20/BOM/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/20/BOM/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h1 id="window">window</h1>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/06/18/DOM之获取元素坐标-偏移-大小/">
                 DOM之获取元素坐标,偏移,大小
               </a>
@@ -937,134 +1013,6 @@
 
 
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/01/nodejs学习笔记一/">
-                nodejs学习笔记一
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-01
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/nodejs/">nodejs</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/01/nodejs学习笔记一/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/01/nodejs学习笔记一/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <ol>
-<li>nodejs是一个异步事件驱动的平台</li>
-</ol>
-<h3 id="process">process</h3><ul>
-<li>process是一个全局内置对象，可以在代码中德任何位置访问此属性，这个对象代表我们的nodejs代码宿主的操作系统进程对象。</li>
-<li><code>process.cwd();</code>查看应用程序的当前目录</li>
-<li><code>process.chdir(&quot;dirpath&quot;)</code>，改变应用程序的目录</li>
-<li>stdout是标准输出流，<code>console.log = function(d) {process.stdout.write(d+&#39;\n&#39;)};</code>console.log就是封装的它；</li>
-<li>stderr是标准错误流，我们可以通过它来捕获错误信息<code>process.stderr.write(&quot;error&quot;)</code></li>
-<li>stdin是进程的输入流</li>
-<li>exit是在程序内杀死进程</li>
-</ul>
-<h3 id="文件I/O">文件I/O</h3><ul>
-<li>nodejs中提供了一个名为fs的模块来支持I/O操作</li>
-<li>writeFile函数可以异步的将数据写入一个文件，如果文件已经存在则会被替换;<code>writeFile(filename,data,callback);</code>回掉函数只有一个err参数</li>
-<li>appendFile函数和writeFile差不多，区别是：它可以将新的内容追加到已有的文件中，如果文件不存在就创建一个新文件。</li>
-<li>exists函数检查一个文件是否存在<code>exists(file,clallback)</code>;回调函数只有一个蚕食，类型是布尔值，true表示存在文件，false表示没有这个文件</li>
-<li>rename函数：修改文件名<code>rename(oldFileName,newFileName,callback(err))</code>;也可以用来移动文件<code>rename(oldPath,newPath,callback(err))</code>;</li>
-<li>readFile(file,encode,callback(err,data));回掉中的data就是读取的数据</li>
-<li>unlink(file,callback(err))函数，删除一个文件</li>
-<li>mkdir(path[,权限],callback(err))函数创建一个目录,</li>
-<li>rmdir(path,callback(err));删除目录</li>
-<li>readdir(目录,callback(err,files)),回调函数中的files是文件名数组</li>
-</ul>
-<h3 id="URL处理">URL处理</h3><ul>
-<li>首先引入模块：<code>var url = require(&#39;url&#39;)</code></li>
-<li>parse函数是解析url，返回一个json格式的数组</li>
-</ul>
-<p>example:</p>
-<pre><code>url.parse(<span class="string">'http://www.evil007.com:8888/blog/mm?id=1&amp;age=22'</span>)
-<span class="comment">//打印：</span>
-{
-<span class="string">protocol:</span><span class="string">'http:'</span>
-<span class="string">slashes:</span> <span class="literal">true</span>,
-<span class="string">auth:</span> <span class="literal">null</span>,
-<span class="string">host:</span> <span class="string">'www.evil007.com:8888'</span>,
-<span class="string">port:</span> <span class="string">'8888'</span>,
-<span class="string">hostname:</span> <span class="string">'www.evil007.com'</span>,
-<span class="string">hash:</span> <span class="literal">null</span>,
-<span class="string">search:</span> <span class="string">'?id=1&amp;age=22'</span>,
-<span class="string">query:</span> <span class="string">'id=1&amp;age=22'</span>,
-<span class="string">pathname:</span> <span class="string">'/blog/mm'</span>,
-<span class="string">path:</span> <span class="string">'/blog/mm?id=1&amp;age=22'</span>,
-<span class="string">href:</span> <span class="string">'http://www.evil007.com:8888/blog/mm?id=1&amp;age=22'</span>
- }
-</code></pre><p>如果第二个参数为true，表示条件解析，查询条件也会解析成json格式对象<br>    <code>query: { id: &#39;1&#39;, age: &#39;22&#39; },</code>,其他同上<br>如果有第三个参数为true，表示解析时会将url中//和第一个/之间的部分解析为主机名</p>
-<ul>
-<li>format(json)函数的作用与parse相反，它的参数是一个json对象，返回一个组装好的url地址</li>
-<li>resolve函数的参数是两个路径，第一个路径是开始的路径或者说当前路径，第二个则是想要去往的路径，返回值是一个组装好的url</li>
-</ul>
-<h3 id="高阶函数">高阶函数</h3><p>函数作为参数；<br>函数作为返回值；</p>
-<h3 id="偏函数">偏函数</h3><p>一个创建函数的工厂函数；<br>通过指定部分参数，定制新的函数；</p>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
   </div>
 
   
@@ -1103,7 +1051,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
