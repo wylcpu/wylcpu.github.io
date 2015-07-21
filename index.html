@@ -168,6 +168,103 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/13/java学习笔记（5）/">
+                java学习笔记（6）
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-07-13
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/java/">java</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/13/java学习笔记（5）/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/13/java学习笔记（5）/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h1 id="类与对象">类与对象</h1><h3 id="什么是类">什么是类</h3><ol>
+<li>类是模子，确定对象将会拥有的特征（属性）和行为（方法）</li>
+<li>类是对象的类型</li>
+<li>具有相同属性和方法的一组对象的集合</li>
+<li>成员变量：在类中定义，用来描述对象将要有什么</li>
+<li>局部变量：在类的方法中定义，在方法中临时保存数据</li>
+<li>java会给成员变量一个初始值</li>
+<li>java不会给局部变量赋予初始值</li>
+<li>构造方法是定义在java类中的一个用来初始化对象的方法，构造方法与类同名且没有返回值</li>
+<li>当没有指定构造方法时，系统会自动添加无参的构造方法</li>
+<li>当有指定构造方法，无论是否有参的构造方法，都不会自动添加无参的构造方法</li>
+<li>静态方法中可以直接调用同类中的静态成员，但不能直接调用非静态成员</li>
+<li>静态方法中不能直接调用非静态方法，需要通过对象来访问非静态方法</li>
+<li>静态初始化块只在类加载时执行，且只会执行一次，同时静态初始化块只能给静态变量赋值，不能初始化普通的成员变量。</li>
+<li>静态内部类不能直接访问外部类的非静态成员，但可以通过 new 外部类().成员 的方式访问</li>
+<li>如果外部类的静态成员与内部类的成员名称相同，可通过“类名.静态成员”访问外部类的静态成员；如果外部类的静态成员与内部类的成员名称不相同，则可通过“成员名”直接调用外部类的静态成员 </li>
+<li>创建静态内部类的对象时，不需要外部类的对象，可以直接创建 内部类 对象名= new 内部类();</li>
+<li>在静态方法中不可以使用this关键字</li>
+<li>在静态方法中不可以直接调用非静态方法。</li>
+<li>在java中不能将方法体内的局部变量声明为static。</li>
+</ol>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/12/java学习笔记（3）/">
                 java学习笔记（3）
               </a>
@@ -376,7 +473,19 @@
 
       
         
-          
+          <p>关于java的流程控制，由于跟其他语言类似，我就列举容易出现问题的地方</p>
+<h3 id="switch">switch</h3><ol>
+<li>switch 后面小括号中表达式的值必须是整型或字符型</li>
+<li>case 后面的值可以是常量数值，如 1、2；也可以是一个常量表达式，如 2+2 ；但不能是变量或带有变量的表达式，如 a * 2</li>
+<li>case 匹配后，执行匹配块里的程序代码，如果没有遇见 break 会继续执行下一个的 case 块的内容，直到遇到 break 语句或者 switch 语句块结束</li>
+</ol>
+<h3 id="for执行过程">for执行过程</h3><ol>
+<li>执行循环变量初始化部分，设置循环的初始状态，此部分在整个循环中只执行一次</li>
+<li>进行循环条件的判断，如果条件为 true ，则执行循环体内代码；如果为 false ，则直接退出循环</li>
+<li>执行循环变量变化部分，改变循环变量的值，以便进行下一次条件判断</li>
+<li>依次重新执行&lt; 2 &gt;、&lt; 3 &gt;、&lt; 4 &gt;，直到退出循环</li>
+</ol>
+
         
       
     </div>
@@ -890,96 +999,6 @@
 
 
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/20/html之input/">
-                html之input
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-20
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/html/">html</a>
-
-              
-              
-                ， 
-              
-
-            
-              <a href="/categories/html/html5/">html5</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/20/html之input/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/20/html之input/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>今天是端午节，苦逼在敲代码</p>
-<h1 id="input">input</h1><h3 id="type属性">type属性</h3><p>type规定了input元素的类型<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015062002.PNG" alt=""><br><strong><code>&lt;input type=&quot;text&quot;/&gt;</code></strong><br>这个是最常见的输入文本类型，这个只能输入单行文本，通过获取元素的<code>value</code>来获取其中的值<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/20/html之input/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
   </div>
 
   
@@ -1018,7 +1037,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

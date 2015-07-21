@@ -214,7 +214,9 @@
 <li>在用{margin：0 auto}时，要给这个元素设置了width属性才有效</li>
 <li>img元素默认是有border的，因此我们一般在css文件的开始就reset它</li>
 <li>boday,ul,p,h1-h6,div默认都是有padding和margin值得，一般我们是在css开头就reset他们；</li>
-<li></li>
+<li>background-color:#00deff\9; /<em>IE6、7、8识别</em>/<br>+background-color:#a200ff;/<em>IE6、7识别</em>/<br>_background-color:#1e0bd1;/<em>IE6识别</em>/<br>*background-color:#ff00ff;IE6,IE7识别</li>
+<li>IE6,7没有display:inline-block;属性用display:inline;*zoom:1;这两个代替</li>
+<li>使用display:inline-block属性产生多行水平布局<br>会使元素之间有空格，解决办法：父元素：{font-size:0},子元素：{font-size:12px;vertical-align:bottom};   </li>
 </ol>
 
       
@@ -307,7 +309,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

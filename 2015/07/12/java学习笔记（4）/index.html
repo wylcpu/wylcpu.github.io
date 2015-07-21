@@ -209,7 +209,19 @@
       
 
       
-        
+        <p>关于java的流程控制，由于跟其他语言类似，我就列举容易出现问题的地方</p>
+<h3 id="switch">switch</h3><ol>
+<li>switch 后面小括号中表达式的值必须是整型或字符型</li>
+<li>case 后面的值可以是常量数值，如 1、2；也可以是一个常量表达式，如 2+2 ；但不能是变量或带有变量的表达式，如 a * 2</li>
+<li>case 匹配后，执行匹配块里的程序代码，如果没有遇见 break 会继续执行下一个的 case 块的内容，直到遇到 break 语句或者 switch 语句块结束</li>
+</ol>
+<h3 id="for执行过程">for执行过程</h3><ol>
+<li>执行循环变量初始化部分，设置循环的初始状态，此部分在整个循环中只执行一次</li>
+<li>进行循环条件的判断，如果条件为 true ，则执行循环体内代码；如果为 false ，则直接退出循环</li>
+<li>执行循环变量变化部分，改变循环变量的值，以便进行下一次条件判断</li>
+<li>依次重新执行&lt; 2 &gt;、&lt; 3 &gt;、&lt; 4 &gt;，直到退出循环</li>
+</ol>
+
       
     </div>
 
@@ -300,7 +312,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -375,7 +387,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#switch"><span class="nav-number">1.</span> <span class="nav-text">switch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for执行过程"><span class="nav-number">2.</span> <span class="nav-text">for执行过程</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
