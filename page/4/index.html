@@ -168,6 +168,212 @@
           
           
             
+              <a class="post-title-link" href="/2015/05/26/拜读jquery源码-一/">
+                拜读jquery源码(一)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-26
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/jquery/">jquery</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/26/拜读jquery源码-一/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/26/拜读jquery源码-一/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>由于jquery中有很多正则表达式，今天我就把jquery中的所有的用到的正则表达式解读一下，来检验自己正则学的怎么样！！！</p>
+<h3 id="罗列jquery中用到的RegExp">罗列jquery中用到的RegExp</h3><pre><code>1.var rquickExpr = /^(?:<span class="command">\s*</span>(&lt;<span class="special">[</span><span class="command">\w</span><span class="command">\W</span><span class="special">]</span>+&gt;)<span class="special">[</span>^&gt;<span class="special">]</span>*|<span class="special">#</span>(<span class="special">[</span><span class="command">\w</span>-<span class="special">]</span>*))<span class="formula">$/;
+2.var rsingleTag = /^&lt;(<span class="command">\w</span>+)<span class="command">\s*</span><span class="command">\/</span>?&gt;(?:&lt;<span class="command">\/</span>\1&gt;|)$</span>/;
+</code></pre><h3 id="解析每个正则表达式">解析每个正则表达式</h3><ol>
+<li>这个正则是用来判断，是否是一个HTML标签，或者是否是#后面跟了字符和—的字符串<ul>
+<li>由于使用了“|”,所以这个正则被分为两个部分 \s<em>(&lt;[\w\W]+&gt;)[^&gt;]</em> 和 #([\w-]*)</li>
+<li>^表示从字符串的开始位置进行匹配，$表示字符串的结束位置要匹配，也就是匹配整个字符串，而不是字符串的一部分。</li>
+<li>?:表示的括号里的内容匹配但是不进行捕获</li>
+<li>\s<em>(&lt;[\w\W]+&gt;)[^&gt;]</em> 用来匹配一个HTML标签，#([\w-]*)用来匹配一个#加上一个字符串的</li>
+<li>举例子,胜过千言万语：</li>
+</ul>
+</li>
+</ol>
+<p>栗子：</p>
+<pre><code>var rquickExpr = /^(?:\s*(<span class="tag">&lt;<span class="title">[\w\W]+</span>&gt;</span>)[^&gt;]*|#([\w-]*))$/;
+//["  <span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">span</span>&gt;</span>hello world!<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>   ", "<span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">span</span>&gt;</span>hello world!<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>", undefined, index: 0, input: "  <span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">span</span>&gt;</span>hello world!<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>   "]
+console.log(rquickExpr.exec("  <span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">span</span>&gt;</span>hello world!<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>   "));
+//["<span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">'test'</span> <span class="attribute">class</span>=<span class="value">'nihao'</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>", "<span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">'test'</span> <span class="attribute">class</span>=<span class="value">'nihao'</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>", undefined, index: 0, input: "<span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">'test'</span> <span class="attribute">class</span>=<span class="value">'nihao'</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>"]
+console.log(rquickExpr.exec("<span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">'test'</span> <span class="attribute">class</span>=<span class="value">'nihao'</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>"));
+//["<span class="tag">&lt;<span class="title">br</span>/&gt;</span>", "<span class="tag">&lt;<span class="title">br</span>/&gt;</span>", undefined, index: 0, input: "<span class="tag">&lt;<span class="title">br</span>/&gt;</span>"]
+console.log(rquickExpr.exec("<span class="tag">&lt;<span class="title">br</span>/&gt;</span>"));
+//["#test", undefined, "test", index: 0, input: "#test"]
+console.log(rquickExpr.exec("#test"));
+//["#test123A_--_", undefined, "test123A_--_", index: 0, input: "#test123A_--_"]
+console.log(rquickExpr.exec("#test123A_--_"));
+</code></pre><ol>
+<li>这个正则也是用来匹配一个HTML字符串的；<ul>
+<li>开始匹配一个‘&lt;’，再匹配‘a-zA-Z0-9’一次或者多次，再之后匹配‘空白字符’0次或者多次</li>
+<li>再之后匹配一个‘/’一次或者0次，再之后匹配一个‘&gt;’，到这里就可以匹配形如<span>,<br></span></li>
+<li>这种形式了，?:表示此括号中的内容匹配但不捕获接下来匹配一个‘&lt;/’,</li>
+<li>再接下来匹配一个前面第一个括号中相同的内容，在接下来或者‘|’前面的括号中的内容都说什么都不匹配</li>
+</ul>
+</li>
+</ol>
+<p>离子：</p>
+<pre><code>var rsingleTag = /^&lt;<span class="params">(\w+)</span>\s<span class="built_in">*</span>\/?&gt;<span class="params">(?:&lt;\/\<span class="number">1</span>&gt;|)</span>$/;
+<span class="comment">//["&lt;p&gt;&lt;/p&gt;", "p", index: 0, input: "&lt;p&gt;&lt;/p&gt;"]</span>
+console.<span class="built_in">log</span><span class="params">(rsingleTag.exec<span class="params">(<span class="string">"&lt;p&gt;&lt;/p&gt;"</span>)</span>)</span>;
+<span class="comment">//["&lt;br/&gt;", "br", index: 0, input: "&lt;br/&gt;"]</span>
+console.<span class="built_in">log</span><span class="params">(rsingleTag.exec<span class="params">(<span class="string">"&lt;br/&gt;"</span>)</span>)</span>;
+<span class="comment">//null</span>
+console.<span class="built_in">log</span><span class="params">(rsingleTag.exec<span class="params">(<span class="string">"&lt;span&gt;hello&lt;/span&gt;"</span>)</span>)</span>;
+<span class="comment">//null</span>
+console.<span class="built_in">log</span><span class="params">(rsingleTag.exec<span class="params">(<span class="string">"&lt;p id='box'&gt;&lt;/p&gt;"</span>)</span>)</span>;
+</code></pre><p>这个html只能是简单的标签，不能有子元素，也不能有属性</p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/05/25/jquery构造函数的7种用法/">
+                jquery构造函数的7种用法
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-25
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/jquery/">jquery</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/25/jquery构造函数的7种用法/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/25/jquery构造函数的7种用法/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="第一种情况是:jQuery(selector,_[context])">第一种情况是:jQuery(selector, [context])</h3><p>第一个参数是css选择器,第二个参数,说白是搜索的范围,默认没有这个参数就从文档的根部开始进行dom搜索.例子:</p>
+<pre><code>$(<span class="string">"div.foo"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    $(<span class="string">"span"</span>,<span class="keyword">this</span>).css(backgroundColor,#fff);
+    })  
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/25/jquery构造函数的7种用法/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/05/22/犀牛书/">
                 JavaScript权威指南知识总结
               </a>
@@ -734,21 +940,21 @@ y: <span class="number">2</span>,
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">37</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

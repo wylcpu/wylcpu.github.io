@@ -168,6 +168,164 @@
           
           
             
+              <a class="post-title-link" href="/2015/10/07/伪造一张门禁卡/">
+                伪造一张门禁卡
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-10-07
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/折腾/">折腾</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/10/07/伪造一张门禁卡/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/07/伪造一张门禁卡/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>由于每次带饭卡才能开宿舍门，感觉很麻烦，每次都要在宿舍里想想还有什么卡没有带，真是够烦的，一直想弄一个用手机就能打开门，于是乎，终于看见一篇教程，根据这篇教程，我就成功的用我的神机米3，把门打开了。<more></more></p>
+<h2 id="第一步">第一步</h2><p>在手机上下载两个软件一是“NFC标签读取TagInfo”，这个是读取饭卡的。第二是“RE管理器”，这个是读取手机里面的系统文件的<br>成功安装</p>
+<h2 id="第二步">第二步</h2><p>读取饭卡的id号<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/QQ图片20151007002237.png" alt=""><br>是四个十六进制数。把这个id号记下来，这个TagINfo软件就用完了！</p>
+<h2 id="第三步">第三步</h2><p>这次你点击RE管理器，RE管理器会去获取root权限的，让RE管理器获取root权限，没有root权限是不能修改系统文件的，小米的安全中心里面有root权限设置，你只要给RE管理器Root权限就可以了。<img src="http://7xj3gz.com1.z0.glb.clouddn.com/Screenshot_com.miui.securitycenter_2015-10-07-00-.png" alt="">.接点击下来，你在根目录下找到etc文件夹，下面有一个libnfc-brcm-xxxx.conf的文件，xxxx代表可能不同手机不一样，具体看你的手机了。你只要找到以前面的开头的就行。<img src="http://7xj3gz.com1.z0.glb.clouddn.com/Screenshot_com.speedsoftware.rootexplorer_2015-10.png" alt="">；然后在我右上角圈红的地方点击，让其可读写，默认是只读的。之后就点击进入文件找到一个NFA_DM_START_UP_CFG={巴拉巴拉很多——-}；<img src="http://7xj3gz.com1.z0.glb.clouddn.com/Screenshot_com.speedsoftware.rootexplorer_2015-10(1" alt="">.png)在他之后添加0x33，在添加0x04，之后就是你的饭卡的id号了，修改后市这样的NFA_DM_START_UP_CFG={巴拉巴拉很多——-:33:04:xx:xx:xx:xx},xx是代表你的id号。之后保存，RE管理器会给你备份一个你修改之前的这个文件不要理会，之后重启手机。</p>
+<h2 id="第四步">第四步</h2><p>快点下楼去开门试试</p>
+<p>参考：<a href="http://www.freebuf.com/news/special/80368.html" target="_blank" rel="external">“如何利用Nexus 5伪造一张门禁卡”</a><br>我就是参考这篇文章弄好的，我只是全部用手机搞定，他使用了电脑，没有使用RE管理器。具体还是看这篇文章</p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/08/15/sql-server/">
+                sql server
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-08-15
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/sqlserver/">sqlserver</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/08/15/sql-server/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/15/sql-server/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/29/cocos2dx3-3环境搭建/">
                 cocos2dx3.3环境搭建
               </a>
@@ -216,7 +374,8 @@
         
           <p>这几天转战cocos2dx,是比较火的2d手游开发引擎。</p>
 <h3 id="安装visual_studio_2012">安装visual studio 2012</h3><p><a href="">“下载地址”</a><br>这里面附带产品密钥<br>之后一路点击安装。</p>
-<h3 id="安装cocos2dx">安装cocos2dx</h3>
+<h3 id="安装cocos2dx">安装cocos2dx</h3><p>下载地址：<a href="http://www.cocos.com/download/cocos2d-x/" target="_blank" rel="external">http://www.cocos.com/download/cocos2d-x/</a></p>
+
         
       
     </div>
@@ -829,164 +988,6 @@
 
 
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/21/html5之拖放功能/">
-                html5之拖放功能
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-21
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/HTML5/">HTML5</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/21/html5之拖放功能/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/21/html5之拖放功能/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/21/html5之新增表单元素/">
-                html5之新增input类型
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-21
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/html5/">html5</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/21/html5之新增表单元素/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/21/html5之新增表单元素/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h1 id="input">input</h1><h3 id="email类型">email类型</h3><p>能够自动验证你输入的是否是一个email类型,但是这种检查太弱了，例如目前有的只是检查@符号</p>
-<h3 id="url类型">url类型</h3><p>自动验证你输入的是否是一个URL地址，但是目前只是检查是否有<code>http://</code><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/21/html5之新增表单元素/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
   </div>
 
   
@@ -1025,21 +1026,21 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">37</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
