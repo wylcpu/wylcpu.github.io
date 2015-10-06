@@ -209,12 +209,13 @@
       
 
       
-        <p>由于每次带饭卡才能开宿舍门，感觉很麻烦，每次都要在宿舍里想想还有什么卡没有带，真是够烦的，一直想弄一个用手机就能打开门，于是乎，终于看见一篇教程，根据这篇教程，我就成功的用我的神机米3，把门打开了。<more></more></p>
+        <p>由于每次带饭卡才能开宿舍门，感觉很麻烦，每次都要在宿舍里想想还有什么卡没有带，真是够烦的，一直想弄一个用手机就能打开门，于是乎，终于看见一篇教程，根据这篇教程，我就成功的用我的神机米3，把门打开了。<a id="more"></a></p>
 <h2 id="第一步">第一步</h2><p>在手机上下载两个软件一是“NFC标签读取TagInfo”，这个是读取饭卡的。第二是“RE管理器”，这个是读取手机里面的系统文件的<br>成功安装</p>
 <h2 id="第二步">第二步</h2><p>读取饭卡的id号<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/QQ图片20151007002237.png" alt=""><br>是四个十六进制数。把这个id号记下来，这个TagINfo软件就用完了！</p>
-<h2 id="第三步">第三步</h2><p>这次你点击RE管理器，RE管理器会去获取root权限的，让RE管理器获取root权限，没有root权限是不能修改系统文件的，小米的安全中心里面有root权限设置，你只要给RE管理器Root权限就可以了。<img src="http://7xj3gz.com1.z0.glb.clouddn.com/Screenshot_com.miui.securitycenter_2015-10-07-00-.png" alt="">.接点击下来，你在根目录下找到etc文件夹，下面有一个libnfc-brcm-xxxx.conf的文件，xxxx代表可能不同手机不一样，具体看你的手机了。你只要找到以前面的开头的就行。<img src="http://7xj3gz.com1.z0.glb.clouddn.com/Screenshot_com.speedsoftware.rootexplorer_2015-10.png" alt="">；然后在我右上角圈红的地方点击，让其可读写，默认是只读的。之后就点击进入文件找到一个NFA_DM_START_UP_CFG={巴拉巴拉很多——-}；<img src="http://7xj3gz.com1.z0.glb.clouddn.com/Screenshot_com.speedsoftware.rootexplorer_2015-10(1" alt="">.png)在他之后添加0x33，在添加0x04，之后就是你的饭卡的id号了，修改后市这样的NFA_DM_START_UP_CFG={巴拉巴拉很多——-:33:04:xx:xx:xx:xx},xx是代表你的id号。之后保存，RE管理器会给你备份一个你修改之前的这个文件不要理会，之后重启手机。</p>
-<h2 id="第四步">第四步</h2><p>快点下楼去开门试试</p>
+<h2 id="第三步">第三步</h2><p>这次你点击RE管理器，接下来，你在根目录下找到etc文件夹，下面有一个libnfc-brcm-xxxx.conf的文件，xxxx代表可能不同手机不一样，具体看你的手机了。你只要找到以前面的开头的就行。<img src="http://7xj3gz.com1.z0.glb.clouddn.com/Screenshot_com.speedsoftware.rootexplorer_2015-10.png" alt="">；然后在我右上角圈红的地方点击，让其可读写，默认是只读的。RE管理器会去获取root权限的，让RE管理器获取root权限，没有root权限是不能修改系统文件的，小米的安全中心里面有root权限设置，你只要给RE管理器Root权限就可以了。<img src="http://7xj3gz.com1.z0.glb.clouddn.com/Screenshot_com.miui.securitycenter_2015-10-07-00-.png" alt="">.这个时候之后就点击进入文件找到一个NFA_DM_START_UP_CFG={巴拉巴拉很多——-}；在他之后添加0x33，在添加0x04，之后就是你的饭卡的id号了，修改后市这样的NFA_DM_START_UP_CFG={巴拉巴拉很多——-:33:04:xx:xx:xx:xx},xx是代表你的id号。修改后的截图。<img src="http://7xj3gz.com1.z0.glb.clouddn.com/Screenshot_com.speedsoftware.rootexplorer_2015-101.png" alt="">之后保存，RE管理器会给你备份一个你修改之前的这个文件，不要理会，（但是我是把这个文件删除了），之后重启手机。</p>
+<h2 id="第四步">第四步</h2><p>快点下楼去开门试试。结果就是门开了。</p>
 <p>参考：<a href="http://www.freebuf.com/news/special/80368.html" target="_blank" rel="external">“如何利用Nexus 5伪造一张门禁卡”</a><br>我就是参考这篇文章弄好的，我只是全部用手机搞定，他使用了电脑，没有使用RE管理器。具体还是看这篇文章</p>
+<p>如果以后时间允许，想弄一个远程开门禁的装置。</p>
 
       
     </div>
