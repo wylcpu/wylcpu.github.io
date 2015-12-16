@@ -168,6 +168,93 @@
           
           
             
+              <a class="post-title-link" href="/2015/06/21/javascript设计模式/">
+                javascript设计模式
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-06-21
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/06/21/javascript设计模式/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/21/javascript设计模式/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <ol>
+<li></li>
+</ol>
+<ul>
+<li>基本constructor（构造器）</li>
+</ul>
+<p>代码：</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">model,year,miles</span>) </span>{
+    <span class="keyword">this</span>.model = model;
+    <span class="keyword">this</span>.year = year;
+    <span class="keyword">this</span>.miles = miles;
+    <span class="keyword">this</span>.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+        <span class="keyword">return</span> <span class="keyword">this</span>.model + <span class="string">' has done '</span> + <span class="keyword">this</span>.miles + <span class="string">' miles'</span>;
+    }
+}
+<span class="keyword">var</span> car= <span class="keyword">new</span> Car(<span class="string">'红旗'</span>,<span class="number">10</span>,<span class="number">20000</span>);
+<span class="built_in">console</span>.log(car.toString());
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/21/javascript设计模式/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/06/21/html5之拖放功能/">
                 html5之拖放功能
               </a>
@@ -884,122 +971,6 @@
 
 
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/11/sublime使用/">
-                sublime使用
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-11
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/sublime/">sublime</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/11/sublime使用/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/11/sublime使用/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>把使用笔记记录一下，毕竟谷歌一下，不如自己总结好</p>
-<ol>
-<li>之前一直用点击那个文件的方式，之前用过快捷键，最近又新安装sublime，但是没有弄，今天实在是受不了了，<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015061101.PNG" alt=""></li>
-</ol>
-<p>代码：</p>
-<pre><code>//<span class="atom">chrome</span>
-{ <span class="string">"keys"</span>: [<span class="string">"f1"</span>], <span class="string">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,
-    <span class="string">"args"</span>: {
-        <span class="string">"paths"</span>: [],
-        <span class="string">"application"</span>: <span class="string">"C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"</span>,
-        <span class="string">"extensions"</span>:<span class="string">".*"</span>
-    }
-},
-//<span class="name">IE</span>
-{ <span class="string">"keys"</span>: [<span class="string">"f2"</span>], <span class="string">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,
-    <span class="string">"args"</span>: {
-        <span class="string">"paths"</span>: [],
-        <span class="string">"application"</span>: <span class="string">"C:/Program Files (x86)/Internet Explorer/iexplore.exe"</span>,
-        <span class="string">"extensions"</span>:<span class="string">".*"</span>
-    }
-},
-//<span class="atom">firefox</span>
-{ <span class="string">"keys"</span>: [<span class="string">"f3"</span>], <span class="string">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,
-    <span class="string">"args"</span>: {
-        <span class="string">"paths"</span>: [],
-        <span class="string">"application"</span>: <span class="string">"C:/Program Files (x86)/Mozilla Firefox/firefox.exe"</span>,
-        <span class="string">"extensions"</span>:<span class="string">".*"</span>
-    }
-},
-//<span class="atom">opera</span>
-{ <span class="string">"keys"</span>: [<span class="string">"f4"</span>], <span class="string">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,
-    <span class="string">"args"</span>: {
-        <span class="string">"paths"</span>: [],
-        <span class="string">"application"</span>: <span class="string">"C:/Program Files (x86)/Opera/launcher.exe"</span>,
-        <span class="string">"extensions"</span>:<span class="string">".*"</span>
-    }
-}
-</code></pre><ol>
-<li>在使用sublime插件安装支持markdown语法插件的时候，在安装的时候要注意不要在sublime中有打开的md文件，这样安装完之后会出现错误，导致插件不能用。我感觉<code>sublimeLight</code>这个插件比较好用</li>
-</ol>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
   </div>
 
   
@@ -1038,21 +1009,21 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">37</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
