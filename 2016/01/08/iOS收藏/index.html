@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="html,html5,sse," />
+  <meta name="keywords" content="资料收集," />
 
 
 
@@ -55,7 +55,7 @@
 
 
 
-  <title> html5学习笔记之SSE // Eviloo7's Blog </title>
+  <title> iOS收藏 // Eviloo7's Blog </title>
 </head>
 
 <body>
@@ -166,7 +166,7 @@
           
           
             
-              html5学习笔记之SSE
+              iOS收藏
             
           
         </h1>
@@ -174,14 +174,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-06-12
+          发表于 2016-01-08
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/html5/">html5</a>
+              <a href="/categories/ios/">ios</a>
 
               
               
@@ -194,8 +194,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/06/12/html5之服务器推/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/12/html5之服务器推/"></span>
+            <a href="/2016/01/08/iOS收藏/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/08/iOS收藏/"></span>
             </a>
           </span>
           
@@ -209,132 +209,15 @@
       
 
       
-        <h2 id="HTML5_服务器推送事件(server-send_event)">HTML5 服务器推送事件(server-send event)</h2><p>用于服务器实时向客户端推送消息，这个是单向推送<code>server to client</code></p>
-<a id="more"></a>
-<h3 id="服务器端">服务器端</h3><h4 id="header头">header头</h4><p>要想服务器端推送：在服务器端的报头要定义：<br><code>header(&#39;Content-Type:text/event-stream&#39;)</code>,服务器发送的响应内容应该使用这种<code>text/event-stream</code>的MIME;这样客户端才能理解你这是发送的不是普通的数据，eventsource对象才能识别；</p>
-<h4 id="事件流">事件流</h4><p>服务器端发送事件流（内容）;</p>
-<ul>
-<li>每执行一次php文件就产生一个事件流；</li>
-<li>事件流是由多个消息组成；</li>
-<li>消息是一个后面都有一个空行作为分隔符</li>
-<li>一个消息就是一个事件</li>
-<li>一个消息可以由一个或者多个字段组成</li>
-<li>字段是由字段名，冒号，字段值（数据），<code>字段名：值</code>；</li>
-<li>产生一个空行（即两个换行符）代表一个事件（消息）的结束</li>
-<li>在一个文件中定义多个未命名事件，后面的会覆盖前面的，</li>
-<li>消息中的多个字段用一个<code>\n</code>（换行符）分隔</li>
-<li>一个消息的结束用<code>\n\n</code>（产生一个空行）;</li>
-<li>一个字段的开始必须是以<code>data:</code>开头，例如<code>data:hello world!\n</code>,客户端会接受到<code>hello world!</code>,</li>
-<li>编码形式只能是使用utf-8，不能自己指定<br>说的也是云里雾里，其实你只要知道我要用这种特定的格式来发送数据就行，直接下面的代码解释</li>
-</ul>
-<h4 id="服务器代码">服务器代码</h4><p>我就解说下面三个消息，解释完了也就明白了，</p>
-<ol>
-<li>开始：报头，这个是必须的，就是要告诉客户端，你要把我的数据放在eventSource对象中；</li>
-<li>第一个消息：第一个字段是打印一个时间，第二个字段打印一个‘nihao’，第三个字段打印‘hehe’，第四个字段打印‘nihaoo’，第五个字段打印‘bbbb’；最后两个‘\n\n’代表消息的结束</li>
-</ol>
-<ul>
-<li>注意：每个字段后面是有一个<code>\n</code>,来告诉浏览器我这是一个字段，而两个<code>\n\n</code>,是告诉浏览器我这个消息结束了。每个字段的开头必须是:<code>data:</code>,这个一个没有事件名的消息</li>
-</ul>
-<ol>
-<li>第二个事件是有事件名，有名字的事件是使用<code>event:</code>开头，值是事件名,这第二个消息就是定义了一个名字为‘hello’的事件。</li>
-<li>第三个消息：差别就是这次发送的是一个json </li>
-</ol>
-<p>代码</p>
-<pre><code>//服务器代码
-<span class="php"><span class="preprocessor">&lt;?php</span> 
-header(<span class="string">'Content-Type:text/event-stream'</span>);
-<span class="comment">// header("Cache-Control:no-cache");//有的浏览器会缓存，如果默认是缓存的话就加上这句</span>
-date_default_timezone_set(<span class="string">'Asia/Shanghai'</span>);
-<span class="comment">//第一个消息</span>
-<span class="keyword">while</span>(<span class="number">1</span>) {
-    <span class="keyword">echo</span> <span class="string">'data:'</span>.date(<span class="string">'Y-m-d H:i:s'</span>).<span class="string">"\n"</span>;
-    <span class="keyword">echo</span> <span class="string">"data: nihao\ndata: hehe\n"</span>;
-    <span class="keyword">echo</span> <span class="string">"data: nihaoo\n"</span>;
-    <span class="keyword">echo</span> <span class="string">'data: bbbb'</span>;
-    <span class="keyword">echo</span> <span class="string">"\n\n"</span>;
-    <span class="comment">//第二个消息</span>
-    <span class="keyword">echo</span> <span class="string">"event: hello\n"</span>;
-    <span class="keyword">echo</span> <span class="string">"data: world\n\n"</span>;
-    <span class="comment">//第三个消息</span>
-    <span class="keyword">echo</span> <span class="string">"event:hh\n"</span>;
-    <span class="keyword">echo</span> <span class="string">'data: {"time":"aaaa"}'</span>.<span class="string">"\n"</span>;
-    <span class="keyword">echo</span> <span class="string">"\n\n"</span>;
-    flush();
-    sleep(<span class="number">1</span>);
-}
-<span class="preprocessor">?&gt;</span></span>
-</code></pre><h3 id="客户端">客户端</h3><h4 id="EventSource">EventSource</h4><p>这个API，要使用它，必须先实例化，并且必须给他传递一个参数，这个参数就是请求服务器的地址<br><code>var ES = new EventSource(&#39;服务器地址&#39;)</code>；</p>
-<h4 id="监听">监听</h4><p>EventSource对象属性和方法<br><strong>属性</strong> </p>
-<ul>
-<li>error</li>
-<li>message</li>
-<li>open</li>
-<li>readyState</li>
-<li>url</li>
-</ul>
-<p><strong>方法</strong><br>close()</p>
-<ul>
-<li>当连接发生错误的时候触发error事件</li>
-<li>当成功连接时触发open事件</li>
-<li>当接收到没有命名的事件时触发message事件</li>
-<li>readyState返回当前状态<ul>
-<li>0 =&gt;正在建立连接</li>
-<li>1 =&gt;连接处于打开状态，正在调度事件</li>
-<li>2 =&gt;没有建立连接</li>
-</ul>
-</li>
-<li>url返回页面地址</li>
-<li>close(),关闭连接<br>当成功连接后它会一直处于监听状态，监听服务器发送来的信息，如果断开了连接，客户端会自动重新进行连接,除非你用close关闭。</li>
-</ul>
-<h5 id="命名事件">命名事件</h5><p>命名事件的接收要用addEventListener来监听，用法就像我下面代码写的</p>
-<h5 id="未命名事件">未命名事件</h5><p>用DOM0级的方法或者是DOM2级的方法都行<br><code>ES.onmessage = function(e){}</code><br><code>ES.addEventListener(&#39;message&#39;,function(e){});</code></p>
-<h5 id="解析">解析</h5><h6 id="JSON">JSON</h6><pre><code>如果接收的是json，则要先解析<span class="escape">`J</span>SON.parse(e.data)<span class="escape">`;</span>
-</code></pre><h6 id="多字段">多字段</h6><pre><code>对于多个字段的，如果向要解析出来每个字段来，就要使用正则表达式，由于浏览器会把整个消息变成一个字符串，并在每个字段后面添加一个换行符，而<span class="type">String</span>类型有一个split方法，只需要用换行符作分隔，所以只需要`e.<span class="typedef"><span class="keyword">data</span>.split<span class="container">(/\<span class="title">s</span>/)</span>`,这就返回一个数组，数组的每一项就是一个字读的值</span>
-</code></pre><h5 id="代码分析">代码分析</h5><p>代码</p>
-<pre><code>//客户端代码
-<span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span>
-<span class="tag">&lt;<span class="title">head</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">title</span>&gt;</span>服务器推送<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">head</span>&gt;</span>
-<span class="tag">&lt;<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"box"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"box2"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"box3"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
-    <span class="keyword">var</span> evtSource = <span class="keyword">new</span> EventSource(<span class="string">'server.php'</span>);
-    <span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);
-    <span class="keyword">var</span> box2 = <span class="built_in">document</span>.getElementById(<span class="string">'box2'</span>);
-    <span class="keyword">var</span> box3 = <span class="built_in">document</span>.getElementById(<span class="string">'box3'</span>);
-    <span class="comment">//</span>
-    evtSource.onerror = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>{
-    <span class="built_in">console</span>.log(<span class="string">'error'</span>);
-    }
-    evtSource.onopen = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>{
-        <span class="built_in">console</span>.log(<span class="string">"open"</span>);
-    }
-    evtSource.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>{
-        <span class="comment">//2015-06-12 22:09:04 nihao hehe nihaoo bbbb</span>
-        box.innerHTML = e.data;
-        <span class="comment">//["2015-06-12", "22:08:55", "nihao", "hehe", "nihaoo", "bbbb"]</span>
-        <span class="built_in">console</span>.log(e.data.split(<span class="regexp">/\s/</span>));
-        <span class="comment">//http://127.0.0.1/server.php</span>
-        <span class="built_in">console</span>.log(evtSource.url)
-    }
-    evtSource.addEventListener(<span class="string">'hello'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>{
-        <span class="comment">//world</span>
-        box2.innerHTML = e.data;
-    });
-    evtSource.addEventListener(<span class="string">'hh'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>{
-        <span class="comment">//aaaa</span>
-        box3.innerHTML = <span class="built_in">JSON</span>.parse(evt.data).time;
-    });
-</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
-//打
-</code></pre><h3 id="问题">问题</h3><p>在使用的过程中可能会遇到php进行了缓存，这样的会导致，客户端数据不能及时的更新，你需要在php.ini中禁止掉缓存 <code>output_buffering = On</code>这项你禁止掉，并且在php文件中<code>flush()</code>;<br><a href="http://www.w3.org/TR/eventsource/" target="_blank" rel="external">w3c:eventsource</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Server-sent_events/EventSource" target="_blank" rel="external">MDN</a>  </p>
+        <h1 id="持续更新">持续更新</h1><p>只是自己感觉对自己有用的</p>
+<h1 id="网站">网站</h1><p><a href="http://www.1000phone.net/codeindex.php" target="_blank" rel="external">千峰网</a><br></p>
+<h1 id="博客">博客</h1><p><a href="http://swifter.tips/" target="_blank" rel="external">王巍</a><br><br><a href="http://www.onevcat.com/#blog" target="_blank" rel="external">OneV’s Den</a><br><br><a href="http://devtang.com/" target="_blank" rel="external">唐巧</a><br><br><a href="http://yulingtianxia.com/" target="_blank" rel="external">杨萧玉</a><br><br><a href="http://fish.yulingtianxia.com/" target="_blank" rel="external">养小鱼的池塘</a><br><br><a href="http://blog.sunnyxx.com/" target="_blank" rel="external">sunnyxx</a><br><br><a href="http://swift.gg/" target="_blank" rel="external">swift翻译组</a><br><br><a href="http://southpeak.github.io/blog/archives/" target="_blank" rel="external">南峰子</a><br><br><a href="http://www.cnblogs.com/kenshincui/" target="_blank" rel="external">KenshinCui
+</a></p>
+<h1 id="iOS面试">iOS面试</h1><p><a href="https://github.com/ChenYilong/iOSInterviewQuestions" target="_blank" rel="external">招聘一个靠谱的 iOS</a><br><br><a href="http://zhangmingwei.iteye.com/blog/1748431" target="_blank" rel="external">史上最全的iOS面试题及答案</a><br><br><a href="http://www.jianshu.com/p/d72c4b595c7b" target="_blank" rel="external">知乎上某人的ios面试题</a></p>
+<h1 id="block">block</h1><h1 id="runtime">runtime</h1><p><a href="http://southpeak.github.io/blog/2014/10/25/objective-c-runtime-yun-xing-shi-zhi-lei-yu-dui-xiang/" target="_blank" rel="external">南峰子&amp;&amp;Objective-C Runtime 运行时</a><br><br><a href="http://chun.tips/blog/2014/11/05/bao-gen-wen-di-objective%5Bnil%5Dc-runtime\(1\" target="_blank" rel="external">刨根问底Objective－C Runtime</a>%5Bnil%5D-self-and-super/)<br><br><a href=""></a></p>
+<h1 id="多线程">多线程</h1><h1 id="动画">动画</h1><p><a href="http://www.cnblogs.com/kenshincui/p/3972100.html" target="_blank" rel="external">iOS开发系列—让你的应用“动”起来</a></p>
+<h1 id="网络">网络</h1><p><a href="http://www.jianshu.com/p/047463a7ce9b" target="_blank" rel="external">AFNetworking 3.0迁移指南</a><br><a href="http://blog.csdn.net/codywangziham01/article/details/38088017" target="_blank" rel="external">AFNetwork 作用和用法详解</a></p>
+<h1 id="其他">其他</h1><p><a href="https://github.com/oa414/objc-zen-book-cn#%E5%B1%9E%E6%80%A7%E5%AE%9A%E4%B9%89" target="_blank" rel="external">禅与 Objective-C 编程艺术</a><br><br><a href="http://www.jianshu.com/collection/806ca8a3213e?utm_campaign=maleskine&amp;utm_content=collection&amp;utm_medium=reader_share&amp;utm_source=weibo" target="_blank" rel="external">《从零开始学Swift》学习笔记</a><br><br><a href="http://dev.swiftguide.cn/" target="_blank" rel="external">swift资源整合Guide</a><br><br><a href="https://github.com/smalldu/SwiftGuide" target="_blank" rel="external">SwiftGuide</a><br><br><a href="https://yishuiliunian.gitbooks.io/implementate-tableview-to-understand-ios/content/index.html" target="_blank" rel="external">通过实现一个TableView来理解IOS UI编程</a></p>
 
       
     </div>
@@ -343,11 +226,7 @@ date_default_timezone_set(<span class="string">'Asia/Shanghai'</span>);
       
         <div class="post-tags">
           
-            <a href="/tags/html/"> #html </a>
-          
-            <a href="/tags/html5/"> #html5 </a>
-          
-            <a href="/tags/sse/"> #sse </a>
+            <a href="/tags/资料收集/"> #资料收集 </a>
           
         </div>
       
@@ -356,13 +235,11 @@ date_default_timezone_set(<span class="string">'Asia/Shanghai'</span>);
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/06/13/html5之video-audio标签/">html5之video/audio标签</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/06/11/sublime使用/">sublime使用</a>
+              <a href="/2016/01/01/iOS多线程/">iOS多线程</a>
             
           </div>
         </div>
@@ -382,8 +259,8 @@ date_default_timezone_set(<span class="string">'Asia/Shanghai'</span>);
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/06/12/html5之服务器推/"
-               data-title="html5学习笔记之SSE" data-url="http://www.evil007.com/2015/06/12/html5之服务器推/">
+          <div class="ds-thread" data-thread-key="2016/01/08/iOS收藏/"
+               data-title="iOS收藏" data-url="http://www.evil007.com/2016/01/08/iOS收藏/">
           </div>
         
       </div>
@@ -505,7 +382,7 @@ date_default_timezone_set(<span class="string">'Asia/Shanghai'</span>);
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5_服务器推送事件(server-send_event)"><span class="nav-number">1.</span> <span class="nav-text">HTML5 服务器推送事件(server-send event)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器端"><span class="nav-number">1.1.</span> <span class="nav-text">服务器端</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#header头"><span class="nav-number">1.1.1.</span> <span class="nav-text">header头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件流"><span class="nav-number">1.1.2.</span> <span class="nav-text">事件流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务器代码"><span class="nav-number">1.1.3.</span> <span class="nav-text">服务器代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端"><span class="nav-number">1.2.</span> <span class="nav-text">客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#EventSource"><span class="nav-number">1.2.1.</span> <span class="nav-text">EventSource</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#监听"><span class="nav-number">1.2.2.</span> <span class="nav-text">监听</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#命名事件"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">命名事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#未命名事件"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">未命名事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解析"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">解析</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#JSON"><span class="nav-number">1.2.2.3.1.</span> <span class="nav-text">JSON</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#多字段"><span class="nav-number">1.2.2.3.2.</span> <span class="nav-text">多字段</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代码分析"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">代码分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">1.3.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#持续更新"><span class="nav-number">1.</span> <span class="nav-text">持续更新</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网站"><span class="nav-number">2.</span> <span class="nav-text">网站</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客"><span class="nav-number">3.</span> <span class="nav-text">博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iOS面试"><span class="nav-number">4.</span> <span class="nav-text">iOS面试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#block"><span class="nav-number">5.</span> <span class="nav-text">block</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#runtime"><span class="nav-number">6.</span> <span class="nav-text">runtime</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程"><span class="nav-number">7.</span> <span class="nav-text">多线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动画"><span class="nav-number">8.</span> <span class="nav-text">动画</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络"><span class="nav-number">9.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-number">10.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
