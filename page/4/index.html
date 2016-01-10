@@ -168,6 +168,180 @@
           
           
             
+              <a class="post-title-link" href="/2015/05/28/精通css读书笔记/">
+                精通css读书笔记
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-28
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/css/">css</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/28/精通css读书笔记/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/28/精通css读书笔记/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="第一章">第一章</h2><ol>
+<li>在给HTML标签的id和类进行命名时，要保持名称与表现方式无关。根据‘他们是什么’来命名，而不是根据它们的外观来命名。例如：我想让几个个HTML元素显示红色来表示警告，你不能给这些标签添加一个.red的类，而是应该是一个.warning的类</li>
+<li>DTD（文档类型定义）是一组机器可读的规则，它们定义了xml或HTML的特定版本中允许有什么，不允许有什么。在解析网页时，浏览器将使用这些规则检查页面的有效性并且采取相应的措施。浏览器是通过分析页面的DOCTYPE声明来了解使用了哪个DTD，由此知道使用了HTML的哪个版本</li>
+<li>浏览器模式：为了确保向后兼容，浏览器厂商创建了两种呈现模式：标准模式和混杂模式；在标准模式中，浏览器根据标准规范呈现页面；在混杂模式中，页面以一种比较宽松的向后兼容的方式显示。ps，对这两种模式之间的差异，最显著的例子就是IE的专有的盒模型：border-box；（嘿嘿现在css3又用这种方便的盒模型了）</li>
+</ol>
+<h2 id="第二章">第二章</h2><h3 id="层叠与特殊性：">层叠与特殊性：</h3><pre><code>-<span class="ruby"> 类型选择器，伪元素选择器：<span class="number">1</span>
+</span>-<span class="ruby"> 类选择器，伪类和属性选择器：<span class="number">10</span>
+</span>-<span class="ruby"> id选择器：<span class="number">100</span>
+</span>-<span class="ruby"> 行内样式：<span class="number">1000</span></span>
+</code></pre><p>通俗说，就是用style属性编写的规则总是比其他任何类型规则特殊。具有ID选择器的规则比没有ID选择器的规则特殊，具有类选择器的规则比只有类型选择器的规则特殊。如果两个规则的特殊性相同，则后定义的规则优先。</p>
+<h3 id="css设计代码的结构">css设计代码的结构</h3><pre><code>-<span class="ruby"> 一般性样式
+</span>    -<span class="ruby"> 主体样式
+</span>    -<span class="ruby"> reset样式
+</span>    -<span class="ruby"> 链接
+</span>    -<span class="ruby"> 标题
+</span>    -<span class="ruby"> 其他元素
+</span>-<span class="ruby"> 辅助样式
+</span>    -<span class="ruby"> 表单
+</span>    -<span class="ruby"> 通知和错误
+</span>    -<span class="ruby"> 一致的条目
+</span>-<span class="ruby"> 页面结构
+</span>    -<span class="ruby"> 标题、页脚和导航
+</span>    -<span class="ruby"> 布局
+</span>    -<span class="ruby"> 其他页面结构元素
+</span>-<span class="ruby"> 页面组件
+</span>    -<span class="ruby"> 各个页面
+</span>-<span class="ruby"> 覆盖</span>
+</code></pre><h3 id="css注释">css注释</h3><pre><code>作者在书中多次强调一定要给css添加注释。
+其实只要是写代码就应该添加注释！！！！！
+</code></pre><h2 id="第三章">第三章</h2><h3 id="外边距叠加">外边距叠加</h3><p> 当两个或更多 <em>垂直</em> 外边距相遇时，他们将形成一个外边距。这个外边距的高度等于发生叠加的外边距的高度中较大者。<br> 存在即合理，在由几个段落组成的典型文本页面中。如图，如果不发生叠加会很难看，叠加就保持了段落之间距离的一致性。<br> 上图：<img src="http://7xj3gz.com1.z0.glb.clouddn.com/外边距.gif" alt="解释"><br><strong>只有普通文档流中块框的垂直外边距才会发生外边距叠加。行内框、浮动框、绝对定位框之间的外边距不会叠加</strong></p>
+<h3 id="定位概述">定位概述</h3><ul>
+<li>css中有三种基本定位机制：普通流、浮动、绝对定位</li>
+<li>行内框可以使用水平的内边距、边框，外边距调整水平间距，但是，垂直内边距、边框、外边距不影响行内框的高度（这个地方要注意了，是不影响行高，而不是没有影响），显示的设置宽高，都是没有影响的。举例子：<br>先上图：<img src="http://7xj3gz.com1.z0.glb.clouddn.com/行内框.PNG" alt="一图胜千言"></li>
+</ul>
+<p>代码：</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+    <span class="tag">span</span><span class="rules">{
+        <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">2px</span> solid red</span></span>;
+        <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">50px</span></span></span>;
+        <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">50px</span></span></span>;
+        <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
+        <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">100px</span></span></span>;
+    }</span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"width:100px; height:100px; border: 1px solid green"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">span</span>&gt;</span>nihao<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span>&gt;</span>nih<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<span class="tag">&lt;<span class="title">body</span>&gt;</span>
+</code></pre><p>这个地方还有一个概念：行框，和行内框有什么区别？<br>由一行形成的水平框称为行框，行框的高度 <em>总是</em> 足以容纳它包含的所有行内框。也就是说行高是由其中的最大的行内框的高度决定的。<br><strong>相对定位和绝对定位</strong><br>相对定位是“相对于”元素在文档流中德初始位置，而绝对定位是“相对于”距离它最近的已定位的祖先元素。<br><strong>浮动</strong><br>浮动的框左右移动，直到它的外边缘碰到包含框或另一个浮动框的边缘</p>
+<h2 id="第五章">第五章</h2><h3 id="对链接应用样式">对链接应用样式</h3><ul>
+<li>伪类选择器，:link伪类选择器用来寻找没有被访问过的链接，:visited伪类选择器用来寻找被访问过的链接，:hover是用来寻找鼠标悬停处的元素，:active用来寻找被激活的元素.</li>
+<li>为了尽可能提高页面可访问性，在定义鼠标悬停状态时，最好再链接上添加:focus伪类，这样在通过键盘（如Tab）键移动到链接上时，这让链接显得样式与鼠标悬停时相同。如：<code>a:hover,a:focus{color:red}</code></li>
+<li>除低版本的IE不支持除链接之外的在其他元素上使用伪类选择器，现代的浏览器都支持。</li>
+<li>上面的伪类选择器中，如果在同一个元素上出现，他们的顺序是很重要的。</li>
+</ul>
+<p>例如：</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+    <span class="rule"><span class="attribute">a</span>:<span class="value">link,a:visited{text-decoration: none</span></span>;}
+    <span class="rule"><span class="attribute">a</span>:<span class="value">hover,a:focus,a:active{text-decoration: underline</span></span>;}
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+</code></pre><p>这样在鼠标悬停时会显示下划线，但是如果你这样写</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+    <span class="rule"><span class="attribute">a</span>:<span class="value">hover,a:focus,a:active{text-decoration: underline</span></span>;}
+    <span class="rule"><span class="attribute">a</span>:<span class="value">link,a:visited{text-decoration: none</span></span>;}
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+</code></pre><p>当鼠标悬停在元素上时是没有没有下划线的。<br>这是因为这两个规则具有相同的特殊性，后面的样式覆盖了前面的样式。<br>为了不发生上面的情况，使用他们的顺序是<br><em>a:link,a:visited,a:hover,a:focus,a:active</em></p>
+<ul>
+<li>链接使用#号可以跳转到页面的指定位置</li>
+</ul>
+<h3 id="css精灵">css精灵</h3><p>css精灵：包含许多不同的图标、按钮或图形的 <em>单个</em> 图像。</p>
+<ul>
+<li>使用这种技术可以减少Web浏览器发出的服务器请求，这会显著加快下载速度。另外把图形集中在一个地方可以提高可维护性。</li>
+</ul>
+<h3 id="纯css工具提示">纯css工具提示</h3><p>工具提示：当鼠标悬停在具有title属性的元素上时一些浏览器会弹出小文本框。可以结合js和css创建独特的自定义的工具提示。<br>但是也可以使用纯css方式实现。</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+    <span class="tag">a</span><span class="class">.tooltip</span><span class="rules">{
+        <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;
+    }</span>
+    <span class="tag">a</span><span class="class">.tooltip</span> <span class="tag">span</span><span class="rules">{
+        <span class="rule"><span class="attribute">display</span>:<span class="value"> none</span></span>;
+    }</span>
+    <span class="rule"><span class="attribute">a.tooltip</span>:<span class="value">hover span{
+        display: block</span></span>;
+        <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+        <span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">1em</span></span></span>;
+        <span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">2em</span></span></span>;
+        <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0.2em</span> <span class="number">0.6em</span></span></span>;
+        <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid <span class="hexcolor">#963</span></span></span>;
+        <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#ff6</span></span></span>;
+        <span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#000</span></span></span>;
+    }
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"www.eviloo7.com"</span> <span class="attribute">class</span>=<span class="value">"tooltip"</span>&gt;</span>who am i<span class="tag">&lt;<span class="title">span</span>&gt;</span>i am eviloo7<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+</code></pre><h2 id="第六章：对列表应用样式和创建导航条">第六章：对列表应用样式和创建导航条</h2><ul>
+<li>为了添加定制的项目符号，可以使用list-style-image属性。但是这种方法对项目符号图像的位置的控制能力不强。更常用的的时关闭项目的符号，并且将定制的项目的符号作为背景添加在列元素上，然后使用背景图像的定位属性精确地控制自定义项目符号的对准方式。</li>
+</ul>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/05/27/CSS菜鸟笔记/">
                 CSS菜鸟笔记
               </a>
@@ -1102,7 +1276,7 @@ y: <span class="number">2</span>,
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
