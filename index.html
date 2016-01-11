@@ -168,6 +168,137 @@
           
           
             
+              <a class="post-title-link" href="/2016/01/11/iOS之Quartz2D/">
+                iOS之Quartz2D
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2016-01-11
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/iOS/">iOS</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2016/01/11/iOS之Quartz2D/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/11/iOS之Quartz2D/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>这部分主要是摘录于文顶顶大大的博客。<a href="http://www.cnblogs.com/wendingding/p/3778940.html" target="_blank" rel="external">文顶顶</a><br>记录自己的学习。</p>
+<h2 id="what_is_Quartz2D">what is Quartz2D</h2><p>他是一个二维绘图引擎。</p>
+<h3 id="他能干什么">他能干什么</h3><ol>
+<li>绘制图形 : 线条\三角形\矩形\圆\弧等</li>
+<li>绘制文字</li>
+<li>绘制\生成图片(图像)</li>
+<li>读取\生成PDF</li>
+<li>截图\裁剪图片</li>
+<li>自定义UI控件<br><br><em>iOS中⼤部分控件的内容都是通过Quartz2D画出来的</em><h2 id="自定义view">自定义view</h2></li>
+<li>新建⼀个类,继承自UIView</li>
+<li>实现-(void)drawRect:(CGRect)rect⽅法.然后在这个⽅方法中 :<ul>
+<li>取得跟当前view相关联的图形上下文</li>
+<li>绘制相应的图形内容</li>
+<li>利用图形上下文将绘制的所有内容渲染显示到view上面 <h3 id="drawRect">drawRect</h3></li>
+</ul>
+</li>
+<li>为什么要实现drawRect:⽅法才能绘图到view上?<ul>
+<li>因为在drawRect:⽅法中才能取得跟view相关联的图形上下文</li>
+</ul>
+</li>
+<li><p>drawRect:⽅法在什么时候被调用?</p>
+<ul>
+<li>当view第一次显示到屏幕上时(被加到UIWindow上显示出来)</li>
+<li><p>调用view的setNeedsDisplay或者setNeedsDisplayInRect:时</p>
+<h3 id="例子">例子</h3><p><code></code></p>
+<p>   -(void)drawRect:(CGRect)rect {<br>   //    1、取得图形上下文<br>   CGContextRef ctx = UIGraphicsGetCurrentContext();<br>   //    2、绘图<br>   //    设置绘图起点<br>   CGContextMoveToPoint(ctx, 20, 20);<br>   //    绘制线段到指定坐标<br>   CGContextAddLineToPoint(ctx, 200, 100);</p>
+<p>   //    3、设置绘图状态<br>   //    设置线段颜色<br>   CGContextSetRGBStrokeColor(ctx, 0, 1, 1, 1);<br>   //    设置线条宽度<br>   CGContextSetLineWidth(ctx, 10);<br>   //    设置线段起点和终点的样式为圆角<br>   CGContextSetLineCap(ctx, kCGLineCapRound);<br>   //    绘制<br>   CGContextStrokePath(ctx);</p>
+<p>   //    绘制三角形<br>   CGContextMoveToPoint(ctx, 20, 100);</p>
+<pre><code><span class="comment">//设置第二个点</span>
+</code></pre><p>   CGContextAddLineToPoint(ctx, 40, 300);</p>
+<pre><code><span class="comment">//设置第三个点</span>
+</code></pre><p>   CGContextAddLineToPoint(ctx, 200, 200);</p>
+<pre><code><span class="comment">//设置终点</span>
+<span class="comment">//     CGContextAddLineToPoint(ctx, 20, 100);</span>
+</code></pre><p>   //关闭起点和终点</p>
+<pre><code>CGContextClosePath<span class="list">(<span class="keyword">ctx</span>)</span><span class="comment">;</span>
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<pre><code><span class="comment">//    空心圆</span>
+<span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">150</span>, <span class="number">400</span>);
+<span class="built_in">CGContextAddArc</span>(ctx, <span class="number">100</span>, <span class="number">400</span>, <span class="number">50</span>, <span class="number">0</span>, <span class="number">2</span> * M_PI, <span class="number">0</span>);
+
+<span class="comment">// 3.渲染图形到layer上</span>
+<span class="built_in">CGContextStrokePath</span>(ctx);
+<span class="comment">//    实心圆</span>
+<span class="built_in">CGContextAddEllipseInRect</span>(ctx, <span class="built_in">CGRectMake</span>(<span class="number">250</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">50</span>));
+
+[[<span class="built_in">UIColor</span> greenColor] set];
+
+<span class="comment">// 3.渲染</span>
+<span class="comment">//    CGContextStrokePath(ctx);</span>
+<span class="built_in">CGContextFillPath</span>(ctx);
+</code></pre><p><br><img src="" alt=""></p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2016/01/11/iOS之viewController生命周期/">
                 iOS之viewController生命周期
               </a>
@@ -988,87 +1119,6 @@
 
 
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/12/java学习笔记（3）/">
-                java学习笔记（3）
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-07-12
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/java/">java</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/12/java学习笔记（3）/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/12/java学习笔记（3）/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>关于java中运算符<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/12/java学习笔记（3）/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
   </div>
 
   
@@ -1107,7 +1157,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

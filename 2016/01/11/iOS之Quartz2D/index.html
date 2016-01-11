@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="html,html5,sse," />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -55,7 +55,7 @@
 
 
 
-  <title> html5学习笔记之SSE // Eviloo7's Blog </title>
+  <title> iOS之Quartz2D // Eviloo7's Blog </title>
 </head>
 
 <body>
@@ -166,7 +166,7 @@
           
           
             
-              html5学习笔记之SSE
+              iOS之Quartz2D
             
           
         </h1>
@@ -174,14 +174,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-06-12
+          发表于 2016-01-11
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/html5/">html5</a>
+              <a href="/categories/iOS/">iOS</a>
 
               
               
@@ -194,8 +194,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/06/12/html5之服务器推/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/12/html5之服务器推/"></span>
+            <a href="/2016/01/11/iOS之Quartz2D/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/11/iOS之Quartz2D/"></span>
             </a>
           </span>
           
@@ -209,132 +209,61 @@
       
 
       
-        <h2 id="HTML5_服务器推送事件(server-send_event)">HTML5 服务器推送事件(server-send event)</h2><p>用于服务器实时向客户端推送消息，这个是单向推送<code>server to client</code></p>
-<a id="more"></a>
-<h3 id="服务器端">服务器端</h3><h4 id="header头">header头</h4><p>要想服务器端推送：在服务器端的报头要定义：<br><code>header(&#39;Content-Type:text/event-stream&#39;)</code>,服务器发送的响应内容应该使用这种<code>text/event-stream</code>的MIME;这样客户端才能理解你这是发送的不是普通的数据，eventsource对象才能识别；</p>
-<h4 id="事件流">事件流</h4><p>服务器端发送事件流（内容）;</p>
-<ul>
-<li>每执行一次php文件就产生一个事件流；</li>
-<li>事件流是由多个消息组成；</li>
-<li>消息是一个后面都有一个空行作为分隔符</li>
-<li>一个消息就是一个事件</li>
-<li>一个消息可以由一个或者多个字段组成</li>
-<li>字段是由字段名，冒号，字段值（数据），<code>字段名：值</code>；</li>
-<li>产生一个空行（即两个换行符）代表一个事件（消息）的结束</li>
-<li>在一个文件中定义多个未命名事件，后面的会覆盖前面的，</li>
-<li>消息中的多个字段用一个<code>\n</code>（换行符）分隔</li>
-<li>一个消息的结束用<code>\n\n</code>（产生一个空行）;</li>
-<li>一个字段的开始必须是以<code>data:</code>开头，例如<code>data:hello world!\n</code>,客户端会接受到<code>hello world!</code>,</li>
-<li>编码形式只能是使用utf-8，不能自己指定<br>说的也是云里雾里，其实你只要知道我要用这种特定的格式来发送数据就行，直接下面的代码解释</li>
-</ul>
-<h4 id="服务器代码">服务器代码</h4><p>我就解说下面三个消息，解释完了也就明白了，</p>
-<ol>
-<li>开始：报头，这个是必须的，就是要告诉客户端，你要把我的数据放在eventSource对象中；</li>
-<li>第一个消息：第一个字段是打印一个时间，第二个字段打印一个‘nihao’，第三个字段打印‘hehe’，第四个字段打印‘nihaoo’，第五个字段打印‘bbbb’；最后两个‘\n\n’代表消息的结束</li>
-</ol>
-<ul>
-<li>注意：每个字段后面是有一个<code>\n</code>,来告诉浏览器我这是一个字段，而两个<code>\n\n</code>,是告诉浏览器我这个消息结束了。每个字段的开头必须是:<code>data:</code>,这个一个没有事件名的消息</li>
-</ul>
-<ol>
-<li>第二个事件是有事件名，有名字的事件是使用<code>event:</code>开头，值是事件名,这第二个消息就是定义了一个名字为‘hello’的事件。</li>
-<li>第三个消息：差别就是这次发送的是一个json </li>
-</ol>
-<p>代码</p>
-<pre><code>//服务器代码
-<span class="php"><span class="preprocessor">&lt;?php</span> 
-header(<span class="string">'Content-Type:text/event-stream'</span>);
-<span class="comment">// header("Cache-Control:no-cache");//有的浏览器会缓存，如果默认是缓存的话就加上这句</span>
-date_default_timezone_set(<span class="string">'Asia/Shanghai'</span>);
-<span class="comment">//第一个消息</span>
-<span class="keyword">while</span>(<span class="number">1</span>) {
-    <span class="keyword">echo</span> <span class="string">'data:'</span>.date(<span class="string">'Y-m-d H:i:s'</span>).<span class="string">"\n"</span>;
-    <span class="keyword">echo</span> <span class="string">"data: nihao\ndata: hehe\n"</span>;
-    <span class="keyword">echo</span> <span class="string">"data: nihaoo\n"</span>;
-    <span class="keyword">echo</span> <span class="string">'data: bbbb'</span>;
-    <span class="keyword">echo</span> <span class="string">"\n\n"</span>;
-    <span class="comment">//第二个消息</span>
-    <span class="keyword">echo</span> <span class="string">"event: hello\n"</span>;
-    <span class="keyword">echo</span> <span class="string">"data: world\n\n"</span>;
-    <span class="comment">//第三个消息</span>
-    <span class="keyword">echo</span> <span class="string">"event:hh\n"</span>;
-    <span class="keyword">echo</span> <span class="string">'data: {"time":"aaaa"}'</span>.<span class="string">"\n"</span>;
-    <span class="keyword">echo</span> <span class="string">"\n\n"</span>;
-    flush();
-    sleep(<span class="number">1</span>);
-}
-<span class="preprocessor">?&gt;</span></span>
-</code></pre><h3 id="客户端">客户端</h3><h4 id="EventSource">EventSource</h4><p>这个API，要使用它，必须先实例化，并且必须给他传递一个参数，这个参数就是请求服务器的地址<br><code>var ES = new EventSource(&#39;服务器地址&#39;)</code>；</p>
-<h4 id="监听">监听</h4><p>EventSource对象属性和方法<br><strong>属性</strong> </p>
-<ul>
-<li>error</li>
-<li>message</li>
-<li>open</li>
-<li>readyState</li>
-<li>url</li>
-</ul>
-<p><strong>方法</strong><br>close()</p>
-<ul>
-<li>当连接发生错误的时候触发error事件</li>
-<li>当成功连接时触发open事件</li>
-<li>当接收到没有命名的事件时触发message事件</li>
-<li>readyState返回当前状态<ul>
-<li>0 =&gt;正在建立连接</li>
-<li>1 =&gt;连接处于打开状态，正在调度事件</li>
-<li>2 =&gt;没有建立连接</li>
+        <p>这部分主要是摘录于文顶顶大大的博客。<a href="http://www.cnblogs.com/wendingding/p/3778940.html" target="_blank" rel="external">文顶顶</a><br>记录自己的学习。</p>
+<h2 id="what_is_Quartz2D">what is Quartz2D</h2><p>他是一个二维绘图引擎。</p>
+<h3 id="他能干什么">他能干什么</h3><ol>
+<li>绘制图形 : 线条\三角形\矩形\圆\弧等</li>
+<li>绘制文字</li>
+<li>绘制\生成图片(图像)</li>
+<li>读取\生成PDF</li>
+<li>截图\裁剪图片</li>
+<li>自定义UI控件<br><br><em>iOS中⼤部分控件的内容都是通过Quartz2D画出来的</em><h2 id="自定义view">自定义view</h2></li>
+<li>新建⼀个类,继承自UIView</li>
+<li>实现-(void)drawRect:(CGRect)rect⽅法.然后在这个⽅方法中 :<ul>
+<li>取得跟当前view相关联的图形上下文</li>
+<li>绘制相应的图形内容</li>
+<li>利用图形上下文将绘制的所有内容渲染显示到view上面 <h3 id="drawRect">drawRect</h3></li>
 </ul>
 </li>
-<li>url返回页面地址</li>
-<li>close(),关闭连接<br>当成功连接后它会一直处于监听状态，监听服务器发送来的信息，如果断开了连接，客户端会自动重新进行连接,除非你用close关闭。</li>
+<li>为什么要实现drawRect:⽅法才能绘图到view上?<ul>
+<li>因为在drawRect:⽅法中才能取得跟view相关联的图形上下文</li>
 </ul>
-<h5 id="命名事件">命名事件</h5><p>命名事件的接收要用addEventListener来监听，用法就像我下面代码写的</p>
-<h5 id="未命名事件">未命名事件</h5><p>用DOM0级的方法或者是DOM2级的方法都行<br><code>ES.onmessage = function(e){}</code><br><code>ES.addEventListener(&#39;message&#39;,function(e){});</code></p>
-<h5 id="解析">解析</h5><h6 id="JSON">JSON</h6><pre><code>如果接收的是json，则要先解析<span class="escape">`J</span>SON.parse(e.data)<span class="escape">`;</span>
-</code></pre><h6 id="多字段">多字段</h6><pre><code>对于多个字段的，如果向要解析出来每个字段来，就要使用正则表达式，由于浏览器会把整个消息变成一个字符串，并在每个字段后面添加一个换行符，而<span class="type">String</span>类型有一个split方法，只需要用换行符作分隔，所以只需要`e.<span class="typedef"><span class="keyword">data</span>.split<span class="container">(/\<span class="title">s</span>/)</span>`,这就返回一个数组，数组的每一项就是一个字读的值</span>
-</code></pre><h5 id="代码分析">代码分析</h5><p>代码</p>
-<pre><code>//客户端代码
-<span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span>
-<span class="tag">&lt;<span class="title">head</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">title</span>&gt;</span>服务器推送<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">head</span>&gt;</span>
-<span class="tag">&lt;<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"box"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"box2"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"box3"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
-    <span class="keyword">var</span> evtSource = <span class="keyword">new</span> EventSource(<span class="string">'server.php'</span>);
-    <span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);
-    <span class="keyword">var</span> box2 = <span class="built_in">document</span>.getElementById(<span class="string">'box2'</span>);
-    <span class="keyword">var</span> box3 = <span class="built_in">document</span>.getElementById(<span class="string">'box3'</span>);
-    <span class="comment">//</span>
-    evtSource.onerror = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>{
-    <span class="built_in">console</span>.log(<span class="string">'error'</span>);
-    }
-    evtSource.onopen = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>{
-        <span class="built_in">console</span>.log(<span class="string">"open"</span>);
-    }
-    evtSource.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>{
-        <span class="comment">//2015-06-12 22:09:04 nihao hehe nihaoo bbbb</span>
-        box.innerHTML = e.data;
-        <span class="comment">//["2015-06-12", "22:08:55", "nihao", "hehe", "nihaoo", "bbbb"]</span>
-        <span class="built_in">console</span>.log(e.data.split(<span class="regexp">/\s/</span>));
-        <span class="comment">//http://127.0.0.1/server.php</span>
-        <span class="built_in">console</span>.log(evtSource.url)
-    }
-    evtSource.addEventListener(<span class="string">'hello'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>{
-        <span class="comment">//world</span>
-        box2.innerHTML = e.data;
-    });
-    evtSource.addEventListener(<span class="string">'hh'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>{
-        <span class="comment">//aaaa</span>
-        box3.innerHTML = <span class="built_in">JSON</span>.parse(evt.data).time;
-    });
-</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
-//打
-</code></pre><h3 id="问题">问题</h3><p>在使用的过程中可能会遇到php进行了缓存，这样的会导致，客户端数据不能及时的更新，你需要在php.ini中禁止掉缓存 <code>output_buffering = On</code>这项你禁止掉，并且在php文件中<code>flush()</code>;<br><a href="http://www.w3.org/TR/eventsource/" target="_blank" rel="external">w3c:eventsource</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Server-sent_events/EventSource" target="_blank" rel="external">MDN</a>  </p>
+</li>
+<li><p>drawRect:⽅法在什么时候被调用?</p>
+<ul>
+<li>当view第一次显示到屏幕上时(被加到UIWindow上显示出来)</li>
+<li><p>调用view的setNeedsDisplay或者setNeedsDisplayInRect:时</p>
+<h3 id="例子">例子</h3><p><code></code></p>
+<p>   -(void)drawRect:(CGRect)rect {<br>   //    1、取得图形上下文<br>   CGContextRef ctx = UIGraphicsGetCurrentContext();<br>   //    2、绘图<br>   //    设置绘图起点<br>   CGContextMoveToPoint(ctx, 20, 20);<br>   //    绘制线段到指定坐标<br>   CGContextAddLineToPoint(ctx, 200, 100);</p>
+<p>   //    3、设置绘图状态<br>   //    设置线段颜色<br>   CGContextSetRGBStrokeColor(ctx, 0, 1, 1, 1);<br>   //    设置线条宽度<br>   CGContextSetLineWidth(ctx, 10);<br>   //    设置线段起点和终点的样式为圆角<br>   CGContextSetLineCap(ctx, kCGLineCapRound);<br>   //    绘制<br>   CGContextStrokePath(ctx);</p>
+<p>   //    绘制三角形<br>   CGContextMoveToPoint(ctx, 20, 100);</p>
+<pre><code><span class="comment">//设置第二个点</span>
+</code></pre><p>   CGContextAddLineToPoint(ctx, 40, 300);</p>
+<pre><code><span class="comment">//设置第三个点</span>
+</code></pre><p>   CGContextAddLineToPoint(ctx, 200, 200);</p>
+<pre><code><span class="comment">//设置终点</span>
+<span class="comment">//     CGContextAddLineToPoint(ctx, 20, 100);</span>
+</code></pre><p>   //关闭起点和终点</p>
+<pre><code>CGContextClosePath<span class="list">(<span class="keyword">ctx</span>)</span><span class="comment">;</span>
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<pre><code><span class="comment">//    空心圆</span>
+<span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">150</span>, <span class="number">400</span>);
+<span class="built_in">CGContextAddArc</span>(ctx, <span class="number">100</span>, <span class="number">400</span>, <span class="number">50</span>, <span class="number">0</span>, <span class="number">2</span> * M_PI, <span class="number">0</span>);
+
+<span class="comment">// 3.渲染图形到layer上</span>
+<span class="built_in">CGContextStrokePath</span>(ctx);
+<span class="comment">//    实心圆</span>
+<span class="built_in">CGContextAddEllipseInRect</span>(ctx, <span class="built_in">CGRectMake</span>(<span class="number">250</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">50</span>));
+
+[[<span class="built_in">UIColor</span> greenColor] set];
+
+<span class="comment">// 3.渲染</span>
+<span class="comment">//    CGContextStrokePath(ctx);</span>
+<span class="built_in">CGContextFillPath</span>(ctx);
+</code></pre><p><br><img src="" alt=""></p>
 
       
     </div>
@@ -343,11 +272,7 @@ date_default_timezone_set(<span class="string">'Asia/Shanghai'</span>);
       
         <div class="post-tags">
           
-            <a href="/tags/html/"> #html </a>
-          
-            <a href="/tags/html5/"> #html5 </a>
-          
-            <a href="/tags/sse/"> #sse </a>
+            <a href="/tags/iOS/"> #iOS </a>
           
         </div>
       
@@ -356,13 +281,11 @@ date_default_timezone_set(<span class="string">'Asia/Shanghai'</span>);
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/06/13/html5之video-audio标签/">html5之video/audio标签</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/06/11/sublime使用/">sublime使用</a>
+              <a href="/2016/01/11/iOS之viewController生命周期/">iOS之viewController生命周期</a>
             
           </div>
         </div>
@@ -382,8 +305,8 @@ date_default_timezone_set(<span class="string">'Asia/Shanghai'</span>);
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/06/12/html5之服务器推/"
-               data-title="html5学习笔记之SSE" data-url="http://www.evil007.com/2015/06/12/html5之服务器推/">
+          <div class="ds-thread" data-thread-key="2016/01/11/iOS之Quartz2D/"
+               data-title="iOS之Quartz2D" data-url="http://www.evil007.com/2016/01/11/iOS之Quartz2D/">
           </div>
         
       </div>
@@ -505,7 +428,7 @@ date_default_timezone_set(<span class="string">'Asia/Shanghai'</span>);
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5_服务器推送事件(server-send_event)"><span class="nav-number">1.</span> <span class="nav-text">HTML5 服务器推送事件(server-send event)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器端"><span class="nav-number">1.1.</span> <span class="nav-text">服务器端</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#header头"><span class="nav-number">1.1.1.</span> <span class="nav-text">header头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件流"><span class="nav-number">1.1.2.</span> <span class="nav-text">事件流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务器代码"><span class="nav-number">1.1.3.</span> <span class="nav-text">服务器代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端"><span class="nav-number">1.2.</span> <span class="nav-text">客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#EventSource"><span class="nav-number">1.2.1.</span> <span class="nav-text">EventSource</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#监听"><span class="nav-number">1.2.2.</span> <span class="nav-text">监听</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#命名事件"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">命名事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#未命名事件"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">未命名事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解析"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">解析</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#JSON"><span class="nav-number">1.2.2.3.1.</span> <span class="nav-text">JSON</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#多字段"><span class="nav-number">1.2.2.3.2.</span> <span class="nav-text">多字段</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代码分析"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">代码分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">1.3.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#what_is_Quartz2D"><span class="nav-number">1.</span> <span class="nav-text">what is Quartz2D</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#他能干什么"><span class="nav-number">1.1.</span> <span class="nav-text">他能干什么</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义view"><span class="nav-number">2.</span> <span class="nav-text">自定义view</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#drawRect"><span class="nav-number">2.1.</span> <span class="nav-text">drawRect</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">2.2.</span> <span class="nav-text">例子</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
