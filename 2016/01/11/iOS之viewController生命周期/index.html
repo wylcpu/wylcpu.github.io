@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="github,hexo," />
+  <meta name="keywords" content="Hexo,next" />
 
 
 
@@ -55,7 +55,7 @@
 
 
 
-  <title> hexo安装总结 // Eviloo7's Blog </title>
+  <title> iOS之viewController生命周期 // Eviloo7's Blog </title>
 </head>
 
 <body>
@@ -166,7 +166,7 @@
           
           
             
-              hexo安装总结
+              iOS之viewController生命周期
             
           
         </h1>
@@ -174,28 +174,17 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-05-14
+          发表于 2016-01-11
         </span>
 
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/hexo/">hexo</a>
-
-              
-              
-
-            
-          </span>
         
 
         
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/05/14/hexo安装总结/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/14/hexo安装总结/"></span>
+            <a href="/2016/01/11/iOS之viewController生命周期/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/11/iOS之viewController生命周期/"></span>
             </a>
           </span>
           
@@ -209,79 +198,127 @@
       
 
       
-        <p>  终于用hexo搭建blog完成了，虽然说就是简单的几步，要是你搭建过，让你再搭建一个，真是分分钟的事，但是如果你是第一次，并且对相关的东西你不是很熟悉的话，你就有可能遇到很多问题；我就把在此安装中遇到的问题总结一下。<br><a id="more"></a></p>
-<h3 id="HEXO的安装">HEXO的安装</h3><ol>
-<li>首先你安装了git；</li>
-<li>你也安装了nodeJs；</li>
-<li>你还有github<br><em>我就当你已经安装了git和nodejs</em></li>
+        <h3 id="与viewController生命周期有关的方法">与viewController生命周期有关的方法</h3><p>通过了解控制器的生命周期，进而知道应该在什么时候处理自己的代码了；<br><code></code></p>
+<pre><code>+(void)initialize;//类的初始化
+-<span class="ruby">(id)init;<span class="regexp">//</span>对象的初始化
+</span>-<span class="ruby">(id)<span class="symbol">initWithCode:</span>(<span class="constant">NSCoder</span>*)aDecoder;<span class="regexp">//</span>归档的初始化
+</span>-<span class="ruby">(void)loadView;<span class="regexp">//</span>加载视图
+</span>-<span class="ruby">(void)viewDidLoad将要加载视图
+</span>-<span class="ruby">(void)viewWillAppear;<span class="regexp">//</span>视图将要显示
+</span>-<span class="ruby">(void)viewWillLayoutSubviews;<span class="regexp">//</span>将要布局子视图
+</span>-<span class="ruby">(void)viewDidLayoutSbubiews;<span class="regexp">//</span>完成布局子视图
+</span>-<span class="ruby">(void)<span class="symbol">viewDidAppear:</span>(<span class="constant">BOOL</span>)animated;<span class="regexp">//</span>视图显示
+</span>-<span class="ruby"> (void)<span class="symbol">viewWillDisappear:</span>(<span class="constant">BOOL</span>)animated/<span class="regexp">/视图将要消失
+</span></span>-<span class="ruby"> (void)<span class="symbol">viewDidDisappear:</span>(<span class="constant">BOOL</span>)animated/<span class="regexp">/视图已经消失了
+</span></span>-<span class="ruby">(void)dealloc/<span class="regexp">/对象被释放</span></span>
+</code></pre><p><code></code></p>
+<h3 id="例子">例子</h3><p><code></code></p>
+<pre><code>+ (<span class="keyword">void</span>)initialize{
+    [<span class="keyword">super</span> initialize];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是initialize"</span>);
+}
+
+-(<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder{
+    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithCoder:aDecoder];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是initWithCoder"</span>);
+    <span class="keyword">return</span> <span class="keyword">self</span>;
+}
+-(<span class="keyword">id</span>)init{
+    <span class="keyword">self</span> = [<span class="keyword">super</span> init];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是init"</span>);
+    <span class="keyword">return</span> <span class="keyword">self</span>;
+}
+- (<span class="keyword">void</span>)viewDidLoad {
+    [<span class="keyword">super</span> viewDidLoad];
+    <span class="comment">// Do any additional setup after loading the view.</span>
+    <span class="built_in">NSLog</span>(<span class="string">@"你是viewDidLoad"</span>);
+}
+
+- (<span class="keyword">void</span>)didReceiveMemoryWarning {
+    [<span class="keyword">super</span> didReceiveMemoryWarning];
+    <span class="comment">// Dispose of any resources that can be recreated.</span>
+}
+-(<span class="keyword">void</span>)loadView{
+    [<span class="keyword">super</span> loadView];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是loadView"</span>);
+}
+- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated{
+    [<span class="keyword">super</span> viewWillAppear:animated];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是viewWillAppear"</span>);
+}
+- (<span class="keyword">void</span>)viewDidAppear:(<span class="built_in">BOOL</span>)animated {
+    [<span class="keyword">super</span> viewDidAppear:animated];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是viewDidAppear"</span>);
+}
+- (<span class="keyword">void</span>)viewWillLayoutSubviews {
+    [<span class="keyword">super</span> viewWillLayoutSubviews];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是viewWillLayoutSubviews"</span>);
+}
+- (<span class="keyword">void</span>)viewDidLayoutSubviews {
+    [<span class="keyword">super</span> viewDidLayoutSubviews];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是viewDidLayoutSubviews"</span>);
+}
+- (<span class="keyword">void</span>)viewWillDisappear:(<span class="built_in">BOOL</span>)animated {
+    [<span class="keyword">super</span> viewWillDisappear:animated];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是viewWillDisappear"</span>);
+}
+- (<span class="keyword">void</span>)viewDidDisappear:(<span class="built_in">BOOL</span>)animated {
+    [<span class="keyword">super</span> viewDidDisappear:animated];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是viewDidDisappear"</span>);
+}
+
+-(<span class="keyword">void</span>)dealloc {
+    <span class="built_in">NSLog</span>(<span class="string">@"你是dealloc"</span>);
+}
+</code></pre><p><br><strong>打印</strong><br><code></code></p>
+<pre><code>//这是push操作，也就是初始化到显示视图
+<span class="number">2016-01-11</span> <span class="number">14:41:23.91</span>7 viewController生命周期[<span class="number">999:42891</span>] 你是initialize
+<span class="number">2016-01-11</span> <span class="number">14:41:23.91</span>8 viewController生命周期[<span class="number">999:42891</span>] 你是initWithCoder
+<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>1 viewController生命周期[<span class="number">999:42891</span>] 你是loadView
+<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>1 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidLoad
+<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>2 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillAppear
+<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>7 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillLayoutSubviews
+<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>8 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidLayoutSubviews
+<span class="number">2016-01-11</span> <span class="number">14:41:24.43</span>1 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidAppear
+<span class="number">2016-01-11</span> <span class="number">14:41:24.43</span>2 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillLayoutSubviews
+<span class="number">2016-01-11</span> <span class="number">14:41:24.43</span>2 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidLayoutSubviews
+&lt;!--这是POP，也就是销毁控制器--&gt;
+<span class="number">2016-01-11</span> <span class="number">14:44:29.62</span>8 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillDisappear
+<span class="number">2016-01-11</span> <span class="number">14:44:29.63</span>0 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillLayoutSubviews
+<span class="number">2016-01-11</span> <span class="number">14:44:29.63</span>0 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidLayoutSubviews
+<span class="number">2016-01-11</span> <span class="number">14:44:30.133</span> viewController生命周期[<span class="number">999:42891</span>] 你是viewDidDisappear
+<span class="number">2016-01-11</span> <span class="number">14:44:30.133</span> viewController生命周期[<span class="number">999:42891</span>] 你是dealloc
+</code></pre><p></p>
+<h3 id="总结">总结</h3><ol>
+<li>initialize：只有在这个类第一次创建对象时才会调用。以后创建对象也都不会再调用。因此，如果我们有一些和这个相关的全局变量，可以在这里进行初始化</li>
+<li>init：代码初始化调用</li>
+<li>initWithCoder：使用nib或storyboard的时候调用</li>
+<li>viewDidLoad方法是我们最常用的方法的，类中成员对象和变量的初始化我们都会放在这个方法中</li>
+<li>loadView方法是开始加载视图的起始方法</li>
+<li>viewWillAppear：视图将要展现时会调用。</li>
+<li>viewWillLayoutSubviews：在viewWillAppear后调用，将要对子视图进行布局。</li>
+<li>viewDidLayoutSubviews：已经布局完成子视图。</li>
+<li>viewDidAppare：视图完成显示时调用。</li>
+<li>viewWillDisappear：视图将要消失时调用。</li>
+<li>viewDidDisappear：视图已经消失时调用。</li>
+<li>dealloc：controller被释放时调用。<br>其中，viewWillAppear,viewDidAppear,viewWillLayoutSubviews,viewDidLayoutSubviews,viewWillDisappear,viewDidDisppear是在push和pop的时候都调用的。</li>
 </ol>
-<h4 id="本地运行">本地运行</h4><p><strong>打开git bash运行</strong></p>
-<pre><code>npm install -<span class="keyword">g</span> hexo-<span class="keyword">cli</span>
-</code></pre><p>-g是进行全局安装hexo<br>之后切换到你想要安装的位置<br>你也可以先建立好要安装的目录，例如blog<br>那你之后就cd切换到这个目录下输入下面命令</p>
-<pre><code>hexo init
-npm <span class="keyword">install</span>
-</code></pre><p>要是你不提前建立目录就想官方提供似得，我是以建立blog目录为例</p>
-<pre><code><span class="label">hexo</span> init <span class="keyword">blog
-</span><span class="label">cd</span> <span class="keyword">blog
-</span><span class="label">npm</span> install
-</code></pre><p>这也是可以的，这个是现在官方上说的<br>接下来就是</p>
-<pre><code>hexo <span class="keyword">ge</span><span class="label">nerate</span>
-</code></pre><p>这个命令也可以简写为</p>
-<pre><code><span class="title">hexo</span> g
-</code></pre><p>这个命令是生成静态文件<br>那就让我们先在本地上运行一下吧，输入</p>
-<pre><code>hexo <span class="keyword">server</span>
-</code></pre><p>在你的浏览器地址栏中输入</p>
-<pre><code><span class="label">localhost:</span><span class="number">4000</span>
-</code></pre><p>hexo默认是开启的4000端口的<br>会出现一个hexo默认的主题<br>那就说明你成功了</p>
-<h3 id="部署到github">部署到github</h3><p>按官方说，我是用的user site，也就是个人主页了，你也可以使用项目安装，我没<br>有试过，以后用熟悉了，再各种折腾。</p>
-<ul>
-<li>首先你新建一个repository仓库，把名字命名为我就 <em>username</em>.github.io，把斜体替换成你的名字。注意你不能在这个仓库里建立分支，就是默认的就行了。</li>
-<li><p>接下来就是进行配置了，在你的博客目录下找到_config.yml,找的最下面</p>
-<p>  deploy:</p>
-<pre><code><span class="attribute">type</span>: <span class="string">git</span>
-<span class="attribute">repo</span>: <span class="string">https://github.com/username/username.github.io.git</span>
-<span class="attribute">branch</span>: <span class="string">master</span>
-</code></pre><p><strong>注意:</strong>名值对中的冒号后是有个空格的，我就是没有这个空格，弄了我一晚上各种的折腾<br>就是没有用，虽然刚开始万能的Google没有帮我检索出我要的答案还误导我乱弄了半晚上，但是最后我修改了一下关键字就行了。终于让我找到了，真是众里寻他千百度，蓦然回首，她却在这里。我发现他们的官方的github里面的有各种的问题解决方法，我敢保证，你遇到的问题一定在这里有<a href="https://github.com/hexojs/hexo/issues/" target="_blank" rel="external">hexo官方问题集</a>.</p>
-</li>
-</ul>
-<p>1.接下来安装官方说你还有执行一条命令，我刚开始没有使用就不对，</p>
-<pre><code>npm <span class="keyword">install</span> hexo-deployer-git -save
-</code></pre><p>2.接下来你在运行</p>
-<pre><code>hexo <span class="keyword">generate</span>
-hexo <span class="literal">d</span>
-</code></pre><p>到这里是很容易出错的，很多人在这个地方是出各种的错误，有错误就先看我上面说的官方的地方找找。<br>接下来输入用户名和密码就行了<br>如果能成功运行那么你就可以在地址栏输入</p>
-<pre><code>username<span class="class">.github</span><span class="class">.io</span>
-</code></pre><p>这就出现了你在本地成功测试时出现的界面</p>
-<h3 id="问题集">问题集</h3><p><code></code></p>
-<pre><code>{ [<span class="string">Error:</span> Cannot find module <span class="string">'./build/Release/DTraceProviderBindings'</span>] <span class="string">code:</span> <span class="string">'MODULE_NOT_FOUND'</span> }
-{ [<span class="string">Error:</span> Cannot find module <span class="string">'./build/default/DTraceProviderBindings'</span>] <span class="string">code:</span>     <span class="string">'MODULE_NOT_FOUND'</span> }
-{ [<span class="string">Error:</span> Cannot find module <span class="string">'./build/Debug/DTraceProviderBindings'</span>] <span class="string">code:</span> <span class="string">'MODULE_NOT_FOUND'</span> }
-</code></pre><p><code><br>输入<br><code>npm install hexo --no-optional</code><br>这条命令就解决</code></p>
-<h4 id="总结">总结</h4><p>其实就几条命令很简单，如果没有出现任何问题，我保证你十分钟，弄完，但是如果你初次接触，你就需要看各种文档，你才明白，这些命令时干什么的，并且有可能一个问题<br>让你弄很长时间，最终你花费了N hours弄好了。但是出现问题才使你成长，要是你十分钟弄完，你什么也学不到，<em>要的就是这种不顺利</em>。</p>
 
       
     </div>
 
     <div class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/github/"> #github </a>
-          
-            <a href="/tags/hexo/"> #hexo </a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/05/15/hexo主题安装及配置/">hexo主题安装及配置</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/10/iOS之成员变量与属性/">iOS之成员变量与属性</a>
             
           </div>
         </div>
@@ -301,8 +338,8 @@ hexo <span class="literal">d</span>
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/05/14/hexo安装总结/"
-               data-title="hexo安装总结" data-url="http://www.evil007.com/2015/05/14/hexo安装总结/">
+          <div class="ds-thread" data-thread-key="2016/01/11/iOS之viewController生命周期/"
+               data-title="iOS之viewController生命周期" data-url="http://www.evil007.com/2016/01/11/iOS之viewController生命周期/">
           </div>
         
       </div>
@@ -424,7 +461,7 @@ hexo <span class="literal">d</span>
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HEXO的安装"><span class="nav-number">1.</span> <span class="nav-text">HEXO的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地运行"><span class="nav-number">1.1.</span> <span class="nav-text">本地运行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署到github"><span class="nav-number">2.</span> <span class="nav-text">部署到github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题集"><span class="nav-number">3.</span> <span class="nav-text">问题集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">3.1.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#与viewController生命周期有关的方法"><span class="nav-number">1.</span> <span class="nav-text">与viewController生命周期有关的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">2.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

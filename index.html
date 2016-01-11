@@ -168,6 +168,176 @@
           
           
             
+              <a class="post-title-link" href="/2016/01/11/iOS之viewController生命周期/">
+                iOS之viewController生命周期
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2016-01-11
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2016/01/11/iOS之viewController生命周期/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/11/iOS之viewController生命周期/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="与viewController生命周期有关的方法">与viewController生命周期有关的方法</h3><p>通过了解控制器的生命周期，进而知道应该在什么时候处理自己的代码了；<br><code></code></p>
+<pre><code>+(void)initialize;//类的初始化
+-<span class="ruby">(id)init;<span class="regexp">//</span>对象的初始化
+</span>-<span class="ruby">(id)<span class="symbol">initWithCode:</span>(<span class="constant">NSCoder</span>*)aDecoder;<span class="regexp">//</span>归档的初始化
+</span>-<span class="ruby">(void)loadView;<span class="regexp">//</span>加载视图
+</span>-<span class="ruby">(void)viewDidLoad将要加载视图
+</span>-<span class="ruby">(void)viewWillAppear;<span class="regexp">//</span>视图将要显示
+</span>-<span class="ruby">(void)viewWillLayoutSubviews;<span class="regexp">//</span>将要布局子视图
+</span>-<span class="ruby">(void)viewDidLayoutSbubiews;<span class="regexp">//</span>完成布局子视图
+</span>-<span class="ruby">(void)<span class="symbol">viewDidAppear:</span>(<span class="constant">BOOL</span>)animated;<span class="regexp">//</span>视图显示
+</span>-<span class="ruby"> (void)<span class="symbol">viewWillDisappear:</span>(<span class="constant">BOOL</span>)animated/<span class="regexp">/视图将要消失
+</span></span>-<span class="ruby"> (void)<span class="symbol">viewDidDisappear:</span>(<span class="constant">BOOL</span>)animated/<span class="regexp">/视图已经消失了
+</span></span>-<span class="ruby">(void)dealloc/<span class="regexp">/对象被释放</span></span>
+</code></pre><p><code></code></p>
+<h3 id="例子">例子</h3><p><code></code></p>
+<pre><code>+ (<span class="keyword">void</span>)initialize{
+    [<span class="keyword">super</span> initialize];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是initialize"</span>);
+}
+
+-(<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder{
+    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithCoder:aDecoder];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是initWithCoder"</span>);
+    <span class="keyword">return</span> <span class="keyword">self</span>;
+}
+-(<span class="keyword">id</span>)init{
+    <span class="keyword">self</span> = [<span class="keyword">super</span> init];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是init"</span>);
+    <span class="keyword">return</span> <span class="keyword">self</span>;
+}
+- (<span class="keyword">void</span>)viewDidLoad {
+    [<span class="keyword">super</span> viewDidLoad];
+    <span class="comment">// Do any additional setup after loading the view.</span>
+    <span class="built_in">NSLog</span>(<span class="string">@"你是viewDidLoad"</span>);
+}
+
+- (<span class="keyword">void</span>)didReceiveMemoryWarning {
+    [<span class="keyword">super</span> didReceiveMemoryWarning];
+    <span class="comment">// Dispose of any resources that can be recreated.</span>
+}
+-(<span class="keyword">void</span>)loadView{
+    [<span class="keyword">super</span> loadView];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是loadView"</span>);
+}
+- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated{
+    [<span class="keyword">super</span> viewWillAppear:animated];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是viewWillAppear"</span>);
+}
+- (<span class="keyword">void</span>)viewDidAppear:(<span class="built_in">BOOL</span>)animated {
+    [<span class="keyword">super</span> viewDidAppear:animated];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是viewDidAppear"</span>);
+}
+- (<span class="keyword">void</span>)viewWillLayoutSubviews {
+    [<span class="keyword">super</span> viewWillLayoutSubviews];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是viewWillLayoutSubviews"</span>);
+}
+- (<span class="keyword">void</span>)viewDidLayoutSubviews {
+    [<span class="keyword">super</span> viewDidLayoutSubviews];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是viewDidLayoutSubviews"</span>);
+}
+- (<span class="keyword">void</span>)viewWillDisappear:(<span class="built_in">BOOL</span>)animated {
+    [<span class="keyword">super</span> viewWillDisappear:animated];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是viewWillDisappear"</span>);
+}
+- (<span class="keyword">void</span>)viewDidDisappear:(<span class="built_in">BOOL</span>)animated {
+    [<span class="keyword">super</span> viewDidDisappear:animated];
+    <span class="built_in">NSLog</span>(<span class="string">@"你是viewDidDisappear"</span>);
+}
+
+-(<span class="keyword">void</span>)dealloc {
+    <span class="built_in">NSLog</span>(<span class="string">@"你是dealloc"</span>);
+}
+</code></pre><p><br><strong>打印</strong><br><code></code></p>
+<pre><code>//这是push操作，也就是初始化到显示视图
+<span class="number">2016-01-11</span> <span class="number">14:41:23.91</span>7 viewController生命周期[<span class="number">999:42891</span>] 你是initialize
+<span class="number">2016-01-11</span> <span class="number">14:41:23.91</span>8 viewController生命周期[<span class="number">999:42891</span>] 你是initWithCoder
+<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>1 viewController生命周期[<span class="number">999:42891</span>] 你是loadView
+<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>1 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidLoad
+<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>2 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillAppear
+<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>7 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillLayoutSubviews
+<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>8 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidLayoutSubviews
+<span class="number">2016-01-11</span> <span class="number">14:41:24.43</span>1 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidAppear
+<span class="number">2016-01-11</span> <span class="number">14:41:24.43</span>2 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillLayoutSubviews
+<span class="number">2016-01-11</span> <span class="number">14:41:24.43</span>2 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidLayoutSubviews
+&lt;!--这是POP，也就是销毁控制器--&gt;
+<span class="number">2016-01-11</span> <span class="number">14:44:29.62</span>8 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillDisappear
+<span class="number">2016-01-11</span> <span class="number">14:44:29.63</span>0 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillLayoutSubviews
+<span class="number">2016-01-11</span> <span class="number">14:44:29.63</span>0 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidLayoutSubviews
+<span class="number">2016-01-11</span> <span class="number">14:44:30.133</span> viewController生命周期[<span class="number">999:42891</span>] 你是viewDidDisappear
+<span class="number">2016-01-11</span> <span class="number">14:44:30.133</span> viewController生命周期[<span class="number">999:42891</span>] 你是dealloc
+</code></pre><p></p>
+<h3 id="总结">总结</h3><ol>
+<li>initialize：只有在这个类第一次创建对象时才会调用。以后创建对象也都不会再调用。因此，如果我们有一些和这个相关的全局变量，可以在这里进行初始化</li>
+<li>init：代码初始化调用</li>
+<li>initWithCoder：使用nib或storyboard的时候调用</li>
+<li>viewDidLoad方法是我们最常用的方法的，类中成员对象和变量的初始化我们都会放在这个方法中</li>
+<li>loadView方法是开始加载视图的起始方法</li>
+<li>viewWillAppear：视图将要展现时会调用。</li>
+<li>viewWillLayoutSubviews：在viewWillAppear后调用，将要对子视图进行布局。</li>
+<li>viewDidLayoutSubviews：已经布局完成子视图。</li>
+<li>viewDidAppare：视图完成显示时调用。</li>
+<li>viewWillDisappear：视图将要消失时调用。</li>
+<li>viewDidDisappear：视图已经消失时调用。</li>
+<li>dealloc：controller被释放时调用。<br>其中，viewWillAppear,viewDidAppear,viewWillLayoutSubviews,viewDidLayoutSubviews,viewWillDisappear,viewDidDisppear是在push和pop的时候都调用的。</li>
+</ol>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2016/01/10/iOS之成员变量与属性/">
                 iOS之成员变量与属性
               </a>
@@ -888,92 +1058,11 @@
 
 
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/12/java学习笔记（2）/">
-                java学习笔记（2）
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-07-12
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/java/">java</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/12/java学习笔记（2）/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/12/java学习笔记（2）/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>今天是学习Java的第二天，虽然明天就要考试了，但是我还是想学！今天就学学Java的变量和常量！<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/12/java学习笔记（2）/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
   </div>
 
   
   <div class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
   </div>
 
 
@@ -1007,7 +1096,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
