@@ -215,8 +215,8 @@
       
         
           <p>这几天转战cocos2dx,是比较火的2d手游开发引擎。</p>
-<h3 id="安装visual_studio_2012">安装visual studio 2012</h3><p><a href="">“下载地址”</a><br>这里面附带产品密钥<br>之后一路点击安装。</p>
-<h3 id="安装cocos2dx">安装cocos2dx</h3><p>下载地址：<a href="http://www.cocos.com/download/cocos2d-x/" target="_blank" rel="external">http://www.cocos.com/download/cocos2d-x/</a></p>
+<p>###安装visual studio 2012<br><a href="">“下载地址”</a><br>这里面附带产品密钥<br>之后一路点击安装。</p>
+<p>###安装cocos2dx<br>下载地址：<a href="http://www.cocos.com/download/cocos2d-x/" target="_blank" rel="external">http://www.cocos.com/download/cocos2d-x/</a></p>
 
         
       
@@ -293,7 +293,9 @@
 
       
         
-          <h1 id="类与对象">类与对象</h1><h3 id="什么是类">什么是类</h3><ol>
+          <p>#类与对象</p>
+<p>###什么是类</p>
+<ol>
 <li>类是模子，确定对象将会拥有的特征（属性）和行为（方法）</li>
 <li>类是对象的类型</li>
 <li>具有相同属性和方法的一组对象的集合</li>
@@ -382,12 +384,14 @@
       
         
           <p>关于java的流程控制，由于跟其他语言类似，我就列举容易出现问题的地方</p>
-<h3 id="switch">switch</h3><ol>
+<p>###switch</p>
+<ol>
 <li>switch 后面小括号中表达式的值必须是整型或字符型</li>
 <li>case 后面的值可以是常量数值，如 1、2；也可以是一个常量表达式，如 2+2 ；但不能是变量或带有变量的表达式，如 a * 2</li>
 <li>case 匹配后，执行匹配块里的程序代码，如果没有遇见 break 会继续执行下一个的 case 块的内容，直到遇到 break 语句或者 switch 语句块结束</li>
 </ol>
-<h3 id="for执行过程">for执行过程</h3><ol>
+<p>###for执行过程</p>
+<ol>
 <li>执行循环变量初始化部分，设置循环的初始状态，此部分在整个循环中只执行一次</li>
 <li>进行循环条件的判断，如果条件为 true ，则执行循环体内代码；如果为 false ，则直接退出循环</li>
 <li>执行循环变量变化部分，改变循环变量的值，以便进行下一次条件判断</li>
@@ -713,8 +717,9 @@
       
         
           <p>今天看了一下，JavaScript权威指南的DOM操作部分，就记录一下。</p>
-<h1 id="Dom">Dom</h1><p>文档对象模型（DOM）是表示和操作HTML和XML文档内容的基础API。</p>
-<h3 id="获取文档元素">获取文档元素</h3><ul>
+<p>#Dom<br>文档对象模型（DOM）是表示和操作HTML和XML文档内容的基础API。</p>
+<p>###获取文档元素</p>
+<ul>
 <li>getElementById()</li>
 <li>getElementsByTagName()</li>
 <li>getElemtnsByName()</li>
@@ -796,16 +801,16 @@
 <li>基本constructor（构造器）</li>
 </ul>
 <p>代码：</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">model,year,miles</span>) </span>{
-    <span class="keyword">this</span>.model = model;
-    <span class="keyword">this</span>.year = year;
-    <span class="keyword">this</span>.miles = miles;
-    <span class="keyword">this</span>.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-        <span class="keyword">return</span> <span class="keyword">this</span>.model + <span class="string">' has done '</span> + <span class="keyword">this</span>.miles + <span class="string">' miles'</span>;
+<pre><code>function Car(model,year,miles) {
+    this.model = model;
+    this.year = year;
+    this.miles = miles;
+    this.toString = function() {
+        return this.model + &apos; has done &apos; + this.miles + &apos; miles&apos;;
     }
 }
-<span class="keyword">var</span> car= <span class="keyword">new</span> Car(<span class="string">'红旗'</span>,<span class="number">10</span>,<span class="number">20000</span>);
-<span class="built_in">console</span>.log(car.toString());
+var car= new Car(&apos;红旗&apos;,10,20000);
+console.log(car.toString());
 </code></pre>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/06/21/javascript设计模式/#more">
@@ -963,8 +968,9 @@
 
       
         
-          <h1 id="input">input</h1><h3 id="email类型">email类型</h3><p>能够自动验证你输入的是否是一个email类型,但是这种检查太弱了，例如目前有的只是检查@符号</p>
-<h3 id="url类型">url类型</h3><p>自动验证你输入的是否是一个URL地址，但是目前只是检查是否有<code>http://</code><br>
+          <p>#input</p>
+<p>###email类型<br>能够自动验证你输入的是否是一个email类型,但是这种检查太弱了，例如目前有的只是检查@符号</p>
+<p>###url类型<br>自动验证你输入的是否是一个URL地址，但是目前只是检查是否有<code>http://</code><br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/06/21/html5之新增表单元素/#more">
               阅读全文 &raquo;

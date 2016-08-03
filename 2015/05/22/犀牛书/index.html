@@ -210,7 +210,8 @@
 
       
         <p>我就把一些知识点,比较小的知识点,整理了一下</p>
-<h1 id="读犀牛书记录">读犀牛书记录</h1><ol>
+<p>#读犀牛书记录</p>
+<ol>
 <li>下列值被js认为是false：undefined，NaN，0，false，“”，null，-0；</li>
 <li>null == undefined 返回true,undefined == false返回false</li>
 <li>typeof null，返回object</li>
@@ -236,21 +237,21 @@
 <li>对象中的属性分两种一种是数据属性一种是存取器属性</li>
 <li><p>存取器的属性也是可以继承的</p>
 <p>//这个是继承器<br>function inhert(o) {</p>
-<pre><code><span class="keyword">if</span>(<span class="built_in">Object</span>.create) {
-    <span class="keyword">return</span> <span class="built_in">Object</span>.create(o);
+<pre><code>if(Object.create) {
+    return Object.create(o);
 }
-<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>{}
+function f() {}
 f.prototype = o;
-<span class="keyword">return</span> <span class="keyword">new</span> f();
+return new f();
 </code></pre><p>}<br>var obj = {</p>
-<pre><code>x: <span class="number">1</span>,
-y: <span class="number">2</span>,
-<span class="function"><span class="keyword">get</span> <span class="title">z</span>(<span class="params"></span>)</span>{
-    <span class="keyword">return</span> <span class="keyword">this</span>.x + <span class="keyword">this</span>.y;
+<pre><code>x: 1,
+y: 2,
+get z(){
+    return this.x + this.y;
 },
-<span class="function"><span class="keyword">set</span> <span class="title">z</span>(<span class="params">a</span>) </span>{
-    <span class="keyword">this</span>.x = a;
-    <span class="keyword">this</span>.y = <span class="number">2</span> * a;
+set z(a) {
+    this.x = a;
+    this.y = 2 * a;
 }
 </code></pre><p>}<br>//console.log(obj.z)//3<br>// obj.z = 3<br>// console.log(obj.z);//9<br>var obj2 = inhert(obj);<br>obj2.x = 3;<br>obj2.y = 4;<br>console.log(obj2.z);//7<br>console.log(obj.z);//3<br>obj2.z = 5;<br>console.log(obj2.z);//15 </p>
 </li>
@@ -268,7 +269,7 @@ y: <span class="number">2</span>,
 <li>数组的length永远比数组的最大索引大1 </li>
 <li><p>如果用delete删除数组的元素，不会改变数组的长度,这个时候你用for/in 遍历数组是不会遍历出delete删除的元素的</p>
 <p>var a = [1,2,3,4];<br>console.log(a.length);<br>delete a[3];<br>delete a[1];<br>console.log(a.length);//4<br>for(var i in a) {</p>
-<pre><code>console.<span class="built_in">log</span>(<span class="operator">a</span>[i])<span class="comment">;//1,3</span>
+<pre><code>console.log(a[i]);//1,3
 </code></pre><p>}<br>console.log( 3 in a);//返回false</p>
 </li>
 <li>es3中数组的方法<ul>
@@ -490,7 +491,7 @@ y: <span class="number">2</span>,
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#读犀牛书记录"><span class="nav-number">1.</span> <span class="nav-text">读犀牛书记录</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

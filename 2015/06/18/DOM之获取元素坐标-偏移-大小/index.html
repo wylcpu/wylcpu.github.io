@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="DOM,备忘," />
+  <meta name="keywords" content="备忘,DOM," />
 
 
 
@@ -209,25 +209,31 @@
       
 
       
-        <h1 id="元素鼠标事件中">元素鼠标事件中</h1><h2 id="offsetX,offsetY">offsetX,offsetY</h2><p>获取的是点击位置距离元素左边界和上边界的距离大小；</p>
-<h2 id="clientX,clientY">clientX,clientY</h2><p>坐标值是鼠标事件发生时鼠标光标在可视区（视口）的位置（我们看得见页面的地方）</p>
-<h2 id="layerX,layerY">layerX,layerY</h2><p>这个是很麻烦的，它是获取发生鼠标事件时光标距离最近position设置为absolute或者relative元素的距离（本身，或者是祖先元素）,positioin:fixed时很诡异，父元素设置了position,对其是由影响的<br><a id="more"></a></p>
-<h2 id="pageX,pageY">pageX,pageY</h2><p>获取的是鼠标事件发生时鼠标光标相对于整个文档元素（document）的坐标（包含滚动的距离），在页面没有滚动时，值和clientX，clineY是一样的</p>
-<h2 id="screenX,screenY">screenX,screenY</h2><p>获取的鼠标事件发生时鼠标光标相对于电脑屏幕的坐标</p>
-<h2 id="x,y">x,y</h2><p>这个值始终和clientX，clinetY，一样</p>
-<h1 id="元素的大小">元素的大小</h1><h2 id="偏移量">偏移量</h2><h3 id="offsetWidth,offsetHeight">offsetWidth,offsetHeight</h3><p>这个是获取的元素的可视大小，包括padding（内边距），border（边距），content（内容区），如果有滚动条还包含滚动条</p>
-<h3 id="offsetLeft,offsetTop">offsetLeft,offsetTop</h3><p>获取跟 <em>直接</em> 父元素的偏移量,从元素的border到父元素的content区域,offsetParent,是获取的包含它的父元素<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015061801.PNG" alt=""></p>
-<h2 id="客户区的大小">客户区的大小</h2><h3 id="clientWidth,clientHeight">clientWidth,clientHeight</h3><p>只包含padding和content（内容区），千万注意，不包括border，也不包括滚动条的宽度<br>ps.偏移量和客户区大小都是只读的</p>
-<h2 id="滚动大小">滚动大小</h2><h3 id="scrollWidht,scrollHeight">scrollWidht,scrollHeight</h3><p>获取包含元素的大小，在没有滚动条时，和clientWidth，clientHeight是一样的.在有滚动条的时候，只包含content和padding-left，padding-top，但是chrome还有padding-bottom</p>
-<h3 id="scrollTop,scrollLeft">scrollTop,scrollLeft</h3><p>如果元素没有滚动条它们的值就是0；<br>获取滚动条滚动的距离，可以对其进行赋值，使滚动条到指定的位置<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015061902.PNG" alt=""><br>PS,特殊元素下获取:document.documentElement,document.body</p>
-<h2 id="getBoundingClientRect()">getBoundingClientRect()</h2><p>它不需要参数，返回一个有left,right,top,bottom，width，height的对象,其中width和height在IE9+上支持，获取的width，height跟offsetWidhth，offsetHeight等价</p>
-<h2 id="getClientsRects()">getClientsRects()</h2><p>这个是可以获取一个内联元素（如span）多行文本中的 <em>每一行</em> 的位置信息</p>
-<h1 id="window">window</h1><h2 id="window-innerHeight,window-innerWidth">window.innerHeight,window.innerWidth</h2><p>获取浏览器可视显示文档的地方的大小,有滚动条则包括滚动条</p>
-<h2 id="window-outerHeight,window-outerWidth">window.outerHeight,window.outerWidth</h2><p>获取的是浏览器窗口的大小<br>图片中的红框就是inner，整个窗口就是outer<br>在全屏的时候inner和outer始终是一样的<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015062001.PNG" alt=""></p>
-<h2 id="window-pageXOffset和window-pageYOffset,window-scrollX和window-scrollY">window.pageXOffset和window.pageYOffset,window.scrollX和window.scrollY</h2><p>他们是对应等价的，都是获取滚动条滚动的高度<br>跨浏览器获取文档的滚动距离</p>
-<pre><code><span class="reserved">var</span> x = (<span class="built_in">window</span>.pageXOffset !== <span class="literal">undefined</span>) ? <span class="built_in">window</span>.pageXOffset : (<span class="built_in">document</span>.documentElement || <span class="built_in">document</span>.body.parentNode || <span class="built_in">document</span>.body).scrollLeft;
-<span class="reserved">var</span> y = (<span class="built_in">window</span>.pageYOffset !== <span class="literal">undefined</span>) ? <span class="built_in">window</span>.pageYOffset : (<span class="built_in">document</span>.documentElement || <span class="built_in">document</span>.body.parentNode || <span class="built_in">document</span>.body).scrollTop;
-</code></pre><h2 id="window-screenX和window-screenY,window-screenLeft和window-screenTop">window.screenX和window.screenY,window.screenLeft和window.screenTop</h2><p>他们是对应相等的，都是获取的浏览器窗口相对于电脑屏幕的偏移的距离</p>
+        <p>#元素鼠标事件中</p>
+<p>##offsetX,offsetY<br>获取的是点击位置距离元素左边界和上边界的距离大小；</p>
+<p>##clientX,clientY<br>坐标值是鼠标事件发生时鼠标光标在可视区（视口）的位置（我们看得见页面的地方）</p>
+<p>##layerX,layerY<br>这个是很麻烦的，它是获取发生鼠标事件时光标距离最近position设置为absolute或者relative元素的距离（本身，或者是祖先元素）,positioin:fixed时很诡异，父元素设置了position,对其是由影响的<br><a id="more"></a></p>
+<p>##pageX,pageY<br>获取的是鼠标事件发生时鼠标光标相对于整个文档元素（document）的坐标（包含滚动的距离），在页面没有滚动时，值和clientX，clineY是一样的</p>
+<p>##screenX,screenY<br>获取的鼠标事件发生时鼠标光标相对于电脑屏幕的坐标</p>
+<p>##x,y<br>这个值始终和clientX，clinetY，一样</p>
+<p>#元素的大小</p>
+<p>##偏移量</p>
+<p>###offsetWidth,offsetHeight<br>这个是获取的元素的可视大小，包括padding（内边距），border（边距），content（内容区），如果有滚动条还包含滚动条</p>
+<p>###offsetLeft,offsetTop<br>获取跟 <em>直接</em> 父元素的偏移量,从元素的border到父元素的content区域,offsetParent,是获取的包含它的父元素<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015061801.PNG" alt=""></p>
+<p>##客户区的大小</p>
+<p>###clientWidth,clientHeight<br>只包含padding和content（内容区），千万注意，不包括border，也不包括滚动条的宽度<br>ps.偏移量和客户区大小都是只读的</p>
+<p>##滚动大小</p>
+<p>###scrollWidht,scrollHeight<br>获取包含元素的大小，在没有滚动条时，和clientWidth，clientHeight是一样的.在有滚动条的时候，只包含content和padding-left，padding-top，但是chrome还有padding-bottom</p>
+<p>###scrollTop,scrollLeft<br>如果元素没有滚动条它们的值就是0；<br>获取滚动条滚动的距离，可以对其进行赋值，使滚动条到指定的位置<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015061902.PNG" alt=""><br>PS,特殊元素下获取:document.documentElement,document.body</p>
+<p>##getBoundingClientRect()<br>它不需要参数，返回一个有left,right,top,bottom，width，height的对象,其中width和height在IE9+上支持，获取的width，height跟offsetWidhth，offsetHeight等价</p>
+<p>##getClientsRects()<br>这个是可以获取一个内联元素（如span）多行文本中的 <em>每一行</em> 的位置信息</p>
+<p>#window</p>
+<p>##window.innerHeight,window.innerWidth<br>获取浏览器可视显示文档的地方的大小,有滚动条则包括滚动条</p>
+<p>##window.outerHeight,window.outerWidth<br>获取的是浏览器窗口的大小<br>图片中的红框就是inner，整个窗口就是outer<br>在全屏的时候inner和outer始终是一样的<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015062001.PNG" alt=""></p>
+<p>##window.pageXOffset和window.pageYOffset,window.scrollX和window.scrollY<br>他们是对应等价的，都是获取滚动条滚动的高度<br>跨浏览器获取文档的滚动距离</p>
+<pre><code>var x = (window.pageXOffset !== undefined) ? window.pageXOffset : (document.documentElement || document.body.parentNode || document.body).scrollLeft;
+var y = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+</code></pre><p>##window.screenX和window.screenY,window.screenLeft和window.screenTop<br>他们是对应相等的，都是获取的浏览器窗口相对于电脑屏幕的偏移的距离</p>
 
       
     </div>
@@ -236,9 +242,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/DOM/"> #DOM </a>
-          
             <a href="/tags/备忘/"> #备忘 </a>
+          
+            <a href="/tags/DOM/"> #DOM </a>
           
         </div>
       
@@ -396,7 +402,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#元素鼠标事件中"><span class="nav-number">1.</span> <span class="nav-text">元素鼠标事件中</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#offsetX,offsetY"><span class="nav-number">1.1.</span> <span class="nav-text">offsetX,offsetY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clientX,clientY"><span class="nav-number">1.2.</span> <span class="nav-text">clientX,clientY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layerX,layerY"><span class="nav-number">1.3.</span> <span class="nav-text">layerX,layerY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pageX,pageY"><span class="nav-number">1.4.</span> <span class="nav-text">pageX,pageY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#screenX,screenY"><span class="nav-number">1.5.</span> <span class="nav-text">screenX,screenY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#x,y"><span class="nav-number">1.6.</span> <span class="nav-text">x,y</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#元素的大小"><span class="nav-number">2.</span> <span class="nav-text">元素的大小</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#偏移量"><span class="nav-number">2.1.</span> <span class="nav-text">偏移量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#offsetWidth,offsetHeight"><span class="nav-number">2.1.1.</span> <span class="nav-text">offsetWidth,offsetHeight</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#offsetLeft,offsetTop"><span class="nav-number">2.1.2.</span> <span class="nav-text">offsetLeft,offsetTop</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户区的大小"><span class="nav-number">2.2.</span> <span class="nav-text">客户区的大小</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#clientWidth,clientHeight"><span class="nav-number">2.2.1.</span> <span class="nav-text">clientWidth,clientHeight</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滚动大小"><span class="nav-number">2.3.</span> <span class="nav-text">滚动大小</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#scrollWidht,scrollHeight"><span class="nav-number">2.3.1.</span> <span class="nav-text">scrollWidht,scrollHeight</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scrollTop,scrollLeft"><span class="nav-number">2.3.2.</span> <span class="nav-text">scrollTop,scrollLeft</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getBoundingClientRect()"><span class="nav-number">2.4.</span> <span class="nav-text">getBoundingClientRect()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getClientsRects()"><span class="nav-number">2.5.</span> <span class="nav-text">getClientsRects()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#window"><span class="nav-number">3.</span> <span class="nav-text">window</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#window-innerHeight,window-innerWidth"><span class="nav-number">3.1.</span> <span class="nav-text">window.innerHeight,window.innerWidth</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#window-outerHeight,window-outerWidth"><span class="nav-number">3.2.</span> <span class="nav-text">window.outerHeight,window.outerWidth</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#window-pageXOffset和window-pageYOffset,window-scrollX和window-scrollY"><span class="nav-number">3.3.</span> <span class="nav-text">window.pageXOffset和window.pageYOffset,window.scrollX和window.scrollY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#window-screenX和window-screenY,window-screenLeft和window-screenTop"><span class="nav-number">3.4.</span> <span class="nav-text">window.screenX和window.screenY,window.screenLeft和window.screenTop</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

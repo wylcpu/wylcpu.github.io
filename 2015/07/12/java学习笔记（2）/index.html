@@ -210,26 +210,27 @@
 
       
         <p>今天是学习Java的第二天，虽然明天就要考试了，但是我还是想学！今天就学学Java的变量和常量！<br><a id="more"></a></p>
-<h4 id="java关键字">java关键字</h4><p><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015071204.jpg" alt=""><br>java是区分大小写的</p>
-<h4 id="什么是标识符">什么是标识符</h4><p>标识符就是用于给 Java 程序中变量、类、方法等命名的符号<br>在命名的时候需要遵守的规则</p>
+<p>####java关键字<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015071204.jpg" alt=""><br>java是区分大小写的</p>
+<p>####什么是标识符<br>标识符就是用于给 Java 程序中变量、类、方法等命名的符号<br>在命名的时候需要遵守的规则</p>
 <ol>
 <li>标识符可以由字母、数字、下划线（_）、美元符（$）组成，但不能包含 @、%、空格等其它特殊字符，不能以数字开头。譬如：123name 就是不合法滴</li>
 <li>标识符不能是 Java 关键字和保留字（ Java 预留的关键字，以后的升级版本中有可能作为关键字），但可以包含关键字和保留字。如：不可以使用 void 作为标识符，但是 Myvoid 可以</li>
 <li>标识符是严格区分大小写的。 所以涅，一定要分清楚 imooc 和 IMooc 是两个不同的标识符哦！</li>
 <li>标识符的命名最好能反映出其作用，做到见名知意<br>ps.其实其它语言的命名规则也是这样的。</li>
 </ol>
-<h4 id="什么是变量">什么是变量</h4><p>描述一个变量通过三个部分：变量类型、变量名以及变量值</p>
-<h5 id="如何命名Java变量">如何命名Java变量</h5><p>下面是比较好的习惯，当然你也可以不这样</p>
+<p>####什么是变量<br>描述一个变量通过三个部分：变量类型、变量名以及变量值</p>
+<p>#####如何命名Java变量<br>下面是比较好的习惯，当然你也可以不这样</p>
 <ol>
 <li>变量名由多单词组成时，第一个单词的首字母小写，其后单词的首字母大写，俗称骆驼式命名法</li>
 <li>变量命名时，尽量简短且能清楚的表达变量的作用，做到见名知意。</li>
 <li>Java 变量名的长度没有限制，但 Java 语言是区分大小写的</li>
 </ol>
-<h6 id="使用规则">使用规则</h6><ol>
+<p>######使用规则</p>
+<ol>
 <li>Java 中的变量需要先声明后使用</li>
 <li>变量使用时，可以声明变量的同时进行初始化</li>
 </ol>
-<h4 id="java中的数据类型">java中的数据类型</h4><p>Java 语言是一种强类型语言。通俗点说就是，在 Java 中存储的数据都是有类型的，而且必须在编译时就确定其类型<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015071202.jpg" alt=""><br>基本数据类型变量存的是数据本身，而引用类型变量存的是保存数据的空间地址<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015071203.jpg" alt=""><br>Java中char和String 的区别</p>
+<p>####java中的数据类型<br>Java 语言是一种强类型语言。通俗点说就是，在 Java 中存储的数据都是有类型的，而且必须在编译时就确定其类型<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015071202.jpg" alt=""><br>基本数据类型变量存的是数据本身，而引用类型变量存的是保存数据的空间地址<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015071203.jpg" alt=""><br>Java中char和String 的区别</p>
 <ol>
 <li>char表示字符，定义时用单引号，只能存储一个字符，如char c=’x’;<br>而String表示字符串，定义时用双引号，可以存储一个或多个字符，如String name=”tom”;</li>
 <li>char是基本数据类型，而String 是一个类，具有面向对象的特征，可以调用方法，如name.length()获取字符串的长度。<br>Java中float与double的区别</li>
@@ -237,21 +238,22 @@
 <li>java中默认声明的小数是double类型的，如double d=4.0<br>如果声明： float x = 4.0则会报错，需要如下写法：float x = 4.0f或者float x = (float)4.0<br>其中4.0f后面的f只是为了区别double，并不代表任何数字上的意义 </li>
 <li>double 和 float 的区别是double精度高，但double消耗内存是float的两倍，且double的运算速度较float稍慢</li>
 </ol>
-<h4 id="Java中的自动类型转换">Java中的自动类型转换</h4><pre><code><span class="keyword">int</span> a = <span class="number">82</span>;
-<span class="keyword">double</span> b = a;
-System.<span class="keyword">out</span>.println(b)<span class="comment">//82.0</span>
+<p>####Java中的自动类型转换</p>
+<pre><code>int a = 82;
+double b = a;
+System.out.println(b)//82.0
 </code></pre><p>满足自动转换的条件</p>
 <ol>
 <li>目标类型能与源类型兼容，如double 型兼容int 型，但是 char 型不能兼容 int 型</li>
 <li>目标类型大于源类型，如 double 类型长度为 8 字节， int 类型为 4 字节，因此 double 类型的变量里直接可以存放 int 类型的数据，但反过来就不可以了</li>
 </ol>
-<h4 id="Java中的强制类型转换">Java中的强制类型转换</h4><p>格式：( 数据类型 ) 数值<br>强制类型转换可能会造成数据的丢失，在应用的时候要慎重！</p>
-<pre><code><span class="keyword">double</span> <span class="keyword">avg</span> = <span class="number">75.8</span>;
-<span class="keyword">int</span> avg2 = (<span class="keyword">int</span>)<span class="keyword">avg</span>;
-System.out.println(<span class="keyword">avg</span>);<span class="comment">//75.8</span>
-System.out.println(avg2);<span class="comment">//75</span>
-</code></pre><h4 id="Java常量的应用">Java常量的应用</h4><p>常量，我们可以理解为是一种特殊的变量，它的值被设定后，在程序运行过程中不允许改变<br>格式：<code>final 变量名 = 值</code>;<br><code>final String s = &quot;hello&quot;</code>;<br>这就定义了一个常量<br>注意：常量名一般使用大写字符（习惯问题）</p>
-<h4 id="Java注释">Java注释</h4><p>Java中注释有三种类型：单行注释、多行注释、文档注释</p>
+<p>####Java中的强制类型转换<br>格式：( 数据类型 ) 数值<br>强制类型转换可能会造成数据的丢失，在应用的时候要慎重！</p>
+<pre><code>double avg = 75.8;
+int avg2 = (int)avg;
+System.out.println(avg);//75.8
+System.out.println(avg2);//75
+</code></pre><p>####Java常量的应用<br>常量，我们可以理解为是一种特殊的变量，它的值被设定后，在程序运行过程中不允许改变<br>格式：<code>final 变量名 = 值</code>;<br><code>final String s = &quot;hello&quot;</code>;<br>这就定义了一个常量<br>注意：常量名一般使用大写字符（习惯问题）</p>
+<p>####Java注释<br>Java中注释有三种类型：单行注释、多行注释、文档注释</p>
 
       
     </div>
@@ -418,7 +420,7 @@ System.out.println(avg2);<span class="comment">//75</span>
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#java关键字"><span class="nav-number">1.</span> <span class="nav-text">java关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是标识符"><span class="nav-number">2.</span> <span class="nav-text">什么是标识符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是变量"><span class="nav-number">3.</span> <span class="nav-text">什么是变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如何命名Java变量"><span class="nav-number">3.1.</span> <span class="nav-text">如何命名Java变量</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#使用规则"><span class="nav-number">3.1.1.</span> <span class="nav-text">使用规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java中的数据类型"><span class="nav-number">4.</span> <span class="nav-text">java中的数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java中的自动类型转换"><span class="nav-number">5.</span> <span class="nav-text">Java中的自动类型转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java中的强制类型转换"><span class="nav-number">6.</span> <span class="nav-text">Java中的强制类型转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java常量的应用"><span class="nav-number">7.</span> <span class="nav-text">Java常量的应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java注释"><span class="nav-number">8.</span> <span class="nav-text">Java注释</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

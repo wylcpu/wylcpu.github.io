@@ -214,7 +214,8 @@
 
       
         
-          <h1 id="新增属性">新增属性</h1><h4 id="autocomplete">autocomplete</h4><p>规定输入字段是否应该启用自动完成功能.值为off或者是on，默认是开启。自动完成允许浏览器预测对字段的输入。当用户在字段开始键入时，浏览器基于之前键入过的值，应该显示出在字段中填写的选项,就是当你提交表单后，输入框会保留你之前输入的东西,下次输入时，会开始是一样的，会提示你之前输入的值<br>
+          <p>#新增属性</p>
+<p>####autocomplete<br>规定输入字段是否应该启用自动完成功能.值为off或者是on，默认是开启。自动完成允许浏览器预测对字段的输入。当用户在字段开始键入时，浏览器基于之前键入过的值，应该显示出在字段中填写的选项,就是当你提交表单后，输入框会保留你之前输入的东西,下次输入时，会开始是一样的，会提示你之前输入的值<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/06/20/html5之新增表单属性/#more">
               阅读全文 &raquo;
@@ -304,7 +305,8 @@
       
         
           <p>今天是端午节，苦逼在敲代码</p>
-<h1 id="input">input</h1><h3 id="type属性">type属性</h3><p>type规定了input元素的类型<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015062002.PNG" alt=""><br><strong><code>&lt;input type=&quot;text&quot;/&gt;</code></strong><br>这个是最常见的输入文本类型，这个只能输入单行文本，通过获取元素的<code>value</code>来获取其中的值<br>
+<p>#input</p>
+<p>###type属性<br>type规定了input元素的类型<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015062002.PNG" alt=""><br><strong><code>&lt;input type=&quot;text&quot;/&gt;</code></strong><br>这个是最常见的输入文本类型，这个只能输入单行文本，通过获取元素的<code>value</code>来获取其中的值<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/06/20/html之input/#more">
               阅读全文 &raquo;
@@ -385,7 +387,8 @@
 
       
         
-          <h1 id="window">window</h1>
+          <p>#window</p>
+
         
       
     </div>
@@ -461,9 +464,10 @@
 
       
         
-          <h1 id="元素鼠标事件中">元素鼠标事件中</h1><h2 id="offsetX,offsetY">offsetX,offsetY</h2><p>获取的是点击位置距离元素左边界和上边界的距离大小；</p>
-<h2 id="clientX,clientY">clientX,clientY</h2><p>坐标值是鼠标事件发生时鼠标光标在可视区（视口）的位置（我们看得见页面的地方）</p>
-<h2 id="layerX,layerY">layerX,layerY</h2><p>这个是很麻烦的，它是获取发生鼠标事件时光标距离最近position设置为absolute或者relative元素的距离（本身，或者是祖先元素）,positioin:fixed时很诡异，父元素设置了position,对其是由影响的<br>
+          <p>#元素鼠标事件中</p>
+<p>##offsetX,offsetY<br>获取的是点击位置距离元素左边界和上边界的距离大小；</p>
+<p>##clientX,clientY<br>坐标值是鼠标事件发生时鼠标光标在可视区（视口）的位置（我们看得见页面的地方）</p>
+<p>##layerX,layerY<br>这个是很麻烦的，它是获取发生鼠标事件时光标距离最近position设置为absolute或者relative元素的距离（本身，或者是祖先元素）,positioin:fixed时很诡异，父元素设置了position,对其是由影响的<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/06/18/DOM之获取元素坐标-偏移-大小/#more">
               阅读全文 &raquo;
@@ -702,7 +706,7 @@
 
       
         
-          <h2 id="HTML5_服务器推送事件(server-send_event)">HTML5 服务器推送事件(server-send event)</h2><p>用于服务器实时向客户端推送消息，这个是单向推送<code>server to client</code></p>
+          <p>##HTML5 服务器推送事件(server-send event)<br>用于服务器实时向客户端推送消息，这个是单向推送<code>server to client</code></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/06/12/html5之服务器推/#more">
               阅读全文 &raquo;
@@ -788,36 +792,36 @@
 <li>之前一直用点击那个文件的方式，之前用过快捷键，最近又新安装sublime，但是没有弄，今天实在是受不了了，<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015061101.PNG" alt=""></li>
 </ol>
 <p>代码：</p>
-<pre><code>//<span class="atom">chrome</span>
-{ <span class="string">"keys"</span>: [<span class="string">"f1"</span>], <span class="string">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,
-    <span class="string">"args"</span>: {
-        <span class="string">"paths"</span>: [],
-        <span class="string">"application"</span>: <span class="string">"C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"</span>,
-        <span class="string">"extensions"</span>:<span class="string">".*"</span>
+<pre><code>//chrome
+{ &quot;keys&quot;: [&quot;f1&quot;], &quot;command&quot;: &quot;side_bar_files_open_with&quot;,
+    &quot;args&quot;: {
+        &quot;paths&quot;: [],
+        &quot;application&quot;: &quot;C:/Program Files (x86)/Google/Chrome/Application/chrome.exe&quot;,
+        &quot;extensions&quot;:&quot;.*&quot;
     }
 },
-//<span class="name">IE</span>
-{ <span class="string">"keys"</span>: [<span class="string">"f2"</span>], <span class="string">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,
-    <span class="string">"args"</span>: {
-        <span class="string">"paths"</span>: [],
-        <span class="string">"application"</span>: <span class="string">"C:/Program Files (x86)/Internet Explorer/iexplore.exe"</span>,
-        <span class="string">"extensions"</span>:<span class="string">".*"</span>
+//IE
+{ &quot;keys&quot;: [&quot;f2&quot;], &quot;command&quot;: &quot;side_bar_files_open_with&quot;,
+    &quot;args&quot;: {
+        &quot;paths&quot;: [],
+        &quot;application&quot;: &quot;C:/Program Files (x86)/Internet Explorer/iexplore.exe&quot;,
+        &quot;extensions&quot;:&quot;.*&quot;
     }
 },
-//<span class="atom">firefox</span>
-{ <span class="string">"keys"</span>: [<span class="string">"f3"</span>], <span class="string">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,
-    <span class="string">"args"</span>: {
-        <span class="string">"paths"</span>: [],
-        <span class="string">"application"</span>: <span class="string">"C:/Program Files (x86)/Mozilla Firefox/firefox.exe"</span>,
-        <span class="string">"extensions"</span>:<span class="string">".*"</span>
+//firefox
+{ &quot;keys&quot;: [&quot;f3&quot;], &quot;command&quot;: &quot;side_bar_files_open_with&quot;,
+    &quot;args&quot;: {
+        &quot;paths&quot;: [],
+        &quot;application&quot;: &quot;C:/Program Files (x86)/Mozilla Firefox/firefox.exe&quot;,
+        &quot;extensions&quot;:&quot;.*&quot;
     }
 },
-//<span class="atom">opera</span>
-{ <span class="string">"keys"</span>: [<span class="string">"f4"</span>], <span class="string">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,
-    <span class="string">"args"</span>: {
-        <span class="string">"paths"</span>: [],
-        <span class="string">"application"</span>: <span class="string">"C:/Program Files (x86)/Opera/launcher.exe"</span>,
-        <span class="string">"extensions"</span>:<span class="string">".*"</span>
+//opera
+{ &quot;keys&quot;: [&quot;f4&quot;], &quot;command&quot;: &quot;side_bar_files_open_with&quot;,
+    &quot;args&quot;: {
+        &quot;paths&quot;: [],
+        &quot;application&quot;: &quot;C:/Program Files (x86)/Opera/launcher.exe&quot;,
+        &quot;extensions&quot;:&quot;.*&quot;
     }
 }
 </code></pre><ol>
@@ -900,17 +904,21 @@
       
         
           <p>作为web人员还是了解一些web安全是有必要的</p>
-<h1 id="xss入门">xss入门</h1><h2 id="什么是xss">什么是xss</h2><p>xss全程是跨站脚本，是一种注入式的攻击</p>
-<h2 id="xss成因">xss成因</h2><ul>
+<p>#xss入门</p>
+<p>##什么是xss<br>xss全程是跨站脚本，是一种注入式的攻击</p>
+<p>##xss成因</p>
+<ul>
 <li>对于用户输入没有严格控制而直接输出到页面</li>
 <li>对非预期输入的信任</li>
 </ul>
-<h2 id="xss分类">xss分类</h2><ul>
+<p>##xss分类</p>
+<ul>
 <li>存储型（持久型）</li>
 <li>反射型（非持久型）</li>
 <li>DOM型</li>
 </ul>
-<h2 id="xss的危害">xss的危害</h2><ul>
+<p>##xss的危害</p>
+<ul>
 <li>盗取各类用户账号，如机器登录账号、用户网银账号、各类管理员账号</li>
 <li>窃取数据</li>
 <li>非法转账</li>

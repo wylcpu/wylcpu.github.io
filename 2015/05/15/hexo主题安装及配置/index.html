@@ -209,12 +209,12 @@
       
 
       
-        <h2 id="主题安装">主题安装</h2><ul>
+        <h2 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h2><ul>
 <li>上官网，目前有十几个主题，你也可以在github上找到自己喜欢的主题<br>我使用的是官网上的一个<a href="https://hexo.io/themes/" target="_blank" rel="external">官网链接</a>,</li>
 <li>接下来，我就以我的主题为例：（其实人家的说明已经很详细了）</li>
 <li>我就说说我安装时应该注意的，和他讲的不是太明白的（我感觉，有可能你感觉他讲的很明白，我只是后来试错了，才明白）说说</li>
 </ul>
-<h3 id="：注意">：注意</h3><ol>
+<h3 id="：注意"><a href="#：注意" class="headerlink" title="：注意"></a>：注意</h3><ol>
 <li>想把主题的logo什么的换成你自己的，你就去这个目录下，替换掉想要的图片themes/jacman/source/img/,把你自己设计的或者是网上搜的霸气的图片换上</li>
 <li>你要分清出什么时候是让你配置的博客目录下的_config.yml和什么时候让你配置的主题目录下的_config.yml。</li>
 <li>默认主题中有汉字的地方是显示的繁体字，你只需要在博客目录下的_config.yml中的language中设置为：zh-CN;可是你要注意了.这是那几个繁体字就变成简体字了，yml中的文件中，冒号后面是要有一个空格的，要不是不起作用的</li>
@@ -226,11 +226,11 @@
 <li>还有网站最下面的一些文字，你也可以用你字的，但是最后一行的主题是谁的你可别也改成你自己的，你换了我也只能是呵呵了</li>
 <li>我就说说把你的微薄，邮箱，Facebook，Twitter什么的添加进去，注意了<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/autor.PNG" alt=""><br>这里的地址是相对地址，前半部分作者已经给你写好了，你只需要填写上你自己对应的目录，就想我的，我就举个例子：知乎：你的主页地址是：<a href="http://www.zhihu.com/people/todayhappy" target="_blank" rel="external">http://www.zhihu.com/people/todayhappy</a><br>但是你应该写todayhappy就行了，其他的同理</li>
 </ol>
-<h2 id="写文章">写文章</h2><h3 id="归类和标签">归类和标签</h3><p>这个默认是没有的你根据主题作者所说的分别创建者两个目录<br><strong>为了以后写文章方便归类清晰</strong><br>我建议你把scaffolds目录下的post.md修改为：<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/post.PNG" alt=""><br>多个tags标签用[tag1,tag2]这样,要是一个标签就直接写<br>categories也是一样的<br>ps.上课去，真是麻烦回来再写<br>回来了。</p>
-<h3 id="新建文章">新建文章</h3><pre><code>hexo <span class="keyword">new</span> [layout] <span class="string">"postName"</span>
+<h2 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h2><h3 id="归类和标签"><a href="#归类和标签" class="headerlink" title="归类和标签"></a>归类和标签</h3><p>这个默认是没有的你根据主题作者所说的分别创建者两个目录<br><strong>为了以后写文章方便归类清晰</strong><br>我建议你把scaffolds目录下的post.md修改为：<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/post.PNG" alt=""><br>多个tags标签用[tag1,tag2]这样,要是一个标签就直接写<br>categories也是一样的<br>ps.上课去，真是麻烦回来再写<br>回来了。</p>
+<h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><pre><code>hexo new [layout] &quot;postName&quot;
 </code></pre><p>其中layout是你要写的文件类型，默认是post<br>新建文章之后你就去source/_post下你就看见你自己新建的文件名了<br>之后你就用编辑器编写就行了，我是用sublime test3下了一个插件markdownediting这个插件他会给你提示，</p>
-<h2 id="添加多说评论">添加多说评论</h2><h3 id="注册多说">注册多说</h3><p>多说的网速实在是太差了，我不知道是不是我的原因还是他们的原因，<br>注册完了之后<br>你就去点击工具这个选项，这个时候就出现了代码了，主题作者已经给你把其中的代码写了一部分了，你只需要把名字输进去就行了，但是我刚开始的时候就是名字没有输入正确，为了一定正确你输入这里的名字：<img src="http://7xj3gz.com1.z0.glb.clouddn.com/11.PNG" alt=""><br>把这个名字写在主题配置文件的<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2.PNG" alt=""><br>这就行了能用了！</p>
-<h2 id="域名绑定">域名绑定</h2><p>我是用的二级域名绑定，我就说说我是怎么绑定吧</p>
+<h2 id="添加多说评论"><a href="#添加多说评论" class="headerlink" title="添加多说评论"></a>添加多说评论</h2><h3 id="注册多说"><a href="#注册多说" class="headerlink" title="注册多说"></a>注册多说</h3><p>多说的网速实在是太差了，我不知道是不是我的原因还是他们的原因，<br>注册完了之后<br>你就去点击工具这个选项，这个时候就出现了代码了，主题作者已经给你把其中的代码写了一部分了，你只需要把名字输进去就行了，但是我刚开始的时候就是名字没有输入正确，为了一定正确你输入这里的名字：<img src="http://7xj3gz.com1.z0.glb.clouddn.com/11.PNG" alt=""><br>把这个名字写在主题配置文件的<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2.PNG" alt=""><br>这就行了能用了！</p>
+<h2 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h2><p>我是用的二级域名绑定，我就说说我是怎么绑定吧</p>
 <ul>
 <li>首先你要去申请一个你自己喜欢没有注册过的域名</li>
 <li>之后就是绑定了，<img src="http://7xj3gz.com1.z0.glb.clouddn.com/3.PNG" alt=""></li>

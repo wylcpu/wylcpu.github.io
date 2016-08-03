@@ -215,86 +215,86 @@
 <li>css实现元素水平垂直居中方法一</li>
 </ol>
 <p>代码：</p>
-<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
-<span class="class">.box1</span><span class="rules">{<span class="rule"><span class="attribute">display</span>:<span class="value"> table-cell</span></span>; 
-      <span class="rule"><span class="attribute">vertical-align</span>:<span class="value"> middle</span></span>;
-      <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">300px</span></span></span>;
-      <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">500px</span></span></span>; 
-      <span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;
-      <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;
-    }</span>
-<span class="class">.box1</span> <span class="class">.am</span><span class="rules">{<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">50px</span></span></span>;
-          <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">50px</span></span></span>; 
-          <span class="rule"><span class="attribute">background</span>:<span class="value"> blue</span></span>;
-          <span class="rule"><span class="attribute">display</span>:<span class="value">inline-block</span></span>;
-        }</span>
-</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
-<span class="tag">&lt;<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box1"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"am"</span>&gt;</span>I am this<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<pre><code>&lt;style&gt;
+.box1{display: table-cell; 
+      vertical-align: middle;
+      height: 300px;
+      width: 500px; 
+      background: red;
+      text-align: center;
+    }
+.box1 .am{width: 50px;
+          height:50px; 
+          background: blue;
+          display:inline-block;
+        }
+&lt;/style&gt;
+&lt;body&gt;
+&lt;div class=&quot;box1&quot;&gt;
+    &lt;div class=&quot;am&quot;&gt;I am this&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
 </code></pre><p>图：<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-22.PNG" alt=""></p>
 <ol>
 <li>实现元素水平垂直居中二</li>
 </ol>
 <p>代码</p>
-<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
-<span class="class">.box</span><span class="rules">{
-    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">300px</span></span></span>;
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">300px</span></span></span>;
-    <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid red</span></span>;
-    <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;
-}</span>
-<span class="class">.element</span><span class="rules">{
-  <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
-  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;
-  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;
-  <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">50%</span></span></span>;
-  <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">50%</span></span></span>;
-  <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> -<span class="number">50px</span></span></span>;
-  <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> -<span class="number">50px</span></span></span>;
-  <span class="rule"><span class="attribute">background-color</span>:<span class="value"> yellow</span></span>;
-}</span>
-</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span> 
-<span class="tag">&lt;<span class="title">body</span>&gt;</span> 
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"element"</span>&gt;</span>dfd<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<pre><code>&lt;style&gt;
+.box{
+    width:300px;
+    height: 300px;
+    border: 1px solid red;
+    position: relative;
+}
+.element{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 50%;
+  top: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+  background-color: yellow;
+}
+&lt;/style&gt; 
+&lt;body&gt; 
+&lt;div class=&quot;box&quot;&gt;
+    &lt;div class=&quot;element&quot;&gt;dfd&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
 </code></pre><ol>
 <li>实现元素水平垂直居中方法三</li>
 </ol>
 <p>代码</p>
-<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
-<span class="class">.element</span> <span class="rules">{
-  <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;
-  <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
-  <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">100px</span></span></span>;
-  <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">50%</span></span></span>;
-  <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">50%</span></span></span>;
-  <span class="rule"><span class="attribute">background</span>:<span class="value">yellow</span></span>;
-  <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translate</span>(-<span class="number">50%</span>,-<span class="number">50%</span>)</span></span>;
-}</span>   
-<span class="class">.box</span><span class="rules">{
-    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">300px</span></span></span>;
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">300px</span></span></span>;
-    <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid red</span></span>;
-    <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;
-}</span>
-</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
-<span class="tag">&lt;<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"element"</span>&gt;</span>dfd<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<pre><code>&lt;style&gt;
+.element {
+  position: relative;
+  width:100px;
+  height:100px;
+  top: 50%;
+  left: 50%;
+  background:yellow;
+  transform: translate(-50%,-50%);
+}   
+.box{
+    width:300px;
+    height: 300px;
+    border: 1px solid red;
+    position: relative;
+}
+&lt;/style&gt;
+&lt;body&gt;
+&lt;div class=&quot;box&quot;&gt;
+    &lt;div class=&quot;element&quot;&gt;dfd&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
 </code></pre><ol>
 <li>在使用mongoose连接数据库的时候出现了这个<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150603.PNG" alt=""></li>
 </ol>
 <p>解决方式:<br>使用npm安装bson</p>
-<pre><code>npm <span class="keyword">install</span> bson
+<pre><code>npm install bson
 </code></pre><p>之后找到</p>
-<pre><code>E:<span class="command">\demo</span><span class="command">\nodejs</span><span class="command">\node</span>_modules<span class="command">\mongoose</span><span class="command">\node</span>_modules<span class="command">\bson</span><span class="command">\node</span>_modules<span class="command">\bson</span>-ext<span class="command">\ext</span><span class="command">\index</span>.js
+<pre><code>E:\demo\nodejs\node_modules\mongoose\node_modules\bson\node_modules\bson-ext\ext\index.js
 </code></pre><p>修改之前：<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015060301.PNG" alt=""><br>修改之后：<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015060302.PNG" alt=""><br>现在就好了。</p>
 
       

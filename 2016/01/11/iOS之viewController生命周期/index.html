@@ -198,98 +198,99 @@
       
 
       
-        <h3 id="与viewController生命周期有关的方法">与viewController生命周期有关的方法</h3><p>通过了解控制器的生命周期，进而知道应该在什么时候处理自己的代码了；<br><code></code></p>
+        <p>###与viewController生命周期有关的方法<br>通过了解控制器的生命周期，进而知道应该在什么时候处理自己的代码了；<br><code></code></p>
 <pre><code>+(void)initialize;//类的初始化
--<span class="ruby">(id)init;<span class="regexp">//</span>对象的初始化
-</span>-<span class="ruby">(id)<span class="symbol">initWithCode:</span>(<span class="constant">NSCoder</span>*)aDecoder;<span class="regexp">//</span>归档的初始化
-</span>-<span class="ruby">(void)loadView;<span class="regexp">//</span>加载视图
-</span>-<span class="ruby">(void)viewDidLoad将要加载视图
-</span>-<span class="ruby">(void)viewWillAppear;<span class="regexp">//</span>视图将要显示
-</span>-<span class="ruby">(void)viewWillLayoutSubviews;<span class="regexp">//</span>将要布局子视图
-</span>-<span class="ruby">(void)viewDidLayoutSbubiews;<span class="regexp">//</span>完成布局子视图
-</span>-<span class="ruby">(void)<span class="symbol">viewDidAppear:</span>(<span class="constant">BOOL</span>)animated;<span class="regexp">//</span>视图显示
-</span>-<span class="ruby"> (void)<span class="symbol">viewWillDisappear:</span>(<span class="constant">BOOL</span>)animated/<span class="regexp">/视图将要消失
-</span></span>-<span class="ruby"> (void)<span class="symbol">viewDidDisappear:</span>(<span class="constant">BOOL</span>)animated/<span class="regexp">/视图已经消失了
-</span></span>-<span class="ruby">(void)dealloc/<span class="regexp">/对象被释放</span></span>
+-(id)init;//对象的初始化
+-(id)initWithCode:(NSCoder*)aDecoder;//归档的初始化
+-(void)loadView;//加载视图
+-(void)viewDidLoad将要加载视图
+-(void)viewWillAppear;//视图将要显示
+-(void)viewWillLayoutSubviews;//将要布局子视图
+-(void)viewDidLayoutSbubiews;//完成布局子视图
+-(void)viewDidAppear:(BOOL)animated;//视图显示
+- (void)viewWillDisappear:(BOOL)animated//视图将要消失
+- (void)viewDidDisappear:(BOOL)animated//视图已经消失了
+-(void)dealloc//对象被释放
 </code></pre><p><code></code></p>
-<h3 id="例子">例子</h3><p><code></code></p>
-<pre><code>+ (<span class="keyword">void</span>)initialize{
-    [<span class="keyword">super</span> initialize];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是initialize"</span>);
+<p>###例子<br><code></code></p>
+<pre><code>+ (void)initialize{
+    [super initialize];
+    NSLog(@&quot;你是initialize&quot;);
 }
 
--(<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder{
-    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithCoder:aDecoder];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是initWithCoder"</span>);
-    <span class="keyword">return</span> <span class="keyword">self</span>;
+-(id)initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];
+    NSLog(@&quot;你是initWithCoder&quot;);
+    return self;
 }
--(<span class="keyword">id</span>)init{
-    <span class="keyword">self</span> = [<span class="keyword">super</span> init];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是init"</span>);
-    <span class="keyword">return</span> <span class="keyword">self</span>;
+-(id)init{
+    self = [super init];
+    NSLog(@&quot;你是init&quot;);
+    return self;
 }
-- (<span class="keyword">void</span>)viewDidLoad {
-    [<span class="keyword">super</span> viewDidLoad];
-    <span class="comment">// Do any additional setup after loading the view.</span>
-    <span class="built_in">NSLog</span>(<span class="string">@"你是viewDidLoad"</span>);
-}
-
-- (<span class="keyword">void</span>)didReceiveMemoryWarning {
-    [<span class="keyword">super</span> didReceiveMemoryWarning];
-    <span class="comment">// Dispose of any resources that can be recreated.</span>
-}
--(<span class="keyword">void</span>)loadView{
-    [<span class="keyword">super</span> loadView];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是loadView"</span>);
-}
-- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated{
-    [<span class="keyword">super</span> viewWillAppear:animated];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是viewWillAppear"</span>);
-}
-- (<span class="keyword">void</span>)viewDidAppear:(<span class="built_in">BOOL</span>)animated {
-    [<span class="keyword">super</span> viewDidAppear:animated];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是viewDidAppear"</span>);
-}
-- (<span class="keyword">void</span>)viewWillLayoutSubviews {
-    [<span class="keyword">super</span> viewWillLayoutSubviews];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是viewWillLayoutSubviews"</span>);
-}
-- (<span class="keyword">void</span>)viewDidLayoutSubviews {
-    [<span class="keyword">super</span> viewDidLayoutSubviews];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是viewDidLayoutSubviews"</span>);
-}
-- (<span class="keyword">void</span>)viewWillDisappear:(<span class="built_in">BOOL</span>)animated {
-    [<span class="keyword">super</span> viewWillDisappear:animated];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是viewWillDisappear"</span>);
-}
-- (<span class="keyword">void</span>)viewDidDisappear:(<span class="built_in">BOOL</span>)animated {
-    [<span class="keyword">super</span> viewDidDisappear:animated];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是viewDidDisappear"</span>);
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    NSLog(@&quot;你是viewDidLoad&quot;);
 }
 
--(<span class="keyword">void</span>)dealloc {
-    <span class="built_in">NSLog</span>(<span class="string">@"你是dealloc"</span>);
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+-(void)loadView{
+    [super loadView];
+    NSLog(@&quot;你是loadView&quot;);
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    NSLog(@&quot;你是viewWillAppear&quot;);
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSLog(@&quot;你是viewDidAppear&quot;);
+}
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    NSLog(@&quot;你是viewWillLayoutSubviews&quot;);
+}
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    NSLog(@&quot;你是viewDidLayoutSubviews&quot;);
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    NSLog(@&quot;你是viewWillDisappear&quot;);
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NSLog(@&quot;你是viewDidDisappear&quot;);
+}
+
+-(void)dealloc {
+    NSLog(@&quot;你是dealloc&quot;);
 }
 </code></pre><p><br><strong>打印</strong><br><code></code></p>
 <pre><code>//这是push操作，也就是初始化到显示视图
-<span class="number">2016-01-11</span> <span class="number">14:41:23.91</span>7 viewController生命周期[<span class="number">999:42891</span>] 你是initialize
-<span class="number">2016-01-11</span> <span class="number">14:41:23.91</span>8 viewController生命周期[<span class="number">999:42891</span>] 你是initWithCoder
-<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>1 viewController生命周期[<span class="number">999:42891</span>] 你是loadView
-<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>1 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidLoad
-<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>2 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillAppear
-<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>7 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillLayoutSubviews
-<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>8 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidLayoutSubviews
-<span class="number">2016-01-11</span> <span class="number">14:41:24.43</span>1 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidAppear
-<span class="number">2016-01-11</span> <span class="number">14:41:24.43</span>2 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillLayoutSubviews
-<span class="number">2016-01-11</span> <span class="number">14:41:24.43</span>2 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidLayoutSubviews
+2016-01-11 14:41:23.917 viewController生命周期[999:42891] 你是initialize
+2016-01-11 14:41:23.918 viewController生命周期[999:42891] 你是initWithCoder
+2016-01-11 14:41:23.921 viewController生命周期[999:42891] 你是loadView
+2016-01-11 14:41:23.921 viewController生命周期[999:42891] 你是viewDidLoad
+2016-01-11 14:41:23.922 viewController生命周期[999:42891] 你是viewWillAppear
+2016-01-11 14:41:23.927 viewController生命周期[999:42891] 你是viewWillLayoutSubviews
+2016-01-11 14:41:23.928 viewController生命周期[999:42891] 你是viewDidLayoutSubviews
+2016-01-11 14:41:24.431 viewController生命周期[999:42891] 你是viewDidAppear
+2016-01-11 14:41:24.432 viewController生命周期[999:42891] 你是viewWillLayoutSubviews
+2016-01-11 14:41:24.432 viewController生命周期[999:42891] 你是viewDidLayoutSubviews
 &lt;!--这是POP，也就是销毁控制器--&gt;
-<span class="number">2016-01-11</span> <span class="number">14:44:29.62</span>8 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillDisappear
-<span class="number">2016-01-11</span> <span class="number">14:44:29.63</span>0 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillLayoutSubviews
-<span class="number">2016-01-11</span> <span class="number">14:44:29.63</span>0 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidLayoutSubviews
-<span class="number">2016-01-11</span> <span class="number">14:44:30.133</span> viewController生命周期[<span class="number">999:42891</span>] 你是viewDidDisappear
-<span class="number">2016-01-11</span> <span class="number">14:44:30.133</span> viewController生命周期[<span class="number">999:42891</span>] 你是dealloc
+2016-01-11 14:44:29.628 viewController生命周期[999:42891] 你是viewWillDisappear
+2016-01-11 14:44:29.630 viewController生命周期[999:42891] 你是viewWillLayoutSubviews
+2016-01-11 14:44:29.630 viewController生命周期[999:42891] 你是viewDidLayoutSubviews
+2016-01-11 14:44:30.133 viewController生命周期[999:42891] 你是viewDidDisappear
+2016-01-11 14:44:30.133 viewController生命周期[999:42891] 你是dealloc
 </code></pre><p></p>
-<h3 id="总结">总结</h3><ol>
+<p>###总结</p>
+<ol>
 <li>initialize：只有在这个类第一次创建对象时才会调用。以后创建对象也都不会再调用。因此，如果我们有一些和这个相关的全局变量，可以在这里进行初始化</li>
 <li>init：代码初始化调用</li>
 <li>initWithCoder：使用nib或storyboard的时候调用</li>
@@ -463,7 +464,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#与viewController生命周期有关的方法"><span class="nav-number">1.</span> <span class="nav-text">与viewController生命周期有关的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">2.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

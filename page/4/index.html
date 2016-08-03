@@ -381,7 +381,8 @@
           <ol>
 <li>nodejs是一个异步事件驱动的平台</li>
 </ol>
-<h3 id="process">process</h3><ul>
+<p>###process</p>
+<ul>
 <li>process是一个全局内置对象，可以在代码中德任何位置访问此属性，这个对象代表我们的nodejs代码宿主的操作系统进程对象。</li>
 <li><code>process.cwd();</code>查看应用程序的当前目录</li>
 <li><code>process.chdir(&quot;dirpath&quot;)</code>，改变应用程序的目录</li>
@@ -390,7 +391,8 @@
 <li>stdin是进程的输入流</li>
 <li>exit是在程序内杀死进程</li>
 </ul>
-<h3 id="文件I/O">文件I/O</h3><ul>
+<p>###文件I/O</p>
+<ul>
 <li>nodejs中提供了一个名为fs的模块来支持I/O操作</li>
 <li>writeFile函数可以异步的将数据写入一个文件，如果文件已经存在则会被替换;<code>writeFile(filename,data,callback);</code>回掉函数只有一个err参数</li>
 <li>appendFile函数和writeFile差不多，区别是：它可以将新的内容追加到已有的文件中，如果文件不存在就创建一个新文件。</li>
@@ -402,34 +404,35 @@
 <li>rmdir(path,callback(err));删除目录</li>
 <li>readdir(目录,callback(err,files)),回调函数中的files是文件名数组</li>
 </ul>
-<h3 id="URL处理">URL处理</h3><ul>
+<p>###URL处理</p>
+<ul>
 <li>首先引入模块：<code>var url = require(&#39;url&#39;)</code></li>
 <li>parse函数是解析url，返回一个json格式的数组</li>
 </ul>
 <p>example:</p>
-<pre><code>url.parse(<span class="string">'http://www.evil007.com:8888/blog/mm?id=1&amp;age=22'</span>)
-<span class="comment">//打印：</span>
+<pre><code>url.parse(&apos;http://www.evil007.com:8888/blog/mm?id=1&amp;age=22&apos;)
+//打印：
 {
-<span class="string">protocol:</span><span class="string">'http:'</span>
-<span class="string">slashes:</span> <span class="literal">true</span>,
-<span class="string">auth:</span> <span class="literal">null</span>,
-<span class="string">host:</span> <span class="string">'www.evil007.com:8888'</span>,
-<span class="string">port:</span> <span class="string">'8888'</span>,
-<span class="string">hostname:</span> <span class="string">'www.evil007.com'</span>,
-<span class="string">hash:</span> <span class="literal">null</span>,
-<span class="string">search:</span> <span class="string">'?id=1&amp;age=22'</span>,
-<span class="string">query:</span> <span class="string">'id=1&amp;age=22'</span>,
-<span class="string">pathname:</span> <span class="string">'/blog/mm'</span>,
-<span class="string">path:</span> <span class="string">'/blog/mm?id=1&amp;age=22'</span>,
-<span class="string">href:</span> <span class="string">'http://www.evil007.com:8888/blog/mm?id=1&amp;age=22'</span>
+protocol:&apos;http:&apos;
+slashes: true,
+auth: null,
+host: &apos;www.evil007.com:8888&apos;,
+port: &apos;8888&apos;,
+hostname: &apos;www.evil007.com&apos;,
+hash: null,
+search: &apos;?id=1&amp;age=22&apos;,
+query: &apos;id=1&amp;age=22&apos;,
+pathname: &apos;/blog/mm&apos;,
+path: &apos;/blog/mm?id=1&amp;age=22&apos;,
+href: &apos;http://www.evil007.com:8888/blog/mm?id=1&amp;age=22&apos;
  }
 </code></pre><p>如果第二个参数为true，表示条件解析，查询条件也会解析成json格式对象<br>    <code>query: { id: &#39;1&#39;, age: &#39;22&#39; },</code>,其他同上<br>如果有第三个参数为true，表示解析时会将url中//和第一个/之间的部分解析为主机名</p>
 <ul>
 <li>format(json)函数的作用与parse相反，它的参数是一个json对象，返回一个组装好的url地址</li>
 <li>resolve函数的参数是两个路径，第一个路径是开始的路径或者说当前路径，第二个则是想要去往的路径，返回值是一个组装好的url</li>
 </ul>
-<h3 id="高阶函数">高阶函数</h3><p>函数作为参数；<br>函数作为返回值；</p>
-<h3 id="偏函数">偏函数</h3><p>一个创建函数的工厂函数；<br>通过指定部分参数，定制新的函数；</p>
+<p>###高阶函数<br>函数作为参数；<br>函数作为返回值；</p>
+<p>###偏函数<br>一个创建函数的工厂函数；<br>通过指定部分参数，定制新的函数；</p>
 
         
       
@@ -519,12 +522,13 @@
 <li>db.集合名.find().skip(3).limit(2).sort({x:1})</li>
 <li>db.imooc_collect.find({x:5}),查找x=5的项</li>
 </ol>
-<h3 id="数据更新和删除">数据更新和删除</h3><ol>
+<p>###数据更新和删除</p>
+<ol>
 <li>db.imooc_collect.update({x:5});参1：待更新数据，参2：要更新的数据，之后就把x等于5，替换成x等于999 ,默认只是更新查到的第一条数据</li>
 <li>db.imooc_collect.insert({x:100,y:100,z:100})<br>12.更新：db.imooc_collect.update({z:100},{y:99}),会覆盖掉x，z<br>13.部分更新db.iooc_collect.update({z:100},{$set:{y:99}}),结果是：{x:100,y:99,z:100}<br>14.更新不存在的数据，db.imooc_collect.update({z:101},{z:333},true);第三个参数就是说如果不存在要替换的数据就创建一条，</li>
 <li>更新多条数据db.imooc_collect.update({z:1},{$set:{z:3}},false,true);</li>
 <li>删除数据：跟查询差不多，只接受一个参数，不允许不传参，db.imooc_collect.remove({x:5});</li>
-<li>删除某张表用db.imooc_collect.drop();<h3 id="创建索引">创建索引</h3></li>
+<li>删除某张表用db.imooc_collect.drop();<br>###创建索引</li>
 <li>查看索引：db.imooc_collect.getIndexes();</li>
 <li>创建索引；db.imooc_collect.ensureIndex({x:1}),1为正向排序，-1为逆向排序</li>
 <li>_id索引是大多数集合默认建立的索引，对于每个插入的数据，MongoDB都会自动的生成一条唯一的_id字段<br>21.单键索引是最普通的索引，单键索引时不会自动创建的,用db.imooc_collect.ensureIndex({x:1});<br>22.多键索引与单键索引创建形式相同，区别在于字段的值，单键索引：值为一个单一的值，例如字符串，数字或日期。多键索引：值具有多个记录，例如数组<br>23.复合索引db.imooc2.ensureIndex({x:1,y:1});</li>
@@ -532,7 +536,7 @@
 <li>全文索引：对字符串与字符串数组创建全文可搜索的索引例如：db.imooc_collect.ensureIndex({key:”text”}),db.imooc_collect.ensureIndex({“$**”:”text”});一个数据集合只能创建一个全文索引</li>
 <li>如何使用全文索引进行查询：db.imooc_collect.find({$text:{$search:”content”}}),content中的内容用空格分隔是或查询，例：db.imooc_collect.find({$text:{$search:”aa bb”}}),这就是查询包含aa，或者包含bb的字符串的记录</li>
 <li>全文索引相似度使用$meta操作符：{sore：{$meta:”textScore”}}写在查询条件后面可以返回结果的相似度，与sort一起使用，效果更好，例：db.imooc_collect.find({$text:{$search:”aa bb”}}，{score:{$meta:”textScore”}});如果与sort一起使用db.imooc_collect.find({$text:{$search:”aa bb”}}，{score:{$meta:”textScore”}}).sort({score:{$meta:”textScore”}});<br>28.全文索引的使用限制，每次查询只能指定一个$text查询；$text查询不能出现在$nor查询中；查询中如果包含$text,hint不再起作用；现在mongodb还不支持中文的全文索引</li>
-<li>创建索引时的格式：db.collection.ensureIndex({param},{param}),其中，第二个参数便是索引的属性，其中比较重要的属性有：名字，name指定：db.collection.ensureIndex({},{name:””}),默认的名字是用下划线的;唯一性，unique指定：db.collection.ensureIndex({},{unique:true/false});稀疏性，sparse指定：db.collection.ensureIndex({},{spare:true/false});过期索引；<br>30.地理位置索引：将一些点的位置存储在MongoDB中，创建索引后，可以按照位置来查找其他点。子分类：2d索引，用于存储和查找平面上的点；2dsphere索引，用于存储和查找球面上的点；查找方式：1.查找距离某个点一定距离的点。2.查找包含在某区域内的点。2D索引：创建方式：db.collection.ensureIndex({w:”2d”}),位置表示方式：经纬度[经度][维度]，取值范围：经[-180，180]，纬[-90][90]，例，db.location.insert({w:[45,45]}),查询方式：$near查询：查询距离某个点最近的点,例：db.location.find({w:{$near:[25][25]}}),db.location.find({w:{$near:[25,25],$maxDistance:10}})。$geoWithin查询：查询某个形状内的点,形状的表示：1.$box:矩形，使用{$box:[[<x1>,<y1>],[<x2>,<y2>]]}表示，例如：db.locatioin.find({w:{$geoWithin:{$box:[[x1,y1],[x2,y2]]}}})2.$center:圆形，使用{$center:[[x1,y1],r]},3.$polygon:多边形，使用{$polygon:[[x1,y1],[x2,y2],[x3,y3]]};<br>31.geoNear查询：geoNear使用runCommand命令：db.ruCommand({geoNear:<collectioin>,near:[x,y],minDistance:(2d索引失效),maxDistance:,num:,—-})<br>32.2dsphere索引：创建方式：db.collection.ensureIndex(w:”2dsphere”),位置表示方式：GeoJSON:描述一个点，一条直线，多边形等形状，格式：{type:””,coordinates:[&lt;coordinates]},查询方式和2d索引查询方式类似，支持$minDistance与$maxDistance<br>33.索引构建情况分析：索引的好处：加快索引相关的查询。索引的缺点是：增加磁盘空间消耗，降低写入性能。</collectioin></y2></x2></y1></x1></li>
+<li>创建索引时的格式：db.collection.ensureIndex({param},{param}),其中，第二个参数便是索引的属性，其中比较重要的属性有：名字，name指定：db.collection.ensureIndex({},{name:””}),默认的名字是用下划线的;唯一性，unique指定：db.collection.ensureIndex({},{unique:true/false});稀疏性，sparse指定：db.collection.ensureIndex({},{spare:true/false});过期索引；<br>30.地理位置索引：将一些点的位置存储在MongoDB中，创建索引后，可以按照位置来查找其他点。子分类：2d索引，用于存储和查找平面上的点；2dsphere索引，用于存储和查找球面上的点；查找方式：1.查找距离某个点一定距离的点。2.查找包含在某区域内的点。2D索引：创建方式：db.collection.ensureIndex({w:”2d”}),位置表示方式：经纬度[经度][维度]，取值范围：经[-180，180]，纬[-90][90]，例，db.location.insert({w:[45,45]}),查询方式：$near查询：查询距离某个点最近的点,例：db.location.find({w:{$near:[25][25]}}),db.location.find({w:{$near:[25,25],$maxDistance:10}})。$geoWithin查询：查询某个形状内的点,形状的表示：1.$box:矩形，使用{$box:[[<x1>,<y1>],[<x2>,<y2>]]}表示，例如：db.locatioin.find({w:{$geoWithin:{$box:[[x1,y1],[x2,y2]]}}})2.$center:圆形，使用{$center:[[x1,y1],r]},3.$polygon:多边形，使用{$polygon:[[x1,y1],[x2,y2],[x3,y3]]};<br>31.geoNear查询：geoNear使用runCommand命令：db.ruCommand({geoNear:<collectioin>,near:[x,y],minDistance:(2d索引失效),maxDistance:,num:,—})<br>32.2dsphere索引：创建方式：db.collection.ensureIndex(w:”2dsphere”),位置表示方式：GeoJSON:描述一个点，一条直线，多边形等形状，格式：{type:””,coordinates:[&lt;coordinates]},查询方式和2d索引查询方式类似，支持$minDistance与$maxDistance<br>33.索引构建情况分析：索引的好处：加快索引相关的查询。索引的缺点是：增加磁盘空间消耗，降低写入性能。</collectioin></y2></x2></y1></x1></li>
 <li>如何评判当前索引构建情况：1.mongostat工具介绍2.profile集合的介绍。3.日志的介绍4explain分析<br>35.mongostat工具：查看mongodb运行状态的程序</li>
 </ol>
 
@@ -612,38 +616,38 @@
       
         
           <p>最近在学习MongoDB,今天学习了一下MongoDB在window下的安装</p>
-<h3 id="下载MongoDB">下载MongoDB</h3><p>去官网上下载，下载一个.msi的文件<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-12.PNG" alt=""></p>
-<h3 id="安装">安装</h3><p>，之后就是安装了，这个MongoDBd的安装，说白了无非就是替你执行解压操作，之后和使用其他形式的安装MongoDB是一样的，如网上大部分是下载zip文件解压安装。其实解压后两者是差不多的。默认是c盘安装，如果想自己改目录就要选择“custom”安装<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-1.PNG" alt=""><br>我安装的是E盘下MongoDB，<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-2.PNG" alt=""><br>安装完后是这样<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-3.PNG" alt=""></p>
-<h3 id="启动MongoDB">启动MongoDB</h3><p>在下面所有的命令窗口都要以管理员权限运行，（其实有的命令是不需要，但是为了不出现一些因为权限不够而导致的问题，最好都用），<br>需要在命令窗口下运行，就要把MongoDB的bin目录添加到window的环境变量PATH中<br>还有一点需要注意的，如果你不是cmd切换到bin目录下再运行命令的话，而是修改的环境变量的方式，那么你下面需要写文件路径的地方，文件路径一定要使用绝对路径，如果你是用的相对路径，cmd是会相对于C:\Windows\System32这个目录的。<br>这之后，还不能开始启动MongoDB,你需要创建一个目录用于指定数据库的位置，我创建的是E:\MongoDB\data<br>之后，在命令窗口下运行</p>
-<pre><code>mongod --dbpath E:<span class="command">\MongoDB</span><span class="command">\data</span>
+<p>###下载MongoDB<br>去官网上下载，下载一个.msi的文件<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-12.PNG" alt=""></p>
+<p>###安装<br>，之后就是安装了，这个MongoDBd的安装，说白了无非就是替你执行解压操作，之后和使用其他形式的安装MongoDB是一样的，如网上大部分是下载zip文件解压安装。其实解压后两者是差不多的。默认是c盘安装，如果想自己改目录就要选择“custom”安装<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-1.PNG" alt=""><br>我安装的是E盘下MongoDB，<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-2.PNG" alt=""><br>安装完后是这样<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-3.PNG" alt=""></p>
+<p>###启动MongoDB<br>在下面所有的命令窗口都要以管理员权限运行，（其实有的命令是不需要，但是为了不出现一些因为权限不够而导致的问题，最好都用），<br>需要在命令窗口下运行，就要把MongoDB的bin目录添加到window的环境变量PATH中<br>还有一点需要注意的，如果你不是cmd切换到bin目录下再运行命令的话，而是修改的环境变量的方式，那么你下面需要写文件路径的地方，文件路径一定要使用绝对路径，如果你是用的相对路径，cmd是会相对于C:\Windows\System32这个目录的。<br>这之后，还不能开始启动MongoDB,你需要创建一个目录用于指定数据库的位置，我创建的是E:\MongoDB\data<br>之后，在命令窗口下运行</p>
+<pre><code>mongod --dbpath E:\MongoDB\data
 </code></pre><p>就会出现这个<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-4.PNG" alt=""><br>最后一行说端口号是27017，你在浏览器中输入</p>
-<pre><code><span class="label">localhost:</span><span class="number">27017</span>
+<pre><code>localhost:27017
 </code></pre><p>就会显示<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-5.PNG" alt=""><br>这就说明成功了，停止,退出数据库用Ctrl + C。<br>这是最基础的安装，其实你还需要给MongoDB创建一个用于存放日志信息的目录，首先创建一个log的目录在这个目录下建立一个mongodb.log的文件。<br>这次启动MongoDB</p>
-<pre><code>mongod --dbpath E:<span class="command">\MongoDB</span><span class="command">\data</span> --logpath E:<span class="command">\MongoDB</span><span class="command">\log</span><span class="command">\mongodb</span>.log --logappend
+<pre><code>mongod --dbpath E:\MongoDB\data --logpath E:\MongoDB\log\mongodb.log --logappend
 </code></pre><p>这个启动命令才是比较完整的，能打印日志信息，这个是数据库必须有的，初学来说用不到，但是好的习惯是要有的。<br>还有我们不能每次都敲这么长的代码在cmd中吧</p>
-<h3 id="安装为window服务">安装为window服务</h3><p>使用命令</p>
-<pre><code>mongod --dbpath E:<span class="command">\MongoDB</span><span class="command">\data</span> --logpath E:<span class="command">\MongoDB</span><span class="command">\log</span><span class="command">\mongodb</span>.log --logappend --install
+<p>###安装为window服务<br>使用命令</p>
+<pre><code>mongod --dbpath E:\MongoDB\data --logpath E:\MongoDB\log\mongodb.log --logappend --install
 </code></pre><p>使用这个命令就把mongodb的启动安装到了window服务，以后启动只需要用</p>
-<pre><code><span class="winutils">net</span> <span class="built_in">start</span> MongoDB
+<pre><code>net start MongoDB
 </code></pre><p><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-6.PNG" alt=""><br>关闭用</p>
-<pre><code><span class="winutils">net</span> stop MongoDB
+<pre><code>net stop MongoDB
 </code></pre><p><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-8.PNG" alt=""><br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-7.PNG" alt=""><br>如果你感觉敲MongoDB这就个字不爽的话你可以指定名称</p>
-<pre><code><span class="comment">mongod</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">dbpath</span> <span class="comment">E:\MongoDB\data</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">logpath</span> <span class="comment">E:\MongoDB\log\mongodb</span><span class="string">.</span><span class="comment">log</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">logappend</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">install</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">serviceName</span> <span class="comment">mongodb</span>
+<pre><code>mongod --dbpath E:\MongoDB\data --logpath E:\MongoDB\log\mongodb.log --logappend --install --serviceName mongodb
 </code></pre><p>这次启动和关闭用</p>
-<pre><code><span class="winutils">net</span> <span class="built_in">start</span> mongodb
-<span class="winutils">net</span> stop mongodb
-</code></pre><h3 id="使用配置文件配置MongoDB">使用配置文件配置MongoDB</h3><p>如果你看到这里的，但是如果你想用现在的配置文件来配置MongoDB<br>那么首先你要删除之前你安装的window服务下的MongoDB，我就以服务名为MongoDB为例</p>
-<pre><code>sc <span class="keyword">delete</span> MongoDB
+<pre><code>net start mongodb
+net stop mongodb
+</code></pre><p>###使用配置文件配置MongoDB<br>如果你看到这里的，但是如果你想用现在的配置文件来配置MongoDB<br>那么首先你要删除之前你安装的window服务下的MongoDB，我就以服务名为MongoDB为例</p>
+<pre><code>sc delete MongoDB
 </code></pre><p><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-9.PNG" alt=""><br>这就删除了，你就可以再次的安装MongoDB为window服务了<br>MongoDB默认是没有配置文件的，需要你自己手动配置<br>首先创建一个目录conf，下面创建文件mongodb.conf<br>在配置文件中写入配置，下面是我的配置</p>
-<pre><code><span class="variable">port =</span> <span class="number">8888</span> <span class="comment">#指定端口号，默认是27017</span>
-<span class="variable">dbpath =</span> E:\MongoDB\data <span class="comment">#数据库的指定路径</span>
-<span class="variable">logpath =</span> E:\MongoDB\log\mongodb.log <span class="comment">#日志输出路径</span>
-<span class="variable">logappend =</span> <span class="constant">true</span> <span class="comment">#错误日志采用追加模式</span>
+<pre><code>port = 8888 #指定端口号，默认是27017
+dbpath = E:\MongoDB\data #数据库的指定路径
+logpath = E:\MongoDB\log\mongodb.log #日志输出路径
+logappend = true #错误日志采用追加模式
 </code></pre><p>你在cmd模式下用输入</p>
-<pre><code>mongod --config <span class="keyword">E</span>:\MongoDB\<span class="keyword">conf</span>\mongodb.<span class="keyword">conf</span>
+<pre><code>mongod --config E:\MongoDB\conf\mongodb.conf
 </code></pre><p>这就是使用配置文件启动MongoDB，但是这个需要你每次都敲这些<br>注册为window服务</p>
-<pre><code>mongod --config <span class="keyword">E</span>:\MongoDB\<span class="keyword">conf</span>\mongodb.<span class="keyword">conf</span> --install
-</code></pre><p>这就行了，默认服务名是：MongoDB<br>启动和关闭和上面的一样，如果你在—install跟了—serviceName就是指定服务名<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-10.PNG" alt=""><br>至此用配置文件启动MongoDB就完成了</p>
+<pre><code>mongod --config E:\MongoDB\conf\mongodb.conf --install
+</code></pre><p>这就行了，默认服务名是：MongoDB<br>启动和关闭和上面的一样，如果你在–install跟了–serviceName就是指定服务名<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-10.PNG" alt=""><br>至此用配置文件启动MongoDB就完成了</p>
 <p>参考<a href="http://www.cnblogs.com/lzrabbit/p/3682510.html" target="_blank" rel="external">懒惰的肥兔</a><br><a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/" target="_blank" rel="external">官网</a>   </p>
 
         
@@ -721,102 +725,111 @@
 
       
         
-          <h2 id="第一章">第一章</h2><ol>
+          <p>##第一章</p>
+<ol>
 <li>在给HTML标签的id和类进行命名时，要保持名称与表现方式无关。根据‘他们是什么’来命名，而不是根据它们的外观来命名。例如：我想让几个个HTML元素显示红色来表示警告，你不能给这些标签添加一个.red的类，而是应该是一个.warning的类</li>
 <li>DTD（文档类型定义）是一组机器可读的规则，它们定义了xml或HTML的特定版本中允许有什么，不允许有什么。在解析网页时，浏览器将使用这些规则检查页面的有效性并且采取相应的措施。浏览器是通过分析页面的DOCTYPE声明来了解使用了哪个DTD，由此知道使用了HTML的哪个版本</li>
 <li>浏览器模式：为了确保向后兼容，浏览器厂商创建了两种呈现模式：标准模式和混杂模式；在标准模式中，浏览器根据标准规范呈现页面；在混杂模式中，页面以一种比较宽松的向后兼容的方式显示。ps，对这两种模式之间的差异，最显著的例子就是IE的专有的盒模型：border-box；（嘿嘿现在css3又用这种方便的盒模型了）</li>
 </ol>
-<h2 id="第二章">第二章</h2><h3 id="层叠与特殊性：">层叠与特殊性：</h3><pre><code>-<span class="ruby"> 类型选择器，伪元素选择器：<span class="number">1</span>
-</span>-<span class="ruby"> 类选择器，伪类和属性选择器：<span class="number">10</span>
-</span>-<span class="ruby"> id选择器：<span class="number">100</span>
-</span>-<span class="ruby"> 行内样式：<span class="number">1000</span></span>
+<p>##第二章</p>
+<p>###层叠与特殊性：</p>
+<pre><code>- 类型选择器，伪元素选择器：1
+- 类选择器，伪类和属性选择器：10
+- id选择器：100
+- 行内样式：1000
 </code></pre><p>通俗说，就是用style属性编写的规则总是比其他任何类型规则特殊。具有ID选择器的规则比没有ID选择器的规则特殊，具有类选择器的规则比只有类型选择器的规则特殊。如果两个规则的特殊性相同，则后定义的规则优先。</p>
-<h3 id="css设计代码的结构">css设计代码的结构</h3><pre><code>-<span class="ruby"> 一般性样式
-</span>    -<span class="ruby"> 主体样式
-</span>    -<span class="ruby"> reset样式
-</span>    -<span class="ruby"> 链接
-</span>    -<span class="ruby"> 标题
-</span>    -<span class="ruby"> 其他元素
-</span>-<span class="ruby"> 辅助样式
-</span>    -<span class="ruby"> 表单
-</span>    -<span class="ruby"> 通知和错误
-</span>    -<span class="ruby"> 一致的条目
-</span>-<span class="ruby"> 页面结构
-</span>    -<span class="ruby"> 标题、页脚和导航
-</span>    -<span class="ruby"> 布局
-</span>    -<span class="ruby"> 其他页面结构元素
-</span>-<span class="ruby"> 页面组件
-</span>    -<span class="ruby"> 各个页面
-</span>-<span class="ruby"> 覆盖</span>
-</code></pre><h3 id="css注释">css注释</h3><pre><code>作者在书中多次强调一定要给css添加注释。
+<p>###css设计代码的结构</p>
+<pre><code>- 一般性样式
+    - 主体样式
+    - reset样式
+    - 链接
+    - 标题
+    - 其他元素
+- 辅助样式
+    - 表单
+    - 通知和错误
+    - 一致的条目
+- 页面结构
+    - 标题、页脚和导航
+    - 布局
+    - 其他页面结构元素
+- 页面组件
+    - 各个页面
+- 覆盖
+</code></pre><h3 id="css注释"><a href="#css注释" class="headerlink" title="css注释"></a>css注释</h3><pre><code>作者在书中多次强调一定要给css添加注释。
 其实只要是写代码就应该添加注释！！！！！
-</code></pre><h2 id="第三章">第三章</h2><h3 id="外边距叠加">外边距叠加</h3><p> 当两个或更多 <em>垂直</em> 外边距相遇时，他们将形成一个外边距。这个外边距的高度等于发生叠加的外边距的高度中较大者。<br> 存在即合理，在由几个段落组成的典型文本页面中。如图，如果不发生叠加会很难看，叠加就保持了段落之间距离的一致性。<br> 上图：<img src="http://7xj3gz.com1.z0.glb.clouddn.com/外边距.gif" alt="解释"><br><strong>只有普通文档流中块框的垂直外边距才会发生外边距叠加。行内框、浮动框、绝对定位框之间的外边距不会叠加</strong></p>
-<h3 id="定位概述">定位概述</h3><ul>
+</code></pre><p>##第三章</p>
+<p>###外边距叠加<br> 当两个或更多 <em>垂直</em> 外边距相遇时，他们将形成一个外边距。这个外边距的高度等于发生叠加的外边距的高度中较大者。<br> 存在即合理，在由几个段落组成的典型文本页面中。如图，如果不发生叠加会很难看，叠加就保持了段落之间距离的一致性。<br> 上图：<img src="http://7xj3gz.com1.z0.glb.clouddn.com/外边距.gif" alt="解释"><br><strong>只有普通文档流中块框的垂直外边距才会发生外边距叠加。行内框、浮动框、绝对定位框之间的外边距不会叠加</strong></p>
+<p>###定位概述</p>
+<ul>
 <li>css中有三种基本定位机制：普通流、浮动、绝对定位</li>
 <li>行内框可以使用水平的内边距、边框，外边距调整水平间距，但是，垂直内边距、边框、外边距不影响行内框的高度（这个地方要注意了，是不影响行高，而不是没有影响），显示的设置宽高，都是没有影响的。举例子：<br>先上图：<img src="http://7xj3gz.com1.z0.glb.clouddn.com/行内框.PNG" alt="一图胜千言"></li>
 </ul>
 <p>代码：</p>
-<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
-    <span class="tag">span</span><span class="rules">{
-        <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">2px</span> solid red</span></span>;
-        <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">50px</span></span></span>;
-        <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">50px</span></span></span>;
-        <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
-        <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">100px</span></span></span>;
-    }</span>
-</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
-<span class="tag">&lt;<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"width:100px; height:100px; border: 1px solid green"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;<span class="title">span</span>&gt;</span>nihao<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span>&gt;</span>nih<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
-<span class="tag">&lt;<span class="title">body</span>&gt;</span>
+<pre><code>&lt;style&gt;
+    span{
+        border:2px solid red;
+        margin:50px;
+        padding: 50px;
+        width:100px;
+        height:100px;
+    }
+&lt;/style&gt;
+&lt;body&gt;
+&lt;div style=&quot;width:100px; height:100px; border: 1px solid green&quot;&gt;&lt;/div&gt;
+&lt;span&gt;nihao&lt;/span&gt;&lt;span&gt;nih&lt;/span&gt;
+&lt;body&gt;
 </code></pre><p>这个地方还有一个概念：行框，和行内框有什么区别？<br>由一行形成的水平框称为行框，行框的高度 <em>总是</em> 足以容纳它包含的所有行内框。也就是说行高是由其中的最大的行内框的高度决定的。<br><strong>相对定位和绝对定位</strong><br>相对定位是“相对于”元素在文档流中德初始位置，而绝对定位是“相对于”距离它最近的已定位的祖先元素。<br><strong>浮动</strong><br>浮动的框左右移动，直到它的外边缘碰到包含框或另一个浮动框的边缘</p>
-<h2 id="第五章">第五章</h2><h3 id="对链接应用样式">对链接应用样式</h3><ul>
+<p>##第五章</p>
+<p>###对链接应用样式</p>
+<ul>
 <li>伪类选择器，:link伪类选择器用来寻找没有被访问过的链接，:visited伪类选择器用来寻找被访问过的链接，:hover是用来寻找鼠标悬停处的元素，:active用来寻找被激活的元素.</li>
 <li>为了尽可能提高页面可访问性，在定义鼠标悬停状态时，最好再链接上添加:focus伪类，这样在通过键盘（如Tab）键移动到链接上时，这让链接显得样式与鼠标悬停时相同。如：<code>a:hover,a:focus{color:red}</code></li>
 <li>除低版本的IE不支持除链接之外的在其他元素上使用伪类选择器，现代的浏览器都支持。</li>
 <li>上面的伪类选择器中，如果在同一个元素上出现，他们的顺序是很重要的。</li>
 </ul>
 <p>例如：</p>
-<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
-    <span class="rule"><span class="attribute">a</span>:<span class="value">link,a:visited{text-decoration: none</span></span>;}
-    <span class="rule"><span class="attribute">a</span>:<span class="value">hover,a:focus,a:active{text-decoration: underline</span></span>;}
-</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<pre><code>&lt;style&gt;
+    a:link,a:visited{text-decoration: none;}
+    a:hover,a:focus,a:active{text-decoration: underline;}
+&lt;/style&gt;
 </code></pre><p>这样在鼠标悬停时会显示下划线，但是如果你这样写</p>
-<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
-    <span class="rule"><span class="attribute">a</span>:<span class="value">hover,a:focus,a:active{text-decoration: underline</span></span>;}
-    <span class="rule"><span class="attribute">a</span>:<span class="value">link,a:visited{text-decoration: none</span></span>;}
-</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<pre><code>&lt;style&gt;
+    a:hover,a:focus,a:active{text-decoration: underline;}
+    a:link,a:visited{text-decoration: none;}
+&lt;/style&gt;
 </code></pre><p>当鼠标悬停在元素上时是没有没有下划线的。<br>这是因为这两个规则具有相同的特殊性，后面的样式覆盖了前面的样式。<br>为了不发生上面的情况，使用他们的顺序是<br><em>a:link,a:visited,a:hover,a:focus,a:active</em></p>
 <ul>
 <li>链接使用#号可以跳转到页面的指定位置</li>
 </ul>
-<h3 id="css精灵">css精灵</h3><p>css精灵：包含许多不同的图标、按钮或图形的 <em>单个</em> 图像。</p>
+<p>###css精灵<br>css精灵：包含许多不同的图标、按钮或图形的 <em>单个</em> 图像。</p>
 <ul>
 <li>使用这种技术可以减少Web浏览器发出的服务器请求，这会显著加快下载速度。另外把图形集中在一个地方可以提高可维护性。</li>
 </ul>
-<h3 id="纯css工具提示">纯css工具提示</h3><p>工具提示：当鼠标悬停在具有title属性的元素上时一些浏览器会弹出小文本框。可以结合js和css创建独特的自定义的工具提示。<br>但是也可以使用纯css方式实现。</p>
-<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
-    <span class="tag">a</span><span class="class">.tooltip</span><span class="rules">{
-        <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;
-    }</span>
-    <span class="tag">a</span><span class="class">.tooltip</span> <span class="tag">span</span><span class="rules">{
-        <span class="rule"><span class="attribute">display</span>:<span class="value"> none</span></span>;
-    }</span>
-    <span class="rule"><span class="attribute">a.tooltip</span>:<span class="value">hover span{
-        display: block</span></span>;
-        <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
-        <span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">1em</span></span></span>;
-        <span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">2em</span></span></span>;
-        <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0.2em</span> <span class="number">0.6em</span></span></span>;
-        <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid <span class="hexcolor">#963</span></span></span>;
-        <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#ff6</span></span></span>;
-        <span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#000</span></span></span>;
+<p>###纯css工具提示<br>工具提示：当鼠标悬停在具有title属性的元素上时一些浏览器会弹出小文本框。可以结合js和css创建独特的自定义的工具提示。<br>但是也可以使用纯css方式实现。</p>
+<pre><code>&lt;style&gt;
+    a.tooltip{
+        position: relative;
     }
-</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
-<span class="tag">&lt;<span class="title">body</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"www.eviloo7.com"</span> <span class="attribute">class</span>=<span class="value">"tooltip"</span>&gt;</span>who am i<span class="tag">&lt;<span class="title">span</span>&gt;</span>i am eviloo7<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-</code></pre><h2 id="第六章：对列表应用样式和创建导航条">第六章：对列表应用样式和创建导航条</h2><ul>
+    a.tooltip span{
+        display: none;
+    }
+    a.tooltip:hover span{
+        display: block;
+        position: absolute;
+        top:1em;
+        left:2em;
+        padding:0.2em 0.6em;
+        border: 1px solid #963;
+        background-color:#ff6;
+        color:#000;
+    }
+&lt;/style&gt;
+&lt;body&gt;
+    &lt;a href=&quot;www.eviloo7.com&quot; class=&quot;tooltip&quot;&gt;who am i&lt;span&gt;i am eviloo7&lt;/span&gt;&lt;/a&gt;
+&lt;/body&gt;
+</code></pre><p>##第六章：对列表应用样式和创建导航条</p>
+<ul>
 <li>为了添加定制的项目符号，可以使用list-style-image属性。但是这种方法对项目符号图像的位置的控制能力不强。更常用的的时关闭项目的符号，并且将定制的项目的符号作为背景添加在列元素上，然后使用背景图像的定位属性精确地控制自定义项目符号的对准方式。</li>
 </ul>
 
@@ -1058,9 +1071,11 @@
       
         
           <p>由于jquery中有很多正则表达式，今天我就把jquery中的所有的用到的正则表达式解读一下，来检验自己正则学的怎么样！！！</p>
-<h3 id="罗列jquery中用到的RegExp">罗列jquery中用到的RegExp</h3><pre><code>1.var rquickExpr = /^(?:<span class="command">\s*</span>(&lt;<span class="special">[</span><span class="command">\w</span><span class="command">\W</span><span class="special">]</span>+&gt;)<span class="special">[</span>^&gt;<span class="special">]</span>*|<span class="special">#</span>(<span class="special">[</span><span class="command">\w</span>-<span class="special">]</span>*))<span class="formula">$/;
-2.var rsingleTag = /^&lt;(<span class="command">\w</span>+)<span class="command">\s*</span><span class="command">\/</span>?&gt;(?:&lt;<span class="command">\/</span>\1&gt;|)$</span>/;
-</code></pre><h3 id="解析每个正则表达式">解析每个正则表达式</h3><ol>
+<p>###罗列jquery中用到的RegExp</p>
+<pre><code>1.var rquickExpr = /^(?:\s*(&lt;[\w\W]+&gt;)[^&gt;]*|#([\w-]*))$/;
+2.var rsingleTag = /^&lt;(\w+)\s*\/?&gt;(?:&lt;\/\1&gt;|)$/;
+</code></pre><p>###解析每个正则表达式</p>
+<ol>
 <li>这个正则是用来判断，是否是一个HTML标签，或者是否是#后面跟了字符和—的字符串<ul>
 <li>由于使用了“|”,所以这个正则被分为两个部分 \s<em>(&lt;[\w\W]+&gt;)[^&gt;]</em> 和 #([\w-]*)</li>
 <li>^表示从字符串的开始位置进行匹配，$表示字符串的结束位置要匹配，也就是匹配整个字符串，而不是字符串的一部分。</li>
@@ -1071,17 +1086,17 @@
 </li>
 </ol>
 <p>栗子：</p>
-<pre><code>var rquickExpr = /^(?:\s*(<span class="tag">&lt;<span class="title">[\w\W]+</span>&gt;</span>)[^&gt;]*|#([\w-]*))$/;
-//["  <span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">span</span>&gt;</span>hello world!<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>   ", "<span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">span</span>&gt;</span>hello world!<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>", undefined, index: 0, input: "  <span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">span</span>&gt;</span>hello world!<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>   "]
-console.log(rquickExpr.exec("  <span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">span</span>&gt;</span>hello world!<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>   "));
-//["<span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">'test'</span> <span class="attribute">class</span>=<span class="value">'nihao'</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>", "<span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">'test'</span> <span class="attribute">class</span>=<span class="value">'nihao'</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>", undefined, index: 0, input: "<span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">'test'</span> <span class="attribute">class</span>=<span class="value">'nihao'</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>"]
-console.log(rquickExpr.exec("<span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">'test'</span> <span class="attribute">class</span>=<span class="value">'nihao'</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>"));
-//["<span class="tag">&lt;<span class="title">br</span>/&gt;</span>", "<span class="tag">&lt;<span class="title">br</span>/&gt;</span>", undefined, index: 0, input: "<span class="tag">&lt;<span class="title">br</span>/&gt;</span>"]
-console.log(rquickExpr.exec("<span class="tag">&lt;<span class="title">br</span>/&gt;</span>"));
-//["#test", undefined, "test", index: 0, input: "#test"]
-console.log(rquickExpr.exec("#test"));
-//["#test123A_--_", undefined, "test123A_--_", index: 0, input: "#test123A_--_"]
-console.log(rquickExpr.exec("#test123A_--_"));
+<pre><code>var rquickExpr = /^(?:\s*(&lt;[\w\W]+&gt;)[^&gt;]*|#([\w-]*))$/;
+//[&quot;  &lt;p&gt;&lt;span&gt;hello world!&lt;/span&gt;&lt;/p&gt;   &quot;, &quot;&lt;p&gt;&lt;span&gt;hello world!&lt;/span&gt;&lt;/p&gt;&quot;, undefined, index: 0, input: &quot;  &lt;p&gt;&lt;span&gt;hello world!&lt;/span&gt;&lt;/p&gt;   &quot;]
+console.log(rquickExpr.exec(&quot;  &lt;p&gt;&lt;span&gt;hello world!&lt;/span&gt;&lt;/p&gt;   &quot;));
+//[&quot;&lt;p id=&apos;test&apos; class=&apos;nihao&apos;&gt;&lt;/p&gt;&quot;, &quot;&lt;p id=&apos;test&apos; class=&apos;nihao&apos;&gt;&lt;/p&gt;&quot;, undefined, index: 0, input: &quot;&lt;p id=&apos;test&apos; class=&apos;nihao&apos;&gt;&lt;/p&gt;&quot;]
+console.log(rquickExpr.exec(&quot;&lt;p id=&apos;test&apos; class=&apos;nihao&apos;&gt;&lt;/p&gt;&quot;));
+//[&quot;&lt;br/&gt;&quot;, &quot;&lt;br/&gt;&quot;, undefined, index: 0, input: &quot;&lt;br/&gt;&quot;]
+console.log(rquickExpr.exec(&quot;&lt;br/&gt;&quot;));
+//[&quot;#test&quot;, undefined, &quot;test&quot;, index: 0, input: &quot;#test&quot;]
+console.log(rquickExpr.exec(&quot;#test&quot;));
+//[&quot;#test123A_--_&quot;, undefined, &quot;test123A_--_&quot;, index: 0, input: &quot;#test123A_--_&quot;]
+console.log(rquickExpr.exec(&quot;#test123A_--_&quot;));
 </code></pre><ol>
 <li>这个正则也是用来匹配一个HTML字符串的；<ul>
 <li>开始匹配一个‘&lt;’，再匹配‘a-zA-Z0-9’一次或者多次，再之后匹配‘空白字符’0次或者多次</li>
@@ -1092,15 +1107,15 @@ console.log(rquickExpr.exec("#test123A_--_"));
 </li>
 </ol>
 <p>离子：</p>
-<pre><code>var rsingleTag = /^&lt;<span class="params">(\w+)</span>\s<span class="built_in">*</span>\/?&gt;<span class="params">(?:&lt;\/\<span class="number">1</span>&gt;|)</span>$/;
-<span class="comment">//["&lt;p&gt;&lt;/p&gt;", "p", index: 0, input: "&lt;p&gt;&lt;/p&gt;"]</span>
-console.<span class="built_in">log</span><span class="params">(rsingleTag.exec<span class="params">(<span class="string">"&lt;p&gt;&lt;/p&gt;"</span>)</span>)</span>;
-<span class="comment">//["&lt;br/&gt;", "br", index: 0, input: "&lt;br/&gt;"]</span>
-console.<span class="built_in">log</span><span class="params">(rsingleTag.exec<span class="params">(<span class="string">"&lt;br/&gt;"</span>)</span>)</span>;
-<span class="comment">//null</span>
-console.<span class="built_in">log</span><span class="params">(rsingleTag.exec<span class="params">(<span class="string">"&lt;span&gt;hello&lt;/span&gt;"</span>)</span>)</span>;
-<span class="comment">//null</span>
-console.<span class="built_in">log</span><span class="params">(rsingleTag.exec<span class="params">(<span class="string">"&lt;p id='box'&gt;&lt;/p&gt;"</span>)</span>)</span>;
+<pre><code>var rsingleTag = /^&lt;(\w+)\s*\/?&gt;(?:&lt;\/\1&gt;|)$/;
+//[&quot;&lt;p&gt;&lt;/p&gt;&quot;, &quot;p&quot;, index: 0, input: &quot;&lt;p&gt;&lt;/p&gt;&quot;]
+console.log(rsingleTag.exec(&quot;&lt;p&gt;&lt;/p&gt;&quot;));
+//[&quot;&lt;br/&gt;&quot;, &quot;br&quot;, index: 0, input: &quot;&lt;br/&gt;&quot;]
+console.log(rsingleTag.exec(&quot;&lt;br/&gt;&quot;));
+//null
+console.log(rsingleTag.exec(&quot;&lt;span&gt;hello&lt;/span&gt;&quot;));
+//null
+console.log(rsingleTag.exec(&quot;&lt;p id=&apos;box&apos;&gt;&lt;/p&gt;&quot;));
 </code></pre><p>这个html只能是简单的标签，不能有子元素，也不能有属性</p>
 
         
@@ -1178,9 +1193,9 @@ console.<span class="built_in">log</span><span class="params">(rsingleTag.exec<s
 
       
         
-          <h3 id="第一种情况是:jQuery(selector,_[context])">第一种情况是:jQuery(selector, [context])</h3><p>第一个参数是css选择器,第二个参数,说白是搜索的范围,默认没有这个参数就从文档的根部开始进行dom搜索.例子:</p>
-<pre><code>$(<span class="string">"div.foo"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-    $(<span class="string">"span"</span>,<span class="keyword">this</span>).css(backgroundColor,#fff);
+          <p>###第一种情况是:jQuery(selector, [context])<br>第一个参数是css选择器,第二个参数,说白是搜索的范围,默认没有这个参数就从文档的根部开始进行dom搜索.例子:</p>
+<pre><code>$(&quot;div.foo&quot;).click(function() {
+    $(&quot;span&quot;,this).css(backgroundColor,#fff);
     })  
 </code></pre>
           <div class="post-more-link text-center">

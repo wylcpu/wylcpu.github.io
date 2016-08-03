@@ -210,19 +210,25 @@
 
       
         <p>这部分主要是摘录于文顶顶大大的博客。<a href="http://www.cnblogs.com/wendingding/p/3778940.html" target="_blank" rel="external">文顶顶</a><br>记录自己的学习。</p>
-<h2 id="what_is_Quartz2D">what is Quartz2D</h2><p>他是一个二维绘图引擎。</p>
-<h3 id="他能干什么">他能干什么</h3><ol>
+<p>##what is Quartz2D<br>他是一个二维绘图引擎。</p>
+<p>###他能干什么</p>
+<ol>
 <li>绘制图形 : 线条\三角形\矩形\圆\弧等</li>
 <li>绘制文字</li>
 <li>绘制\生成图片(图像)</li>
 <li>读取\生成PDF</li>
 <li>截图\裁剪图片</li>
-<li>自定义UI控件<br><br><em>iOS中⼤部分控件的内容都是通过Quartz2D画出来的</em><h2 id="自定义view">自定义view</h2></li>
+<li>自定义UI控件<br></li>
+</ol>
+<a id="more"></a>
+<p><em>iOS中⼤部分控件的内容都是通过Quartz2D画出来的</em></p>
+<p>##自定义view</p>
+<ol>
 <li>新建⼀个类,继承自UIView</li>
 <li>实现-(void)drawRect:(CGRect)rect⽅法.然后在这个⽅方法中 :<ul>
 <li>取得跟当前view相关联的图形上下文</li>
 <li>绘制相应的图形内容</li>
-<li>利用图形上下文将绘制的所有内容渲染显示到view上面 <h3 id="drawRect">drawRect</h3></li>
+<li>利用图形上下文将绘制的所有内容渲染显示到view上面<br>###drawRect</li>
 </ul>
 </li>
 <li>为什么要实现drawRect:⽅法才能绘图到view上?<ul>
@@ -232,37 +238,36 @@
 <li><p>drawRect:⽅法在什么时候被调用?</p>
 <ul>
 <li>当view第一次显示到屏幕上时(被加到UIWindow上显示出来)</li>
-<li><p>调用view的setNeedsDisplay或者setNeedsDisplayInRect:时</p>
-<h3 id="例子">例子</h3><p><code></code></p>
+<li><p>调用view的setNeedsDisplay或者setNeedsDisplayInRect:时<br>###例子<br><code></code></p>
 <p>   -(void)drawRect:(CGRect)rect {<br>   //    1、取得图形上下文<br>   CGContextRef ctx = UIGraphicsGetCurrentContext();<br>   //    2、绘图<br>   //    设置绘图起点<br>   CGContextMoveToPoint(ctx, 20, 20);<br>   //    绘制线段到指定坐标<br>   CGContextAddLineToPoint(ctx, 200, 100);</p>
 <p>   //    3、设置绘图状态<br>   //    设置线段颜色<br>   CGContextSetRGBStrokeColor(ctx, 0, 1, 1, 1);<br>   //    设置线条宽度<br>   CGContextSetLineWidth(ctx, 10);<br>   //    设置线段起点和终点的样式为圆角<br>   CGContextSetLineCap(ctx, kCGLineCapRound);<br>   //    绘制<br>   CGContextStrokePath(ctx);</p>
 <p>   //    绘制三角形<br>   CGContextMoveToPoint(ctx, 20, 100);</p>
-<pre><code><span class="comment">//设置第二个点</span>
+<pre><code>//设置第二个点
 </code></pre><p>   CGContextAddLineToPoint(ctx, 40, 300);</p>
-<pre><code><span class="comment">//设置第三个点</span>
+<pre><code>//设置第三个点
 </code></pre><p>   CGContextAddLineToPoint(ctx, 200, 200);</p>
-<pre><code><span class="comment">//设置终点</span>
-<span class="comment">//     CGContextAddLineToPoint(ctx, 20, 100);</span>
+<pre><code>//设置终点
+//     CGContextAddLineToPoint(ctx, 20, 100);
 </code></pre><p>   //关闭起点和终点</p>
-<pre><code>CGContextClosePath<span class="list">(<span class="keyword">ctx</span>)</span><span class="comment">;</span>
+<pre><code>CGContextClosePath(ctx);
 </code></pre></li>
 </ul>
 </li>
 </ol>
-<pre><code><span class="comment">//    空心圆</span>
-<span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">150</span>, <span class="number">400</span>);
-<span class="built_in">CGContextAddArc</span>(ctx, <span class="number">100</span>, <span class="number">400</span>, <span class="number">50</span>, <span class="number">0</span>, <span class="number">2</span> * M_PI, <span class="number">0</span>);
+<pre><code>//    空心圆
+CGContextMoveToPoint(ctx, 150, 400);
+CGContextAddArc(ctx, 100, 400, 50, 0, 2 * M_PI, 0);
 
-<span class="comment">// 3.渲染图形到layer上</span>
-<span class="built_in">CGContextStrokePath</span>(ctx);
-<span class="comment">//    实心圆</span>
-<span class="built_in">CGContextAddEllipseInRect</span>(ctx, <span class="built_in">CGRectMake</span>(<span class="number">250</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">50</span>));
+// 3.渲染图形到layer上
+CGContextStrokePath(ctx);
+//    实心圆
+CGContextAddEllipseInRect(ctx, CGRectMake(250, 100, 50, 50));
 
-[[<span class="built_in">UIColor</span> greenColor] set];
+[[UIColor greenColor] set];
 
-<span class="comment">// 3.渲染</span>
-<span class="comment">//    CGContextStrokePath(ctx);</span>
-<span class="built_in">CGContextFillPath</span>(ctx);
+// 3.渲染
+//    CGContextStrokePath(ctx);
+CGContextFillPath(ctx);
 </code></pre><p><br><img src="" alt=""></p>
 
       
@@ -430,7 +435,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#what_is_Quartz2D"><span class="nav-number">1.</span> <span class="nav-text">what is Quartz2D</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#他能干什么"><span class="nav-number">1.1.</span> <span class="nav-text">他能干什么</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义view"><span class="nav-number">2.</span> <span class="nav-text">自定义view</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#drawRect"><span class="nav-number">2.1.</span> <span class="nav-text">drawRect</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">2.2.</span> <span class="nav-text">例子</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

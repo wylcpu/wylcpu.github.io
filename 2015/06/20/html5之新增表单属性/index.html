@@ -209,34 +209,35 @@
       
 
       
-        <h1 id="新增属性">新增属性</h1><h4 id="autocomplete">autocomplete</h4><p>规定输入字段是否应该启用自动完成功能.值为off或者是on，默认是开启。自动完成允许浏览器预测对字段的输入。当用户在字段开始键入时，浏览器基于之前键入过的值，应该显示出在字段中填写的选项,就是当你提交表单后，输入框会保留你之前输入的东西,下次输入时，会开始是一样的，会提示你之前输入的值<br><a id="more"></a><br>autocomplete 属性适用于 <code>&lt;form&gt;</code>，以及下面的 <code>&lt;input&gt;</code> 类型：text, search, url, telephone, email, password, datepickers, range 以及 color</p>
-<h4 id="autofocus">autofocus</h4><p>规定当页面加载时 input 元素应该自动获得焦点,也就是加载完之后，就处于选中状态，不用用鼠标来来获得选中状态</p>
-<h4 id="form属性">form属性</h4><p>规定位于表单之外的输入字段，应该属于哪个表单<br>form 属性规定 input 元素所属的一个或多个表单。<br>form 属性的值必须是其所属表单的id。<br>如需引用一个以上的表单，请使用空格分隔的列表</p>
-<h4 id="formaction">formaction</h4><p><strong>formaction 属性 <em>覆盖</em>  form 元素的 action 属性。</strong><br>该属性适用于 type=”submit” 以及 type=”image”</p>
-<h4 id="formenctype">formenctype</h4><p>formenctype 属性 <em>覆盖</em> form 元素的 enctype 属性。<br>该属性与 type=”submit” 和 type=”image” 配合使用</p>
-<h4 id="formaction-1">formaction</h4><p>formmethod 属性覆盖 form 元素的 method 属性<br>该属性与 type=”submit” 以及 type=”image” 配合使用</p>
-<h4 id="formmethod">formmethod</h4><p>formmethod 属性覆盖 form 元素的 method 属性<br>该属性与 type=”submit” 以及 type=”image” 配合使用</p>
-<h4 id="formnovalidate">formnovalidate</h4><p>formnovalidate 属性覆盖 form 元素的 novalidate 属性。<br>如果使用该属性，则提交表单时按钮不会执行验证过程。<br>该属性适用于 <code>&lt;form&gt;</code> 以及以下类型的 <code>&lt;input&gt;</code>：text, search, url, telephone, email, password, date pickers, range 以及 color,如果设置了该属性，这些类型都不会进行验证了，例如，<code>type=&quot;email&quot;</code>,如果没有设置这个属性，那么要验证Email是否合乎email的格式，如果设置了就不进行验证了</p>
-<h4 id="formtarget">formtarget</h4><p>formtarget 属性覆盖 form 元素的 target 属性。<br>该属性与 type=”submit” 以及 type=”image” 配合使用</p>
-<h4 id="height，width">height，width</h4><p>height，width 属性只适用于 <code>&lt;input type=&quot;image&quot;&gt;</code>，它规定 image input 的高度或宽度。<br>提示：为图片指定高度和宽度是一个好习惯。如果设置了这些属性，当页面加载时会为图片预留需要的空间。而如果没有这些属性，则浏览器就无法了解图像的尺寸，也就无法为其预留合适的空间。情况是当页面和图片加载时，页面布局会发生变化.值可以是像素或者是百分数</p>
-<h4 id="list">list</h4><p>list 属性引用数据列表，其中包含输入字段的预定义选项</p>
-<pre><code>&lt;form <span class="variable">action=</span><span class="string">"demo_form.asp"</span>&gt;
-Webpage: &lt;input <span class="variable">type=</span><span class="string">"url"</span> (<span class="variable">list=</span><span class="string">"url_list"</span>) <span class="variable">name=</span><span class="string">"link"</span> /&gt;
-&lt;datalist (<span class="variable">id=</span><span class="string">"url_list"</span>)&gt;
-&lt;option <span class="variable">label=</span><span class="string">"W3Schools"</span> <span class="variable">value=</span><span class="string">"http://www.w3schools.com"</span> /&gt;
-&lt;option <span class="variable">label=</span><span class="string">"Google"</span> <span class="variable">value=</span><span class="string">"http://www.google.com"</span> /&gt;
-&lt;option <span class="variable">label=</span><span class="string">"Microsoft"</span> <span class="variable">value=</span><span class="string">"http://www.microsoft.com"</span> /&gt;
+        <p>#新增属性</p>
+<p>####autocomplete<br>规定输入字段是否应该启用自动完成功能.值为off或者是on，默认是开启。自动完成允许浏览器预测对字段的输入。当用户在字段开始键入时，浏览器基于之前键入过的值，应该显示出在字段中填写的选项,就是当你提交表单后，输入框会保留你之前输入的东西,下次输入时，会开始是一样的，会提示你之前输入的值<br><a id="more"></a><br>autocomplete 属性适用于 <code>&lt;form&gt;</code>，以及下面的 <code>&lt;input&gt;</code> 类型：text, search, url, telephone, email, password, datepickers, range 以及 color</p>
+<p>####autofocus<br>规定当页面加载时 input 元素应该自动获得焦点,也就是加载完之后，就处于选中状态，不用用鼠标来来获得选中状态</p>
+<p>####form属性<br>规定位于表单之外的输入字段，应该属于哪个表单<br>form 属性规定 input 元素所属的一个或多个表单。<br>form 属性的值必须是其所属表单的id。<br>如需引用一个以上的表单，请使用空格分隔的列表</p>
+<p>####formaction<br><strong>formaction 属性 <em>覆盖</em>  form 元素的 action 属性。</strong><br>该属性适用于 type=”submit” 以及 type=”image”</p>
+<p>####formenctype<br>formenctype 属性 <em>覆盖</em> form 元素的 enctype 属性。<br>该属性与 type=”submit” 和 type=”image” 配合使用</p>
+<p>####formaction<br>formmethod 属性覆盖 form 元素的 method 属性<br>该属性与 type=”submit” 以及 type=”image” 配合使用</p>
+<p>####formmethod<br>formmethod 属性覆盖 form 元素的 method 属性<br>该属性与 type=”submit” 以及 type=”image” 配合使用</p>
+<p>####formnovalidate<br>formnovalidate 属性覆盖 form 元素的 novalidate 属性。<br>如果使用该属性，则提交表单时按钮不会执行验证过程。<br>该属性适用于 <code>&lt;form&gt;</code> 以及以下类型的 <code>&lt;input&gt;</code>：text, search, url, telephone, email, password, date pickers, range 以及 color,如果设置了该属性，这些类型都不会进行验证了，例如，<code>type=&quot;email&quot;</code>,如果没有设置这个属性，那么要验证Email是否合乎email的格式，如果设置了就不进行验证了</p>
+<p>####formtarget<br>formtarget 属性覆盖 form 元素的 target 属性。<br>该属性与 type=”submit” 以及 type=”image” 配合使用</p>
+<p>####height，width<br>height，width 属性只适用于 <code>&lt;input type=&quot;image&quot;&gt;</code>，它规定 image input 的高度或宽度。<br>提示：为图片指定高度和宽度是一个好习惯。如果设置了这些属性，当页面加载时会为图片预留需要的空间。而如果没有这些属性，则浏览器就无法了解图像的尺寸，也就无法为其预留合适的空间。情况是当页面和图片加载时，页面布局会发生变化.值可以是像素或者是百分数</p>
+<p>####list<br>list 属性引用数据列表，其中包含输入字段的预定义选项</p>
+<pre><code>&lt;form action=&quot;demo_form.asp&quot;&gt;
+Webpage: &lt;input type=&quot;url&quot; (list=&quot;url_list&quot;) name=&quot;link&quot; /&gt;
+&lt;datalist (id=&quot;url_list&quot;)&gt;
+&lt;option label=&quot;W3Schools&quot; value=&quot;http://www.w3schools.com&quot; /&gt;
+&lt;option label=&quot;Google&quot; value=&quot;http://www.google.com&quot; /&gt;
+&lt;option label=&quot;Microsoft&quot; value=&quot;http://www.microsoft.com&quot; /&gt;
 &lt;/datalist&gt;
-&lt;input <span class="variable">type=</span><span class="string">"submit"</span> /&gt;
+&lt;input type=&quot;submit&quot; /&gt;
 &lt;/form&gt;
 </code></pre><p>input输入框会有一个下拉式菜单<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150621005148.png" alt=""></p>
-<h4 id="min,max">min,max</h4><p>带有指定数字范围的，min指定最小值，max指定最大值<br>max 属性与 min 属性配合使用，可创建合法值范围。<br>max 和 min 属性适用于以下 <code>&lt;input&gt;</code> 类型：number, range, date, datetime, datetime-local, month, time 以及 week。</p>
+<p>####min,max<br>带有指定数字范围的，min指定最小值，max指定最大值<br>max 属性与 min 属性配合使用，可创建合法值范围。<br>max 和 min 属性适用于以下 <code>&lt;input&gt;</code> 类型：number, range, date, datetime, datetime-local, month, time 以及 week。</p>
 <p>number  数字值。规定输入字段允许的最大值。<br>date    日期。规定输入字段允许的最大值</p>
-<h4 id="pattern">pattern</h4><p>pattern 属性规定用于验证输入字段的模式<br>这个模式是一个正则表达式字符串，pattern 属性适用于以下 <input> 类型：text, search, url, telephone, email 以及 password 。<br>最好配合title属性来使用提示你，你使用的模式</p>
-<h4 id="placeholder">placeholder</h4><p>用于提示那个输入框应该输入什么。当输入框为空的时候，显示，当输入框不为零时，自动消失<br>placeholder 属性适用于以下的 <input> 类型：text, search, url, telephone, email 以及 password。</p>
-<h4 id="readonly">readonly</h4><p>输入框的里的文字为只读的，不能进行修改，不过，用户仍然可以使用 tab 键切换到该字段，还可以选中或拷贝其文本。可以使用js来取消。readonly 属性可与 <code>&lt;input type=&quot;text&quot;&gt;</code> 或 <code>&lt;input type=&quot;password&quot;&gt;</code> 配合使用</p>
-<h4 id="required">required</h4><p>有这个值代表这个输入框必须有值，不能为空。<br>required 属性适用于以下<code>&lt;input&gt;</code>类型：text, search, url, telephone, email, password, date pickers, number, checkbox, radio 以及 file</p>
-<h4 id="step">step</h4><p>规定数字输入的间隔，例如：step=3，数字的增加就以3为间隔。value规定初值，适用于以下 <code>&lt;input&gt;</code> 类型：number, range, date, datetime, datetime-local, month, time 以及 week。</p>
+<p>####pattern<br>pattern 属性规定用于验证输入字段的模式<br>这个模式是一个正则表达式字符串，pattern 属性适用于以下 <input> 类型：text, search, url, telephone, email 以及 password 。<br>最好配合title属性来使用提示你，你使用的模式</p>
+<p>####placeholder<br>用于提示那个输入框应该输入什么。当输入框为空的时候，显示，当输入框不为零时，自动消失<br>placeholder 属性适用于以下的 <input> 类型：text, search, url, telephone, email 以及 password。</p>
+<p>####readonly<br>输入框的里的文字为只读的，不能进行修改，不过，用户仍然可以使用 tab 键切换到该字段，还可以选中或拷贝其文本。可以使用js来取消。readonly 属性可与 <code>&lt;input type=&quot;text&quot;&gt;</code> 或 <code>&lt;input type=&quot;password&quot;&gt;</code> 配合使用</p>
+<p>####required<br>有这个值代表这个输入框必须有值，不能为空。<br>required 属性适用于以下<code>&lt;input&gt;</code>类型：text, search, url, telephone, email, password, date pickers, number, checkbox, radio 以及 file</p>
+<p>####step<br>规定数字输入的间隔，例如：step=3，数字的增加就以3为间隔。value规定初值，适用于以下 <code>&lt;input&gt;</code> 类型：number, range, date, datetime, datetime-local, month, time 以及 week。</p>
 <p><strong>大部分来自于W3school</strong></p>
 
       
@@ -406,7 +407,7 @@ Webpage: &lt;input <span class="variable">type=</span><span class="string">"url"
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#新增属性"><span class="nav-number">1.</span> <span class="nav-text">新增属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#autocomplete"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">autocomplete</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#autofocus"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">autofocus</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#form属性"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">form属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#formaction"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">formaction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#formenctype"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">formenctype</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#formaction-1"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">formaction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#formmethod"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">formmethod</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#formnovalidate"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">formnovalidate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#formtarget"><span class="nav-number">1.0.0.9.</span> <span class="nav-text">formtarget</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#height，width"><span class="nav-number">1.0.0.10.</span> <span class="nav-text">height，width</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list"><span class="nav-number">1.0.0.11.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#min,max"><span class="nav-number">1.0.0.12.</span> <span class="nav-text">min,max</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pattern"><span class="nav-number">1.0.0.13.</span> <span class="nav-text">pattern</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#placeholder"><span class="nav-number">1.0.0.14.</span> <span class="nav-text">placeholder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#readonly"><span class="nav-number">1.0.0.15.</span> <span class="nav-text">readonly</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#required"><span class="nav-number">1.0.0.16.</span> <span class="nav-text">required</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step"><span class="nav-number">1.0.0.17.</span> <span class="nav-text">step</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

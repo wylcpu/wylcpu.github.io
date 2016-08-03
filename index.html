@@ -347,7 +347,7 @@
 
       
         
-          <h2 id="CALayer">CALayer</h2><p>UIView之所以能显示在屏幕上，就是因为他的内部有一个图层（CALayer），在创建UIView对象的时候，他的内部自动创建一个图层。当UIView需要显示到屏幕上时，会调用drawRect:方法进行绘图，并且会将所有内容绘制在自己的图层上，绘图完毕后，系统会将图层拷贝到屏幕上，于是就完成了UIView的显示</p>
+          <p>##CALayer<br>UIView之所以能显示在屏幕上，就是因为他的内部有一个图层（CALayer），在创建UIView对象的时候，他的内部自动创建一个图层。当UIView需要显示到屏幕上时，会调用drawRect:方法进行绘图，并且会将所有内容绘制在自己的图层上，绘图完毕后，系统会将图层拷贝到屏幕上，于是就完成了UIView的显示</p>
 
         
       
@@ -424,62 +424,22 @@
 
       
         
-          <p>这部分主要是摘录于文顶顶大大的博客。<a href="http://www.cnblogs.com/wendingding/p/3778940.html" target="_blank" rel="external">文顶顶</a><br>记录自己的学习。</p>
-<h2 id="what_is_Quartz2D">what is Quartz2D</h2><p>他是一个二维绘图引擎。</p>
-<h3 id="他能干什么">他能干什么</h3><ol>
+          <p>这部分主要是摘录于文顶顶大大的博客。<a href="http://www.cnblogs.com/wendingding/p/3778940.html">文顶顶</a><br>记录自己的学习。</p>
+<p>##what is Quartz2D<br>他是一个二维绘图引擎。</p>
+<p>###他能干什么</p>
+<ol>
 <li>绘制图形 : 线条\三角形\矩形\圆\弧等</li>
 <li>绘制文字</li>
 <li>绘制\生成图片(图像)</li>
 <li>读取\生成PDF</li>
 <li>截图\裁剪图片</li>
-<li>自定义UI控件<br><br><em>iOS中⼤部分控件的内容都是通过Quartz2D画出来的</em><h2 id="自定义view">自定义view</h2></li>
-<li>新建⼀个类,继承自UIView</li>
-<li>实现-(void)drawRect:(CGRect)rect⽅法.然后在这个⽅方法中 :<ul>
-<li>取得跟当前view相关联的图形上下文</li>
-<li>绘制相应的图形内容</li>
-<li>利用图形上下文将绘制的所有内容渲染显示到view上面 <h3 id="drawRect">drawRect</h3></li>
-</ul>
-</li>
-<li>为什么要实现drawRect:⽅法才能绘图到view上?<ul>
-<li>因为在drawRect:⽅法中才能取得跟view相关联的图形上下文</li>
-</ul>
-</li>
-<li><p>drawRect:⽅法在什么时候被调用?</p>
-<ul>
-<li>当view第一次显示到屏幕上时(被加到UIWindow上显示出来)</li>
-<li><p>调用view的setNeedsDisplay或者setNeedsDisplayInRect:时</p>
-<h3 id="例子">例子</h3><p><code></code></p>
-<p>   -(void)drawRect:(CGRect)rect {<br>   //    1、取得图形上下文<br>   CGContextRef ctx = UIGraphicsGetCurrentContext();<br>   //    2、绘图<br>   //    设置绘图起点<br>   CGContextMoveToPoint(ctx, 20, 20);<br>   //    绘制线段到指定坐标<br>   CGContextAddLineToPoint(ctx, 200, 100);</p>
-<p>   //    3、设置绘图状态<br>   //    设置线段颜色<br>   CGContextSetRGBStrokeColor(ctx, 0, 1, 1, 1);<br>   //    设置线条宽度<br>   CGContextSetLineWidth(ctx, 10);<br>   //    设置线段起点和终点的样式为圆角<br>   CGContextSetLineCap(ctx, kCGLineCapRound);<br>   //    绘制<br>   CGContextStrokePath(ctx);</p>
-<p>   //    绘制三角形<br>   CGContextMoveToPoint(ctx, 20, 100);</p>
-<pre><code><span class="comment">//设置第二个点</span>
-</code></pre><p>   CGContextAddLineToPoint(ctx, 40, 300);</p>
-<pre><code><span class="comment">//设置第三个点</span>
-</code></pre><p>   CGContextAddLineToPoint(ctx, 200, 200);</p>
-<pre><code><span class="comment">//设置终点</span>
-<span class="comment">//     CGContextAddLineToPoint(ctx, 20, 100);</span>
-</code></pre><p>   //关闭起点和终点</p>
-<pre><code>CGContextClosePath<span class="list">(<span class="keyword">ctx</span>)</span><span class="comment">;</span>
-</code></pre></li>
-</ul>
-</li>
+<li>自定义UI控件<br/></li>
 </ol>
-<pre><code><span class="comment">//    空心圆</span>
-<span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">150</span>, <span class="number">400</span>);
-<span class="built_in">CGContextAddArc</span>(ctx, <span class="number">100</span>, <span class="number">400</span>, <span class="number">50</span>, <span class="number">0</span>, <span class="number">2</span> * M_PI, <span class="number">0</span>);
-
-<span class="comment">// 3.渲染图形到layer上</span>
-<span class="built_in">CGContextStrokePath</span>(ctx);
-<span class="comment">//    实心圆</span>
-<span class="built_in">CGContextAddEllipseInRect</span>(ctx, <span class="built_in">CGRectMake</span>(<span class="number">250</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">50</span>));
-
-[[<span class="built_in">UIColor</span> greenColor] set];
-
-<span class="comment">// 3.渲染</span>
-<span class="comment">//    CGContextStrokePath(ctx);</span>
-<span class="built_in">CGContextFillPath</span>(ctx);
-</code></pre><p><br><img src="" alt=""></p>
-
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/11/iOS之Quartz2D/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -544,98 +504,99 @@
 
       
         
-          <h3 id="与viewController生命周期有关的方法">与viewController生命周期有关的方法</h3><p>通过了解控制器的生命周期，进而知道应该在什么时候处理自己的代码了；<br><code></code></p>
+          <p>###与viewController生命周期有关的方法<br>通过了解控制器的生命周期，进而知道应该在什么时候处理自己的代码了；<br><code></code></p>
 <pre><code>+(void)initialize;//类的初始化
--<span class="ruby">(id)init;<span class="regexp">//</span>对象的初始化
-</span>-<span class="ruby">(id)<span class="symbol">initWithCode:</span>(<span class="constant">NSCoder</span>*)aDecoder;<span class="regexp">//</span>归档的初始化
-</span>-<span class="ruby">(void)loadView;<span class="regexp">//</span>加载视图
-</span>-<span class="ruby">(void)viewDidLoad将要加载视图
-</span>-<span class="ruby">(void)viewWillAppear;<span class="regexp">//</span>视图将要显示
-</span>-<span class="ruby">(void)viewWillLayoutSubviews;<span class="regexp">//</span>将要布局子视图
-</span>-<span class="ruby">(void)viewDidLayoutSbubiews;<span class="regexp">//</span>完成布局子视图
-</span>-<span class="ruby">(void)<span class="symbol">viewDidAppear:</span>(<span class="constant">BOOL</span>)animated;<span class="regexp">//</span>视图显示
-</span>-<span class="ruby"> (void)<span class="symbol">viewWillDisappear:</span>(<span class="constant">BOOL</span>)animated/<span class="regexp">/视图将要消失
-</span></span>-<span class="ruby"> (void)<span class="symbol">viewDidDisappear:</span>(<span class="constant">BOOL</span>)animated/<span class="regexp">/视图已经消失了
-</span></span>-<span class="ruby">(void)dealloc/<span class="regexp">/对象被释放</span></span>
+-(id)init;//对象的初始化
+-(id)initWithCode:(NSCoder*)aDecoder;//归档的初始化
+-(void)loadView;//加载视图
+-(void)viewDidLoad将要加载视图
+-(void)viewWillAppear;//视图将要显示
+-(void)viewWillLayoutSubviews;//将要布局子视图
+-(void)viewDidLayoutSbubiews;//完成布局子视图
+-(void)viewDidAppear:(BOOL)animated;//视图显示
+- (void)viewWillDisappear:(BOOL)animated//视图将要消失
+- (void)viewDidDisappear:(BOOL)animated//视图已经消失了
+-(void)dealloc//对象被释放
 </code></pre><p><code></code></p>
-<h3 id="例子">例子</h3><p><code></code></p>
-<pre><code>+ (<span class="keyword">void</span>)initialize{
-    [<span class="keyword">super</span> initialize];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是initialize"</span>);
+<p>###例子<br><code></code></p>
+<pre><code>+ (void)initialize{
+    [super initialize];
+    NSLog(@&quot;你是initialize&quot;);
 }
 
--(<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder{
-    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithCoder:aDecoder];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是initWithCoder"</span>);
-    <span class="keyword">return</span> <span class="keyword">self</span>;
+-(id)initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];
+    NSLog(@&quot;你是initWithCoder&quot;);
+    return self;
 }
--(<span class="keyword">id</span>)init{
-    <span class="keyword">self</span> = [<span class="keyword">super</span> init];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是init"</span>);
-    <span class="keyword">return</span> <span class="keyword">self</span>;
+-(id)init{
+    self = [super init];
+    NSLog(@&quot;你是init&quot;);
+    return self;
 }
-- (<span class="keyword">void</span>)viewDidLoad {
-    [<span class="keyword">super</span> viewDidLoad];
-    <span class="comment">// Do any additional setup after loading the view.</span>
-    <span class="built_in">NSLog</span>(<span class="string">@"你是viewDidLoad"</span>);
-}
-
-- (<span class="keyword">void</span>)didReceiveMemoryWarning {
-    [<span class="keyword">super</span> didReceiveMemoryWarning];
-    <span class="comment">// Dispose of any resources that can be recreated.</span>
-}
--(<span class="keyword">void</span>)loadView{
-    [<span class="keyword">super</span> loadView];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是loadView"</span>);
-}
-- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated{
-    [<span class="keyword">super</span> viewWillAppear:animated];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是viewWillAppear"</span>);
-}
-- (<span class="keyword">void</span>)viewDidAppear:(<span class="built_in">BOOL</span>)animated {
-    [<span class="keyword">super</span> viewDidAppear:animated];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是viewDidAppear"</span>);
-}
-- (<span class="keyword">void</span>)viewWillLayoutSubviews {
-    [<span class="keyword">super</span> viewWillLayoutSubviews];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是viewWillLayoutSubviews"</span>);
-}
-- (<span class="keyword">void</span>)viewDidLayoutSubviews {
-    [<span class="keyword">super</span> viewDidLayoutSubviews];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是viewDidLayoutSubviews"</span>);
-}
-- (<span class="keyword">void</span>)viewWillDisappear:(<span class="built_in">BOOL</span>)animated {
-    [<span class="keyword">super</span> viewWillDisappear:animated];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是viewWillDisappear"</span>);
-}
-- (<span class="keyword">void</span>)viewDidDisappear:(<span class="built_in">BOOL</span>)animated {
-    [<span class="keyword">super</span> viewDidDisappear:animated];
-    <span class="built_in">NSLog</span>(<span class="string">@"你是viewDidDisappear"</span>);
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    NSLog(@&quot;你是viewDidLoad&quot;);
 }
 
--(<span class="keyword">void</span>)dealloc {
-    <span class="built_in">NSLog</span>(<span class="string">@"你是dealloc"</span>);
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+-(void)loadView{
+    [super loadView];
+    NSLog(@&quot;你是loadView&quot;);
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    NSLog(@&quot;你是viewWillAppear&quot;);
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSLog(@&quot;你是viewDidAppear&quot;);
+}
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    NSLog(@&quot;你是viewWillLayoutSubviews&quot;);
+}
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    NSLog(@&quot;你是viewDidLayoutSubviews&quot;);
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    NSLog(@&quot;你是viewWillDisappear&quot;);
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NSLog(@&quot;你是viewDidDisappear&quot;);
+}
+
+-(void)dealloc {
+    NSLog(@&quot;你是dealloc&quot;);
 }
 </code></pre><p><br><strong>打印</strong><br><code></code></p>
 <pre><code>//这是push操作，也就是初始化到显示视图
-<span class="number">2016-01-11</span> <span class="number">14:41:23.91</span>7 viewController生命周期[<span class="number">999:42891</span>] 你是initialize
-<span class="number">2016-01-11</span> <span class="number">14:41:23.91</span>8 viewController生命周期[<span class="number">999:42891</span>] 你是initWithCoder
-<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>1 viewController生命周期[<span class="number">999:42891</span>] 你是loadView
-<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>1 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidLoad
-<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>2 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillAppear
-<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>7 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillLayoutSubviews
-<span class="number">2016-01-11</span> <span class="number">14:41:23.92</span>8 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidLayoutSubviews
-<span class="number">2016-01-11</span> <span class="number">14:41:24.43</span>1 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidAppear
-<span class="number">2016-01-11</span> <span class="number">14:41:24.43</span>2 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillLayoutSubviews
-<span class="number">2016-01-11</span> <span class="number">14:41:24.43</span>2 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidLayoutSubviews
+2016-01-11 14:41:23.917 viewController生命周期[999:42891] 你是initialize
+2016-01-11 14:41:23.918 viewController生命周期[999:42891] 你是initWithCoder
+2016-01-11 14:41:23.921 viewController生命周期[999:42891] 你是loadView
+2016-01-11 14:41:23.921 viewController生命周期[999:42891] 你是viewDidLoad
+2016-01-11 14:41:23.922 viewController生命周期[999:42891] 你是viewWillAppear
+2016-01-11 14:41:23.927 viewController生命周期[999:42891] 你是viewWillLayoutSubviews
+2016-01-11 14:41:23.928 viewController生命周期[999:42891] 你是viewDidLayoutSubviews
+2016-01-11 14:41:24.431 viewController生命周期[999:42891] 你是viewDidAppear
+2016-01-11 14:41:24.432 viewController生命周期[999:42891] 你是viewWillLayoutSubviews
+2016-01-11 14:41:24.432 viewController生命周期[999:42891] 你是viewDidLayoutSubviews
 &lt;!--这是POP，也就是销毁控制器--&gt;
-<span class="number">2016-01-11</span> <span class="number">14:44:29.62</span>8 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillDisappear
-<span class="number">2016-01-11</span> <span class="number">14:44:29.63</span>0 viewController生命周期[<span class="number">999:42891</span>] 你是viewWillLayoutSubviews
-<span class="number">2016-01-11</span> <span class="number">14:44:29.63</span>0 viewController生命周期[<span class="number">999:42891</span>] 你是viewDidLayoutSubviews
-<span class="number">2016-01-11</span> <span class="number">14:44:30.133</span> viewController生命周期[<span class="number">999:42891</span>] 你是viewDidDisappear
-<span class="number">2016-01-11</span> <span class="number">14:44:30.133</span> viewController生命周期[<span class="number">999:42891</span>] 你是dealloc
+2016-01-11 14:44:29.628 viewController生命周期[999:42891] 你是viewWillDisappear
+2016-01-11 14:44:29.630 viewController生命周期[999:42891] 你是viewWillLayoutSubviews
+2016-01-11 14:44:29.630 viewController生命周期[999:42891] 你是viewDidLayoutSubviews
+2016-01-11 14:44:30.133 viewController生命周期[999:42891] 你是viewDidDisappear
+2016-01-11 14:44:30.133 viewController生命周期[999:42891] 你是dealloc
 </code></pre><p></p>
-<h3 id="总结">总结</h3><ol>
+<p>###总结</p>
+<ol>
 <li>initialize：只有在这个类第一次创建对象时才会调用。以后创建对象也都不会再调用。因此，如果我们有一些和这个相关的全局变量，可以在这里进行初始化</li>
 <li>init：代码初始化调用</li>
 <li>initWithCoder：使用nib或storyboard的时候调用</li>
@@ -806,7 +767,7 @@
 
       
         
-          <h1 id="持续更新">持续更新</h1><p>只是自己感觉对自己有用的，这个是持续更新的。个人认为有些是非常好的。<br>
+          <p>#持续更新<br>只是自己感觉对自己有用的，这个是持续更新的。个人认为有些是非常好的。<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/01/08/iOS收藏/#more">
               阅读全文 &raquo;
@@ -887,8 +848,8 @@
 
       
         
-          <h1 id="进程">进程</h1><p>每个应用程序都是一个进程。</p>
-<h1 id="线程">线程</h1><p>一个进程至少有一个线程，线程是进程的基本执行单元<br>一个线程中任务任务。执行是串行的，也就是说任务只能顺序执行，同一时间，只能执行一个。<br>
+          <p>#进程<br>每个应用程序都是一个进程。</p>
+<p>#线程<br>一个进程至少有一个线程，线程是进程的基本执行单元<br>一个线程中任务任务。执行是串行的，也就是说任务只能顺序执行，同一时间，只能执行一个。<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/01/01/iOS多线程/#more">
               阅读全文 &raquo;
@@ -969,12 +930,15 @@
 
       
         
-          <h2 id="0x00前言">0x00前言</h2><p>虽然这部电影已经出来很早了，但是直到今天我才看，今天没有上班，觉得实在是无聊，没有其他电影看了，这部电影正好现在在优酷上可以付费看了。看完发现这部电影实在是太好了，于是乎，看完第一遍，就直接又看了一遍。</p>
-<h2 id="0x01故事概要">0x01故事概要</h2><h2 id="0x02经典语句解读">0x02经典语句解读</h2><ol>
+          <p>##0x00前言<br>虽然这部电影已经出来很早了，但是直到今天我才看，今天没有上班，觉得实在是无聊，没有其他电影看了，这部电影正好现在在优酷上可以付费看了。看完发现这部电影实在是太好了，于是乎，看完第一遍，就直接又看了一遍。</p>
+<p>##0x01故事概要</p>
+<p>##0x02经典语句解读</p>
+<ol>
 <li>我叫熊顿，狗熊的熊，牛顿的顿，再过一天我就29岁了。贝尔29岁发明了电话，村上春树29岁开始写小说，斯皮尔伯格29岁拍出了大白鲨，乔布斯29岁发布了第一代苹果电脑，我一直坚信，下一个在29岁呼风唤雨的人，肯定是我。</li>
 <li>对这个城市来讲，我压根算不上蝴蝶，充其量只是只无人知晓的幺蛾子。</li>
 </ol>
-<h2 id="0x03个人后感">0x03个人后感</h2>
+<p>##0x03个人后感</p>
+
         
       
     </div>

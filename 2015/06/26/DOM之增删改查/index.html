@@ -210,8 +210,9 @@
 
       
         <p>今天看了一下，JavaScript权威指南的DOM操作部分，就记录一下。</p>
-<h1 id="Dom">Dom</h1><p>文档对象模型（DOM）是表示和操作HTML和XML文档内容的基础API。</p>
-<h3 id="获取文档元素">获取文档元素</h3><ul>
+<p>#Dom<br>文档对象模型（DOM）是表示和操作HTML和XML文档内容的基础API。</p>
+<p>###获取文档元素</p>
+<ul>
 <li>getElementById()</li>
 <li>getElementsByTagName()</li>
 <li>getElemtnsByName()</li>
@@ -235,9 +236,9 @@
 <li>querySelectorAll()<br>接受一个css选择器的字符串作为参数，返回匹配元素的NodeList对象，注意这个NodeList不是实时更新的</li>
 <li>querySelector()<br>这个方法和上面的是一样的，只是他知识获取匹配的第一个元素<br>注意：在元素上调用时，指定的选择器仍然在整个文档中进行匹配，然后过滤出结果集以便它只包含指定元素的后代元素；这很反常，但这是为了你可以在选择器字符串中可以包含元素的祖先，而不仅仅选择器中只能包含后代元素的选择器</li>
 </ul>
-<h3 id="文档的遍历">文档的遍历</h3><p>下面有两套API</p>
-<h4 id="节点树文档解析API">节点树文档解析API</h4><p>就是节点树API，也就是node对象中API去解析文档</p>
-<h5 id="node对象">node对象</h5><p><strong>属性</strong></p>
+<p>###文档的遍历<br>下面有两套API</p>
+<p>####节点树文档解析API<br>就是节点树API，也就是node对象中API去解析文档</p>
+<p>#####node对象<br><strong>属性</strong></p>
 <ul>
 <li>parentNode<br>获取一个节点的父节点,这个父节点只能是Element类型</li>
 <li>childNodes<br>获取子节点，nodeList对象是实时更新的</li>
@@ -247,20 +248,24 @@
 <li>nodeValue<br>获取 <em>Text节点</em> 或者是 <em>comment节点</em> 的文本内容</li>
 <li>nodeName<br>获取的是元素的标签名,如果是Element节点，则返回的标签名都是大写字母，如果是文本节点则返回<code>#text</code>；如果是注释节点则返回<code>#comment</code></li>
 </ul>
-<h4 id="元素树文档解析API">元素树文档解析API</h4><p>这里解析就忽略包括文本（text）节点和注释（comment）节点；我们一般是使用这个的，上面的API会连元素之间的空格什么的都解析，我们大部分的时候是只关心Element的；所以这套API我们更需要，但是他们没有标准化，但是浏览器厂家都支持</p>
+<p>####元素树文档解析API<br>这里解析就忽略包括文本（text）节点和注释（comment）节点；我们一般是使用这个的，上面的API会连元素之间的空格什么的都解析，我们大部分的时候是只关心Element的；所以这套API我们更需要，但是他们没有标准化，但是浏览器厂家都支持</p>
 <ul>
 <li>children<br>也是一个nodeList对象，并且它只获取Element元素</li>
 <li>firstElementChild,lastElementChild</li>
 <li>nextElementSibling,previousElementSibling</li>
 <li>childElementCount<br>获取子元素的数量</li>
 </ul>
-<h3 id="文档属性">文档属性</h3><h5 id="获取或设置元素的属性">获取或设置元素的属性</h5><ul>
+<p>###文档属性</p>
+<p>#####获取或设置元素的属性</p>
+<ul>
 <li>getAttribute(),setAttribute()<br>用于获取和设置属性的<br>ps.html属性名不区分大小写，JavaScript属性名区分大小写</li>
 <li>hasAttribute(),removeAttribute()<br>用于检查是否有这个属性，和移除这个属性</li>
 <li>attributes<br>这个是node类型定义的attribute属性，并且这个属性是只读的<br>非Element对象的节点，该属性为null</li>
 </ul>
-<h4 id="dataset属性">dataset属性</h4><p>这个一个HTML5在Element对象上定义的一个数据集属性，HTML元素中以<code>data-</code>为前缀<br>注意，在设置和获取属性的时候，不需要带data前缀<br>ps，也可用getAttribute,和setAttribute来设置，但是要要带前缀data</p>
-<h3 id="元素内容">元素内容</h3><h5 id="获取或设置HTML内容">获取或设置HTML内容</h5><ul>
+<p>####dataset属性<br>这个一个HTML5在Element对象上定义的一个数据集属性，HTML元素中以<code>data-</code>为前缀<br>注意，在设置和获取属性的时候，不需要带data前缀<br>ps，也可用getAttribute,和setAttribute来设置，但是要要带前缀data</p>
+<p>###元素内容</p>
+<p>#####获取或设置HTML内容</p>
+<ul>
 <li>innerHTML<br>用于设置或读取元素的的内容，在设置的时候会调用web浏览器的解析器</li>
 <li>outerHTML<br>用于设置或读取 <em>元素本身</em> 及其内容</li>
 <li>insertAdjacentHTML<br>HTML5中标准化，它可以将HTML标记字符串插入到指定的元素 <em>相邻</em> 位置<br>第一个参数是一个设置插入位置的字符串，第二个参数是要插入的内容<br>它有四个值<ul>
@@ -271,24 +276,29 @@
 </ul>
 </li>
 </ul>
-<h5 id="纯文本内容">纯文本内容</h5><p>不对内容中HTML标记中使用的尖括号和&amp;进行转义，就只是当作普通的文本内容</p>
+<p>#####纯文本内容<br>不对内容中HTML标记中使用的尖括号和&amp;进行转义，就只是当作普通的文本内容</p>
 <ul>
 <li>textContent,innerText<br>textContent可以获取 <em>后代</em> 所有元素的文本内容 ，IE9+支持<br>innerText,火狐中不支持这个</li>
 </ul>
-<h4 id="创建、插入、删除">创建、插入、删除</h4><h5 id="创建节点">创建节点</h5><ul>
+<p>####创建、插入、删除</p>
+<p>#####创建节点</p>
+<ul>
 <li>createElement()<br>创建一个新的Element节点</li>
 <li>createTextNode()<br>创建一个文本（text）节点</li>
 <li>cloneNode()<br>可以传入一个参数，false代表浅复制(就复制元素本身，不复制后代元素)，true代表深复制（复制元素本身及后代元素）</li>
 </ul>
-<h5 id="插入节点">插入节点</h5><ul>
+<p>#####插入节点</p>
+<ul>
 <li>appendChild()<br>插入在指定的节点上，使指成为那个节点的最后一个子节点。</li>
 <li>insertBefore()<br>插入在一个节点的前面<br>它接收两个参数，第一个参数是：待插入的节点，第二个参数是已存在的节点，新节点将插入在它的前面，调用要在它父元素上调用。如果第二个参数传入null，就和appendChild的行为是一样的<br>ps.上面两个方法如果是将已经存在与文档中再次插入时，它会自动删除当前节点并在新的位置重新插入该节点。</li>
 </ul>
-<h5 id="删除和替换节点">删除和替换节点</h5><ul>
+<p>#####删除和替换节点</p>
+<ul>
 <li>removeChild()<br>在父元素上调用该方法，并把需要删除的子节点作为参数传递给他<br><code>oEle.parentNode.removeChild(oEle)</code>,这样就不需要知道父元素是谁了</li>
 <li>replaceChild()<br>替换一个节点<br>在父元素上调用，接受两个参数，第一个参数是新节点，第二个是要替换的节点</li>
 </ul>
-<h4 id="DocumentFragment">DocumentFragment</h4><ul>
+<p>####DocumentFragment</p>
+<ul>
 <li>createDocumentFragment()<br>它的parentNode是null，将文档片段插入到指定的节点位置，是将文档片段的所有子节点插入到文档中，而非文档片段本身</li>
 </ul>
 
@@ -457,7 +467,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dom"><span class="nav-number">1.</span> <span class="nav-text">Dom</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取文档元素"><span class="nav-number">1.0.1.</span> <span class="nav-text">获取文档元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档的遍历"><span class="nav-number">1.0.2.</span> <span class="nav-text">文档的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#节点树文档解析API"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">节点树文档解析API</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#node对象"><span class="nav-number">1.0.2.1.1.</span> <span class="nav-text">node对象</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元素树文档解析API"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">元素树文档解析API</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档属性"><span class="nav-number">1.0.3.</span> <span class="nav-text">文档属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#获取或设置元素的属性"><span class="nav-number">1.0.3.0.1.</span> <span class="nav-text">获取或设置元素的属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dataset属性"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">dataset属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素内容"><span class="nav-number">1.0.4.</span> <span class="nav-text">元素内容</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#获取或设置HTML内容"><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text">获取或设置HTML内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#纯文本内容"><span class="nav-number">1.0.4.0.2.</span> <span class="nav-text">纯文本内容</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建、插入、删除"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">创建、插入、删除</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建节点"><span class="nav-number">1.0.4.1.1.</span> <span class="nav-text">创建节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#插入节点"><span class="nav-number">1.0.4.1.2.</span> <span class="nav-text">插入节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除和替换节点"><span class="nav-number">1.0.4.1.3.</span> <span class="nav-text">删除和替换节点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DocumentFragment"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">DocumentFragment</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

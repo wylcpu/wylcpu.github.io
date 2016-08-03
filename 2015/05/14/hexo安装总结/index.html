@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="github,hexo," />
+  <meta name="keywords" content="hexo,github," />
 
 
 
@@ -210,54 +210,55 @@
 
       
         <p>  终于用hexo搭建blog完成了，虽然说就是简单的几步，要是你搭建过，让你再搭建一个，真是分分钟的事，但是如果你是第一次，并且对相关的东西你不是很熟悉的话，你就有可能遇到很多问题；我就把在此安装中遇到的问题总结一下。<br><a id="more"></a></p>
-<h3 id="HEXO的安装">HEXO的安装</h3><ol>
+<p>###HEXO的安装</p>
+<ol>
 <li>首先你安装了git；</li>
 <li>你也安装了nodeJs；</li>
 <li>你还有github<br><em>我就当你已经安装了git和nodejs</em></li>
 </ol>
-<h4 id="本地运行">本地运行</h4><p><strong>打开git bash运行</strong></p>
-<pre><code>npm install -<span class="keyword">g</span> hexo-<span class="keyword">cli</span>
+<p>####本地运行<br><strong>打开git bash运行</strong></p>
+<pre><code>npm install -g hexo-cli
 </code></pre><p>-g是进行全局安装hexo<br>之后切换到你想要安装的位置<br>你也可以先建立好要安装的目录，例如blog<br>那你之后就cd切换到这个目录下输入下面命令</p>
 <pre><code>hexo init
-npm <span class="keyword">install</span>
+npm install
 </code></pre><p>要是你不提前建立目录就想官方提供似得，我是以建立blog目录为例</p>
-<pre><code><span class="label">hexo</span> init <span class="keyword">blog
-</span><span class="label">cd</span> <span class="keyword">blog
-</span><span class="label">npm</span> install
+<pre><code>hexo init blog
+cd blog
+npm install
 </code></pre><p>这也是可以的，这个是现在官方上说的<br>接下来就是</p>
-<pre><code>hexo <span class="keyword">ge</span><span class="label">nerate</span>
+<pre><code>hexo generate
 </code></pre><p>这个命令也可以简写为</p>
-<pre><code><span class="title">hexo</span> g
+<pre><code>hexo g
 </code></pre><p>这个命令是生成静态文件<br>那就让我们先在本地上运行一下吧，输入</p>
-<pre><code>hexo <span class="keyword">server</span>
+<pre><code>hexo server
 </code></pre><p>在你的浏览器地址栏中输入</p>
-<pre><code><span class="label">localhost:</span><span class="number">4000</span>
+<pre><code>localhost:4000
 </code></pre><p>hexo默认是开启的4000端口的<br>会出现一个hexo默认的主题<br>那就说明你成功了</p>
-<h3 id="部署到github">部署到github</h3><p>按官方说，我是用的user site，也就是个人主页了，你也可以使用项目安装，我没<br>有试过，以后用熟悉了，再各种折腾。</p>
+<p>###部署到github<br>按官方说，我是用的user site，也就是个人主页了，你也可以使用项目安装，我没<br>有试过，以后用熟悉了，再各种折腾。</p>
 <ul>
 <li>首先你新建一个repository仓库，把名字命名为我就 <em>username</em>.github.io，把斜体替换成你的名字。注意你不能在这个仓库里建立分支，就是默认的就行了。</li>
 <li><p>接下来就是进行配置了，在你的博客目录下找到_config.yml,找的最下面</p>
 <p>  deploy:</p>
-<pre><code><span class="attribute">type</span>: <span class="string">git</span>
-<span class="attribute">repo</span>: <span class="string">https://github.com/username/username.github.io.git</span>
-<span class="attribute">branch</span>: <span class="string">master</span>
+<pre><code>type: git
+repo: https://github.com/username/username.github.io.git
+branch: master
 </code></pre><p><strong>注意:</strong>名值对中的冒号后是有个空格的，我就是没有这个空格，弄了我一晚上各种的折腾<br>就是没有用，虽然刚开始万能的Google没有帮我检索出我要的答案还误导我乱弄了半晚上，但是最后我修改了一下关键字就行了。终于让我找到了，真是众里寻他千百度，蓦然回首，她却在这里。我发现他们的官方的github里面的有各种的问题解决方法，我敢保证，你遇到的问题一定在这里有<a href="https://github.com/hexojs/hexo/issues/" target="_blank" rel="external">hexo官方问题集</a>.</p>
 </li>
 </ul>
 <p>1.接下来安装官方说你还有执行一条命令，我刚开始没有使用就不对，</p>
-<pre><code>npm <span class="keyword">install</span> hexo-deployer-git -save
+<pre><code>npm install hexo-deployer-git -save
 </code></pre><p>2.接下来你在运行</p>
-<pre><code>hexo <span class="keyword">generate</span>
-hexo <span class="literal">d</span>
+<pre><code>hexo generate
+hexo d
 </code></pre><p>到这里是很容易出错的，很多人在这个地方是出各种的错误，有错误就先看我上面说的官方的地方找找。<br>接下来输入用户名和密码就行了<br>如果能成功运行那么你就可以在地址栏输入</p>
-<pre><code>username<span class="class">.github</span><span class="class">.io</span>
+<pre><code>username.github.io
 </code></pre><p>这就出现了你在本地成功测试时出现的界面</p>
-<h3 id="问题集">问题集</h3><p><code></code></p>
-<pre><code>{ [<span class="string">Error:</span> Cannot find module <span class="string">'./build/Release/DTraceProviderBindings'</span>] <span class="string">code:</span> <span class="string">'MODULE_NOT_FOUND'</span> }
-{ [<span class="string">Error:</span> Cannot find module <span class="string">'./build/default/DTraceProviderBindings'</span>] <span class="string">code:</span>     <span class="string">'MODULE_NOT_FOUND'</span> }
-{ [<span class="string">Error:</span> Cannot find module <span class="string">'./build/Debug/DTraceProviderBindings'</span>] <span class="string">code:</span> <span class="string">'MODULE_NOT_FOUND'</span> }
+<p>###问题集<br><code></code></p>
+<pre><code>{ [Error: Cannot find module &apos;./build/Release/DTraceProviderBindings&apos;] code: &apos;MODULE_NOT_FOUND&apos; }
+{ [Error: Cannot find module &apos;./build/default/DTraceProviderBindings&apos;] code:     &apos;MODULE_NOT_FOUND&apos; }
+{ [Error: Cannot find module &apos;./build/Debug/DTraceProviderBindings&apos;] code: &apos;MODULE_NOT_FOUND&apos; }
 </code></pre><p><code><br>输入<br><code>npm install hexo --no-optional</code><br>这条命令就解决</code></p>
-<h4 id="总结">总结</h4><p>其实就几条命令很简单，如果没有出现任何问题，我保证你十分钟，弄完，但是如果你初次接触，你就需要看各种文档，你才明白，这些命令时干什么的，并且有可能一个问题<br>让你弄很长时间，最终你花费了N hours弄好了。但是出现问题才使你成长，要是你十分钟弄完，你什么也学不到，<em>要的就是这种不顺利</em>。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>其实就几条命令很简单，如果没有出现任何问题，我保证你十分钟，弄完，但是如果你初次接触，你就需要看各种文档，你才明白，这些命令时干什么的，并且有可能一个问题<br>让你弄很长时间，最终你花费了N hours弄好了。但是出现问题才使你成长，要是你十分钟弄完，你什么也学不到，<em>要的就是这种不顺利</em>。</p>
 
       
     </div>
@@ -266,9 +267,9 @@ hexo <span class="literal">d</span>
       
         <div class="post-tags">
           
-            <a href="/tags/github/"> #github </a>
-          
             <a href="/tags/hexo/"> #hexo </a>
+          
+            <a href="/tags/github/"> #github </a>
           
         </div>
       
@@ -424,7 +425,7 @@ hexo <span class="literal">d</span>
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HEXO的安装"><span class="nav-number">1.</span> <span class="nav-text">HEXO的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地运行"><span class="nav-number">1.1.</span> <span class="nav-text">本地运行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署到github"><span class="nav-number">2.</span> <span class="nav-text">部署到github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题集"><span class="nav-number">3.</span> <span class="nav-text">问题集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">3.1.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">1.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

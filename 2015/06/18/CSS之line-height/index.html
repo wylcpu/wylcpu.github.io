@@ -210,37 +210,41 @@
 
       
         <p>今天看了张鑫旭大神关于line-height属性的视频我就记录一下我的观看笔记<br><a id="more"></a></p>
-<h1 id="line-height">line-height</h1><h2 id="定义">定义</h2><p>两行文字基线之间的距离<br><strong>什么是基线？</strong><br>就像我们四线英语本中的第三根线<br><strong>为什么是基线？</strong><br>其它的线都是以基线为依据</p>
+<p>#line-height</p>
+<p>##定义<br>两行文字基线之间的距离<br><strong>什么是基线？</strong><br>就像我们四线英语本中的第三根线<br><strong>为什么是基线？</strong><br>其它的线都是以基线为依据</p>
 <ul>
 <li>不同字体，对基线参考稍微不同，有的紧挨，有的不紧挨</li>
 <li>line-height可以让单行内联元素垂直居中，注意font-size要设置为0</li>
 </ul>
-<h2 id="line-height与行内框盒子模型">line-height与行内框盒子模型</h2><p><code>&lt;p&gt;张大婶&lt;em&gt;大神&lt;/em&gt;heihei&lt;/p&gt;</code><br>这一行包含四个盒子</p>
+<p>##line-height与行内框盒子模型<br><code>&lt;p&gt;张大婶&lt;em&gt;大神&lt;/em&gt;heihei&lt;/p&gt;</code><br>这一行包含四个盒子</p>
 <ul>
 <li>内容区域（content area）,是一种围绕文字看不见的盒子，大小和font-size大小相关</li>
 <li>内联盒子（inline boxes），不会让内容成块显示，而是排成一行，如果外部含inline水平标签（span，a，em等），则属于内联盒子。如果是个光秃秃的文字，则属于匿名内联盒子；例如：上面的‘张大婶’，‘heihei’就是匿名内联盒子，而’大神’就是内联盒子</li>
 <li>行框盒子（line boxes），每一行就是一个行框盒子，每个行框盒子又是由一个个内联盒子组成</li>
 <li>p标签所在的‘包含盒子’（containing box），此盒子是由一行行的行框盒子组成</li>
 </ul>
-<h2 id="line-height高度机理">line-height高度机理</h2><ul>
+<p>##line-height高度机理</p>
+<ul>
 <li>内联元素的高度是line-height决定的，跟font-size一点关系也没有</li>
 <li>高度的表现不是行高，行高只是幕后黑手，真正决定高度是内容区域和行间距，只不过<code>内容区域高度 + 行间距 == 行高</code></li>
 <li>内容区域的高度只与字号（font-size）和字体(font-family)有关，与line-height没有关系</li>
 </ul>
-<h2 id="line-height属性值">line-height属性值</h2><ul>
-<li>normal — 跟着用户的浏览器有关，且与元素字体关联</li>
-<li>number — 根据当前元素的font-size大小计算</li>
+<p>##line-height属性值</p>
+<ul>
+<li>normal – 跟着用户的浏览器有关，且与元素字体关联</li>
+<li>number – 根据当前元素的font-size大小计算</li>
 <li>length</li>
-<li>percent — 相对于设置了该line-height属性的元素的font-size大小计算</li>
+<li>percent – 相对于设置了该line-height属性的元素的font-size大小计算</li>
 <li>inherit</li>
 </ul>
-<h2 id="行高与图片表现">行高与图片表现</h2><p>消除图片底部间隙的方法</p>
+<p>##行高与图片表现<br>消除图片底部间隙的方法</p>
 <ol>
 <li>图片块状化 - 无基线对齐<br><code>img{display:block;}</code></li>
 <li>图片底线对齐<br><code>img{vertical-align:bottom;}</code></li>
 <li>行高足够小 - 基线位置上移<br>.box{line-height:0;}</li>
 </ol>
-<h2 id="line-height实际应用">line-height实际应用</h2><ul>
+<p>##line-height实际应用</p>
+<ul>
 <li>实现大小不固定的图片、多行文字垂直居中<ul>
 <li>图片水平垂直居中<br><code>.box{line-height:300px;text-align:center;}</code><br><code>.box &gt; img{vertical-align:middle;}</code></li>
 <li>多行文本水平垂直居中<br><code>.box {line-height:250px;text-align:center;}</code><br><code>.box &gt; .text{display:inline-block; line-height:normal;text-align:left:vertical-align:middle;}</code></li>
@@ -413,7 +417,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#line-height"><span class="nav-number">1.</span> <span class="nav-text">line-height</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height与行内框盒子模型"><span class="nav-number">1.2.</span> <span class="nav-text">line-height与行内框盒子模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height高度机理"><span class="nav-number">1.3.</span> <span class="nav-text">line-height高度机理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height属性值"><span class="nav-number">1.4.</span> <span class="nav-text">line-height属性值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行高与图片表现"><span class="nav-number">1.5.</span> <span class="nav-text">行高与图片表现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height实际应用"><span class="nav-number">1.6.</span> <span class="nav-text">line-height实际应用</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

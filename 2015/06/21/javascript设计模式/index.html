@@ -205,34 +205,34 @@
 <li>基本constructor（构造器）</li>
 </ul>
 <p>代码：</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">model,year,miles</span>) </span>{
-    <span class="keyword">this</span>.model = model;
-    <span class="keyword">this</span>.year = year;
-    <span class="keyword">this</span>.miles = miles;
-    <span class="keyword">this</span>.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-        <span class="keyword">return</span> <span class="keyword">this</span>.model + <span class="string">' has done '</span> + <span class="keyword">this</span>.miles + <span class="string">' miles'</span>;
+<pre><code>function Car(model,year,miles) {
+    this.model = model;
+    this.year = year;
+    this.miles = miles;
+    this.toString = function() {
+        return this.model + &apos; has done &apos; + this.miles + &apos; miles&apos;;
     }
 }
-<span class="keyword">var</span> car= <span class="keyword">new</span> Car(<span class="string">'红旗'</span>,<span class="number">10</span>,<span class="number">20000</span>);
-<span class="built_in">console</span>.log(car.toString());
+var car= new Car(&apos;红旗&apos;,10,20000);
+console.log(car.toString());
 </code></pre><a id="more"></a>
 <p>缺点是，这个构造器实例化的对象的函数方法不能公用，每个新对象都有一个自己的方法</p>
 <ul>
 <li>带原型的constructor(构造器)</li>
 </ul>
 <p>把上面的代码改为</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">model,year,miles</span>) </span>{
-    <span class="keyword">this</span>.model = model;
-    <span class="keyword">this</span>.year = year;
-    <span class="keyword">this</span>.miles = miles;
+<pre><code>function Car(model,year,miles) {
+    this.model = model;
+    this.year = year;
+    this.miles = miles;
 }
-Car.prototype.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-    <span class="keyword">return</span> <span class="keyword">this</span>.model + <span class="string">' has done '</span> + <span class="keyword">this</span>.miles + <span class="string">' miles'</span>;
+Car.prototype.toString = function() {
+    return this.model + &apos; has done &apos; + this.miles + &apos; miles&apos;;
 }
-<span class="keyword">var</span> car1 = <span class="keyword">new</span> Car(<span class="string">'benz'</span>,<span class="number">5</span>,<span class="number">30000</span>);
-<span class="keyword">var</span> car2 = <span class="keyword">new</span> Car(<span class="string">'bmw'</span>,<span class="number">6</span>,<span class="number">50000</span>);
-<span class="built_in">console</span>.log(car1.toString());
-<span class="built_in">console</span>.log(car2.toString());
+var car1 = new Car(&apos;benz&apos;,5,30000);
+var car2 = new Car(&apos;bmw&apos;,6,50000);
+console.log(car1.toString());
+console.log(car2.toString());
 </code></pre><p>这次的代码，car1,car2是用的一个toString方法，实现了所有实例共享一个方法</p>
 <ol>
 <li>Module(模块)模式</li>
@@ -249,75 +249,75 @@ Car.prototype.toString = <span class="function"><span class="keyword">function</
 <li>使用对象字面量表示法定义模块</li>
 </ul>
 <p>代码：</p>
-<pre><code><span class="keyword">var</span> myModule = {
-    <span class="comment">//基本属性</span>
-    myProperty: <span class="string">'someValue'</span>,
-    <span class="comment">//对象字面量可以包含属性和方法</span>
-    <span class="comment">//例如：可以声明模块的配置对象</span>
+<pre><code>var myModule = {
+    //基本属性
+    myProperty: &apos;someValue&apos;,
+    //对象字面量可以包含属性和方法
+    //例如：可以声明模块的配置对象
     myConfig: {
-        useCaching: <span class="literal">true</span>,
-        language:<span class="string">'zh'</span>
+        useCaching: true,
+        language:&apos;zh&apos;
     },
-    <span class="comment">//基本方法</span>
-    myMothed: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-        <span class="built_in">console</span>.log(<span class="string">'hello world!'</span>);
+    //基本方法
+    myMothed: function() {
+        console.log(&apos;hello world!&apos;);
     },
-    <span class="comment">//根据当前配置输出信息</span>
-    myMothed2: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-        <span class="built_in">console</span>.log(<span class="string">'Caching is:'</span> + (<span class="keyword">this</span>.myConfig.useCaching) ? <span class="string">'enabled'</span> : <span class="string">'dissabled'</span>);
+    //根据当前配置输出信息
+    myMothed2: function() {
+        console.log(&apos;Caching is:&apos; + (this.myConfig.useCaching) ? &apos;enabled&apos; : &apos;dissabled&apos;);
     },
-    <span class="comment">//重写当前的配置</span>
-    myMothed3: <span class="function"><span class="keyword">function</span>(<span class="params">newConfig</span>) </span>{
-        <span class="keyword">if</span>(<span class="keyword">typeof</span> newConfig === <span class="string">'object'</span>) {
-            <span class="keyword">this</span>.myConfig = newConfig;
-            <span class="built_in">console</span>.log(<span class="keyword">this</span>.myConfig.language);
+    //重写当前的配置
+    myMothed3: function(newConfig) {
+        if(typeof newConfig === &apos;object&apos;) {
+            this.myConfig = newConfig;
+            console.log(this.myConfig.language);
         }
     }
 };
-<span class="comment">//使用</span>
-<span class="built_in">console</span>.log(myModule.myMothed());<span class="comment">//hello wrold</span>
-<span class="built_in">console</span>.log(myModule.myMothed2());<span class="comment">//enabled;</span>
-<span class="built_in">console</span>.log(myModule.myMothed3({language:<span class="string">'en'</span>,useCaching: <span class="literal">false</span>})); <span class="comment">//en</span>
+//使用
+console.log(myModule.myMothed());//hello wrold
+console.log(myModule.myMothed2());//enabled;
+console.log(myModule.myMothed3({language:&apos;en&apos;,useCaching: false})); //en
 </code></pre><p>使用对象字面量有利于封装和组织代码</p>
 <ul>
 <li>Module(模块)模式<br>能够使一个单独的对象拥有公有/私有的属性和方法，从而屏蔽来自全局作用域的特殊部分，产生的结果是：函数名与在页面上其它脚本定义的函数冲突的可能性降低；Module模式使用闭包封装‘私有’状态和组织，防止其泄露至全局作用域，并与别的开发者的接口发生冲突。通过该模式，只需返回一个公有API，其他的一切则都维持在私有闭包里。该模式除了返回一个对象而不是一个函数外，非常类似一个立即调用的函数表达式。</li>
 </ul>
 <p>一个自包含的Module：</p>
-<pre><code><span class="keyword">var</span> myModule = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-    <span class="keyword">var</span> counter = <span class="number">0</span>;
-    <span class="keyword">return</span> {
-        incrementCounter:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-            <span class="keyword">return</span> ++counter;
+<pre><code>var myModule = (function() {
+    var counter = 0;
+    return {
+        incrementCounter:function() {
+            return ++counter;
         },
-        resetCounter:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-            <span class="built_in">console</span>.log(<span class="string">'counter value prior to reset:'</span> + counter);
-            counter = <span class="number">0</span>;
+        resetCounter:function() {
+            console.log(&apos;counter value prior to reset:&apos; + counter);
+            counter = 0;
         }
     }
     })();
-    <span class="built_in">console</span>.log(myModule.incrementCounter());
+    console.log(myModule.incrementCounter());
 </code></pre><p>counter变量只能通过返回的两个函数来操作;<br>一个包含命名空间、公有、私有变量的Module：</p>
-<pre><code><span class="keyword">var</span> myNamespace = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-    <span class="comment">//私有计数器变量</span>
-    <span class="keyword">var</span> myPrivateVar = <span class="number">0</span>;
-    <span class="comment">//记录所有参数的私有函数</span>
-    <span class="keyword">var</span> myPrivateMethod = <span class="function"><span class="keyword">function</span>(<span class="params">foo</span>) </span>{
-        <span class="built_in">console</span>.log(foo);
+<pre><code>var myNamespace = (function() {
+    //私有计数器变量
+    var myPrivateVar = 0;
+    //记录所有参数的私有函数
+    var myPrivateMethod = function(foo) {
+        console.log(foo);
     };
-    <span class="keyword">return</span> {
-        <span class="comment">//公有变量</span>
-        myPublicVar: <span class="string">"foo"</span>,
-        <span class="comment">//调用私有变量和方法的公有函数</span>
-        myPublicFunction: <span class="function"><span class="keyword">function</span>(<span class="params">bar</span>) </span>{
-            <span class="comment">//增加私有计数器的值</span>
+    return {
+        //公有变量
+        myPublicVar: &quot;foo&quot;,
+        //调用私有变量和方法的公有函数
+        myPublicFunction: function(bar) {
+            //增加私有计数器的值
             myPrivateVar++;
-            <span class="comment">//传入bar调用私有方法</span>
+            //传入bar调用私有方法
             myPrivateMethod(bar);
         }
     };
     })();
-    <span class="built_in">console</span>.log(myNamespace.myPublicVar);<span class="comment">//foo</span>
-    <span class="built_in">console</span>.log(myNamespace.myPublicFunction(<span class="string">'hello world!'</span>));<span class="comment">//hello world!</span>
+    console.log(myNamespace.myPublicVar);//foo
+    console.log(myNamespace.myPublicFunction(&apos;hello world!&apos;));//hello world!
 </code></pre><ul>
 <li>Module模式变化<ul>
 <li>引入混入<br>模式的这种变化演示了全局变量（如：jQuery）如何作为参数传递给模块的匿名函数。并允许我们按照我们所希望的为他们取个本地别名；</li>
@@ -325,56 +325,56 @@ Car.prototype.toString = <span class="function"><span class="keyword">function</
 </li>
 </ul>
 <p>代码：</p>
-<pre><code><span class="keyword">var</span> moModule = (<span class="function"><span class="keyword">function</span>(<span class="params">jQ,_</span>) </span>{
-    <span class="function"><span class="keyword">function</span> <span class="title">privateMethod</span> (<span class="params"></span>) </span>{
-        jQ(<span class="string">".container"</span>).html(<span class="string">'test'</span>);
+<pre><code>var moModule = (function(jQ,_) {
+    function privateMethod () {
+        jQ(&quot;.container&quot;).html(&apos;test&apos;);
     }
-    <span class="function"><span class="keyword">function</span> <span class="title">privateMethod2</span>(<span class="params"></span>) </span>{
-        <span class="built_in">console</span>.log(_.min([<span class="number">10.5</span>,<span class="number">100</span>,<span class="number">2</span>,<span class="number">1000</span>]));
+    function privateMethod2() {
+        console.log(_.min([10.5,100,2,1000]));
     }
-    <span class="keyword">return</span> {
-        publicMethod:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    return {
+        publicMethod:function() {
             privateMethod();
         }
     };
-    })(jQuery,_);<span class="comment">//引入jQuery和underscore</span>
+    })(jQuery,_);//引入jQuery和underscore
     myModule.publicMethod();
 </code></pre><ul>
 <li>引出<br>允许我们声明全局变量而不需要实现他们，并且同样地支持上一个实例中的全局引入的概念；</li>
 </ul>
 <p>代码：</p>
-<pre><code><span class="keyword">var</span> myModule = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-    <span class="comment">//模块对象</span>
-    <span class="keyword">var</span> <span class="built_in">module</span> = {},
-        privateVar = <span class="string">'hello world1'</span>;
-        <span class="function"><span class="keyword">function</span> <span class="title">privateMethod</span>(<span class="params"></span>) </span>{
-            <span class="built_in">console</span>.log(<span class="string">'foo'</span>);
+<pre><code>var myModule = (function() {
+    //模块对象
+    var module = {},
+        privateVar = &apos;hello world1&apos;;
+        function privateMethod() {
+            console.log(&apos;foo&apos;);
         }
-        <span class="built_in">module</span>.publicProperty = <span class="string">'foobar'</span>;
-        <span class="built_in">module</span>.publicMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-            <span class="built_in">console</span>.log(privateVar);
+        module.publicProperty = &apos;foobar&apos;;
+        module.publicMethod = function() {
+            console.log(privateVar);
         };
-        <span class="keyword">return</span> <span class="built_in">module</span>;
+        return module;
     })();
-    <span class="built_in">console</span>.log(myModule.publicProperty);<span class="comment">//foobar</span>
+    console.log(myModule.publicProperty);//foobar
 </code></pre><ul>
 <li>Revealing Module(揭示模块)模式<br>Module模式的改进版，能够在私有范围内简单定义所有的函数和变量，并返回一个匿名对象，它拥有指向私有函数的指针</li>
 </ul>
 <p>代码：</p>
-<pre><code><span class="keyword">var</span> myRevealingModule = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-    <span class="keyword">var</span> privateVar = <span class="string">'Ben Cherry'</span>,
-        publicVar = <span class="string">"Hey there"</span>;
-    <span class="function"><span class="keyword">function</span> <span class="title">privateFunction</span>(<span class="params"></span>) </span>{
-        <span class="built_in">console</span>.log(<span class="string">'Name:'</span>+ privateVar);
+<pre><code>var myRevealingModule = function() {
+    var privateVar = &apos;Ben Cherry&apos;,
+        publicVar = &quot;Hey there&quot;;
+    function privateFunction() {
+        console.log(&apos;Name:&apos;+ privateVar);
     }
-    <span class="function"><span class="keyword">function</span> <span class="title">privateSetName</span>(<span class="params">strName</span>) </span>{
+    function privateSetName(strName) {
         privateVar = strName;
     }
-    <span class="function"><span class="keyword">function</span> <span class="title">publicGetName</span>(<span class="params"></span>) </span>{
+    function publicGetName() {
         privateFunction();
     }
-    <span class="comment">//将暴露的公有指针指向到私有函数和属性上</span>
-    <span class="keyword">return</span> {
+    //将暴露的公有指针指向到私有函数和属性上
+    return {
         setName: publicSetName,
         greeting: publicVar,
         getName: publicGetName
@@ -384,40 +384,40 @@ Car.prototype.toString = <span class="function"><span class="keyword">function</
 <li>Singleton(单例)模式<br>类的实例化次数只能是一次</li>
 </ul>
 <p>代码：</p>
-<pre><code><span class="keyword">var</span> mySingleton = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-    <span class="comment">//实例保持了Singleton的一个引用</span>
-    <span class="keyword">var</span> instance;
-    <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>{
-        <span class="comment">//singleton</span>
-        <span class="comment">//私有方法和变量</span>
-        <span class="function"><span class="keyword">function</span> <span class="title">privateMethod</span>(<span class="params"></span>) </span>{
-            <span class="built_in">console</span>.log(<span class="string">'i am private'</span>);
+<pre><code>var mySingleton = (function() {
+    //实例保持了Singleton的一个引用
+    var instance;
+    function init() {
+        //singleton
+        //私有方法和变量
+        function privateMethod() {
+            console.log(&apos;i am private&apos;);
         }
-        <span class="keyword">var</span> privateVar = <span class="string">'i am also private'</span>;
-        <span class="keyword">var</span> privateRandomNum = <span class="built_in">Math</span>.random();
-        <span class="keyword">return</span> {
-            publicMethod: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-                <span class="built_in">console</span>.log(<span class="string">'the public can see me!'</span>);
+        var privateVar = &apos;i am also private&apos;;
+        var privateRandomNum = Math.random();
+        return {
+            publicMethod: function() {
+                console.log(&apos;the public can see me!&apos;);
             },
-            publicProperty: <span class="string">'i am also public'</span>,
-            getRandomNum:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-                <span class="keyword">return</span> privateRandomNum;
+            publicProperty: &apos;i am also public&apos;,
+            getRandomNum:function() {
+                return privateRandomNum;
             }
         };
     }
-    <span class="keyword">return</span> {
-        <span class="comment">//获取singleton的实例，如果存在就返回，不存在就创建新实例</span>
-        getInstance: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-            <span class="keyword">if</span>(!instance) {
+    return {
+        //获取singleton的实例，如果存在就返回，不存在就创建新实例
+        getInstance: function() {
+            if(!instance) {
                 instance = init();
             }
-            <span class="keyword">return</span> instance;
+            return instance;
         }
     };
     })();
-    <span class="keyword">var</span> singleA = mySingleton.getInstance();
-    <span class="keyword">var</span> singleB = mySingleton.getInstance();
-    <span class="built_in">console</span>.log(singleA === singleB);
+    var singleA = mySingleton.getInstance();
+    var singleB = mySingleton.getInstance();
+    console.log(singleA === singleB);
 </code></pre><ul>
 <li>Observer(观察者)模式</li>
 </ul>

@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="css3笔记,笔记," />
+  <meta name="keywords" content="笔记,css3笔记," />
 
 
 
@@ -212,7 +212,7 @@
         <ol>
 <li>为了向后兼容，最好使用前缀-webkit：chrome，safari；-moz： Firefox；-ms：IE；-o:opera。</li>
 <li>css3的强大功能：选择器，圆角效果，块阴影和文字阴影，支持更多色彩，渐变效果，个性化字体，多背景图，边框背景，变形处理，多栏布局，媒体查询，动画等。<a id="more"></a>
-<h1 id="border">border</h1><h2 id="border-radius">border-radius</h2></li>
+#border<br>##border-radius</li>
 </ol>
 <ul>
 <li><code>border-radius:10px</code></li>
@@ -222,62 +222,69 @@
 <li>绘制上半圆</li>
 </ul>
 <p>代码</p>
-<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
-<span class="class">.box</span><span class="rules">{
-    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
-    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">50px</span></span></span>;
-    <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid red</span></span>;
-    <span class="rule"><span class="attribute">border-radius</span>:<span class="value"> <span class="number">50px</span> <span class="number">50px</span> <span class="number">0</span> <span class="number">0</span></span></span>;//半径至少要等于height
-}</span>
-</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
-<span class="tag">&lt;<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-</code></pre><h2 id="box-shadow">box-shadow</h2><ul>
+<pre><code>&lt;style&gt;
+.box{
+    width:100px;
+    height:50px;
+    border:1px solid red;
+    border-radius: 50px 50px 0 0;//半径至少要等于height
+}
+&lt;/style&gt;
+&lt;body&gt;
+&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><p>##box-shadow</p>
+<ul>
 <li>box-shadow:[x轴偏移量][y轴偏移量][阴影模糊半径][阴影扩展半径][阴影颜色][投影方式]<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015060401.PNG" alt=""></li>
 <li>添加多个阴影</li>
 </ul>
 <p>代码</p>
-<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
-<span class="class">.box</span><span class="rules">{
-    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
-    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">50px</span></span></span>;
-    <span class="rule"><span class="attribute">box-shadow</span>:<span class="value"><span class="number">4px</span> <span class="number">2px</span> <span class="number">6px</span> <span class="hexcolor">#f00</span>, -<span class="number">4px</span> -<span class="number">2px</span> <span class="number">6px</span> <span class="hexcolor">#000</span>, <span class="number">0px</span> <span class="number">0px</span> <span class="number">12px</span> <span class="number">5px</span> <span class="hexcolor">#33CC00</span> inset</span></span>;
-}</span>
-</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
-<span class="tag">&lt;<span class="title">body</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<pre><code>&lt;style&gt;
+.box{
+    width:100px;
+    height:50px;
+    box-shadow:4px 2px 6px #f00, -4px -2px 6px #000, 0px 0px 12px 5px #33CC00 inset;
+}
+&lt;/style&gt;
+&lt;body&gt;
+    &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
 </code></pre><p><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015060402.PNG" alt=""></p>
 <ul>
 <li>阴影模糊半径:其值只能是为正值，如果其值为0时，表示阴影不具有模糊效果，其值越大阴影的边缘就越模糊；</li>
 <li>阴影扩展半径:其值可以是正负值，如果值为正，则整个阴影都延展扩大，反之值为负值时，则缩小；</li>
 </ul>
-<h2 id="border-image">border-image</h2><h1 id="color">color</h1><h2 id="rgba">rgba</h2><p><code>rgba(R,G,B,A)</code>;最后一个代表透明度，A取值0-1；不可以为负值；</p>
-<h2 id="渐变色彩">渐变色彩</h2><p>Gradient分为线性渐变(linear)和径向渐变(radial)<br><code>linear-gradient(to bottom,#fff,#000)</code>第一个参数：指定渐变的方向，可以用角度或者是英文</p>
+<p>##border-image</p>
+<p>#color</p>
+<p>##rgba<br><code>rgba(R,G,B,A)</code>;最后一个代表透明度，A取值0-1；不可以为负值；</p>
+<p>##渐变色彩<br>Gradient分为线性渐变(linear)和径向渐变(radial)<br><code>linear-gradient(to bottom,#fff,#000)</code>第一个参数：指定渐变的方向，可以用角度或者是英文</p>
 <p><table border="1" rules="all"><br>    <tr><th>角度表示</th><th>英文表示</th><th>意思</th></tr><br>    <tr><td>0deg</td><td>to top</td><td>从下向上</td></tr><br>    <tr><td>90deg</td><td>to right</td><td>从左向右</td></tr><br>    <tr><td>180deg</td><td>to bottom</td><td>从上向下</td></tr><br>    <tr><td>270deg</td><td>to left</td><td>从右向左</td></tr><br>    <tr><td>0deg</td><td>to top left</td><td>从右下角到左上角</td></tr><br>    <tr><td>0deg</td><td>to top right</td><td>从左下角到右上角</td></tr><br></table><br>第一参数省略时，默认是180deg；<br>第二个和第三个参数，表示颜色的起始点和结束点，可以有多个颜色值地；<br>background-image:linear-gradient(to left, red, orange,yellow,green,blue,indigo,violet);</p>
-<h1 id="文字和文体">文字和文体</h1><h2 id="text-overflow,word-wrap">text-overflow,word-wrap</h2><p>text-overflow用来设置是否使用一个省略标记（…）标示对象内文本的溢出;<br>text-overflow只是用来说明文字溢出时用什么方式显示，要实现溢出时产生省略号的效果，还须定义强制文本在一行内显示（white-space:nowrap）及溢出内容为隐藏（overflow:hidden），只有这样才能实现溢出文本显示省略号的效果;</p>
-<pre><code><span class="rule"><span class="attribute">text-overflow</span>:<span class="value">ellipsis</span></span>; 
-<span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>; 
-<span class="rule"><span class="attribute">white-space</span>:<span class="value">nowrap</span></span>; 
+<p>#文字和文体</p>
+<p>##text-overflow,word-wrap<br>text-overflow用来设置是否使用一个省略标记（…）标示对象内文本的溢出;<br>text-overflow只是用来说明文字溢出时用什么方式显示，要实现溢出时产生省略号的效果，还须定义强制文本在一行内显示（white-space:nowrap）及溢出内容为隐藏（overflow:hidden），只有这样才能实现溢出文本显示省略号的效果;</p>
+<pre><code>text-overflow:ellipsis; 
+overflow:hidden; 
+white-space:nowrap; 
 </code></pre><p>word-wrap用来设置文本行为，当前行超过指定容器的边界时是否断开转行,normal为浏览器默认值，break-word设置在长单词或 URL地址内部进行换行</p>
-<h2 id="@font-face">@font-face</h2><p>嵌入字体<br>@font-face能够加载服务器端的字体文件，让浏览器端可以显示用户电脑里没有安装的字体<br>用法：</p>
-<pre><code><span class="at_rule">@<span class="keyword">font-face</span></span> <span class="rules">{
-<span class="rule"><span class="attribute">font-family </span>:<span class="value"> 字体名称</span></span>;
-<span class="rule"><span class="attribute">src </span>:<span class="value"> 字体文件在服务器上的相对或绝对路径</span></span>;
-}</span>
-<span class="tag">p</span> <span class="rules">{
-<span class="rule"><span class="attribute">font-size </span>:<span class="value"><span class="number">12px</span></span></span>;
-<span class="rule"><span class="attribute">font-family </span>:<span class="value"> <span class="string">"My Font"</span></span></span>;
-<span class="comment">/*必须项，设置@font-face中font-family同样的值*/</span>
-}</span>
-</code></pre><h2 id="text-shadow">text-shadow</h2><p>文本阴影<br>可以用来设置文本的阴影效果<code>text-shadow: X-Offset Y-Offset blur color</code><br>X-Offset：表示阴影的水平偏移距离，其值为正值时阴影向右偏移，反之向左偏移；<br>Y-Offset：是指阴影的垂直偏移距离，如果其值是正值时，阴影向下偏移，反之向上偏移；<br>Blur：是指阴影的模糊程度，其值不能是负值，如果值越大，阴影越模糊，反之阴影越清晰，如果不需要阴影模糊可以将Blur值设置为0；<br>Color：是指阴影的颜色，其可以使用rgba色</p>
-<h1 id="背景">背景</h1><h2 id="background-origin">background-origin</h2><p>设置背景图片的起始位置<br><code>background-origin ： border-box | padding-box | content-box;</code><br>从边框，内边距（默认），内容区开始显示背景<br>注意:对于背景是图片的来说，如果这个backgroun-repeat没有设置no-repeat,只是会以你设置的为起始点，来重复；</p>
-<h2 id="background-clip">background-clip</h2><p><code>background-clip ： border-box | padding-box | content-box | no-clip</code><br>对背景图片做裁剪，no-clip表示不裁切，和参数border-box显示同样的效果。backgroud-clip默认值为border-box。<br>说白了就是已经用background-origin等属性，把背景图片都固定好了，background-clip，就是让遮住哪一部分，显示哪一部分；</p>
-<h2 id="background-size">background-size</h2><p>设置背景图片的大小<br><code>background-size: auto | &lt;长度值&gt; | &lt;百分比&gt; | cover | contain</code><br>1、auto：默认值，不改变背景图片的原始高度和宽度；<br>2、&lt;长度值&gt;：成对出现如200px 50px，将背景图片宽高依次设置为前面两个值，当设置一个值时，将其作为图片宽度值来 <strong>等比缩放</strong>；<br>3、&lt;百分比&gt;：0％~100％之间的任何值，将背景图片宽高依次设置为所在元素宽高乘以前面百分比得出的数值，当设置一个值时同上；<br>4、cover：顾名思义为覆盖，即将背景图片 <strong>等比缩放</strong> 以填满整个容器；<br>5、contain：容纳，即将背景图片等比缩放至 <strong>某一边</strong> 紧贴容器边缘为止</p>
-<h2 id="multiple_backgrounds">multiple backgrounds</h2><p>多个背景<br>用background所写时，每个不同背景的属性，用逗号隔开，也可以拆分写<br>缩写时：如果有 size 值，需要紧跟 position 并且用 “/“ 隔开；<br>如果有多个背景图片，而其他属性只有一个（例如 background-repeat 只有一个），表明所有背景图片应用该属性值。<br>background-color 只能设置一个</p>
-<h1 id="css3选择器">css3选择器</h1><h2 id="属性选择器">属性选择器</h2><p>新增的属性选择器有通配符<br><code>^,$,*</code>依次他们的作用是：<br><code>attr ^= val</code>:属性值以val开头的字符串<br><code>attr $= val</code>:属性值以val结尾的字符串<br><code>attr *= val</code>:属性值中包含val的字符串</p>
-<h2 id="结构性伪类选择器">结构性伪类选择器</h2><ol>
+<p>##@font-face<br>嵌入字体<br>@font-face能够加载服务器端的字体文件，让浏览器端可以显示用户电脑里没有安装的字体<br>用法：</p>
+<pre><code>@font-face {
+font-family : 字体名称;
+src : 字体文件在服务器上的相对或绝对路径;
+}
+p {
+font-size :12px;
+font-family : &quot;My Font&quot;;
+/*必须项，设置@font-face中font-family同样的值*/
+}
+</code></pre><p>##text-shadow<br>文本阴影<br>可以用来设置文本的阴影效果<code>text-shadow: X-Offset Y-Offset blur color</code><br>X-Offset：表示阴影的水平偏移距离，其值为正值时阴影向右偏移，反之向左偏移；<br>Y-Offset：是指阴影的垂直偏移距离，如果其值是正值时，阴影向下偏移，反之向上偏移；<br>Blur：是指阴影的模糊程度，其值不能是负值，如果值越大，阴影越模糊，反之阴影越清晰，如果不需要阴影模糊可以将Blur值设置为0；<br>Color：是指阴影的颜色，其可以使用rgba色</p>
+<p>#背景</p>
+<p>##background-origin<br>设置背景图片的起始位置<br><code>background-origin ： border-box | padding-box | content-box;</code><br>从边框，内边距（默认），内容区开始显示背景<br>注意:对于背景是图片的来说，如果这个backgroun-repeat没有设置no-repeat,只是会以你设置的为起始点，来重复；</p>
+<p>##background-clip<br><code>background-clip ： border-box | padding-box | content-box | no-clip</code><br>对背景图片做裁剪，no-clip表示不裁切，和参数border-box显示同样的效果。backgroud-clip默认值为border-box。<br>说白了就是已经用background-origin等属性，把背景图片都固定好了，background-clip，就是让遮住哪一部分，显示哪一部分；</p>
+<p>##background-size<br>设置背景图片的大小<br><code>background-size: auto | &lt;长度值&gt; | &lt;百分比&gt; | cover | contain</code><br>1、auto：默认值，不改变背景图片的原始高度和宽度；<br>2、&lt;长度值&gt;：成对出现如200px 50px，将背景图片宽高依次设置为前面两个值，当设置一个值时，将其作为图片宽度值来 <strong>等比缩放</strong>；<br>3、&lt;百分比&gt;：0％~100％之间的任何值，将背景图片宽高依次设置为所在元素宽高乘以前面百分比得出的数值，当设置一个值时同上；<br>4、cover：顾名思义为覆盖，即将背景图片 <strong>等比缩放</strong> 以填满整个容器；<br>5、contain：容纳，即将背景图片等比缩放至 <strong>某一边</strong> 紧贴容器边缘为止</p>
+<p>##multiple backgrounds<br>多个背景<br>用background所写时，每个不同背景的属性，用逗号隔开，也可以拆分写<br>缩写时：如果有 size 值，需要紧跟 position 并且用 “/“ 隔开；<br>如果有多个背景图片，而其他属性只有一个（例如 background-repeat 只有一个），表明所有背景图片应用该属性值。<br>background-color 只能设置一个</p>
+<p>#css3选择器</p>
+<p>##属性选择器<br>新增的属性选择器有通配符<br><code>^,$,*</code>依次他们的作用是：<br><code>attr ^= val</code>:属性值以val开头的字符串<br><code>attr $= val</code>:属性值以val结尾的字符串<br><code>attr *= val</code>:属性值中包含val的字符串</p>
+<p>##结构性伪类选择器</p>
+<ol>
 <li><code>:root</code>选择器，匹配元素所在文档的根元素，在HTML中，根元素是<html>，<code>:root{background:red} &lt;==&gt; html{background}</code></html></li>
 <li><code>:not</code>,否定选择器，和jQuery中的作用是一样的，可以选择除木个元素之位的所有元素</li>
 <li><code>:empty</code>,用来选择没有任何内容的元素，这里没有内容指的是一点内容都没有，哪怕是一个空格</li>
@@ -300,7 +307,9 @@
 <li><code>:read-write</code>,用于来指定元素处于非只读状态时样式</li>
 <li><code>::before,::after</code>,用来给元素的前面和后面插入内容</li>
 </ol>
-<h1 id="变形和动画">变形和动画</h1><h2 id="transform">transform</h2><ol>
+<p>#变形和动画</p>
+<p>##transform</p>
+<ol>
 <li><code>rotate()</code>旋转，主要在二维空间操作，旋转中心就是元素的中心，正值是顺时针旋转，负值是逆时针</li>
 <li><code>skew()</code>,以其中心位置围绕着X轴和Y轴按照一定的角度倾斜,skew()函数不会旋转，而只会改变元素的形状.<ul>
 <li>skew(x,y)</li>
@@ -323,15 +332,16 @@
 <li><code>matrix()</code>,矩阵，是一个含六个值（a,b,c,d,e,f）</li>
 <li><code>transform-origin</code>,任何一个元素都有一个中心点，默认情况之下，其中心点是居于元素X轴和Y轴的50%处<br>在没有重置transform-origin改变元素原点位置的情况下，CSS变形进行的旋转、位移、缩放，扭曲等操作都是以元素自己中心位置进行变形。但很多时候，我们可以通过transform-origin来对元素进行原点位置改变，使元素原点不在元素的中心位置，以达到需要的原点位置.</li>
 </ol>
-<h2 id="transition">transition</h2><p>CSS3中新增加了一个新的模块transition，它可以通过一些简单的CSS事件来触发元素的外观变化，让效果显得更加细腻。简单点说，就是通过鼠标的单击、获得焦点，被点击或对元素任何改变中触发，并平滑地以动画效果改变CSS的属性值<br>在CSS中创建简单的过渡效果可以从以下几个步骤来实现：<br>第一，在默认样式中声明元素的初始状态样式；<br>第二，声明过渡元素最终状态样式，比如悬浮状态；<br>第三，在默认样式中通过添加过渡函数，添加一些不同的样式。<br>transition-property:指定过渡或动态模拟的CSS属性<br>transition-duration:指定完成过渡所需的时间<br>transition-timing-function:指定过渡函数.</p>
-<pre><code>-<span class="ruby"> <span class="string">`ease`</span><span class="symbol">:</span>默认值，由快到慢
-</span>-<span class="ruby"> <span class="string">`linear`</span>：恒速
-</span>-<span class="ruby"> <span class="string">`ease-in`</span><span class="symbol">:</span>速度越来越快
-</span>-<span class="ruby"> <span class="string">`ease-out`</span>：速度越来越慢
-</span>-<span class="ruby"> <span class="string">`ease-in-out`</span><span class="symbol">:</span>先加速后减速</span>
+<p>##transition<br>CSS3中新增加了一个新的模块transition，它可以通过一些简单的CSS事件来触发元素的外观变化，让效果显得更加细腻。简单点说，就是通过鼠标的单击、获得焦点，被点击或对元素任何改变中触发，并平滑地以动画效果改变CSS的属性值<br>在CSS中创建简单的过渡效果可以从以下几个步骤来实现：<br>第一，在默认样式中声明元素的初始状态样式；<br>第二，声明过渡元素最终状态样式，比如悬浮状态；<br>第三，在默认样式中通过添加过渡函数，添加一些不同的样式。<br>transition-property:指定过渡或动态模拟的CSS属性<br>transition-duration:指定完成过渡所需的时间<br>transition-timing-function:指定过渡函数.</p>
+<pre><code>- `ease`:默认值，由快到慢
+- `linear`：恒速
+- `ease-in`:速度越来越快
+- `ease-out`：速度越来越慢
+- `ease-in-out`:先加速后减速
 </code></pre><p>transition-delay:指定开始出现的延迟时间<br>多个transition效果，用逗号隔开</p>
-<h2 id="keyframes">keyframes</h2><p>在CSS3中其主要以“@keyframes”开头，后面紧跟着是动画名称加上一对花括号“{…}”，括号中就是一些不同时间段样式规则</p>
-<h2 id="animation">animation</h2><ul>
+<p>##keyframes<br>在CSS3中其主要以“@keyframes”开头，后面紧跟着是动画名称加上一对花括号“{…}”，括号中就是一些不同时间段样式规则</p>
+<p>##animation</p>
+<ul>
 <li>animation-name,主要是用来调用 @keyframes 定义好的动画。需要特别注意: animation-name 调用的动画名需要和“@keyframes”定义的动画名称完全一致（区分大小写），如果不一致将不具有任何动画效果</li>
 <li>animation-duration:设置css3动画播放时间</li>
 <li>animation-timing-function,设置动画播放的方式</li>
@@ -343,7 +353,7 @@
 </li>
 <li>animation-direction,设置动画播放方向，normal是默认值,每次播放都是向前播放。alternate,是第偶次数向前播放，第奇数次反方向</li>
 <li>animation-play-state,控制元素动画的播放状态<br>其中running是其默认值，主要作用就是类似于音乐播放器一样，可以通过paused将正在播放的动画停下来，也可以通过running将暂停的动画重新播放，这里的重新播放不一定是从元素动画的开始播放，而是从暂停的那个位置开始播放。另外如果暂停了动画的播放，元素的样式将回到最原始设置状态</li>
-<li>animation-fill-mode,定义在动画开始之前和结束之后发生的操作<br>none<br>默认值，表示动画将按预期进行和结束，在动画完成其最后一帧时，动画会反转到初始帧处<br>forwards<br>表示动画在结束后继续应用最后的关键帧的位置<br>backwards<br>会在向元素应用动画样式时迅速应用动画的初始帧<br>both<br>元素动画同时具有forwards和backwards效果<h1 id="多列布局">多列布局</h1><h2 id="columns">columns</h2>参数<br>column-width<br>主要用来定义多列中每列的宽度<br>column-count<br>主要用来定义多列中的列数<h2 id="column-width">column-width</h2>auto<br>如果column-width设置值为auto或者没有显式的设置值时，元素多列的列宽将由其他属性来决定，比如前面的示例就是由列数column-count来决定。<br>length<br>使用固定值来设置元素列的宽度，其主要是由数值和长度单位组成，不过其值只能是正值，不能为负值<h2 id="column-count">column-count</h2>auto<br>此值为column-count的默认值，表示元素只有一列，其主要依靠浏览器计算自动设置。<br>integer<br>此值为正整数值，主要用来定义元素的列数，取值为大于0的整数，负值无效。<h2 id="column-gap">column-gap</h2>设置列与列之间的间距<br>normal<br>默认值，默值为1em（如果你的字号是px，其默认值为你的font-size值）。<br>length<br>此值用来设置列与列之间的距离，其可以使用px,em单位的任何整数值，但不能是负值<h2 id="column-rule">column-rule</h2>用来定义列与列之间的边框宽度、边框样式和边框颜色。<br>注意：column-rule是不占用任何空间位置的，在列与列之间改变其宽度不会改变任何列的位置<br><code>column-rule:&lt;column-rule-width&gt;|&lt;column-rule-style&gt;|&lt;column-rule-color&gt;</code><br>column-rule-width<br>类似于border-width属性，主要用来定义列边框的宽度，其默认值为“medium”，column-rule-width属性接受任意浮点数，但不接收负值。但也像border-width属性一样，可以使用关键词：medium、thick和thin。<br>column-rule-style<br>类似于border-style属性，主要用来定义列边框样式，其默认值为“none”。column-rule-style属性值与border-style属值相同，包括none、hidden、dotted、dashed、solid、double、groove、ridge、inset、outset。<br>column-rule-color<br>类似于border-color属性，主要用来定义列边框颜色，其默认值为前景色color的值，使用时相当于border-color。column-rule-color接受所有的颜色。如果不希望显示颜色，也可以将其设置为transparent(透明色)；<h2 id="column-span">column-span</h2>column-span主要用来定义一个分列元素中的子元素能跨列多少。column-width、column-count等属性能让一元素分成多列，不管里面元素如何排放顺序，他们都是从左向右的放置内容，但有时我们需要基中一段内容或一个标题不进行分列，也就是横跨所有列<br>none<br>此值为column-span的默认值，表示不跨越任何列。<br>all<br>这个值跟none值刚好相反，表示的是元素跨越所有列，并定位在列的Ｚ轴之<h1 id="盒模型">盒模型</h1><h2 id="W3C标准盒模型">W3C标准盒模型</h2>外盒尺寸计算（元素空间尺寸）<br>element空间高度＝内容高度＋内距＋边框＋外距<br>element空间宽度＝内容宽度＋内距＋边框＋外距<br>内盒尺寸计算（元素大小）<br>element高度＝内容高度＋内距＋边框（height为内容高度）<br>element宽度＝内容宽度＋内距＋边框（width为内容宽度）<h2 id="IE传统下盒模型（IE6以下，不包含IE6版本或”QuirksMode下IE5-5+”）">IE传统下盒模型（IE6以下，不包含IE6版本或”QuirksMode下IE5.5+”）</h2>外盒尺寸计算（元素空间尺寸）<br>element空间高度＝内容高度＋外距（height包含了元素内容宽度、边框、内距）<br>element宽间宽度＝内容宽度＋外距（width包含了元素内容宽度、边框、内距）<br>内盒尺寸计算（元素大小）<br>element高度＝内容高度（height包含了元素内容宽度、边框、内距）<br>element宽度＝内容宽度（width包含了元素内容宽度、边框、内距）<h2 id="box-sizing">box-sizing</h2><code>box-sizing: content-box | border-box | inherit</code><br>content-box<br>默认值，其让元素维持W3C的标准盒模型，也就是说元素的宽度和高度（width/height）等于元素边框宽度（border）加上元素内距（padding）加上元素内容宽度或高度（content width/ height），也就是element width/height = border + padding + content width / height<br>border-box<br>重新定义CSS2.1中盒模型组成的模式，让元素维持IE传统的盒模型（IE6以下版本和IE6-7怪异模式），也就是说元素的宽度或高度等于元素内容的宽度或高度。从上面盒模型介绍可知，这里的内容宽度或高度包含了元素的border、padding、内容的宽度或高度（此处的内容宽度或高度＝盒子的宽度或高度—边框—内距）。<br>inherit<br>使元素继承父元素的盒模型模式<h2 id="伸缩布局">伸缩布局</h2>Flexbox布局<br>第一，屏幕和浏览器窗口大小发生改变也可以灵活调整布局；<br>第二，可以指定伸缩项目沿着主轴或侧轴按比例分配额外空间（伸缩容器额外空间），从而调整伸缩项目的大小；<br>第三，可以指定伸缩项目沿着主轴或侧轴将伸缩容器额外空间，分配到伸缩项目之前、之后或之间；<br>第四，可以指定如何将垂直于元素布局轴的额外空间分布到该元素的周围；<br>第五，可以控制元素在页面上的布局方向；<br>第六，可以按照不同于文档对象模型（DOM）所指定排序方式对屏幕上的元素重新排序。也就是说可以在浏览器渲染中不按照文档流先后顺序重排伸缩项目顺序。</li>
+<li>animation-fill-mode,定义在动画开始之前和结束之后发生的操作<br>none<br>默认值，表示动画将按预期进行和结束，在动画完成其最后一帧时，动画会反转到初始帧处<br>forwards<br>表示动画在结束后继续应用最后的关键帧的位置<br>backwards<br>会在向元素应用动画样式时迅速应用动画的初始帧<br>both<br>元素动画同时具有forwards和backwards效果<br>#多列布局<br>##columns<br>参数<br>column-width<br>主要用来定义多列中每列的宽度<br>column-count<br>主要用来定义多列中的列数<br>##column-width<br>auto<br>如果column-width设置值为auto或者没有显式的设置值时，元素多列的列宽将由其他属性来决定，比如前面的示例就是由列数column-count来决定。<br>length<br>使用固定值来设置元素列的宽度，其主要是由数值和长度单位组成，不过其值只能是正值，不能为负值<br>##column-count<br>auto<br>此值为column-count的默认值，表示元素只有一列，其主要依靠浏览器计算自动设置。<br>integer<br>此值为正整数值，主要用来定义元素的列数，取值为大于0的整数，负值无效。<br>##column-gap<br>设置列与列之间的间距<br>normal<br>默认值，默值为1em（如果你的字号是px，其默认值为你的font-size值）。<br>length<br>此值用来设置列与列之间的距离，其可以使用px,em单位的任何整数值，但不能是负值<br>##column-rule<br>用来定义列与列之间的边框宽度、边框样式和边框颜色。<br>注意：column-rule是不占用任何空间位置的，在列与列之间改变其宽度不会改变任何列的位置<br><code>column-rule:&lt;column-rule-width&gt;|&lt;column-rule-style&gt;|&lt;column-rule-color&gt;</code><br>column-rule-width<br>类似于border-width属性，主要用来定义列边框的宽度，其默认值为“medium”，column-rule-width属性接受任意浮点数，但不接收负值。但也像border-width属性一样，可以使用关键词：medium、thick和thin。<br>column-rule-style<br>类似于border-style属性，主要用来定义列边框样式，其默认值为“none”。column-rule-style属性值与border-style属值相同，包括none、hidden、dotted、dashed、solid、double、groove、ridge、inset、outset。<br>column-rule-color<br>类似于border-color属性，主要用来定义列边框颜色，其默认值为前景色color的值，使用时相当于border-color。column-rule-color接受所有的颜色。如果不希望显示颜色，也可以将其设置为transparent(透明色)；<br>##column-span<br>column-span主要用来定义一个分列元素中的子元素能跨列多少。column-width、column-count等属性能让一元素分成多列，不管里面元素如何排放顺序，他们都是从左向右的放置内容，但有时我们需要基中一段内容或一个标题不进行分列，也就是横跨所有列<br>none<br>此值为column-span的默认值，表示不跨越任何列。<br>all<br>这个值跟none值刚好相反，表示的是元素跨越所有列，并定位在列的Ｚ轴之<br>#盒模型<br>##W3C标准盒模型<br>外盒尺寸计算（元素空间尺寸）<br>element空间高度＝内容高度＋内距＋边框＋外距<br>element空间宽度＝内容宽度＋内距＋边框＋外距<br>内盒尺寸计算（元素大小）<br>element高度＝内容高度＋内距＋边框（height为内容高度）<br>element宽度＝内容宽度＋内距＋边框（width为内容宽度）<br>##IE传统下盒模型（IE6以下，不包含IE6版本或”QuirksMode下IE5.5+”）<br>外盒尺寸计算（元素空间尺寸）<br>element空间高度＝内容高度＋外距（height包含了元素内容宽度、边框、内距）<br>element宽间宽度＝内容宽度＋外距（width包含了元素内容宽度、边框、内距）<br>内盒尺寸计算（元素大小）<br>element高度＝内容高度（height包含了元素内容宽度、边框、内距）<br>element宽度＝内容宽度（width包含了元素内容宽度、边框、内距）<br>##box-sizing<br><code>box-sizing: content-box | border-box | inherit</code><br>content-box<br>默认值，其让元素维持W3C的标准盒模型，也就是说元素的宽度和高度（width/height）等于元素边框宽度（border）加上元素内距（padding）加上元素内容宽度或高度（content width/ height），也就是element width/height = border + padding + content width / height<br>border-box<br>重新定义CSS2.1中盒模型组成的模式，让元素维持IE传统的盒模型（IE6以下版本和IE6-7怪异模式），也就是说元素的宽度或高度等于元素内容的宽度或高度。从上面盒模型介绍可知，这里的内容宽度或高度包含了元素的border、padding、内容的宽度或高度（此处的内容宽度或高度＝盒子的宽度或高度—边框—内距）。<br>inherit<br>使元素继承父元素的盒模型模式<br>##伸缩布局<br>Flexbox布局<br>第一，屏幕和浏览器窗口大小发生改变也可以灵活调整布局；<br>第二，可以指定伸缩项目沿着主轴或侧轴按比例分配额外空间（伸缩容器额外空间），从而调整伸缩项目的大小；<br>第三，可以指定伸缩项目沿着主轴或侧轴将伸缩容器额外空间，分配到伸缩项目之前、之后或之间；<br>第四，可以指定如何将垂直于元素布局轴的额外空间分布到该元素的周围；<br>第五，可以控制元素在页面上的布局方向；<br>第六，可以按照不同于文档对象模型（DOM）所指定排序方式对屏幕上的元素重新排序。也就是说可以在浏览器渲染中不按照文档流先后顺序重排伸缩项目顺序。</li>
 </ul>
 <ol>
 <li>创建一个flex容器<br><code>.flexcontainer{display:flex;}</code></li>
@@ -357,46 +367,50 @@
 </li>
 <li>Flex项目实现自动伸缩<br>Flex属性设置，例如<code>.bigitem{ -webkit-flex:200; flex:200; }  .smallitem{ -webkit-flex:100; flex:100; }</code></li>
 </ol>
-<h1 id="Media_Queries">Media Queries</h1><h2 id="媒体类型">媒体类型</h2><p>All<br>所有设备<br>Braille<br>盲人用点字法触觉回馈设备<br>Embossed<br>盲文打印机<br>Handheld<br>便携设备<br>Print<br>打印用纸或打印预览视图<br>Projection<br>各种投影设备<br>Screen<br>电脑显示器<br>Speech<br>语音或音频合成器<br>Tv<br>电视机类型设备<br>Tty<br>使用固定密度字母栅格的媒介，比如电传打字机和终端</p>
-<h3 id="媒体类型的引用方法">媒体类型的引用方法</h3><ul>
+<p>#Media Queries</p>
+<p>##媒体类型<br>All<br>所有设备<br>Braille<br>盲人用点字法触觉回馈设备<br>Embossed<br>盲文打印机<br>Handheld<br>便携设备<br>Print<br>打印用纸或打印预览视图<br>Projection<br>各种投影设备<br>Screen<br>电脑显示器<br>Speech<br>语音或音频合成器<br>Tv<br>电视机类型设备<br>Tty<br>使用固定密度字母栅格的媒介，比如电传打字机和终端</p>
+<p>###媒体类型的引用方法</p>
+<ul>
 <li>link<br><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot; media=&quot;screen&quot; /&gt;</code></li>
 <li>@import<br>@import可以引用样式文件，同样也可以用来引用媒体类型。@import引入媒体类型主要有两种方式，一种是在样式中通过@import调用另一个样式文件；另一种方法是在<code>&lt;head&gt;&lt;/head&gt;</code>标签中的<code>&lt;style&gt;&lt;/style&gt;</code>中引入，但这种使用方法在IE6~7都不被支持<br><code>@importurl(reset.css) screen;</code></li>
 <li>@media<br>@media是CSS3中新引进的一个特性，被称为媒体查询<br><code>@media screen { 选择器{/*你的样式代码写在这里…*/}}</code></li>
 </ul>
-<h3 id="Media_Queries使用方法">Media Queries使用方法</h3><p><code>@media 媒体类型and （媒体特性）{你的样式}</code></p>
+<p>###Media Queries使用方法<br><code>@media 媒体类型and （媒体特性）{你的样式}</code></p>
 <ol>
 <li>最大宽度max-width</li>
 </ol>
 <p>代码：</p>
-<pre><code><span class="at_rule">@<span class="keyword">media</span> screen and (max-width:<span class="number">480px</span>)</span>{
-    <span class="class">.ads</span> <span class="rules">{
-    <span class="rule"><span class="attribute">display</span>:<span class="value">none</span></span>;
-    }</span>
+<pre><code>@media screen and (max-width:480px){
+    .ads {
+    display:none;
+    }
 }
 </code></pre><ol>
 <li>最小宽度min-width<br>使用同上</li>
 <li>多个媒体特性使用<br>当屏幕在600px~900px之间时，body的背景色渲染为“#f5f5f5</li>
 </ol>
 <p>代码：</p>
-<pre><code><span class="at_rule">@<span class="keyword">media</span> screen and (min-width:<span class="number">600px</span>) and (max-width:<span class="number">900px</span>)</span>{
-<span class="tag">body</span> <span class="rules">{<span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#f5f5f5</span></span></span>;}</span>
+<pre><code>@media screen and (min-width:600px) and (max-width:900px){
+body {background-color:#f5f5f5;}
 }
 </code></pre><ol>
 <li>设备屏幕的输出宽度Device Width<br>可以根据屏幕设备的尺寸来设置相应的样式（或者调用相应的样式文件<br><code>&lt;link rel=&quot;stylesheet&quot; media=&quot;screen and (max-device-width:480px)&quot; href=&quot;iphone.css&quot; /&gt;</code><br>上面的代码指的是“iphone.css”样式适用于最大设备宽度为480px</li>
 <li>not</li>
 <li>only</li>
 </ol>
-<h1 id="responsive设计">responsive设计</h1><ol>
+<p>#responsive设计</p>
+<ol>
 <li>流体网格：流体网格是一个简单的网格系统，这种网格设计参考了流体设计中的网格系统，将每个网格格子使用百分比单位来控制网格大小。这种网格系统最大的好处是让你的网格大小随时根据屏幕尺寸大小做出相对应的比例缩放</li>
 <li>弹性图片：弹性图片指的是不给图片设置固定尺寸，而是根据流体网格进行缩放，用于适应各种网格的尺寸</li>
 <li>媒体查询</li>
 <li>屏幕分辨率</li>
 <li>主要断点：简单的描述就是，设备宽度的临界点。在Media Queries中，其中媒体特性“min-width”和“max-width”对应的属性值就是响应式设计中的断点值。简单点说，就是使用主要断点和次要断点，创建媒体查询的条件。而每个断点会对应调用一个样式文件（或者样式代码）</li>
 </ol>
-<h2 id="布局技巧">布局技巧</h2><p>第一， 尽量少用无关紧要的div；<br>第二，不要使用内联元素（inline）；<br>第三，尽量少用JS或flash；<br>第四，丢弃没用的绝对定位和浮动样式；<br>第五，摒弃任何冗余结构和不使用100%设置</p>
+<p>##布局技巧<br>第一， 尽量少用无关紧要的div；<br>第二，不要使用内联元素（inline）；<br>第三，尽量少用JS或flash；<br>第四，丢弃没用的绝对定位和浮动样式；<br>第五，摒弃任何冗余结构和不使用100%设置</p>
 <p>第一，使用HTML5 Doctype和相关指南；<br>第二，重置好你的样式（reset.css）；<br>第三，一个简单的有语义的核心布局；<br>第四，给重要的网页元素使用简单的技巧，比如导航菜单之类元素</p>
-<h2 id="meta标签">meta标签</h2><p>在实际项目中，为了让Responsive设计在智能设备中能显示正常，也就是浏览Web页面适应屏幕的大小，显示在屏幕上，可以通过这个可视区域的meta标签进行重置，告诉他使用设备的宽度为视图的宽度，也就是说禁止其默认的自适应页面的效果；<br><code>&lt;meta name=”viewport” content=”width=device-width,initial-scale=1.0” /&gt;</code></p>
-<h1 id="其它">其它</h1><h2 id="自由缩放属性resize">自由缩放属性resize</h2><p>它允许用户通过拖动的方式来修改元素的尺寸来改变元素的大小<br><code>resize: none | both | horizontal | vertical | inherit</code><br>none<br>用户不能拖动元素修改尺寸大小。<br>both<br>用户可以拖动元素，同时修改元素的宽度和高度<br>horizontal<br>用户可以拖动元素，仅可以修改元素的宽度，但不能修改元素的高度。<br>vertical<br>用户可以拖动元素，仅可以修改元素的高度，但不能修改元素的宽度。<br>inherit<br>继承父元素的resize属性值</p>
+<p>##meta标签<br>在实际项目中，为了让Responsive设计在智能设备中能显示正常，也就是浏览Web页面适应屏幕的大小，显示在屏幕上，可以通过这个可视区域的meta标签进行重置，告诉他使用设备的宽度为视图的宽度，也就是说禁止其默认的自适应页面的效果；<br><code>&lt;meta name=”viewport” content=”width=device-width,initial-scale=1.0” /&gt;</code></p>
+<p>#其它</p>
+<p>##自由缩放属性resize<br>它允许用户通过拖动的方式来修改元素的尺寸来改变元素的大小<br><code>resize: none | both | horizontal | vertical | inherit</code><br>none<br>用户不能拖动元素修改尺寸大小。<br>both<br>用户可以拖动元素，同时修改元素的宽度和高度<br>horizontal<br>用户可以拖动元素，仅可以修改元素的宽度，但不能修改元素的高度。<br>vertical<br>用户可以拖动元素，仅可以修改元素的高度，但不能修改元素的宽度。<br>inherit<br>继承父元素的resize属性值</p>
 
       
     </div>
@@ -405,9 +419,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/css3笔记/"> #css3笔记 </a>
-          
             <a href="/tags/笔记/"> #笔记 </a>
+          
+            <a href="/tags/css3笔记/"> #css3笔记 </a>
           
         </div>
       
@@ -565,7 +579,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#border"><span class="nav-number">1.</span> <span class="nav-text">border</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#border-radius"><span class="nav-number">1.1.</span> <span class="nav-text">border-radius</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#box-shadow"><span class="nav-number">1.2.</span> <span class="nav-text">box-shadow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#border-image"><span class="nav-number">1.3.</span> <span class="nav-text">border-image</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#color"><span class="nav-number">2.</span> <span class="nav-text">color</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rgba"><span class="nav-number">2.1.</span> <span class="nav-text">rgba</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渐变色彩"><span class="nav-number">2.2.</span> <span class="nav-text">渐变色彩</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文字和文体"><span class="nav-number">3.</span> <span class="nav-text">文字和文体</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#text-overflow,word-wrap"><span class="nav-number">3.1.</span> <span class="nav-text">text-overflow,word-wrap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#@font-face"><span class="nav-number">3.2.</span> <span class="nav-text">@font-face</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-shadow"><span class="nav-number">3.3.</span> <span class="nav-text">text-shadow</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">4.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#background-origin"><span class="nav-number">4.1.</span> <span class="nav-text">background-origin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background-clip"><span class="nav-number">4.2.</span> <span class="nav-text">background-clip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background-size"><span class="nav-number">4.3.</span> <span class="nav-text">background-size</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multiple_backgrounds"><span class="nav-number">4.4.</span> <span class="nav-text">multiple backgrounds</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css3选择器"><span class="nav-number">5.</span> <span class="nav-text">css3选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#属性选择器"><span class="nav-number">5.1.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构性伪类选择器"><span class="nav-number">5.2.</span> <span class="nav-text">结构性伪类选择器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变形和动画"><span class="nav-number">6.</span> <span class="nav-text">变形和动画</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#transform"><span class="nav-number">6.1.</span> <span class="nav-text">transform</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#transition"><span class="nav-number">6.2.</span> <span class="nav-text">transition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keyframes"><span class="nav-number">6.3.</span> <span class="nav-text">keyframes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#animation"><span class="nav-number">6.4.</span> <span class="nav-text">animation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多列布局"><span class="nav-number">7.</span> <span class="nav-text">多列布局</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#columns"><span class="nav-number">7.1.</span> <span class="nav-text">columns</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#column-width"><span class="nav-number">7.2.</span> <span class="nav-text">column-width</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#column-count"><span class="nav-number">7.3.</span> <span class="nav-text">column-count</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#column-gap"><span class="nav-number">7.4.</span> <span class="nav-text">column-gap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#column-rule"><span class="nav-number">7.5.</span> <span class="nav-text">column-rule</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#column-span"><span class="nav-number">7.6.</span> <span class="nav-text">column-span</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#盒模型"><span class="nav-number">8.</span> <span class="nav-text">盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#W3C标准盒模型"><span class="nav-number">8.1.</span> <span class="nav-text">W3C标准盒模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IE传统下盒模型（IE6以下，不包含IE6版本或”QuirksMode下IE5-5+”）"><span class="nav-number">8.2.</span> <span class="nav-text">IE传统下盒模型（IE6以下，不包含IE6版本或”QuirksMode下IE5.5+”）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#box-sizing"><span class="nav-number">8.3.</span> <span class="nav-text">box-sizing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伸缩布局"><span class="nav-number">8.4.</span> <span class="nav-text">伸缩布局</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Media_Queries"><span class="nav-number">9.</span> <span class="nav-text">Media Queries</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体类型"><span class="nav-number">9.1.</span> <span class="nav-text">媒体类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#媒体类型的引用方法"><span class="nav-number">9.1.1.</span> <span class="nav-text">媒体类型的引用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Media_Queries使用方法"><span class="nav-number">9.1.2.</span> <span class="nav-text">Media Queries使用方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#responsive设计"><span class="nav-number">10.</span> <span class="nav-text">responsive设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#布局技巧"><span class="nav-number">10.1.</span> <span class="nav-text">布局技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#meta标签"><span class="nav-number">10.2.</span> <span class="nav-text">meta标签</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其它"><span class="nav-number">11.</span> <span class="nav-text">其它</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自由缩放属性resize"><span class="nav-number">11.1.</span> <span class="nav-text">自由缩放属性resize</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

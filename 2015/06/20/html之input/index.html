@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="html,html5,input," />
+  <meta name="keywords" content="input,html5,html," />
 
 
 
@@ -218,38 +218,40 @@
 
       
         <p>今天是端午节，苦逼在敲代码</p>
-<h1 id="input">input</h1><h3 id="type属性">type属性</h3><p>type规定了input元素的类型<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015062002.PNG" alt=""><br><strong><code>&lt;input type=&quot;text&quot;/&gt;</code></strong><br>这个是最常见的输入文本类型，这个只能输入单行文本，通过获取元素的<code>value</code>来获取其中的值<br><a id="more"></a><br><strong><code>&lt;input type=&quot;button&quot;/&gt;</code></strong><br>这个定义了一个按钮，但是没有任何行为，就是一个单独的按钮，这和submit不同。你可以为它指定点击事件<br><strong><code>&lt;input type=&quot;checkbox/&gt;&quot;</code></strong><br>定义一个复选框，你可以多选，选择一个或者是多个，用<code>name</code>属性来指定这是不是同一类复选框，这个属性一定要有的。<code>value</code>属性，来指定input元素的值<br><strong><code>&lt;input type=&quot;file&quot;/&gt;</code></strong><br>用于文件上传<br><strong><code>&lt;input type=&quot;hidden&quot;/&gt;</code></strong><br>定义一个隐藏的字段，隐藏一个input标签，可以通过js获取到<br><strong><code>&lt;input type=&quot;image&quot;/&gt;</code></strong><br>定义了一个图片式的提交按钮，这个一定要有’src’属性来指定一个图片的URL，最好还有一个<code>alt</code>，当图片不能显示时，显示的内容<br><strong><code>&lt;input type=&quot;password&quot;/&gt;</code></strong><br>这个是用于输入密码的，输入的密码会被星号或者是点号隐藏<br><strong><code>&lt;input type=&quot;radio&quot;/&gt;</code></strong><br>定义一个单选框，你可以定义一定数目的单选框，只能选择一个，用<code>name</code>来指定同一类，<code>value</code>指定每个单选框的值<br><strong><code>&lt;input type=&quot;reset&quot;/&gt;</code></strong><br>定义一个重置按钮，它会清空所有表单中的数据，这个是要有<code>form</code>来指定是一个表单下,她会清除form中的input中的数据<br><strong><code>&lt;input type=&quot;submit&quot;/&gt;</code></strong><br>定义一个提交按钮，默认会发送form表单中的数据</p>
-<h3 id="value属性">value属性</h3><p>不同的type属性，value属性表示的也不同</p>
+<p>#input</p>
+<p>###type属性<br>type规定了input元素的类型<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/2015062002.PNG" alt=""><br><strong><code>&lt;input type=&quot;text&quot;/&gt;</code></strong><br>这个是最常见的输入文本类型，这个只能输入单行文本，通过获取元素的<code>value</code>来获取其中的值<br><a id="more"></a><br><strong><code>&lt;input type=&quot;button&quot;/&gt;</code></strong><br>这个定义了一个按钮，但是没有任何行为，就是一个单独的按钮，这和submit不同。你可以为它指定点击事件<br><strong><code>&lt;input type=&quot;checkbox/&gt;&quot;</code></strong><br>定义一个复选框，你可以多选，选择一个或者是多个，用<code>name</code>属性来指定这是不是同一类复选框，这个属性一定要有的。<code>value</code>属性，来指定input元素的值<br><strong><code>&lt;input type=&quot;file&quot;/&gt;</code></strong><br>用于文件上传<br><strong><code>&lt;input type=&quot;hidden&quot;/&gt;</code></strong><br>定义一个隐藏的字段，隐藏一个input标签，可以通过js获取到<br><strong><code>&lt;input type=&quot;image&quot;/&gt;</code></strong><br>定义了一个图片式的提交按钮，这个一定要有’src’属性来指定一个图片的URL，最好还有一个<code>alt</code>，当图片不能显示时，显示的内容<br><strong><code>&lt;input type=&quot;password&quot;/&gt;</code></strong><br>这个是用于输入密码的，输入的密码会被星号或者是点号隐藏<br><strong><code>&lt;input type=&quot;radio&quot;/&gt;</code></strong><br>定义一个单选框，你可以定义一定数目的单选框，只能选择一个，用<code>name</code>来指定同一类，<code>value</code>指定每个单选框的值<br><strong><code>&lt;input type=&quot;reset&quot;/&gt;</code></strong><br>定义一个重置按钮，它会清空所有表单中的数据，这个是要有<code>form</code>来指定是一个表单下,她会清除form中的input中的数据<br><strong><code>&lt;input type=&quot;submit&quot;/&gt;</code></strong><br>定义一个提交按钮，默认会发送form表单中的数据</p>
+<p>###value属性<br>不同的type属性，value属性表示的也不同</p>
 <ul>
 <li>type=”button”, “reset”, “submit” - 定义按钮上的显示的文本</li>
 <li>type=”text”, “password”, “hidden” - 定义输入字段的初始值</li>
 <li>type=”checkbox”, “radio”, “image” - 定义与输入相关联的值，也就是点击那个按钮的值<br><code>&lt;input type=&quot;checkbox&quot;&gt;</code> 和 <code>&lt;input type=&quot;radio&quot;&gt;</code> 中必须设置 value 属性<br><code>&lt;input type=&quot;file&quot;&gt;</code>不能有value</li>
 </ul>
-<h3 id="name属性">name属性</h3><p>name 属性用于对提交到服务器后的表单数据进行标识，或者在客户端通过 JavaScript 引用表单数据，<br>只有设置了 name 属性的表单元素才能在提交表单时传递它们的值，这个要必须有，除非你用js单独获取它们的值用Ajax发送</p>
-<h3 id="size属性">size属性</h3><p>对于 <code>&lt;input type=&quot;text&quot;&gt;</code> 和 <code>&lt;input type=&quot;password&quot;&gt;</code>，size 属性定义的是可见的字符数。而对于其他类型，size 属性定义的是以像素为单位的输入字段宽度</p>
-<h3 id="maxleng属性">maxleng属性</h3><p>用于text和password类型的，规定了可以输入的最多字符数，也就用于这两种情况</p>
-<h3 id="checked属性">checked属性</h3><p>用于radio和checkbox类型，有它代表，预先指定选中的状态</p>
-<h3 id="disabled">disabled</h3><p>被禁用的 input 元素既不可用，也不可点击，不能用于type是hidden类型,通过js来取消</p>
-<h1 id="form">form</h1><p>可以包含<code>input,textarea,fieldset,legend,label</code>;</p>
-<h3 id="enctype">enctype</h3><p>application/x-www-form-urlencoded   在发送前编码所有字符（默认）<br>multipart/form-data 不对字符编码。<br><strong>在使用包含文件上传控件的表单时，必须使用该值。</strong><br>text/plain  空格转换为 “+” 加号，但不对特殊字符编码。</p>
-<h3 id="action">action</h3><p>指定表单提交到服务器的URL</p>
-<h3 id="method">method</h3><p>指定表单提交的方式GET，POST</p>
-<h3 id="accept-charset">accept-charset</h3><p>accept-charset 属性规定服务器用哪种字符集处理表单数据</p>
-<h3 id="target">target</h3><ul>
+<p>###name属性<br>name 属性用于对提交到服务器后的表单数据进行标识，或者在客户端通过 JavaScript 引用表单数据，<br>只有设置了 name 属性的表单元素才能在提交表单时传递它们的值，这个要必须有，除非你用js单独获取它们的值用Ajax发送</p>
+<p>###size属性<br>对于 <code>&lt;input type=&quot;text&quot;&gt;</code> 和 <code>&lt;input type=&quot;password&quot;&gt;</code>，size 属性定义的是可见的字符数。而对于其他类型，size 属性定义的是以像素为单位的输入字段宽度</p>
+<p>###maxleng属性<br>用于text和password类型的，规定了可以输入的最多字符数，也就用于这两种情况</p>
+<p>###checked属性<br>用于radio和checkbox类型，有它代表，预先指定选中的状态</p>
+<p>###disabled<br>被禁用的 input 元素既不可用，也不可点击，不能用于type是hidden类型,通过js来取消</p>
+<p>#form<br>可以包含<code>input,textarea,fieldset,legend,label</code>;</p>
+<p>###enctype<br>application/x-www-form-urlencoded   在发送前编码所有字符（默认）<br>multipart/form-data 不对字符编码。<br><strong>在使用包含文件上传控件的表单时，必须使用该值。</strong><br>text/plain  空格转换为 “+” 加号，但不对特殊字符编码。</p>
+<p>###action<br>指定表单提交到服务器的URL</p>
+<p>###method<br>指定表单提交的方式GET，POST</p>
+<p>###accept-charset<br>accept-charset 属性规定服务器用哪种字符集处理表单数据</p>
+<p>###target</p>
+<ul>
 <li>_blank  在新窗口中打开。</li>
 <li>_self   默认。在相同的框架中打开。</li>
 <li>_parent 在父框架集中打开。</li>
 <li>_top    在整个窗口中打开。</li>
 <li>framename   在指定的框架中打开。</li>
 </ul>
-<h1 id="fieldset">fieldset</h1><p>用于将表单用的元素进行分组，当一组表单元素放到 <fieldset>标签内时，浏览器会以特殊方式来显示它们，它们可能有特殊的边界、3D效果，或者甚至可创建一个子表单来处理这些元素<br>用<code>legend</code>元素来指定标题</fieldset></p>
-<h1 id="legend">legend</h1><p>用于给<code>fieldset</code>元素指定标题</p>
-<h1 id="label">label</h1><p>可以与input元素绑定在一起，当你点击相应的label就像点击对应的input是一样的，他们的绑定是通过，label的for属性，<label> 标签的 for 属性应当与相关input元素的 id 属性相同</label></p>
-<h1 id="textarea">textarea</h1><p>标签定义多行的文本输入控件,宽高可以用cols，rows设定</p>
-<h1 id="select">select</h1><p>下拉式菜单栏，用<code>option</code>元素指定下拉菜单的数目</p>
-<h3 id="selected">selected</h3><p><code>selected=&quot;selected&quot;</code><br>定义预先为选中的状态</p>
-<h3 id="multiple">multiple</h3><p><code>multiple=&quot;multipe&quot;</code>可以进行多选</p>
-<h3 id="size">size</h3><p>规定可见option元素的可见数</p>
+<p>#fieldset<br>用于将表单用的元素进行分组，当一组表单元素放到 <fieldset>标签内时，浏览器会以特殊方式来显示它们，它们可能有特殊的边界、3D效果，或者甚至可创建一个子表单来处理这些元素<br>用<code>legend</code>元素来指定标题</fieldset></p>
+<p>#legend<br>用于给<code>fieldset</code>元素指定标题</p>
+<p>#label<br>可以与input元素绑定在一起，当你点击相应的label就像点击对应的input是一样的，他们的绑定是通过，label的for属性，<label> 标签的 for 属性应当与相关input元素的 id 属性相同</label></p>
+<p>#textarea<br>标签定义多行的文本输入控件,宽高可以用cols，rows设定</p>
+<p>#select<br>下拉式菜单栏，用<code>option</code>元素指定下拉菜单的数目</p>
+<p>###selected<br><code>selected=&quot;selected&quot;</code><br>定义预先为选中的状态</p>
+<p>###multiple<br><code>multiple=&quot;multipe&quot;</code>可以进行多选</p>
+<p>###size<br>规定可见option元素的可见数</p>
 
       
     </div>
@@ -258,11 +260,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/html/"> #html </a>
+            <a href="/tags/input/"> #input </a>
           
             <a href="/tags/html5/"> #html5 </a>
           
-            <a href="/tags/input/"> #input </a>
+            <a href="/tags/html/"> #html </a>
           
         </div>
       
@@ -420,7 +422,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#input"><span class="nav-number">1.</span> <span class="nav-text">input</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#type属性"><span class="nav-number">1.0.1.</span> <span class="nav-text">type属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#value属性"><span class="nav-number">1.0.2.</span> <span class="nav-text">value属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#name属性"><span class="nav-number">1.0.3.</span> <span class="nav-text">name属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#size属性"><span class="nav-number">1.0.4.</span> <span class="nav-text">size属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maxleng属性"><span class="nav-number">1.0.5.</span> <span class="nav-text">maxleng属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#checked属性"><span class="nav-number">1.0.6.</span> <span class="nav-text">checked属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#disabled"><span class="nav-number">1.0.7.</span> <span class="nav-text">disabled</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#form"><span class="nav-number">2.</span> <span class="nav-text">form</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#enctype"><span class="nav-number">2.0.1.</span> <span class="nav-text">enctype</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#action"><span class="nav-number">2.0.2.</span> <span class="nav-text">action</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#method"><span class="nav-number">2.0.3.</span> <span class="nav-text">method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#accept-charset"><span class="nav-number">2.0.4.</span> <span class="nav-text">accept-charset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#target"><span class="nav-number">2.0.5.</span> <span class="nav-text">target</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#fieldset"><span class="nav-number">3.</span> <span class="nav-text">fieldset</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#legend"><span class="nav-number">4.</span> <span class="nav-text">legend</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#label"><span class="nav-number">5.</span> <span class="nav-text">label</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#textarea"><span class="nav-number">6.</span> <span class="nav-text">textarea</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#select"><span class="nav-number">7.</span> <span class="nav-text">select</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#selected"><span class="nav-number">7.0.1.</span> <span class="nav-text">selected</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multiple"><span class="nav-number">7.0.2.</span> <span class="nav-text">multiple</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#size"><span class="nav-number">7.0.3.</span> <span class="nav-text">size</span></a></li></ol></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

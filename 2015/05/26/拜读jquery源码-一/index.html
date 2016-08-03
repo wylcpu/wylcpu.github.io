@@ -210,9 +210,11 @@
 
       
         <p>由于jquery中有很多正则表达式，今天我就把jquery中的所有的用到的正则表达式解读一下，来检验自己正则学的怎么样！！！</p>
-<h3 id="罗列jquery中用到的RegExp">罗列jquery中用到的RegExp</h3><pre><code>1.var rquickExpr = /^(?:<span class="command">\s*</span>(&lt;<span class="special">[</span><span class="command">\w</span><span class="command">\W</span><span class="special">]</span>+&gt;)<span class="special">[</span>^&gt;<span class="special">]</span>*|<span class="special">#</span>(<span class="special">[</span><span class="command">\w</span>-<span class="special">]</span>*))<span class="formula">$/;
-2.var rsingleTag = /^&lt;(<span class="command">\w</span>+)<span class="command">\s*</span><span class="command">\/</span>?&gt;(?:&lt;<span class="command">\/</span>\1&gt;|)$</span>/;
-</code></pre><h3 id="解析每个正则表达式">解析每个正则表达式</h3><ol>
+<p>###罗列jquery中用到的RegExp</p>
+<pre><code>1.var rquickExpr = /^(?:\s*(&lt;[\w\W]+&gt;)[^&gt;]*|#([\w-]*))$/;
+2.var rsingleTag = /^&lt;(\w+)\s*\/?&gt;(?:&lt;\/\1&gt;|)$/;
+</code></pre><p>###解析每个正则表达式</p>
+<ol>
 <li>这个正则是用来判断，是否是一个HTML标签，或者是否是#后面跟了字符和—的字符串<ul>
 <li>由于使用了“|”,所以这个正则被分为两个部分 \s<em>(&lt;[\w\W]+&gt;)[^&gt;]</em> 和 #([\w-]*)</li>
 <li>^表示从字符串的开始位置进行匹配，$表示字符串的结束位置要匹配，也就是匹配整个字符串，而不是字符串的一部分。</li>
@@ -223,17 +225,17 @@
 </li>
 </ol>
 <p>栗子：</p>
-<pre><code>var rquickExpr = /^(?:\s*(<span class="tag">&lt;<span class="title">[\w\W]+</span>&gt;</span>)[^&gt;]*|#([\w-]*))$/;
-//["  <span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">span</span>&gt;</span>hello world!<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>   ", "<span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">span</span>&gt;</span>hello world!<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>", undefined, index: 0, input: "  <span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">span</span>&gt;</span>hello world!<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>   "]
-console.log(rquickExpr.exec("  <span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">span</span>&gt;</span>hello world!<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>   "));
-//["<span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">'test'</span> <span class="attribute">class</span>=<span class="value">'nihao'</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>", "<span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">'test'</span> <span class="attribute">class</span>=<span class="value">'nihao'</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>", undefined, index: 0, input: "<span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">'test'</span> <span class="attribute">class</span>=<span class="value">'nihao'</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>"]
-console.log(rquickExpr.exec("<span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">'test'</span> <span class="attribute">class</span>=<span class="value">'nihao'</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>"));
-//["<span class="tag">&lt;<span class="title">br</span>/&gt;</span>", "<span class="tag">&lt;<span class="title">br</span>/&gt;</span>", undefined, index: 0, input: "<span class="tag">&lt;<span class="title">br</span>/&gt;</span>"]
-console.log(rquickExpr.exec("<span class="tag">&lt;<span class="title">br</span>/&gt;</span>"));
-//["#test", undefined, "test", index: 0, input: "#test"]
-console.log(rquickExpr.exec("#test"));
-//["#test123A_--_", undefined, "test123A_--_", index: 0, input: "#test123A_--_"]
-console.log(rquickExpr.exec("#test123A_--_"));
+<pre><code>var rquickExpr = /^(?:\s*(&lt;[\w\W]+&gt;)[^&gt;]*|#([\w-]*))$/;
+//[&quot;  &lt;p&gt;&lt;span&gt;hello world!&lt;/span&gt;&lt;/p&gt;   &quot;, &quot;&lt;p&gt;&lt;span&gt;hello world!&lt;/span&gt;&lt;/p&gt;&quot;, undefined, index: 0, input: &quot;  &lt;p&gt;&lt;span&gt;hello world!&lt;/span&gt;&lt;/p&gt;   &quot;]
+console.log(rquickExpr.exec(&quot;  &lt;p&gt;&lt;span&gt;hello world!&lt;/span&gt;&lt;/p&gt;   &quot;));
+//[&quot;&lt;p id=&apos;test&apos; class=&apos;nihao&apos;&gt;&lt;/p&gt;&quot;, &quot;&lt;p id=&apos;test&apos; class=&apos;nihao&apos;&gt;&lt;/p&gt;&quot;, undefined, index: 0, input: &quot;&lt;p id=&apos;test&apos; class=&apos;nihao&apos;&gt;&lt;/p&gt;&quot;]
+console.log(rquickExpr.exec(&quot;&lt;p id=&apos;test&apos; class=&apos;nihao&apos;&gt;&lt;/p&gt;&quot;));
+//[&quot;&lt;br/&gt;&quot;, &quot;&lt;br/&gt;&quot;, undefined, index: 0, input: &quot;&lt;br/&gt;&quot;]
+console.log(rquickExpr.exec(&quot;&lt;br/&gt;&quot;));
+//[&quot;#test&quot;, undefined, &quot;test&quot;, index: 0, input: &quot;#test&quot;]
+console.log(rquickExpr.exec(&quot;#test&quot;));
+//[&quot;#test123A_--_&quot;, undefined, &quot;test123A_--_&quot;, index: 0, input: &quot;#test123A_--_&quot;]
+console.log(rquickExpr.exec(&quot;#test123A_--_&quot;));
 </code></pre><ol>
 <li>这个正则也是用来匹配一个HTML字符串的；<ul>
 <li>开始匹配一个‘&lt;’，再匹配‘a-zA-Z0-9’一次或者多次，再之后匹配‘空白字符’0次或者多次</li>
@@ -244,15 +246,15 @@ console.log(rquickExpr.exec("#test123A_--_"));
 </li>
 </ol>
 <p>离子：</p>
-<pre><code>var rsingleTag = /^&lt;<span class="params">(\w+)</span>\s<span class="built_in">*</span>\/?&gt;<span class="params">(?:&lt;\/\<span class="number">1</span>&gt;|)</span>$/;
-<span class="comment">//["&lt;p&gt;&lt;/p&gt;", "p", index: 0, input: "&lt;p&gt;&lt;/p&gt;"]</span>
-console.<span class="built_in">log</span><span class="params">(rsingleTag.exec<span class="params">(<span class="string">"&lt;p&gt;&lt;/p&gt;"</span>)</span>)</span>;
-<span class="comment">//["&lt;br/&gt;", "br", index: 0, input: "&lt;br/&gt;"]</span>
-console.<span class="built_in">log</span><span class="params">(rsingleTag.exec<span class="params">(<span class="string">"&lt;br/&gt;"</span>)</span>)</span>;
-<span class="comment">//null</span>
-console.<span class="built_in">log</span><span class="params">(rsingleTag.exec<span class="params">(<span class="string">"&lt;span&gt;hello&lt;/span&gt;"</span>)</span>)</span>;
-<span class="comment">//null</span>
-console.<span class="built_in">log</span><span class="params">(rsingleTag.exec<span class="params">(<span class="string">"&lt;p id='box'&gt;&lt;/p&gt;"</span>)</span>)</span>;
+<pre><code>var rsingleTag = /^&lt;(\w+)\s*\/?&gt;(?:&lt;\/\1&gt;|)$/;
+//[&quot;&lt;p&gt;&lt;/p&gt;&quot;, &quot;p&quot;, index: 0, input: &quot;&lt;p&gt;&lt;/p&gt;&quot;]
+console.log(rsingleTag.exec(&quot;&lt;p&gt;&lt;/p&gt;&quot;));
+//[&quot;&lt;br/&gt;&quot;, &quot;br&quot;, index: 0, input: &quot;&lt;br/&gt;&quot;]
+console.log(rsingleTag.exec(&quot;&lt;br/&gt;&quot;));
+//null
+console.log(rsingleTag.exec(&quot;&lt;span&gt;hello&lt;/span&gt;&quot;));
+//null
+console.log(rsingleTag.exec(&quot;&lt;p id=&apos;box&apos;&gt;&lt;/p&gt;&quot;));
 </code></pre><p>这个html只能是简单的标签，不能有子元素，也不能有属性</p>
 
       
@@ -420,7 +422,7 @@ console.<span class="built_in">log</span><span class="params">(rsingleTag.exec<s
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#罗列jquery中用到的RegExp"><span class="nav-number">1.</span> <span class="nav-text">罗列jquery中用到的RegExp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析每个正则表达式"><span class="nav-number">2.</span> <span class="nav-text">解析每个正则表达式</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

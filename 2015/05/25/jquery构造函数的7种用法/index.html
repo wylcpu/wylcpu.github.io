@@ -209,27 +209,22 @@
       
 
       
-        <h3 id="第一种情况是:jQuery(selector,_[context])">第一种情况是:jQuery(selector, [context])</h3><p>第一个参数是css选择器,第二个参数,说白是搜索的范围,默认没有这个参数就从文档的根部开始进行dom搜索.例子:</p>
-<pre><code>$(<span class="string">"div.foo"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-    $(<span class="string">"span"</span>,<span class="keyword">this</span>).css(backgroundColor,#fff);
+        <p>###第一种情况是:jQuery(selector, [context])<br>第一个参数是css选择器,第二个参数,说白是搜索的范围,默认没有这个参数就从文档的根部开始进行dom搜索.例子:</p>
+<pre><code>$(&quot;div.foo&quot;).click(function() {
+    $(&quot;span&quot;,this).css(backgroundColor,#fff);
     })  
 </code></pre><a id="more"></a>                                                                     
 <p>外面的这个$(),没有什么好讲的,就说说里面的$(),里面的这个span标签的查找,会被限制在this(就是$(“div.foo”))的作用域中查找,如果没有这个this,就是在全局中搜索,在其内部是用.find()方法实现的,$(“span”,this) ===$(this).find(“span”).</p>
-<h3 id="第二种情况是:jquery(dom对象)">第二种情况是:jquery(dom对象)</h3><p>就是说我们把一个传统的dom对象转化成jquery的对象,这样我们就能用jquery的方法,传统dom对象和jquery对象的方法是无法相互引用的.例子:</p>
-<pre><code><span class="reserved">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);<span class="regexp">//</span>这个dom对象是无法使用jquery的方法的,为了使用就这样;
-<span class="reserved">var</span> $box = $(box);<span class="regexp">//</span>这样就转化成了jquery对象,其实我们平时用的$(<span class="keyword">this</span>),就是把<span class="keyword">this</span>对象(注意了这个<span class="keyword">this</span>对象,你可千万别以为是jquery的)转化成jquery对象,从而可以调用jquery的方法的.这个是我们平时用的最多的
-</code></pre><h3 id="第三种情况:jquery(jquery对象)">第三种情况:jquery(jquery对象)</h3><p>这个是克隆jquery对象,回创建一个这个对象的副本,与初始对象一样,新创建的对象引用相同的dom元素</p>
-<h3 id="第四种情况:jquery()">第四种情况:jquery()</h3><p>没有参数,返回一个空的jquery对象</p>
-<h3 id="第五种情况:jquery(htmlStr[,ownerDocument])">第五种情况:jquery(htmlStr[,ownerDocument])</h3><p>第一个参数都是html字符串,第二个是可选的.<br>例子:</p>
-<pre><code>$<span class="params">(<span class="string">"&lt;p&gt;&lt;span&gt;hello&lt;/span&gt;world&lt;/p&gt;"</span>)</span>.appendTo<span class="params">($<span class="params">(<span class="string">"#box"</span>)</span>)</span>;
+<p>###第二种情况是:jquery(dom对象)<br>就是说我们把一个传统的dom对象转化成jquery的对象,这样我们就能用jquery的方法,传统dom对象和jquery对象的方法是无法相互引用的.例子:</p>
+<pre><code>var box = document.getElementById(&quot;box&quot;);//这个dom对象是无法使用jquery的方法的,为了使用就这样;
+var $box = $(box);//这样就转化成了jquery对象,其实我们平时用的$(this),就是把this对象(注意了这个this对象,你可千万别以为是jquery的)转化成jquery对象,从而可以调用jquery的方法的.这个是我们平时用的最多的
+</code></pre><p>###第三种情况:jquery(jquery对象)<br>这个是克隆jquery对象,回创建一个这个对象的副本,与初始对象一样,新创建的对象引用相同的dom元素</p>
+<p>###第四种情况:jquery()<br>没有参数,返回一个空的jquery对象</p>
+<p>###第五种情况:jquery(htmlStr[,ownerDocument])<br>第一个参数都是html字符串,第二个是可选的.<br>例子:</p>
+<pre><code>$(&quot;&lt;p&gt;&lt;span&gt;hello&lt;/span&gt;world&lt;/p&gt;&quot;).appendTo($(&quot;#box&quot;));
 </code></pre><p>jquery会使用原生的createElement的方法来创建的</p>
-<h3 id="第六种情况:jquery(htmlStr[,普通对象])">第六种情况:jquery(htmlStr[,普通对象])</h3><pre><code>$(<span class="string">"&lt;p&gt;你好&lt;/p&gt;"</span>,{<span class="class"><span class="keyword">class</span>:<span class="typename">word</span>,
-    <span class="typename">click:function</span></span>(){
-        alert(<span class="string">"nihao"</span>);
-        },
-    id:box}).appendTo(<span class="string">"body"</span>);
-</code></pre><p>就是为p标签设置arr,事件,val, css, html, text, data, width, height, or offset等</p>
-<h3 id="第七种情况jquery(callback)">第七种情况jquery(callback)</h3><p>这个就是当dom文档加载完了,执行的函数,作用等同与$(document).ready(function(){});</p>
+<p>###第六种情况:jquery(htmlStr[,普通对象])<br>    $(“</p><p>你好</p>“,{class:word,<br>        click:function(){<br>            alert(“nihao”);<br>            },<br>        id:box}).appendTo(“body”);<br>就是为p标签设置arr,事件,val, css, html, text, data, width, height, or offset等<p></p>
+<p>###第七种情况jquery(callback)<br>这个就是当dom文档加载完了,执行的函数,作用等同与$(document).ready(function(){});</p>
 
       
     </div>
@@ -396,7 +391,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一种情况是:jQuery(selector,_[context])"><span class="nav-number">1.</span> <span class="nav-text">第一种情况是:jQuery(selector, [context])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二种情况是:jquery(dom对象)"><span class="nav-number">2.</span> <span class="nav-text">第二种情况是:jquery(dom对象)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三种情况:jquery(jquery对象)"><span class="nav-number">3.</span> <span class="nav-text">第三种情况:jquery(jquery对象)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四种情况:jquery()"><span class="nav-number">4.</span> <span class="nav-text">第四种情况:jquery()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五种情况:jquery(htmlStr[,ownerDocument])"><span class="nav-number">5.</span> <span class="nav-text">第五种情况:jquery(htmlStr[,ownerDocument])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六种情况:jquery(htmlStr[,普通对象])"><span class="nav-number">6.</span> <span class="nav-text">第六种情况:jquery(htmlStr[,普通对象])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第七种情况jquery(callback)"><span class="nav-number">7.</span> <span class="nav-text">第七种情况jquery(callback)</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
