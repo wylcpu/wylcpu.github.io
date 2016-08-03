@@ -504,7 +504,7 @@
 
       
         
-          <p>###与viewController生命周期有关的方法<br>通过了解控制器的生命周期，进而知道应该在什么时候处理自己的代码了；<br><code></code></p>
+          <p>###与viewController生命周期有关的方法<br>通过了解控制器的生命周期，进而知道应该在什么时候处理自己的代码了；<br><code></p>
 <pre><code>+(void)initialize;//类的初始化
 -(id)init;//对象的初始化
 -(id)initWithCode:(NSCoder*)aDecoder;//归档的初始化
@@ -517,100 +517,12 @@
 - (void)viewWillDisappear:(BOOL)animated//视图将要消失
 - (void)viewDidDisappear:(BOOL)animated//视图已经消失了
 -(void)dealloc//对象被释放
-</code></pre><p><code></code></p>
-<p>###例子<br><code></code></p>
-<pre><code>+ (void)initialize{
-    [super initialize];
-    NSLog(@&quot;你是initialize&quot;);
-}
-
--(id)initWithCoder:(NSCoder *)aDecoder{
-    self = [super initWithCoder:aDecoder];
-    NSLog(@&quot;你是initWithCoder&quot;);
-    return self;
-}
--(id)init{
-    self = [super init];
-    NSLog(@&quot;你是init&quot;);
-    return self;
-}
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    NSLog(@&quot;你是viewDidLoad&quot;);
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
--(void)loadView{
-    [super loadView];
-    NSLog(@&quot;你是loadView&quot;);
-}
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    NSLog(@&quot;你是viewWillAppear&quot;);
-}
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    NSLog(@&quot;你是viewDidAppear&quot;);
-}
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    NSLog(@&quot;你是viewWillLayoutSubviews&quot;);
-}
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    NSLog(@&quot;你是viewDidLayoutSubviews&quot;);
-}
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    NSLog(@&quot;你是viewWillDisappear&quot;);
-}
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    NSLog(@&quot;你是viewDidDisappear&quot;);
-}
-
--(void)dealloc {
-    NSLog(@&quot;你是dealloc&quot;);
-}
-</code></pre><p><br><strong>打印</strong><br><code></code></p>
-<pre><code>//这是push操作，也就是初始化到显示视图
-2016-01-11 14:41:23.917 viewController生命周期[999:42891] 你是initialize
-2016-01-11 14:41:23.918 viewController生命周期[999:42891] 你是initWithCoder
-2016-01-11 14:41:23.921 viewController生命周期[999:42891] 你是loadView
-2016-01-11 14:41:23.921 viewController生命周期[999:42891] 你是viewDidLoad
-2016-01-11 14:41:23.922 viewController生命周期[999:42891] 你是viewWillAppear
-2016-01-11 14:41:23.927 viewController生命周期[999:42891] 你是viewWillLayoutSubviews
-2016-01-11 14:41:23.928 viewController生命周期[999:42891] 你是viewDidLayoutSubviews
-2016-01-11 14:41:24.431 viewController生命周期[999:42891] 你是viewDidAppear
-2016-01-11 14:41:24.432 viewController生命周期[999:42891] 你是viewWillLayoutSubviews
-2016-01-11 14:41:24.432 viewController生命周期[999:42891] 你是viewDidLayoutSubviews
-&lt;!--这是POP，也就是销毁控制器--&gt;
-2016-01-11 14:44:29.628 viewController生命周期[999:42891] 你是viewWillDisappear
-2016-01-11 14:44:29.630 viewController生命周期[999:42891] 你是viewWillLayoutSubviews
-2016-01-11 14:44:29.630 viewController生命周期[999:42891] 你是viewDidLayoutSubviews
-2016-01-11 14:44:30.133 viewController生命周期[999:42891] 你是viewDidDisappear
-2016-01-11 14:44:30.133 viewController生命周期[999:42891] 你是dealloc
-</code></pre><p></p>
-<p>###总结</p>
-<ol>
-<li>initialize：只有在这个类第一次创建对象时才会调用。以后创建对象也都不会再调用。因此，如果我们有一些和这个相关的全局变量，可以在这里进行初始化</li>
-<li>init：代码初始化调用</li>
-<li>initWithCoder：使用nib或storyboard的时候调用</li>
-<li>viewDidLoad方法是我们最常用的方法的，类中成员对象和变量的初始化我们都会放在这个方法中</li>
-<li>loadView方法是开始加载视图的起始方法</li>
-<li>viewWillAppear：视图将要展现时会调用。</li>
-<li>viewWillLayoutSubviews：在viewWillAppear后调用，将要对子视图进行布局。</li>
-<li>viewDidLayoutSubviews：已经布局完成子视图。</li>
-<li>viewDidAppare：视图完成显示时调用。</li>
-<li>viewWillDisappear：视图将要消失时调用。</li>
-<li>viewDidDisappear：视图已经消失时调用。</li>
-<li>dealloc：controller被释放时调用。<br>其中，viewWillAppear,viewDidAppear,viewWillLayoutSubviews,viewDidLayoutSubviews,viewWillDisappear,viewDidDisppear是在push和pop的时候都调用的。</li>
-</ol>
-
+</code></pre><p><code/><br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/11/iOS之viewController生命周期/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

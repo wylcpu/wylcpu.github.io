@@ -55,7 +55,7 @@
 
 
 
-  <title> 分类: iOS // Eviloo7's Blog </title>
+  <title> 分类: ios // Eviloo7's Blog </title>
 </head>
 
 <body>
@@ -157,7 +157,7 @@
   <div id="posts" class="posts-collapse">
     <div class="collection-title">
       <h2 >
-        iOS
+        ios
         <small>分类</small>
       </h2>
     </div>
@@ -170,14 +170,14 @@
 
       <div class="post-title">
         
-            <a class="post-title-link" href="/2016/01/11/iOS之CALayer/">
-              未命名
+            <a class="post-title-link" href="/2016/01/08/iOS收藏/">
+              iOS收藏
             </a>
         
       </div>
 
       <div class="post-meta">
-        <span class="post-time"> 01-11 </span>
+        <span class="post-time"> 01-08 </span>
       </div>
 
     </div>
@@ -192,36 +192,14 @@
 
       <div class="post-title">
         
-            <a class="post-title-link" href="/2016/01/11/iOS之Quartz2D/">
-              iOS之Quartz2D
+            <a class="post-title-link" href="/2016/01/01/iOS多线程/">
+              iOS多线程
             </a>
         
       </div>
 
       <div class="post-meta">
-        <span class="post-time"> 01-11 </span>
-      </div>
-
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal">
-    <div class="post-header">
-
-      <div class="post-title">
-        
-            <a class="post-title-link" href="/2016/01/10/iOS之成员变量与属性/">
-              iOS之成员变量与属性
-            </a>
-        
-      </div>
-
-      <div class="post-meta">
-        <span class="post-time"> 01-10 </span>
+        <span class="post-time"> 01-01 </span>
       </div>
 
     </div>
@@ -406,6 +384,30 @@
     $(document).ready(function () {
       if (CONFIG.sidebar === 'always') {
         displaySidebar();
+      }
+    });
+  </script>
+
+  
+
+  
+
+  
+  
+
+  
+  <!-- lazyload -->
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+      <script type="text/javascript">
+        jQuery(function() {          
+            jQuery("#posts img").lazyload({
+              placeholder:"http://www.arao.me/loading.gif",  
+                effect:"fadeIn"
+              });
+            });
+    </script>   
+</body>
+</html>
       }
     });
   </script>
