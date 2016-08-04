@@ -1,384 +1,411 @@
-<!doctype html>
-<html class="theme-next use-motion theme-next-mist">
+<!DOCTYPE html>
+<html>
 <head>
+  <meta charset="utf-8">
   
-
-<meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-
-
-
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
-
-
-
-
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
-
-
-
-
-  <meta name="keywords" content="Hexo,next" />
-
-
-
-
-
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
-
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var CONFIG = {
-    scheme: 'Mist',
-    analytics: {
-      google: ''
-    },
-    sidebar: 'post'
-  };
-</script>
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?2d8e116797f3123680c098a154bb6c02";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-  <title> Eviloo7's Blog </title>
-</head>
-
-<body>
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
-
-  <div class="container one-column 
-   page-home 
-">
-    <div class="headband"></div>
-
-    <div id="header" class="header">
-      <div class="header-inner">
-        <h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand">
-      <span class="logo">
-        <i class="icon-logo"></i>
-      </span>
-      <span class="site-title">Eviloo7's Blog</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
-</h1>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<div class="site-nav">
+  <title>Eviloo7&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Eviloo7's Blog">
+<meta property="og:url" content="http://www.chatxxoo.com/page/4/index.html">
+<meta property="og:site_name" content="Eviloo7's Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Eviloo7's Blog">
   
-
+    <link rel="alternative" href="/atom.xml" title="Eviloo7&#39;s Blog" type="application/atom+xml">
   
-    <ul id="menu" class="menu ">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/">
-            <i class="menu-item-icon icon-home"></i> <br />
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives">
-            <i class="menu-item-icon icon-archives"></i> <br />
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories">
-            <i class="menu-item-icon icon-categories"></i> <br />
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags">
-            <i class="menu-item-icon icon-tags"></i> <br />
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about">
-            <i class="menu-item-icon icon-about"></i> <br />
-            关于
-          </a>
-        </li>
-      
-    </ul>
   
-
+    <link rel="icon" href="/img/favicon.png">
   
-</div>
-
-
-      </div>
-    </div>
-
-    <div id="main" class="main">
-      <div class="main-inner">
-        <div id="content" class="content">
-          
-  <div id="posts" class="posts-expand">
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
+    
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: true,
+          isPost: false,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
             
-              <a class="post-title-link" href="/2015/06/04/CSS3学习笔记/">
-                CSS3学习笔记
-              </a>
+            <img lazy-src="/img/head.jpg" class="js-avatar">
             
-          
-        </h1>
-      
+        </a>
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-04
-        </span>
+        <hgroup>
+          <h1 class="header-author"><a href="/">eviloo7</a></h1>
+        </hgroup>
 
         
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/css3/">css3</a>
-
-              
-              
-
-            
-          </span>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
         
 
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/04/CSS3学习笔记/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/04/CSS3学习笔记/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/FrontEndGuide">前端导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=PAkNDgsKBQ4MCnxNTRJfU1E" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/luuman" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/luuman" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/lishangmou" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="http://i.youku.com/shangmou" title="google">google</a>
+                            
+                                <a class="fl twitter" target="_blank" href="http: //twitter.com/luuman" title="twitter">twitter</a>
+                            
+                                <a class="fl facebook" target="_blank" href="#" title="facebook">facebook</a>
+                            
+                                <a class="fl rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/CSS初学/" style="font-size: 10px;">CSS初学</a> <a href="/tags/DOM/" style="font-size: 12.5px;">DOM</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/JavaScript权威指南/" style="font-size: 10px;">JavaScript权威指南</a> <a href="/tags/MongDB命令/" style="font-size: 10px;">MongDB命令</a> <a href="/tags/MongoDB安装/" style="font-size: 10px;">MongoDB安装</a> <a href="/tags/cocos/" style="font-size: 10px;">cocos</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/css3笔记/" style="font-size: 10px;">css3笔记</a> <a href="/tags/css读书笔记/" style="font-size: 10px;">css读书笔记</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/git问题/" style="font-size: 10px;">git问题</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/html/" style="font-size: 15px;">html</a> <a href="/tags/html5/" style="font-size: 20px;">html5</a> <a href="/tags/iOS/" style="font-size: 17.5px;">iOS</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/jquery源码/" style="font-size: 10px;">jquery源码</a> <a href="/tags/nodejs笔记/" style="font-size: 10px;">nodejs笔记</a> <a href="/tags/sse/" style="font-size: 10px;">sse</a> <a href="/tags/备忘/" style="font-size: 12.5px;">备忘</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/感悟/" style="font-size: 10px;">感悟</a> <a href="/tags/折腾/" style="font-size: 10px;">折腾</a> <a href="/tags/拖放/" style="font-size: 10px;">拖放</a> <a href="/tags/新增表单/" style="font-size: 10px;">新增表单</a> <a href="/tags/电影/" style="font-size: 10px;">电影</a> <a href="/tags/电视剧/" style="font-size: 10px;">电视剧</a> <a href="/tags/笔记/" style="font-size: 12.5px;">笔记</a> <a href="/tags/表单/" style="font-size: 10px;">表单</a> <a href="/tags/观后感/" style="font-size: 10px;">观后感</a> <a href="/tags/记录/" style="font-size: 10px;">记录</a> <a href="/tags/资料收集/" style="font-size: 12.5px;">资料收集</a> <a href="/tags/跨站攻击/" style="font-size: 10px;">跨站攻击</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://MOxFIVE.github.io/">MOxFIVE</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.vsay.cn/">DoubleV</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.ccwebsite.com/">兮兮</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.dandyweng.com/">翁天信</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.plqblog.com/views/index.php">潘利强</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.hankin.cn/">hankin</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.waydrow.com/">waydrow</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">纯海迷、爱运动、爱交友、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
     </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">eviloo7</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">eviloo7</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/FrontEndGuide">前端导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=PAkNDgsKBQ4MCnxNTRJfU1E" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/luuman" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/luuman" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/lishangmou" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="http://i.youku.com/shangmou" title="google">google</a>
+                    
+                        <a class="twitter" target="_blank" href="http: //twitter.com/luuman" title="twitter">twitter</a>
+                    
+                        <a class="facebook" target="_blank" href="#" title="facebook">facebook</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-CSS3学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/04/CSS3学习笔记/" class="article-date">
+      <time datetime="2015-06-04T15:13:39.000Z" itemprop="datePublished">2015-06-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-          <ol>
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/04/CSS3学习笔记/">CSS3学习笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <ol>
 <li>为了向后兼容，最好使用前缀-webkit：chrome，safari；-moz： Firefox；-ms：IE；-o:opera。</li>
 <li>css3的强大功能：选择器，圆角效果，块阴影和文字阴影，支持更多色彩，渐变效果，个性化字体，多背景图，边框背景，变形处理，多栏布局，媒体查询，动画等。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/04/CSS3学习笔记/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+          
       
     </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
+    <div class="article-info article-info-index">
       
       
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/03/学习笔记/">
-                学习笔记
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-03
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/笔记/">笔记</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/03/学习笔记/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/03/学习笔记/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/css3/">css3</a>
     </div>
 
-    <div class="post-body">
 
       
-      
-
-      
-        
-          <p>本篇博客是随时更新的，就是随时记录一些遇到的问题和知识点，好记性不如烂笔头！，以便自己复习查看<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/03/学习笔记/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3笔记/">css3笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
     </div>
 
-    <div class="post-footer">
       
-
+        <p class="article-more-link">
+          <a  href="/2015/06/04/CSS3学习笔记/#more">大航海 >></a>
+        </p>
       
-
-      
-      
-        <div class="post-eof"></div>
-      
+      <div class="clearfix"></div>
     </div>
-  </div>
-
-
     
-      
+  </div>
+  
+</article>
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/01/nodejs学习笔记一/">
-                nodejs学习笔记一
-              </a>
-            
-          
-        </h1>
-      
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-01
-        </span>
 
+
+
+
+
+
+  
+    <article id="post-学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/03/学习笔记/" class="article-date">
+      <time datetime="2015-06-03T02:33:24.000Z" itemprop="datePublished">2015-06-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/nodejs/">nodejs</a>
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/03/学习笔记/">学习笔记</a>
+    </h1>
+  
 
-              
-              
-
-            
-          </span>
-        
-
-        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/01/nodejs学习笔记一/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/01/nodejs学习笔记一/"></span>
-            </a>
-          </span>
+              <p>本篇博客是随时更新的，就是随时记录一些遇到的问题和知识点，好记性不如烂笔头！，以便自己复习查看<br>
           
-        
-      </div>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
     </div>
 
-    <div class="post-body">
 
       
-      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/记录/">记录</a></li></ul>
+    </div>
 
       
+        <p class="article-more-link">
+          <a  href="/2015/06/03/学习笔记/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-nodejs学习笔记一" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/01/nodejs学习笔记一/" class="article-date">
+      <time datetime="2015-06-01T09:38:04.000Z" itemprop="datePublished">2015-06-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-          <ol>
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/01/nodejs学习笔记一/">nodejs学习笔记一</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
 <li>nodejs是一个异步事件驱动的平台</li>
 </ol>
 <p>###process</p>
@@ -434,82 +461,67 @@ href: &apos;http://www.evil007.com:8888/blog/mm?id=1&amp;age=22&apos;
 <p>###高阶函数<br>函数作为参数；<br>函数作为返回值；</p>
 <p>###偏函数<br>一个创建函数的工厂函数；<br>通过指定部分参数，定制新的函数；</p>
 
-        
       
     </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
+    <div class="article-info article-info-index">
       
       
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/31/MongoDB基本操作/">
-                MongoDB基本操作
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-31
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/MongoDB/">MongoDB</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/05/31/MongoDB基本操作/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/31/MongoDB基本操作/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
     </div>
 
-    <div class="post-body">
 
       
-      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs笔记/">nodejs笔记</a></li></ul>
+    </div>
 
       
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-MongoDB基本操作" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/31/MongoDB基本操作/" class="article-date">
+      <time datetime="2015-05-31T06:13:08.000Z" itemprop="datePublished">2015-05-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-          <p>看慕课网关于MongoDB介绍，读书笔记</p>
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/31/MongoDB基本操作/">MongoDB基本操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>看慕课网关于MongoDB介绍，读书笔记</p>
 <ol>
 <li>use命令：切换和创建数据库。例：use imooc</li>
 <li>show dbs：查看数据库</li>
@@ -540,82 +552,67 @@ href: &apos;http://www.evil007.com:8888/blog/mm?id=1&amp;age=22&apos;
 <li>如何评判当前索引构建情况：1.mongostat工具介绍2.profile集合的介绍。3.日志的介绍4explain分析<br>35.mongostat工具：查看mongodb运行状态的程序</li>
 </ol>
 
-        
       
     </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
+    <div class="article-info article-info-index">
       
       
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/31/MongoDB学习笔记之安装MongoDB/">
-                MongoDB学习笔记之安装MongoDB
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-31
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/MongoDB/">MongoDB</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/05/31/MongoDB学习笔记之安装MongoDB/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/31/MongoDB学习笔记之安装MongoDB/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
     </div>
 
-    <div class="post-body">
 
       
-      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MongDB命令/">MongDB命令</a></li></ul>
+    </div>
 
       
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-MongoDB学习笔记之安装MongoDB" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/31/MongoDB学习笔记之安装MongoDB/" class="article-date">
+      <time datetime="2015-05-31T03:29:50.000Z" itemprop="datePublished">2015-05-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-          <p>最近在学习MongoDB,今天学习了一下MongoDB在window下的安装</p>
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/31/MongoDB学习笔记之安装MongoDB/">MongoDB学习笔记之安装MongoDB</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>最近在学习MongoDB,今天学习了一下MongoDB在window下的安装</p>
 <p>###下载MongoDB<br>去官网上下载，下载一个.msi的文件<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-12.PNG" alt=""></p>
 <p>###安装<br>，之后就是安装了，这个MongoDBd的安装，说白了无非就是替你执行解压操作，之后和使用其他形式的安装MongoDB是一样的，如网上大部分是下载zip文件解压安装。其实解压后两者是差不多的。默认是c盘安装，如果想自己改目录就要选择“custom”安装<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-1.PNG" alt=""><br>我安装的是E盘下MongoDB，<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-2.PNG" alt=""><br>安装完后是这样<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-3.PNG" alt=""></p>
 <p>###启动MongoDB<br>在下面所有的命令窗口都要以管理员权限运行，（其实有的命令是不需要，但是为了不出现一些因为权限不够而导致的问题，最好都用），<br>需要在命令窗口下运行，就要把MongoDB的bin目录添加到window的环境变量PATH中<br>还有一点需要注意的，如果你不是cmd切换到bin目录下再运行命令的话，而是修改的环境变量的方式，那么你下面需要写文件路径的地方，文件路径一定要使用绝对路径，如果你是用的相对路径，cmd是会相对于C:\Windows\System32这个目录的。<br>这之后，还不能开始启动MongoDB,你需要创建一个目录用于指定数据库的位置，我创建的是E:\MongoDB\data<br>之后，在命令窗口下运行</p>
@@ -650,82 +647,67 @@ logappend = true #错误日志采用追加模式
 </code></pre><p>这就行了，默认服务名是：MongoDB<br>启动和关闭和上面的一样，如果你在–install跟了–serviceName就是指定服务名<br><img src="http://7xj3gz.com1.z0.glb.clouddn.com/20150531-10.PNG" alt=""><br>至此用配置文件启动MongoDB就完成了</p>
 <p>参考<a href="http://www.cnblogs.com/lzrabbit/p/3682510.html" target="_blank" rel="external">懒惰的肥兔</a><br><a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/" target="_blank" rel="external">官网</a>   </p>
 
-        
       
     </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
+    <div class="article-info article-info-index">
       
       
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/28/精通css读书笔记/">
-                精通css读书笔记
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-28
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/css/">css</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/05/28/精通css读书笔记/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/28/精通css读书笔记/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
     </div>
 
-    <div class="post-body">
 
       
-      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MongoDB安装/">MongoDB安装</a></li></ul>
+    </div>
 
       
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-精通css读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/28/精通css读书笔记/" class="article-date">
+      <time datetime="2015-05-28T15:03:52.000Z" itemprop="datePublished">2015-05-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-          <p>##第一章</p>
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/28/精通css读书笔记/">精通css读书笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>##第一章</p>
 <ol>
 <li>在给HTML标签的id和类进行命名时，要保持名称与表现方式无关。根据‘他们是什么’来命名，而不是根据它们的外观来命名。例如：我想让几个个HTML元素显示红色来表示警告，你不能给这些标签添加一个.red的类，而是应该是一个.warning的类</li>
 <li>DTD（文档类型定义）是一组机器可读的规则，它们定义了xml或HTML的特定版本中允许有什么，不允许有什么。在解析网页时，浏览器将使用这些规则检查页面的有效性并且采取相应的措施。浏览器是通过分析页面的DOCTYPE声明来了解使用了哪个DTD，由此知道使用了HTML的哪个版本</li>
@@ -833,244 +815,199 @@ logappend = true #错误日志采用追加模式
 <li>为了添加定制的项目符号，可以使用list-style-image属性。但是这种方法对项目符号图像的位置的控制能力不强。更常用的的时关闭项目的符号，并且将定制的项目的符号作为背景添加在列元素上，然后使用背景图像的定位属性精确地控制自定义项目符号的对准方式。</li>
 </ul>
 
-        
       
     </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
+    <div class="article-info article-info-index">
       
       
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/27/CSS菜鸟笔记/">
-                CSS菜鸟笔记
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-27
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/CSS/">CSS</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/05/27/CSS菜鸟笔记/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/27/CSS菜鸟笔记/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/css/">css</a>
     </div>
 
-    <div class="post-body">
 
       
-      
-
-      
-        
-          <p>这个是给css初学者看的，有些东西可能开始学不知道，这里都是简单的一两句话就能叙述完的<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/27/CSS菜鸟笔记/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css读书笔记/">css读书笔记</a></li></ul>
     </div>
 
-    <div class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
+      <div class="clearfix"></div>
     </div>
-  </div>
-
-
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/27/Reset-css/">
-                Reset.css
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-27
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/css/">css</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/05/27/Reset-css/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/27/Reset-css/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>这些是我综合BAT的首页css代码中他们的reset<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/27/Reset-css/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
   </div>
+  
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-CSS菜鸟笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/27/CSS菜鸟笔记/" class="article-date">
+      <time datetime="2015-05-27T11:28:01.000Z" itemprop="datePublished">2015-05-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/26/拜读jquery源码-一/">
-                拜读jquery源码(一)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-26
-        </span>
-
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/jquery/">jquery</a>
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/27/CSS菜鸟笔记/">CSS菜鸟笔记</a>
+    </h1>
+  
 
-              
-              
-
-            
-          </span>
-        
-
-        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/05/26/拜读jquery源码-一/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/26/拜读jquery源码-一/"></span>
-            </a>
-          </span>
+              <p>这个是给css初学者看的，有些东西可能开始学不知道，这里都是简单的一两句话就能叙述完的<br>
           
-        
-      </div>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
     </div>
 
-    <div class="post-body">
 
       
-      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS初学/">CSS初学</a></li></ul>
+    </div>
 
       
+        <p class="article-more-link">
+          <a  href="/2015/05/27/CSS菜鸟笔记/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Reset-css" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/27/Reset-css/" class="article-date">
+      <time datetime="2015-05-27T10:38:25.000Z" itemprop="datePublished">2015-05-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-          <p>由于jquery中有很多正则表达式，今天我就把jquery中的所有的用到的正则表达式解读一下，来检验自己正则学的怎么样！！！</p>
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/27/Reset-css/">Reset.css</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>这些是我综合BAT的首页css代码中他们的reset<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/css/">css</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/05/27/Reset-css/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-拜读jquery源码-一" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/26/拜读jquery源码-一/" class="article-date">
+      <time datetime="2015-05-26T01:45:46.000Z" itemprop="datePublished">2015-05-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/26/拜读jquery源码-一/">拜读jquery源码(一)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>由于jquery中有很多正则表达式，今天我就把jquery中的所有的用到的正则表达式解读一下，来检验自己正则学的怎么样！！！</p>
 <p>###罗列jquery中用到的RegExp</p>
 <pre><code>1.var rquickExpr = /^(?:\s*(&lt;[\w\W]+&gt;)[^&gt;]*|#([\w-]*))$/;
 2.var rsingleTag = /^&lt;(\w+)\s*\/?&gt;(?:&lt;\/\1&gt;|)$/;
@@ -1118,324 +1055,209 @@ console.log(rsingleTag.exec(&quot;&lt;span&gt;hello&lt;/span&gt;&quot;));
 console.log(rsingleTag.exec(&quot;&lt;p id=&apos;box&apos;&gt;&lt;/p&gt;&quot;));
 </code></pre><p>这个html只能是简单的标签，不能有子元素，也不能有属性</p>
 
-        
       
     </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
+    <div class="article-info article-info-index">
       
       
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/25/jquery构造函数的7种用法/">
-                jquery构造函数的7种用法
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-25
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/jquery/">jquery</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/05/25/jquery构造函数的7种用法/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/25/jquery构造函数的7种用法/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/jquery/">jquery</a>
     </div>
 
-    <div class="post-body">
 
       
-      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery源码/">jquery源码</a></li></ul>
+    </div>
 
       
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-jquery构造函数的7种用法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/25/jquery构造函数的7种用法/" class="article-date">
+      <time datetime="2015-05-25T10:21:50.000Z" itemprop="datePublished">2015-05-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-          <p>###第一种情况是:jQuery(selector, [context])<br>第一个参数是css选择器,第二个参数,说白是搜索的范围,默认没有这个参数就从文档的根部开始进行dom搜索.例子:</p>
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/25/jquery构造函数的7种用法/">jquery构造函数的7种用法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>###第一种情况是:jQuery(selector, [context])<br>第一个参数是css选择器,第二个参数,说白是搜索的范围,默认没有这个参数就从文档的根部开始进行dom搜索.例子:</p>
 <pre><code>$(&quot;div.foo&quot;).click(function() {
     $(&quot;span&quot;,this).css(backgroundColor,#fff);
     })  
 </code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/25/jquery构造函数的7种用法/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+          
       
     </div>
-
-    <div class="post-footer">
-      
-
-      
-
+    
+    <div class="article-info article-info-index">
       
       
-        <div class="post-eof"></div>
-      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/jquery/">jquery</a>
     </div>
-  </div>
 
 
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/05/25/jquery构造函数的7种用法/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
     
   </div>
+  
+</article>
+
+
+
+
+
+
+
+
 
   
-  <div class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">&raquo;</a>
-  </div>
-
-
-        </div>
-
-        
-      </div>
-
-
-      
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      <div class="site-overview">
-        <div class="site-author motion-element">
-          <img class="site-author-image" src="/images/autho.jpg" alt="eviloo7" />
-          <p class="site-author-name">eviloo7</p>
-        </div>
-        <p class="site-description motion-element"></p>
-        <div class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">45</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">25</span>
-              <span class="site-state-item-name">分类</span>
-              </a>
-          </div>
-
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">39</span>
-              <span class="site-state-item-name">标签</span>
-              </a>
-          </div>
-
-        </div>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-              <a href="https://github.com/wylcpu" target="_blank">github</a>
-            </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://weibo.com/eviloo7/home?leftnav=1" target="_blank">weibo</a>
-            </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://www.zhihu.com/people/todayhappy" target="_blank">zhihu</a>
-            </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://www.cnblogs.com/todayhappy/" target="_blank">博客园</a>
-            </span>
-            
-          
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
-          
-            <p class="site-author-name">Links</p>
-            
-              <span class="links-of-author-item">
-              <a href="http://www.ruanyifeng.com/blog/" target="_blank">阮一峰</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://www.williamlong.info/" target="_blank">月光博客</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://www.zhangxinxu.com/wordpress/" target="_blank">张鑫旭</a>
-              </span>
-            
-          
-        </div>
-        
-      </div>
-
-      
-
-    </div>
-  </div>
-
-
-    </div>
-
-    <div id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+    </nav>
   
-  &copy; &nbsp; 
-  2016
-  <span class="with-love">
-    <i class="icon-heart"></i>
-  </span>
-  <span class="author">eviloo7</span>
 </div>
-
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
-
-
-
-      </div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 eviloo7
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
     </div>
+</footer>
 
-    <div class="back-to-top"></div>
-  </div>
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
 
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
-  
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
 
 
 
-  <script type="text/javascript" src="/js/search-toggle.js"></script>
-
-  
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-    });
-  </script>
-
-  
-
-  
-  
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"evil007"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
 
 
-  
-  
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
 
-  
-  <!-- lazyload -->
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-      <script type="text/javascript">
-        jQuery(function() {          
-            jQuery("#posts img").lazyload({
-              placeholder:"http://www.arao.me/loading.gif",  
-                effect:"fadeIn"
-              });
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
             });
-    </script>   
+        });
+    });
+</script>
+
+
+  </div>
 </body>
 </html>
